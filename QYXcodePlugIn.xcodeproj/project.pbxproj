@@ -49,14 +49,12 @@
 		8B60AE311BABDCA400672762 /* MenuItemAchieve.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE301BABDCA400672762 /* MenuItemAchieve.m */; };
 		8B60AE391BABEC6700672762 /* RequestTemplateAchieve.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE381BABEC6700672762 /* RequestTemplateAchieve.m */; };
 		8B60AE711BAC1A5D00672762 /* RequestTemplate in Resources */ = {isa = PBXBuildFile; fileRef = 8B60AE701BAC1A5D00672762 /* RequestTemplate */; };
-		8B9C6BC71BB1234300242629 /* colloctionView.codesnippet in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BC51BB1234300242629 /* colloctionView.codesnippet */; };
-		8B9C6BC81BB1234300242629 /* hello.codesnippet in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BC61BB1234300242629 /* hello.codesnippet */; };
-		8B9C6BD21BB1234E00242629 /* ___FILEBASENAME___.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BCC1BB1234E00242629 /* ___FILEBASENAME___.m */; };
-		8B9C6BD31BB1234E00242629 /* ___FILEBASENAME___.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BCE1BB1234E00242629 /* ___FILEBASENAME___.swift */; };
-		8B9C6BD41BB1234E00242629 /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BCF1BB1234E00242629 /* TemplateIcon.png */; };
-		8B9C6BD51BB1234E00242629 /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD01BB1234E00242629 /* TemplateIcon@2x.png */; };
-		8B9C6BD61BB1234E00242629 /* TemplateInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD11BB1234E00242629 /* TemplateInfo.plist */; };
 		8B9C6BD81BB1247700242629 /* setup_CodeHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */; };
+		8B9C6BDB1BB125A500242629 /* colloctionView.codesnippet in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD91BB125A500242629 /* colloctionView.codesnippet */; };
+		8B9C6BDC1BB125A500242629 /* hello.codesnippet in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BDA1BB125A500242629 /* hello.codesnippet */; };
+		8B9C6BE81BB125D300242629 /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BE31BB125D300242629 /* TemplateIcon.png */; };
+		8B9C6BE91BB125D300242629 /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BE41BB125D300242629 /* TemplateIcon@2x.png */; };
+		8B9C6BEA1BB125D300242629 /* TemplateInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BE51BB125D300242629 /* TemplateInfo.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,15 +143,15 @@
 		8B60AE371BABEC6700672762 /* RequestTemplateAchieve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTemplateAchieve.h; sourceTree = "<group>"; };
 		8B60AE381BABEC6700672762 /* RequestTemplateAchieve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTemplateAchieve.m; sourceTree = "<group>"; };
 		8B60AE701BAC1A5D00672762 /* RequestTemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RequestTemplate; path = ../RequestTemplate; sourceTree = "<group>"; };
-		8B9C6BC51BB1234300242629 /* colloctionView.codesnippet */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = colloctionView.codesnippet; sourceTree = "<group>"; };
-		8B9C6BC61BB1234300242629 /* hello.codesnippet */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = hello.codesnippet; sourceTree = "<group>"; };
-		8B9C6BCB1BB1234E00242629 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8B9C6BCC1BB1234E00242629 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8B9C6BCE1BB1234E00242629 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
-		8B9C6BCF1BB1234E00242629 /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
-		8B9C6BD01BB1234E00242629 /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
-		8B9C6BD11BB1234E00242629 /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
 		8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = setup_CodeHelper.sh; sourceTree = "<group>"; };
+		8B9C6BD91BB125A500242629 /* colloctionView.codesnippet */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = colloctionView.codesnippet; path = CodeSnippets/colloctionView.codesnippet; sourceTree = "<group>"; };
+		8B9C6BDA1BB125A500242629 /* hello.codesnippet */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = hello.codesnippet; path = CodeSnippets/hello.codesnippet; sourceTree = "<group>"; };
+		8B9C6BDF1BB125D300242629 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
+		8B9C6BE01BB125D300242629 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
+		8B9C6BE21BB125D300242629 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8B9C6BE31BB125D300242629 /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
+		8B9C6BE41BB125D300242629 /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
+		8B9C6BE51BB125D300242629 /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,7 +369,7 @@
 		8B9C6BC31BB1231700242629 /* QYFileTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				8B9C6BC91BB1234E00242629 /* Request file.xctemplate */,
+				8B9C6BDD1BB125D300242629 /* Request file.xctemplate */,
 			);
 			name = QYFileTemplate;
 			sourceTree = "<group>";
@@ -379,37 +377,38 @@
 		8B9C6BC41BB1232C00242629 /* CodeSnippets */ = {
 			isa = PBXGroup;
 			children = (
-				8B9C6BC51BB1234300242629 /* colloctionView.codesnippet */,
-				8B9C6BC61BB1234300242629 /* hello.codesnippet */,
+				8B9C6BD91BB125A500242629 /* colloctionView.codesnippet */,
+				8B9C6BDA1BB125A500242629 /* hello.codesnippet */,
 			);
 			name = CodeSnippets;
 			sourceTree = "<group>";
 		};
-		8B9C6BC91BB1234E00242629 /* Request file.xctemplate */ = {
+		8B9C6BDD1BB125D300242629 /* Request file.xctemplate */ = {
 			isa = PBXGroup;
 			children = (
-				8B9C6BCA1BB1234E00242629 /* QYRequestObjective-C */,
-				8B9C6BCD1BB1234E00242629 /* QYRequestSwift */,
-				8B9C6BCF1BB1234E00242629 /* TemplateIcon.png */,
-				8B9C6BD01BB1234E00242629 /* TemplateIcon@2x.png */,
-				8B9C6BD11BB1234E00242629 /* TemplateInfo.plist */,
+				8B9C6BDE1BB125D300242629 /* QYRequestObjective-C */,
+				8B9C6BE11BB125D300242629 /* QYRequestSwift */,
+				8B9C6BE31BB125D300242629 /* TemplateIcon.png */,
+				8B9C6BE41BB125D300242629 /* TemplateIcon@2x.png */,
+				8B9C6BE51BB125D300242629 /* TemplateInfo.plist */,
 			);
-			path = "Request file.xctemplate";
+			name = "Request file.xctemplate";
+			path = "QYFileTemplate/Request file.xctemplate";
 			sourceTree = "<group>";
 		};
-		8B9C6BCA1BB1234E00242629 /* QYRequestObjective-C */ = {
+		8B9C6BDE1BB125D300242629 /* QYRequestObjective-C */ = {
 			isa = PBXGroup;
 			children = (
-				8B9C6BCB1BB1234E00242629 /* ___FILEBASENAME___.h */,
-				8B9C6BCC1BB1234E00242629 /* ___FILEBASENAME___.m */,
+				8B9C6BDF1BB125D300242629 /* ___FILEBASENAME___.h */,
+				8B9C6BE01BB125D300242629 /* ___FILEBASENAME___.m */,
 			);
 			path = "QYRequestObjective-C";
 			sourceTree = "<group>";
 		};
-		8B9C6BCD1BB1234E00242629 /* QYRequestSwift */ = {
+		8B9C6BE11BB125D300242629 /* QYRequestSwift */ = {
 			isa = PBXGroup;
 			children = (
-				8B9C6BCE1BB1234E00242629 /* ___FILEBASENAME___.swift */,
+				8B9C6BE21BB125D300242629 /* ___FILEBASENAME___.swift */,
 			);
 			path = QYRequestSwift;
 			sourceTree = "<group>";
@@ -470,14 +469,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B9C6BE81BB125D300242629 /* TemplateIcon.png in Resources */,
 				8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */,
-				8B9C6BC81BB1234300242629 /* hello.codesnippet in Resources */,
+				8B9C6BDC1BB125A500242629 /* hello.codesnippet in Resources */,
+				8B9C6BDB1BB125A500242629 /* colloctionView.codesnippet in Resources */,
+				8B9C6BEA1BB125D300242629 /* TemplateInfo.plist in Resources */,
 				8B60AE711BAC1A5D00672762 /* RequestTemplate in Resources */,
-				8B9C6BD41BB1234E00242629 /* TemplateIcon.png in Resources */,
-				8B9C6BC71BB1234300242629 /* colloctionView.codesnippet in Resources */,
-				8B9C6BD61BB1234E00242629 /* TemplateInfo.plist in Resources */,
-				8B9C6BD51BB1234E00242629 /* TemplateIcon@2x.png in Resources */,
 				8B9C6BD81BB1247700242629 /* setup_CodeHelper.sh in Resources */,
+				8B9C6BE91BB125D300242629 /* TemplateIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,10 +522,8 @@
 				8B60AE201BABCEA800672762 /* XCProjectBuildConfig.m in Sources */,
 				8B60AE1E1BABCEA800672762 /* XCProject.m in Sources */,
 				8B60AE231BABCEA800672762 /* XCSubProjectDefinition.m in Sources */,
-				8B9C6BD21BB1234E00242629 /* ___FILEBASENAME___.m in Sources */,
 				8B60AE271BABCEA800672762 /* XcodeSourceFileType.m in Sources */,
 				8B60AE191BABCEA800672762 /* XCClassDefinition.m in Sources */,
-				8B9C6BD31BB1234E00242629 /* ___FILEBASENAME___.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
