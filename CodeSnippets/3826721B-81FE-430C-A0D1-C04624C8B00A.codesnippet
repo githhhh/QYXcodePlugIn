@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>xxx</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>  NSArray *rows = [UILabel getSeparatedLinesWithText:string  andFonte:font andSize:size];
+        if ([rows count]==1) {
+            CGSize offsetSize = [UILabel getContentSize:string font:font width:maxWidth];
+            size = CGSizeMake(ceil(offsetSize.width) , ceil(offsetSize.height));
+        }else{
+            size = CGSizeMake(wight ,height);
+        }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3826721B-81FE-430C-A0D1-C04624C8B00A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>xxxxx</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
