@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0775391BB1578600458FD3 /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0775341BB1578600458FD3 /* TemplateIcon.png */; };
+		8B07753A1BB1578600458FD3 /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0775351BB1578600458FD3 /* TemplateIcon@2x.png */; };
+		8B07753B1BB1578600458FD3 /* TemplateInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B0775361BB1578600458FD3 /* TemplateInfo.plist */; };
 		8B171DB51BB144ED00BCD9F7 /* QYIDENotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B171DB41BB144ED00BCD9F7 /* QYIDENotificationHandler.m */; };
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
 		8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA91BABB7F100672762 /* Foundation.framework */; };
@@ -59,6 +62,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B0775301BB1578600458FD3 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
+		8B0775311BB1578600458FD3 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
+		8B0775331BB1578600458FD3 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8B0775341BB1578600458FD3 /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
+		8B0775351BB1578600458FD3 /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
+		8B0775361BB1578600458FD3 /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
 		8B171DB31BB144ED00BCD9F7 /* QYIDENotificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYIDENotificationHandler.h; sourceTree = "<group>"; };
 		8B171DB41BB144ED00BCD9F7 /* QYIDENotificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYIDENotificationHandler.m; sourceTree = "<group>"; };
 		8B60ADA41BABB7F100672762 /* QYXcodePlugIn.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QYXcodePlugIn.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +180,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B07752E1BB1578600458FD3 /* Singleton file.xctemplate */ = {
+			isa = PBXGroup;
+			children = (
+				8B07752F1BB1578600458FD3 /* GCDSingletonObjective-C */,
+				8B0775321BB1578600458FD3 /* GCDSingletonSwift */,
+				8B0775341BB1578600458FD3 /* TemplateIcon.png */,
+				8B0775351BB1578600458FD3 /* TemplateIcon@2x.png */,
+				8B0775361BB1578600458FD3 /* TemplateInfo.plist */,
+			);
+			name = "Singleton file.xctemplate";
+			path = "QYFileTemplate/Singleton file.xctemplate";
+			sourceTree = "<group>";
+		};
+		8B07752F1BB1578600458FD3 /* GCDSingletonObjective-C */ = {
+			isa = PBXGroup;
+			children = (
+				8B0775301BB1578600458FD3 /* ___FILEBASENAME___.h */,
+				8B0775311BB1578600458FD3 /* ___FILEBASENAME___.m */,
+			);
+			path = "GCDSingletonObjective-C";
+			sourceTree = "<group>";
+		};
+		8B0775321BB1578600458FD3 /* GCDSingletonSwift */ = {
+			isa = PBXGroup;
+			children = (
+				8B0775331BB1578600458FD3 /* ___FILEBASENAME___.swift */,
+			);
+			path = GCDSingletonSwift;
+			sourceTree = "<group>";
+		};
 		8B60AD9B1BABB7F100672762 = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +413,7 @@
 		8B9C6BC31BB1231700242629 /* QYFileTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				8B07752E1BB1578600458FD3 /* Singleton file.xctemplate */,
 				8B9C6BDD1BB125D300242629 /* Request file.xctemplate */,
 			);
 			name = QYFileTemplate;
@@ -477,11 +517,14 @@
 				8B9C6BE81BB125D300242629 /* TemplateIcon.png in Resources */,
 				8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */,
 				8B9C6BDC1BB125A500242629 /* hello.codesnippet in Resources */,
+				8B0775391BB1578600458FD3 /* TemplateIcon.png in Resources */,
 				8B9C6BDB1BB125A500242629 /* colloctionView.codesnippet in Resources */,
 				8B9C6BEA1BB125D300242629 /* TemplateInfo.plist in Resources */,
 				8B60AE711BAC1A5D00672762 /* RequestTemplate in Resources */,
+				8B07753A1BB1578600458FD3 /* TemplateIcon@2x.png in Resources */,
 				8B9C6BD81BB1247700242629 /* setup_CodeHelper.sh in Resources */,
 				8B9C6BE91BB125D300242629 /* TemplateIcon@2x.png in Resources */,
+				8B07753B1BB1578600458FD3 /* TemplateInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
