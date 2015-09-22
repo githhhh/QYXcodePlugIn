@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B171DB51BB144ED00BCD9F7 /* QYIDENotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B171DB41BB144ED00BCD9F7 /* QYIDENotificationHandler.m */; };
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
 		8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA91BABB7F100672762 /* Foundation.framework */; };
 		8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 8B60ADAE1BABB7F100672762 /* QYXcodePlugIn.xcscheme */; };
@@ -58,6 +59,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B171DB31BB144ED00BCD9F7 /* QYIDENotificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYIDENotificationHandler.h; sourceTree = "<group>"; };
+		8B171DB41BB144ED00BCD9F7 /* QYIDENotificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYIDENotificationHandler.m; sourceTree = "<group>"; };
 		8B60ADA41BABB7F100672762 /* QYXcodePlugIn.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QYXcodePlugIn.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B60ADA71BABB7F100672762 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		8B60ADA91BABB7F100672762 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -225,6 +228,8 @@
 			children = (
 				8B9C6C511BB129ED00242629 /* QYXcodePlugIn.h */,
 				8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */,
+				8B171DB31BB144ED00BCD9F7 /* QYIDENotificationHandler.h */,
+				8B171DB41BB144ED00BCD9F7 /* QYIDENotificationHandler.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -346,11 +351,11 @@
 		8B60AE2A1BABCF1F00672762 /* Package */ = {
 			isa = PBXGroup;
 			children = (
-				8B9C6C541BB129F800242629 /* AutoGetterAchieve.h */,
-				8B9C6C551BB129F800242629 /* AutoGetterAchieve.m */,
 				8B9C6C561BB129F800242629 /* MenuItemAchieve.h */,
 				8B9C6C571BB129F800242629 /* MenuItemAchieve.m */,
 				8B9C6C581BB129F800242629 /* QYMenuActionProtocol.h */,
+				8B9C6C541BB129F800242629 /* AutoGetterAchieve.h */,
+				8B9C6C551BB129F800242629 /* AutoGetterAchieve.m */,
 				8B9C6C591BB129F800242629 /* RequestTemplateAchieve.h */,
 				8B9C6C5A1BB129F800242629 /* RequestTemplateAchieve.m */,
 				8B60AE721BAC2CD100672762 /* Template */,
@@ -503,6 +508,7 @@
 				8B9C6BF51BB1295C00242629 /* NSString+XCAdditions.m in Sources */,
 				8B9C6BFD1BB1296A00242629 /* XCWorkspace.m in Sources */,
 				8B9C6C2B1BB1297E00242629 /* XCSourceFile.m in Sources */,
+				8B171DB51BB144ED00BCD9F7 /* QYIDENotificationHandler.m in Sources */,
 				8B9C6C2A1BB1297E00242629 /* XCProjectBuildConfig.m in Sources */,
 				8B9C6C2E1BB1297E00242629 /* XCTarget.m in Sources */,
 				8B9C6C241BB1297E00242629 /* XCGroup.m in Sources */,

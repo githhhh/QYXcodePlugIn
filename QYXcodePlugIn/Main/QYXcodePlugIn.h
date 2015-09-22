@@ -17,5 +17,4 @@
 @property (nonatomic, strong, readonly) NSBundle* bundle;
 
 
-@property (nonatomic,retain)id globlaParamter;
 @end
