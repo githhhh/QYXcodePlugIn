@@ -10,44 +10,7 @@
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
 		8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA91BABB7F100672762 /* Foundation.framework */; };
 		8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 8B60ADAE1BABB7F100672762 /* QYXcodePlugIn.xcscheme */; };
-		8B60ADB21BABB7F100672762 /* QYXcodePlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADB11BABB7F100672762 /* QYXcodePlugIn.m */; };
-		8B60ADD31BABCE2900672762 /* DVTSourceTextStorage+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADBE1BABCE2900672762 /* DVTSourceTextStorage+Operations.m */; };
-		8B60ADD41BABCE2900672762 /* NSArray+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADC01BABCE2900672762 /* NSArray+Operations.m */; };
-		8B60ADD51BABCE2900672762 /* NSFileManager+Headers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADC21BABCE2900672762 /* NSFileManager+Headers.m */; };
-		8B60ADD61BABCE2900672762 /* NSMutableIndexSet+NSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADC41BABCE2900672762 /* NSMutableIndexSet+NSArray.m */; };
-		8B60ADD71BABCE2900672762 /* NSObject+MHLogMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADC61BABCE2900672762 /* NSObject+MHLogMethods.m */; };
-		8B60ADD81BABCE2900672762 /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADC81BABCE2900672762 /* NSString+Extensions.m */; };
-		8B60ADD91BABCE2900672762 /* NSString+Files.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADCA1BABCE2900672762 /* NSString+Files.m */; };
-		8B60ADDA1BABCE2900672762 /* NSString+MHNSRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADCC1BABCE2900672762 /* NSString+MHNSRange.m */; };
-		8B60ADDB1BABCE2900672762 /* NSTextView+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADCE1BABCE2900672762 /* NSTextView+Operations.m */; };
-		8B60ADDC1BABCE2900672762 /* NSView+Dumping.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADD01BABCE2900672762 /* NSView+Dumping.m */; };
-		8B60ADDD1BABCE2900672762 /* XCSourceFile+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADD21BABCE2900672762 /* XCSourceFile+Path.m */; };
-		8B60ADE81BABCE6B00672762 /* NSString+XCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADE31BABCE6B00672762 /* NSString+XCAdditions.m */; };
-		8B60ADE91BABCE6B00672762 /* XCProject+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADE51BABCE6B00672762 /* XCProject+Extensions.m */; };
-		8B60ADEA1BABCE6B00672762 /* XCTarget+XCProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADE71BABCE6B00672762 /* XCTarget+XCProject.m */; };
-		8B60ADEF1BABCE7500672762 /* XCBuildSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADEC1BABCE7500672762 /* XCBuildSettings.m */; };
-		8B60ADF01BABCE7500672762 /* XCWorkspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADEE1BABCE7500672762 /* XCWorkspace.m */; };
-		8B60ADF41BABCE7F00672762 /* MHXcodeDocumentNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADF21BABCE7F00672762 /* MHXcodeDocumentNavigator.m */; };
-		8B60AE181BABCEA800672762 /* XCAbstractDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADF71BABCEA800672762 /* XCAbstractDefinition.m */; };
-		8B60AE191BABCEA800672762 /* XCClassDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADF91BABCEA800672762 /* XCClassDefinition.m */; };
-		8B60AE1A1BABCEA800672762 /* XCFileOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADFB1BABCEA800672762 /* XCFileOperationQueue.m */; };
-		8B60AE1B1BABCEA800672762 /* XCFrameworkDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADFD1BABCEA800672762 /* XCFrameworkDefinition.m */; };
-		8B60AE1C1BABCEA800672762 /* XCGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60ADFF1BABCEA800672762 /* XCGroup.m */; };
-		8B60AE1D1BABCEA800672762 /* XCKeyBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE011BABCEA800672762 /* XCKeyBuilder.m */; };
-		8B60AE1E1BABCEA800672762 /* XCProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE031BABCEA800672762 /* XCProject.m */; };
-		8B60AE1F1BABCEA800672762 /* XCProject+SubProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE051BABCEA800672762 /* XCProject+SubProject.m */; };
-		8B60AE201BABCEA800672762 /* XCProjectBuildConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE071BABCEA800672762 /* XCProjectBuildConfig.m */; };
-		8B60AE211BABCEA800672762 /* XCSourceFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE091BABCEA800672762 /* XCSourceFile.m */; };
-		8B60AE221BABCEA800672762 /* XCSourceFileDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE0B1BABCEA800672762 /* XCSourceFileDefinition.m */; };
-		8B60AE231BABCEA800672762 /* XCSubProjectDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE0D1BABCEA800672762 /* XCSubProjectDefinition.m */; };
-		8B60AE241BABCEA800672762 /* XCTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE0F1BABCEA800672762 /* XCTarget.m */; };
-		8B60AE251BABCEA800672762 /* XCXibDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE111BABCEA800672762 /* XCXibDefinition.m */; };
-		8B60AE261BABCEA800672762 /* XcodeMemberType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE151BABCEA800672762 /* XcodeMemberType.m */; };
-		8B60AE271BABCEA800672762 /* XcodeSourceFileType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE171BABCEA800672762 /* XcodeSourceFileType.m */; };
 		8B60AE291BABCEBB00672762 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60AE281BABCEBB00672762 /* Cocoa.framework */; };
-		8B60AE2D1BABCFDC00672762 /* AutoGetterAchieve.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE2C1BABCFDC00672762 /* AutoGetterAchieve.m */; };
-		8B60AE311BABDCA400672762 /* MenuItemAchieve.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE301BABDCA400672762 /* MenuItemAchieve.m */; };
-		8B60AE391BABEC6700672762 /* RequestTemplateAchieve.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B60AE381BABEC6700672762 /* RequestTemplateAchieve.m */; };
 		8B60AE711BAC1A5D00672762 /* RequestTemplate in Resources */ = {isa = PBXBuildFile; fileRef = 8B60AE701BAC1A5D00672762 /* RequestTemplate */; };
 		8B9C6BD81BB1247700242629 /* setup_CodeHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */; };
 		8B9C6BDB1BB125A500242629 /* colloctionView.codesnippet in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD91BB125A500242629 /* colloctionView.codesnippet */; };
@@ -55,6 +18,43 @@
 		8B9C6BE81BB125D300242629 /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BE31BB125D300242629 /* TemplateIcon.png */; };
 		8B9C6BE91BB125D300242629 /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BE41BB125D300242629 /* TemplateIcon@2x.png */; };
 		8B9C6BEA1BB125D300242629 /* TemplateInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BE51BB125D300242629 /* TemplateInfo.plist */; };
+		8B9C6BEE1BB1293E00242629 /* MHXcodeDocumentNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BEC1BB1293E00242629 /* MHXcodeDocumentNavigator.m */; };
+		8B9C6BF51BB1295C00242629 /* NSString+XCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BF01BB1295C00242629 /* NSString+XCAdditions.m */; };
+		8B9C6BF61BB1295C00242629 /* XCProject+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BF21BB1295C00242629 /* XCProject+Extensions.m */; };
+		8B9C6BF71BB1295C00242629 /* XCTarget+XCProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BF41BB1295C00242629 /* XCTarget+XCProject.m */; };
+		8B9C6BFC1BB1296A00242629 /* XCBuildSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BF91BB1296A00242629 /* XCBuildSettings.m */; };
+		8B9C6BFD1BB1296A00242629 /* XCWorkspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BFB1BB1296A00242629 /* XCWorkspace.m */; };
+		8B9C6C201BB1297E00242629 /* XCAbstractDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BFF1BB1297E00242629 /* XCAbstractDefinition.m */; };
+		8B9C6C211BB1297E00242629 /* XCClassDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C011BB1297E00242629 /* XCClassDefinition.m */; };
+		8B9C6C221BB1297E00242629 /* XCFileOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C031BB1297E00242629 /* XCFileOperationQueue.m */; };
+		8B9C6C231BB1297E00242629 /* XCFrameworkDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C051BB1297E00242629 /* XCFrameworkDefinition.m */; };
+		8B9C6C241BB1297E00242629 /* XCGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C071BB1297E00242629 /* XCGroup.m */; };
+		8B9C6C251BB1297E00242629 /* XCKeyBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C091BB1297E00242629 /* XCKeyBuilder.m */; };
+		8B9C6C261BB1297E00242629 /* XcodeMemberType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C0D1BB1297E00242629 /* XcodeMemberType.m */; };
+		8B9C6C271BB1297E00242629 /* XcodeSourceFileType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C0F1BB1297E00242629 /* XcodeSourceFileType.m */; };
+		8B9C6C281BB1297E00242629 /* XCProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C111BB1297E00242629 /* XCProject.m */; };
+		8B9C6C291BB1297E00242629 /* XCProject+SubProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C131BB1297E00242629 /* XCProject+SubProject.m */; };
+		8B9C6C2A1BB1297E00242629 /* XCProjectBuildConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C151BB1297E00242629 /* XCProjectBuildConfig.m */; };
+		8B9C6C2B1BB1297E00242629 /* XCSourceFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C171BB1297E00242629 /* XCSourceFile.m */; };
+		8B9C6C2C1BB1297E00242629 /* XCSourceFileDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C191BB1297E00242629 /* XCSourceFileDefinition.m */; };
+		8B9C6C2D1BB1297E00242629 /* XCSubProjectDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C1B1BB1297E00242629 /* XCSubProjectDefinition.m */; };
+		8B9C6C2E1BB1297E00242629 /* XCTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C1D1BB1297E00242629 /* XCTarget.m */; };
+		8B9C6C2F1BB1297E00242629 /* XCXibDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C1F1BB1297E00242629 /* XCXibDefinition.m */; };
+		8B9C6C461BB1298D00242629 /* DVTSourceTextStorage+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C311BB1298D00242629 /* DVTSourceTextStorage+Operations.m */; };
+		8B9C6C471BB1298D00242629 /* NSArray+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C331BB1298D00242629 /* NSArray+Operations.m */; };
+		8B9C6C481BB1298D00242629 /* NSFileManager+Headers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C351BB1298D00242629 /* NSFileManager+Headers.m */; };
+		8B9C6C491BB1298D00242629 /* NSMutableIndexSet+NSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C371BB1298D00242629 /* NSMutableIndexSet+NSArray.m */; };
+		8B9C6C4A1BB1298D00242629 /* NSObject+MHLogMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C391BB1298D00242629 /* NSObject+MHLogMethods.m */; };
+		8B9C6C4B1BB1298D00242629 /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C3B1BB1298D00242629 /* NSString+Extensions.m */; };
+		8B9C6C4C1BB1298D00242629 /* NSString+Files.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C3D1BB1298D00242629 /* NSString+Files.m */; };
+		8B9C6C4D1BB1298D00242629 /* NSString+MHNSRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C3F1BB1298D00242629 /* NSString+MHNSRange.m */; };
+		8B9C6C4E1BB1298D00242629 /* NSTextView+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C411BB1298D00242629 /* NSTextView+Operations.m */; };
+		8B9C6C4F1BB1298D00242629 /* NSView+Dumping.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C431BB1298D00242629 /* NSView+Dumping.m */; };
+		8B9C6C501BB1298D00242629 /* XCSourceFile+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C451BB1298D00242629 /* XCSourceFile+Path.m */; };
+		8B9C6C531BB129ED00242629 /* QYXcodePlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */; };
+		8B9C6C5B1BB129F800242629 /* AutoGetterAchieve.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C551BB129F800242629 /* AutoGetterAchieve.m */; };
+		8B9C6C5C1BB129F800242629 /* MenuItemAchieve.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C571BB129F800242629 /* MenuItemAchieve.m */; };
+		8B9C6C5D1BB129F800242629 /* RequestTemplateAchieve.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C5A1BB129F800242629 /* RequestTemplateAchieve.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,85 +63,7 @@
 		8B60ADA91BABB7F100672762 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8B60ADAD1BABB7F100672762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B60ADAE1BABB7F100672762 /* QYXcodePlugIn.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = QYXcodePlugIn.xcscheme; path = QYXcodePlugIn.xcodeproj/xcshareddata/xcschemes/QYXcodePlugIn.xcscheme; sourceTree = SOURCE_ROOT; };
-		8B60ADB01BABB7F100672762 /* QYXcodePlugIn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYXcodePlugIn.h; sourceTree = "<group>"; };
-		8B60ADB11BABB7F100672762 /* QYXcodePlugIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QYXcodePlugIn.m; sourceTree = "<group>"; };
-		8B60ADBD1BABCE2900672762 /* DVTSourceTextStorage+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DVTSourceTextStorage+Operations.h"; sourceTree = "<group>"; };
-		8B60ADBE1BABCE2900672762 /* DVTSourceTextStorage+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DVTSourceTextStorage+Operations.m"; sourceTree = "<group>"; };
-		8B60ADBF1BABCE2900672762 /* NSArray+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Operations.h"; sourceTree = "<group>"; };
-		8B60ADC01BABCE2900672762 /* NSArray+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Operations.m"; sourceTree = "<group>"; };
-		8B60ADC11BABCE2900672762 /* NSFileManager+Headers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Headers.h"; sourceTree = "<group>"; };
-		8B60ADC21BABCE2900672762 /* NSFileManager+Headers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Headers.m"; sourceTree = "<group>"; };
-		8B60ADC31BABCE2900672762 /* NSMutableIndexSet+NSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableIndexSet+NSArray.h"; sourceTree = "<group>"; };
-		8B60ADC41BABCE2900672762 /* NSMutableIndexSet+NSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableIndexSet+NSArray.m"; sourceTree = "<group>"; };
-		8B60ADC51BABCE2900672762 /* NSObject+MHLogMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MHLogMethods.h"; sourceTree = "<group>"; };
-		8B60ADC61BABCE2900672762 /* NSObject+MHLogMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MHLogMethods.m"; sourceTree = "<group>"; };
-		8B60ADC71BABCE2900672762 /* NSString+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extensions.h"; sourceTree = "<group>"; };
-		8B60ADC81BABCE2900672762 /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
-		8B60ADC91BABCE2900672762 /* NSString+Files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Files.h"; sourceTree = "<group>"; };
-		8B60ADCA1BABCE2900672762 /* NSString+Files.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Files.m"; sourceTree = "<group>"; };
-		8B60ADCB1BABCE2900672762 /* NSString+MHNSRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MHNSRange.h"; sourceTree = "<group>"; };
-		8B60ADCC1BABCE2900672762 /* NSString+MHNSRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MHNSRange.m"; sourceTree = "<group>"; };
-		8B60ADCD1BABCE2900672762 /* NSTextView+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+Operations.h"; sourceTree = "<group>"; };
-		8B60ADCE1BABCE2900672762 /* NSTextView+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+Operations.m"; sourceTree = "<group>"; };
-		8B60ADCF1BABCE2900672762 /* NSView+Dumping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Dumping.h"; sourceTree = "<group>"; };
-		8B60ADD01BABCE2900672762 /* NSView+Dumping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Dumping.m"; sourceTree = "<group>"; };
-		8B60ADD11BABCE2900672762 /* XCSourceFile+Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCSourceFile+Path.h"; sourceTree = "<group>"; };
-		8B60ADD21BABCE2900672762 /* XCSourceFile+Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCSourceFile+Path.m"; sourceTree = "<group>"; };
-		8B60ADE21BABCE6B00672762 /* NSString+XCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XCAdditions.h"; sourceTree = "<group>"; };
-		8B60ADE31BABCE6B00672762 /* NSString+XCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XCAdditions.m"; sourceTree = "<group>"; };
-		8B60ADE41BABCE6B00672762 /* XCProject+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCProject+Extensions.h"; sourceTree = "<group>"; };
-		8B60ADE51BABCE6B00672762 /* XCProject+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCProject+Extensions.m"; sourceTree = "<group>"; };
-		8B60ADE61BABCE6B00672762 /* XCTarget+XCProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTarget+XCProject.h"; sourceTree = "<group>"; };
-		8B60ADE71BABCE6B00672762 /* XCTarget+XCProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTarget+XCProject.m"; sourceTree = "<group>"; };
-		8B60ADEB1BABCE7500672762 /* XCBuildSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBuildSettings.h; sourceTree = "<group>"; };
-		8B60ADEC1BABCE7500672762 /* XCBuildSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCBuildSettings.m; sourceTree = "<group>"; };
-		8B60ADED1BABCE7500672762 /* XCWorkspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCWorkspace.h; sourceTree = "<group>"; };
-		8B60ADEE1BABCE7500672762 /* XCWorkspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCWorkspace.m; sourceTree = "<group>"; };
-		8B60ADF11BABCE7F00672762 /* MHXcodeDocumentNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHXcodeDocumentNavigator.h; sourceTree = "<group>"; };
-		8B60ADF21BABCE7F00672762 /* MHXcodeDocumentNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHXcodeDocumentNavigator.m; sourceTree = "<group>"; };
-		8B60ADF31BABCE7F00672762 /* XCFXcodePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFXcodePrivate.h; sourceTree = "<group>"; };
-		8B60ADF61BABCEA800672762 /* XCAbstractDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCAbstractDefinition.h; sourceTree = "<group>"; };
-		8B60ADF71BABCEA800672762 /* XCAbstractDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCAbstractDefinition.m; sourceTree = "<group>"; };
-		8B60ADF81BABCEA800672762 /* XCClassDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCClassDefinition.h; sourceTree = "<group>"; };
-		8B60ADF91BABCEA800672762 /* XCClassDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCClassDefinition.m; sourceTree = "<group>"; };
-		8B60ADFA1BABCEA800672762 /* XCFileOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFileOperationQueue.h; sourceTree = "<group>"; };
-		8B60ADFB1BABCEA800672762 /* XCFileOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFileOperationQueue.m; sourceTree = "<group>"; };
-		8B60ADFC1BABCEA800672762 /* XCFrameworkDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFrameworkDefinition.h; sourceTree = "<group>"; };
-		8B60ADFD1BABCEA800672762 /* XCFrameworkDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFrameworkDefinition.m; sourceTree = "<group>"; };
-		8B60ADFE1BABCEA800672762 /* XCGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCGroup.h; sourceTree = "<group>"; };
-		8B60ADFF1BABCEA800672762 /* XCGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCGroup.m; sourceTree = "<group>"; };
-		8B60AE001BABCEA800672762 /* XCKeyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCKeyBuilder.h; sourceTree = "<group>"; };
-		8B60AE011BABCEA800672762 /* XCKeyBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCKeyBuilder.m; sourceTree = "<group>"; };
-		8B60AE021BABCEA800672762 /* XCProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCProject.h; sourceTree = "<group>"; };
-		8B60AE031BABCEA800672762 /* XCProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCProject.m; sourceTree = "<group>"; };
-		8B60AE041BABCEA800672762 /* XCProject+SubProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCProject+SubProject.h"; sourceTree = "<group>"; };
-		8B60AE051BABCEA800672762 /* XCProject+SubProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCProject+SubProject.m"; sourceTree = "<group>"; };
-		8B60AE061BABCEA800672762 /* XCProjectBuildConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCProjectBuildConfig.h; sourceTree = "<group>"; };
-		8B60AE071BABCEA800672762 /* XCProjectBuildConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCProjectBuildConfig.m; sourceTree = "<group>"; };
-		8B60AE081BABCEA800672762 /* XCSourceFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSourceFile.h; sourceTree = "<group>"; };
-		8B60AE091BABCEA800672762 /* XCSourceFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSourceFile.m; sourceTree = "<group>"; };
-		8B60AE0A1BABCEA800672762 /* XCSourceFileDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSourceFileDefinition.h; sourceTree = "<group>"; };
-		8B60AE0B1BABCEA800672762 /* XCSourceFileDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSourceFileDefinition.m; sourceTree = "<group>"; };
-		8B60AE0C1BABCEA800672762 /* XCSubProjectDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSubProjectDefinition.h; sourceTree = "<group>"; };
-		8B60AE0D1BABCEA800672762 /* XCSubProjectDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSubProjectDefinition.m; sourceTree = "<group>"; };
-		8B60AE0E1BABCEA800672762 /* XCTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTarget.h; sourceTree = "<group>"; };
-		8B60AE0F1BABCEA800672762 /* XCTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTarget.m; sourceTree = "<group>"; };
-		8B60AE101BABCEA800672762 /* XCXibDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCXibDefinition.h; sourceTree = "<group>"; };
-		8B60AE111BABCEA800672762 /* XCXibDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCXibDefinition.m; sourceTree = "<group>"; };
-		8B60AE121BABCEA800672762 /* XcodeEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeEditor.h; sourceTree = "<group>"; };
-		8B60AE131BABCEA800672762 /* XcodeGroupMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeGroupMember.h; sourceTree = "<group>"; };
-		8B60AE141BABCEA800672762 /* XcodeMemberType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeMemberType.h; sourceTree = "<group>"; };
-		8B60AE151BABCEA800672762 /* XcodeMemberType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeMemberType.m; sourceTree = "<group>"; };
-		8B60AE161BABCEA800672762 /* XcodeSourceFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeSourceFileType.h; sourceTree = "<group>"; };
-		8B60AE171BABCEA800672762 /* XcodeSourceFileType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeSourceFileType.m; sourceTree = "<group>"; };
 		8B60AE281BABCEBB00672762 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		8B60AE2B1BABCFDC00672762 /* AutoGetterAchieve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoGetterAchieve.h; sourceTree = "<group>"; };
-		8B60AE2C1BABCFDC00672762 /* AutoGetterAchieve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoGetterAchieve.m; sourceTree = "<group>"; };
-		8B60AE2E1BABDBE800672762 /* QYMenuActionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYMenuActionProtocol.h; sourceTree = "<group>"; };
-		8B60AE2F1BABDCA400672762 /* MenuItemAchieve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemAchieve.h; sourceTree = "<group>"; };
-		8B60AE301BABDCA400672762 /* MenuItemAchieve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemAchieve.m; sourceTree = "<group>"; };
-		8B60AE371BABEC6700672762 /* RequestTemplateAchieve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTemplateAchieve.h; sourceTree = "<group>"; };
-		8B60AE381BABEC6700672762 /* RequestTemplateAchieve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTemplateAchieve.m; sourceTree = "<group>"; };
 		8B60AE701BAC1A5D00672762 /* RequestTemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RequestTemplate; path = ../RequestTemplate; sourceTree = "<group>"; };
 		8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = setup_CodeHelper.sh; sourceTree = "<group>"; };
 		8B9C6BD91BB125A500242629 /* colloctionView.codesnippet */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = colloctionView.codesnippet; path = CodeSnippets/colloctionView.codesnippet; sourceTree = "<group>"; };
@@ -152,6 +74,84 @@
 		8B9C6BE31BB125D300242629 /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
 		8B9C6BE41BB125D300242629 /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
 		8B9C6BE51BB125D300242629 /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
+		8B9C6BEB1BB1293E00242629 /* MHXcodeDocumentNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHXcodeDocumentNavigator.h; path = External/Benoit/MHXcodeDocumentNavigator.h; sourceTree = "<group>"; };
+		8B9C6BEC1BB1293E00242629 /* MHXcodeDocumentNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHXcodeDocumentNavigator.m; path = External/Benoit/MHXcodeDocumentNavigator.m; sourceTree = "<group>"; };
+		8B9C6BED1BB1293E00242629 /* XCFXcodePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCFXcodePrivate.h; path = External/Benoit/XCFXcodePrivate.h; sourceTree = "<group>"; };
+		8B9C6BEF1BB1295C00242629 /* NSString+XCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+XCAdditions.h"; path = "External/XcodeEditor/Categories/NSString+XCAdditions.h"; sourceTree = "<group>"; };
+		8B9C6BF01BB1295C00242629 /* NSString+XCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+XCAdditions.m"; path = "External/XcodeEditor/Categories/NSString+XCAdditions.m"; sourceTree = "<group>"; };
+		8B9C6BF11BB1295C00242629 /* XCProject+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCProject+Extensions.h"; path = "External/XcodeEditor/Categories/XCProject+Extensions.h"; sourceTree = "<group>"; };
+		8B9C6BF21BB1295C00242629 /* XCProject+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCProject+Extensions.m"; path = "External/XcodeEditor/Categories/XCProject+Extensions.m"; sourceTree = "<group>"; };
+		8B9C6BF31BB1295C00242629 /* XCTarget+XCProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCTarget+XCProject.h"; path = "External/XcodeEditor/Categories/XCTarget+XCProject.h"; sourceTree = "<group>"; };
+		8B9C6BF41BB1295C00242629 /* XCTarget+XCProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCTarget+XCProject.m"; path = "External/XcodeEditor/Categories/XCTarget+XCProject.m"; sourceTree = "<group>"; };
+		8B9C6BF81BB1296A00242629 /* XCBuildSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCBuildSettings.h; path = External/XcodeEditor/XCBuildSettings.h; sourceTree = "<group>"; };
+		8B9C6BF91BB1296A00242629 /* XCBuildSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCBuildSettings.m; path = External/XcodeEditor/XCBuildSettings.m; sourceTree = "<group>"; };
+		8B9C6BFA1BB1296A00242629 /* XCWorkspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCWorkspace.h; path = External/XcodeEditor/XCWorkspace.h; sourceTree = "<group>"; };
+		8B9C6BFB1BB1296A00242629 /* XCWorkspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCWorkspace.m; path = External/XcodeEditor/XCWorkspace.m; sourceTree = "<group>"; };
+		8B9C6BFE1BB1297E00242629 /* XCAbstractDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCAbstractDefinition.h; path = XcodeEditor/XCAbstractDefinition.h; sourceTree = "<group>"; };
+		8B9C6BFF1BB1297E00242629 /* XCAbstractDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCAbstractDefinition.m; path = XcodeEditor/XCAbstractDefinition.m; sourceTree = "<group>"; };
+		8B9C6C001BB1297E00242629 /* XCClassDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCClassDefinition.h; path = XcodeEditor/XCClassDefinition.h; sourceTree = "<group>"; };
+		8B9C6C011BB1297E00242629 /* XCClassDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCClassDefinition.m; path = XcodeEditor/XCClassDefinition.m; sourceTree = "<group>"; };
+		8B9C6C021BB1297E00242629 /* XCFileOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCFileOperationQueue.h; path = XcodeEditor/XCFileOperationQueue.h; sourceTree = "<group>"; };
+		8B9C6C031BB1297E00242629 /* XCFileOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCFileOperationQueue.m; path = XcodeEditor/XCFileOperationQueue.m; sourceTree = "<group>"; };
+		8B9C6C041BB1297E00242629 /* XCFrameworkDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCFrameworkDefinition.h; path = XcodeEditor/XCFrameworkDefinition.h; sourceTree = "<group>"; };
+		8B9C6C051BB1297E00242629 /* XCFrameworkDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCFrameworkDefinition.m; path = XcodeEditor/XCFrameworkDefinition.m; sourceTree = "<group>"; };
+		8B9C6C061BB1297E00242629 /* XCGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCGroup.h; path = XcodeEditor/XCGroup.h; sourceTree = "<group>"; };
+		8B9C6C071BB1297E00242629 /* XCGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCGroup.m; path = XcodeEditor/XCGroup.m; sourceTree = "<group>"; };
+		8B9C6C081BB1297E00242629 /* XCKeyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCKeyBuilder.h; path = XcodeEditor/XCKeyBuilder.h; sourceTree = "<group>"; };
+		8B9C6C091BB1297E00242629 /* XCKeyBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCKeyBuilder.m; path = XcodeEditor/XCKeyBuilder.m; sourceTree = "<group>"; };
+		8B9C6C0A1BB1297E00242629 /* XcodeEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XcodeEditor.h; path = XcodeEditor/XcodeEditor.h; sourceTree = "<group>"; };
+		8B9C6C0B1BB1297E00242629 /* XcodeGroupMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XcodeGroupMember.h; path = XcodeEditor/XcodeGroupMember.h; sourceTree = "<group>"; };
+		8B9C6C0C1BB1297E00242629 /* XcodeMemberType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XcodeMemberType.h; path = XcodeEditor/XcodeMemberType.h; sourceTree = "<group>"; };
+		8B9C6C0D1BB1297E00242629 /* XcodeMemberType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XcodeMemberType.m; path = XcodeEditor/XcodeMemberType.m; sourceTree = "<group>"; };
+		8B9C6C0E1BB1297E00242629 /* XcodeSourceFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XcodeSourceFileType.h; path = XcodeEditor/XcodeSourceFileType.h; sourceTree = "<group>"; };
+		8B9C6C0F1BB1297E00242629 /* XcodeSourceFileType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XcodeSourceFileType.m; path = XcodeEditor/XcodeSourceFileType.m; sourceTree = "<group>"; };
+		8B9C6C101BB1297E00242629 /* XCProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCProject.h; path = XcodeEditor/XCProject.h; sourceTree = "<group>"; };
+		8B9C6C111BB1297E00242629 /* XCProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCProject.m; path = XcodeEditor/XCProject.m; sourceTree = "<group>"; };
+		8B9C6C121BB1297E00242629 /* XCProject+SubProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCProject+SubProject.h"; path = "XcodeEditor/XCProject+SubProject.h"; sourceTree = "<group>"; };
+		8B9C6C131BB1297E00242629 /* XCProject+SubProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCProject+SubProject.m"; path = "XcodeEditor/XCProject+SubProject.m"; sourceTree = "<group>"; };
+		8B9C6C141BB1297E00242629 /* XCProjectBuildConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCProjectBuildConfig.h; path = XcodeEditor/XCProjectBuildConfig.h; sourceTree = "<group>"; };
+		8B9C6C151BB1297E00242629 /* XCProjectBuildConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCProjectBuildConfig.m; path = XcodeEditor/XCProjectBuildConfig.m; sourceTree = "<group>"; };
+		8B9C6C161BB1297E00242629 /* XCSourceFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCSourceFile.h; path = XcodeEditor/XCSourceFile.h; sourceTree = "<group>"; };
+		8B9C6C171BB1297E00242629 /* XCSourceFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCSourceFile.m; path = XcodeEditor/XCSourceFile.m; sourceTree = "<group>"; };
+		8B9C6C181BB1297E00242629 /* XCSourceFileDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCSourceFileDefinition.h; path = XcodeEditor/XCSourceFileDefinition.h; sourceTree = "<group>"; };
+		8B9C6C191BB1297E00242629 /* XCSourceFileDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCSourceFileDefinition.m; path = XcodeEditor/XCSourceFileDefinition.m; sourceTree = "<group>"; };
+		8B9C6C1A1BB1297E00242629 /* XCSubProjectDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCSubProjectDefinition.h; path = XcodeEditor/XCSubProjectDefinition.h; sourceTree = "<group>"; };
+		8B9C6C1B1BB1297E00242629 /* XCSubProjectDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCSubProjectDefinition.m; path = XcodeEditor/XCSubProjectDefinition.m; sourceTree = "<group>"; };
+		8B9C6C1C1BB1297E00242629 /* XCTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCTarget.h; path = XcodeEditor/XCTarget.h; sourceTree = "<group>"; };
+		8B9C6C1D1BB1297E00242629 /* XCTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCTarget.m; path = XcodeEditor/XCTarget.m; sourceTree = "<group>"; };
+		8B9C6C1E1BB1297E00242629 /* XCXibDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCXibDefinition.h; path = XcodeEditor/XCXibDefinition.h; sourceTree = "<group>"; };
+		8B9C6C1F1BB1297E00242629 /* XCXibDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCXibDefinition.m; path = XcodeEditor/XCXibDefinition.m; sourceTree = "<group>"; };
+		8B9C6C301BB1298D00242629 /* DVTSourceTextStorage+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DVTSourceTextStorage+Operations.h"; path = "Categorites/DVTSourceTextStorage+Operations.h"; sourceTree = "<group>"; };
+		8B9C6C311BB1298D00242629 /* DVTSourceTextStorage+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DVTSourceTextStorage+Operations.m"; path = "Categorites/DVTSourceTextStorage+Operations.m"; sourceTree = "<group>"; };
+		8B9C6C321BB1298D00242629 /* NSArray+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Operations.h"; path = "Categorites/NSArray+Operations.h"; sourceTree = "<group>"; };
+		8B9C6C331BB1298D00242629 /* NSArray+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Operations.m"; path = "Categorites/NSArray+Operations.m"; sourceTree = "<group>"; };
+		8B9C6C341BB1298D00242629 /* NSFileManager+Headers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+Headers.h"; path = "Categorites/NSFileManager+Headers.h"; sourceTree = "<group>"; };
+		8B9C6C351BB1298D00242629 /* NSFileManager+Headers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+Headers.m"; path = "Categorites/NSFileManager+Headers.m"; sourceTree = "<group>"; };
+		8B9C6C361BB1298D00242629 /* NSMutableIndexSet+NSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableIndexSet+NSArray.h"; path = "Categorites/NSMutableIndexSet+NSArray.h"; sourceTree = "<group>"; };
+		8B9C6C371BB1298D00242629 /* NSMutableIndexSet+NSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableIndexSet+NSArray.m"; path = "Categorites/NSMutableIndexSet+NSArray.m"; sourceTree = "<group>"; };
+		8B9C6C381BB1298D00242629 /* NSObject+MHLogMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+MHLogMethods.h"; path = "Categorites/NSObject+MHLogMethods.h"; sourceTree = "<group>"; };
+		8B9C6C391BB1298D00242629 /* NSObject+MHLogMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MHLogMethods.m"; path = "Categorites/NSObject+MHLogMethods.m"; sourceTree = "<group>"; };
+		8B9C6C3A1BB1298D00242629 /* NSString+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Extensions.h"; path = "Categorites/NSString+Extensions.h"; sourceTree = "<group>"; };
+		8B9C6C3B1BB1298D00242629 /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Extensions.m"; path = "Categorites/NSString+Extensions.m"; sourceTree = "<group>"; };
+		8B9C6C3C1BB1298D00242629 /* NSString+Files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Files.h"; path = "Categorites/NSString+Files.h"; sourceTree = "<group>"; };
+		8B9C6C3D1BB1298D00242629 /* NSString+Files.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Files.m"; path = "Categorites/NSString+Files.m"; sourceTree = "<group>"; };
+		8B9C6C3E1BB1298D00242629 /* NSString+MHNSRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MHNSRange.h"; path = "Categorites/NSString+MHNSRange.h"; sourceTree = "<group>"; };
+		8B9C6C3F1BB1298D00242629 /* NSString+MHNSRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MHNSRange.m"; path = "Categorites/NSString+MHNSRange.m"; sourceTree = "<group>"; };
+		8B9C6C401BB1298D00242629 /* NSTextView+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTextView+Operations.h"; path = "Categorites/NSTextView+Operations.h"; sourceTree = "<group>"; };
+		8B9C6C411BB1298D00242629 /* NSTextView+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTextView+Operations.m"; path = "Categorites/NSTextView+Operations.m"; sourceTree = "<group>"; };
+		8B9C6C421BB1298D00242629 /* NSView+Dumping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSView+Dumping.h"; path = "Categorites/NSView+Dumping.h"; sourceTree = "<group>"; };
+		8B9C6C431BB1298D00242629 /* NSView+Dumping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSView+Dumping.m"; path = "Categorites/NSView+Dumping.m"; sourceTree = "<group>"; };
+		8B9C6C441BB1298D00242629 /* XCSourceFile+Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCSourceFile+Path.h"; path = "Categorites/XCSourceFile+Path.h"; sourceTree = "<group>"; };
+		8B9C6C451BB1298D00242629 /* XCSourceFile+Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCSourceFile+Path.m"; path = "Categorites/XCSourceFile+Path.m"; sourceTree = "<group>"; };
+		8B9C6C511BB129ED00242629 /* QYXcodePlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYXcodePlugIn.h; path = Main/QYXcodePlugIn.h; sourceTree = "<group>"; };
+		8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYXcodePlugIn.m; path = Main/QYXcodePlugIn.m; sourceTree = "<group>"; };
+		8B9C6C541BB129F800242629 /* AutoGetterAchieve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutoGetterAchieve.h; path = Package/AutoGetterAchieve.h; sourceTree = "<group>"; };
+		8B9C6C551BB129F800242629 /* AutoGetterAchieve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AutoGetterAchieve.m; path = Package/AutoGetterAchieve.m; sourceTree = "<group>"; };
+		8B9C6C561BB129F800242629 /* MenuItemAchieve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuItemAchieve.h; path = Package/MenuItemAchieve.h; sourceTree = "<group>"; };
+		8B9C6C571BB129F800242629 /* MenuItemAchieve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuItemAchieve.m; path = Package/MenuItemAchieve.m; sourceTree = "<group>"; };
+		8B9C6C581BB129F800242629 /* QYMenuActionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYMenuActionProtocol.h; path = Package/QYMenuActionProtocol.h; sourceTree = "<group>"; };
+		8B9C6C591BB129F800242629 /* RequestTemplateAchieve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestTemplateAchieve.h; path = Package/RequestTemplateAchieve.h; sourceTree = "<group>"; };
+		8B9C6C5A1BB129F800242629 /* RequestTemplateAchieve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestTemplateAchieve.m; path = Package/RequestTemplateAchieve.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,8 +223,8 @@
 		8B60ADBB1BABB81D00672762 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				8B60ADB01BABB7F100672762 /* QYXcodePlugIn.h */,
-				8B60ADB11BABB7F100672762 /* QYXcodePlugIn.m */,
+				8B9C6C511BB129ED00242629 /* QYXcodePlugIn.h */,
+				8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -232,28 +232,28 @@
 		8B60ADBC1BABCE1C00672762 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				8B60ADBD1BABCE2900672762 /* DVTSourceTextStorage+Operations.h */,
-				8B60ADBE1BABCE2900672762 /* DVTSourceTextStorage+Operations.m */,
-				8B60ADBF1BABCE2900672762 /* NSArray+Operations.h */,
-				8B60ADC01BABCE2900672762 /* NSArray+Operations.m */,
-				8B60ADC11BABCE2900672762 /* NSFileManager+Headers.h */,
-				8B60ADC21BABCE2900672762 /* NSFileManager+Headers.m */,
-				8B60ADC31BABCE2900672762 /* NSMutableIndexSet+NSArray.h */,
-				8B60ADC41BABCE2900672762 /* NSMutableIndexSet+NSArray.m */,
-				8B60ADC51BABCE2900672762 /* NSObject+MHLogMethods.h */,
-				8B60ADC61BABCE2900672762 /* NSObject+MHLogMethods.m */,
-				8B60ADC71BABCE2900672762 /* NSString+Extensions.h */,
-				8B60ADC81BABCE2900672762 /* NSString+Extensions.m */,
-				8B60ADC91BABCE2900672762 /* NSString+Files.h */,
-				8B60ADCA1BABCE2900672762 /* NSString+Files.m */,
-				8B60ADCB1BABCE2900672762 /* NSString+MHNSRange.h */,
-				8B60ADCC1BABCE2900672762 /* NSString+MHNSRange.m */,
-				8B60ADCD1BABCE2900672762 /* NSTextView+Operations.h */,
-				8B60ADCE1BABCE2900672762 /* NSTextView+Operations.m */,
-				8B60ADCF1BABCE2900672762 /* NSView+Dumping.h */,
-				8B60ADD01BABCE2900672762 /* NSView+Dumping.m */,
-				8B60ADD11BABCE2900672762 /* XCSourceFile+Path.h */,
-				8B60ADD21BABCE2900672762 /* XCSourceFile+Path.m */,
+				8B9C6C301BB1298D00242629 /* DVTSourceTextStorage+Operations.h */,
+				8B9C6C311BB1298D00242629 /* DVTSourceTextStorage+Operations.m */,
+				8B9C6C321BB1298D00242629 /* NSArray+Operations.h */,
+				8B9C6C331BB1298D00242629 /* NSArray+Operations.m */,
+				8B9C6C341BB1298D00242629 /* NSFileManager+Headers.h */,
+				8B9C6C351BB1298D00242629 /* NSFileManager+Headers.m */,
+				8B9C6C361BB1298D00242629 /* NSMutableIndexSet+NSArray.h */,
+				8B9C6C371BB1298D00242629 /* NSMutableIndexSet+NSArray.m */,
+				8B9C6C381BB1298D00242629 /* NSObject+MHLogMethods.h */,
+				8B9C6C391BB1298D00242629 /* NSObject+MHLogMethods.m */,
+				8B9C6C3A1BB1298D00242629 /* NSString+Extensions.h */,
+				8B9C6C3B1BB1298D00242629 /* NSString+Extensions.m */,
+				8B9C6C3C1BB1298D00242629 /* NSString+Files.h */,
+				8B9C6C3D1BB1298D00242629 /* NSString+Files.m */,
+				8B9C6C3E1BB1298D00242629 /* NSString+MHNSRange.h */,
+				8B9C6C3F1BB1298D00242629 /* NSString+MHNSRange.m */,
+				8B9C6C401BB1298D00242629 /* NSTextView+Operations.h */,
+				8B9C6C411BB1298D00242629 /* NSTextView+Operations.m */,
+				8B9C6C421BB1298D00242629 /* NSView+Dumping.h */,
+				8B9C6C431BB1298D00242629 /* NSView+Dumping.m */,
+				8B9C6C441BB1298D00242629 /* XCSourceFile+Path.h */,
+				8B9C6C451BB1298D00242629 /* XCSourceFile+Path.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -270,9 +270,9 @@
 		8B60ADDF1BABCE4000672762 /* Benoit */ = {
 			isa = PBXGroup;
 			children = (
-				8B60ADF11BABCE7F00672762 /* MHXcodeDocumentNavigator.h */,
-				8B60ADF21BABCE7F00672762 /* MHXcodeDocumentNavigator.m */,
-				8B60ADF31BABCE7F00672762 /* XCFXcodePrivate.h */,
+				8B9C6BEB1BB1293E00242629 /* MHXcodeDocumentNavigator.h */,
+				8B9C6BEC1BB1293E00242629 /* MHXcodeDocumentNavigator.m */,
+				8B9C6BED1BB1293E00242629 /* XCFXcodePrivate.h */,
 			);
 			name = Benoit;
 			sourceTree = "<group>";
@@ -280,10 +280,10 @@
 		8B60ADE01BABCE4E00672762 /* XcodeEditor */ = {
 			isa = PBXGroup;
 			children = (
-				8B60ADEB1BABCE7500672762 /* XCBuildSettings.h */,
-				8B60ADEC1BABCE7500672762 /* XCBuildSettings.m */,
-				8B60ADED1BABCE7500672762 /* XCWorkspace.h */,
-				8B60ADEE1BABCE7500672762 /* XCWorkspace.m */,
+				8B9C6BF81BB1296A00242629 /* XCBuildSettings.h */,
+				8B9C6BF91BB1296A00242629 /* XCBuildSettings.m */,
+				8B9C6BFA1BB1296A00242629 /* XCWorkspace.h */,
+				8B9C6BFB1BB1296A00242629 /* XCWorkspace.m */,
 				8B60ADE11BABCE5900672762 /* Categories */,
 			);
 			name = XcodeEditor;
@@ -292,12 +292,12 @@
 		8B60ADE11BABCE5900672762 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				8B60ADE21BABCE6B00672762 /* NSString+XCAdditions.h */,
-				8B60ADE31BABCE6B00672762 /* NSString+XCAdditions.m */,
-				8B60ADE41BABCE6B00672762 /* XCProject+Extensions.h */,
-				8B60ADE51BABCE6B00672762 /* XCProject+Extensions.m */,
-				8B60ADE61BABCE6B00672762 /* XCTarget+XCProject.h */,
-				8B60ADE71BABCE6B00672762 /* XCTarget+XCProject.m */,
+				8B9C6BEF1BB1295C00242629 /* NSString+XCAdditions.h */,
+				8B9C6BF01BB1295C00242629 /* NSString+XCAdditions.m */,
+				8B9C6BF11BB1295C00242629 /* XCProject+Extensions.h */,
+				8B9C6BF21BB1295C00242629 /* XCProject+Extensions.m */,
+				8B9C6BF31BB1295C00242629 /* XCTarget+XCProject.h */,
+				8B9C6BF41BB1295C00242629 /* XCTarget+XCProject.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -305,40 +305,40 @@
 		8B60ADF51BABCE9C00672762 /* XcodeEditor */ = {
 			isa = PBXGroup;
 			children = (
-				8B60ADF61BABCEA800672762 /* XCAbstractDefinition.h */,
-				8B60ADF71BABCEA800672762 /* XCAbstractDefinition.m */,
-				8B60ADF81BABCEA800672762 /* XCClassDefinition.h */,
-				8B60ADF91BABCEA800672762 /* XCClassDefinition.m */,
-				8B60ADFA1BABCEA800672762 /* XCFileOperationQueue.h */,
-				8B60ADFB1BABCEA800672762 /* XCFileOperationQueue.m */,
-				8B60ADFC1BABCEA800672762 /* XCFrameworkDefinition.h */,
-				8B60ADFD1BABCEA800672762 /* XCFrameworkDefinition.m */,
-				8B60ADFE1BABCEA800672762 /* XCGroup.h */,
-				8B60ADFF1BABCEA800672762 /* XCGroup.m */,
-				8B60AE001BABCEA800672762 /* XCKeyBuilder.h */,
-				8B60AE011BABCEA800672762 /* XCKeyBuilder.m */,
-				8B60AE021BABCEA800672762 /* XCProject.h */,
-				8B60AE031BABCEA800672762 /* XCProject.m */,
-				8B60AE041BABCEA800672762 /* XCProject+SubProject.h */,
-				8B60AE051BABCEA800672762 /* XCProject+SubProject.m */,
-				8B60AE061BABCEA800672762 /* XCProjectBuildConfig.h */,
-				8B60AE071BABCEA800672762 /* XCProjectBuildConfig.m */,
-				8B60AE081BABCEA800672762 /* XCSourceFile.h */,
-				8B60AE091BABCEA800672762 /* XCSourceFile.m */,
-				8B60AE0A1BABCEA800672762 /* XCSourceFileDefinition.h */,
-				8B60AE0B1BABCEA800672762 /* XCSourceFileDefinition.m */,
-				8B60AE0C1BABCEA800672762 /* XCSubProjectDefinition.h */,
-				8B60AE0D1BABCEA800672762 /* XCSubProjectDefinition.m */,
-				8B60AE0E1BABCEA800672762 /* XCTarget.h */,
-				8B60AE0F1BABCEA800672762 /* XCTarget.m */,
-				8B60AE101BABCEA800672762 /* XCXibDefinition.h */,
-				8B60AE111BABCEA800672762 /* XCXibDefinition.m */,
-				8B60AE121BABCEA800672762 /* XcodeEditor.h */,
-				8B60AE131BABCEA800672762 /* XcodeGroupMember.h */,
-				8B60AE141BABCEA800672762 /* XcodeMemberType.h */,
-				8B60AE151BABCEA800672762 /* XcodeMemberType.m */,
-				8B60AE161BABCEA800672762 /* XcodeSourceFileType.h */,
-				8B60AE171BABCEA800672762 /* XcodeSourceFileType.m */,
+				8B9C6BFE1BB1297E00242629 /* XCAbstractDefinition.h */,
+				8B9C6BFF1BB1297E00242629 /* XCAbstractDefinition.m */,
+				8B9C6C001BB1297E00242629 /* XCClassDefinition.h */,
+				8B9C6C011BB1297E00242629 /* XCClassDefinition.m */,
+				8B9C6C021BB1297E00242629 /* XCFileOperationQueue.h */,
+				8B9C6C031BB1297E00242629 /* XCFileOperationQueue.m */,
+				8B9C6C041BB1297E00242629 /* XCFrameworkDefinition.h */,
+				8B9C6C051BB1297E00242629 /* XCFrameworkDefinition.m */,
+				8B9C6C061BB1297E00242629 /* XCGroup.h */,
+				8B9C6C071BB1297E00242629 /* XCGroup.m */,
+				8B9C6C081BB1297E00242629 /* XCKeyBuilder.h */,
+				8B9C6C091BB1297E00242629 /* XCKeyBuilder.m */,
+				8B9C6C0A1BB1297E00242629 /* XcodeEditor.h */,
+				8B9C6C0B1BB1297E00242629 /* XcodeGroupMember.h */,
+				8B9C6C0C1BB1297E00242629 /* XcodeMemberType.h */,
+				8B9C6C0D1BB1297E00242629 /* XcodeMemberType.m */,
+				8B9C6C0E1BB1297E00242629 /* XcodeSourceFileType.h */,
+				8B9C6C0F1BB1297E00242629 /* XcodeSourceFileType.m */,
+				8B9C6C101BB1297E00242629 /* XCProject.h */,
+				8B9C6C111BB1297E00242629 /* XCProject.m */,
+				8B9C6C121BB1297E00242629 /* XCProject+SubProject.h */,
+				8B9C6C131BB1297E00242629 /* XCProject+SubProject.m */,
+				8B9C6C141BB1297E00242629 /* XCProjectBuildConfig.h */,
+				8B9C6C151BB1297E00242629 /* XCProjectBuildConfig.m */,
+				8B9C6C161BB1297E00242629 /* XCSourceFile.h */,
+				8B9C6C171BB1297E00242629 /* XCSourceFile.m */,
+				8B9C6C181BB1297E00242629 /* XCSourceFileDefinition.h */,
+				8B9C6C191BB1297E00242629 /* XCSourceFileDefinition.m */,
+				8B9C6C1A1BB1297E00242629 /* XCSubProjectDefinition.h */,
+				8B9C6C1B1BB1297E00242629 /* XCSubProjectDefinition.m */,
+				8B9C6C1C1BB1297E00242629 /* XCTarget.h */,
+				8B9C6C1D1BB1297E00242629 /* XCTarget.m */,
+				8B9C6C1E1BB1297E00242629 /* XCXibDefinition.h */,
+				8B9C6C1F1BB1297E00242629 /* XCXibDefinition.m */,
 			);
 			name = XcodeEditor;
 			sourceTree = "<group>";
@@ -346,14 +346,14 @@
 		8B60AE2A1BABCF1F00672762 /* Package */ = {
 			isa = PBXGroup;
 			children = (
+				8B9C6C541BB129F800242629 /* AutoGetterAchieve.h */,
+				8B9C6C551BB129F800242629 /* AutoGetterAchieve.m */,
+				8B9C6C561BB129F800242629 /* MenuItemAchieve.h */,
+				8B9C6C571BB129F800242629 /* MenuItemAchieve.m */,
+				8B9C6C581BB129F800242629 /* QYMenuActionProtocol.h */,
+				8B9C6C591BB129F800242629 /* RequestTemplateAchieve.h */,
+				8B9C6C5A1BB129F800242629 /* RequestTemplateAchieve.m */,
 				8B60AE721BAC2CD100672762 /* Template */,
-				8B60AE2F1BABDCA400672762 /* MenuItemAchieve.h */,
-				8B60AE301BABDCA400672762 /* MenuItemAchieve.m */,
-				8B60AE2E1BABDBE800672762 /* QYMenuActionProtocol.h */,
-				8B60AE2B1BABCFDC00672762 /* AutoGetterAchieve.h */,
-				8B60AE2C1BABCFDC00672762 /* AutoGetterAchieve.m */,
-				8B60AE371BABEC6700672762 /* RequestTemplateAchieve.h */,
-				8B60AE381BABEC6700672762 /* RequestTemplateAchieve.m */,
 			);
 			name = Package;
 			sourceTree = "<group>";
@@ -487,43 +487,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B60ADE81BABCE6B00672762 /* NSString+XCAdditions.m in Sources */,
-				8B60ADD51BABCE2900672762 /* NSFileManager+Headers.m in Sources */,
-				8B60ADF01BABCE7500672762 /* XCWorkspace.m in Sources */,
-				8B60ADDA1BABCE2900672762 /* NSString+MHNSRange.m in Sources */,
-				8B60ADF41BABCE7F00672762 /* MHXcodeDocumentNavigator.m in Sources */,
-				8B60ADB21BABB7F100672762 /* QYXcodePlugIn.m in Sources */,
-				8B60AE311BABDCA400672762 /* MenuItemAchieve.m in Sources */,
-				8B60AE1D1BABCEA800672762 /* XCKeyBuilder.m in Sources */,
-				8B60AE241BABCEA800672762 /* XCTarget.m in Sources */,
-				8B60AE391BABEC6700672762 /* RequestTemplateAchieve.m in Sources */,
-				8B60ADDB1BABCE2900672762 /* NSTextView+Operations.m in Sources */,
-				8B60ADD61BABCE2900672762 /* NSMutableIndexSet+NSArray.m in Sources */,
-				8B60ADDD1BABCE2900672762 /* XCSourceFile+Path.m in Sources */,
-				8B60AE261BABCEA800672762 /* XcodeMemberType.m in Sources */,
-				8B60ADD81BABCE2900672762 /* NSString+Extensions.m in Sources */,
-				8B60ADDC1BABCE2900672762 /* NSView+Dumping.m in Sources */,
-				8B60ADD31BABCE2900672762 /* DVTSourceTextStorage+Operations.m in Sources */,
-				8B60AE2D1BABCFDC00672762 /* AutoGetterAchieve.m in Sources */,
-				8B60ADD71BABCE2900672762 /* NSObject+MHLogMethods.m in Sources */,
-				8B60AE1F1BABCEA800672762 /* XCProject+SubProject.m in Sources */,
-				8B60AE251BABCEA800672762 /* XCXibDefinition.m in Sources */,
-				8B60AE1B1BABCEA800672762 /* XCFrameworkDefinition.m in Sources */,
-				8B60AE181BABCEA800672762 /* XCAbstractDefinition.m in Sources */,
-				8B60AE1A1BABCEA800672762 /* XCFileOperationQueue.m in Sources */,
-				8B60ADEF1BABCE7500672762 /* XCBuildSettings.m in Sources */,
-				8B60AE211BABCEA800672762 /* XCSourceFile.m in Sources */,
-				8B60ADE91BABCE6B00672762 /* XCProject+Extensions.m in Sources */,
-				8B60ADD91BABCE2900672762 /* NSString+Files.m in Sources */,
-				8B60ADD41BABCE2900672762 /* NSArray+Operations.m in Sources */,
-				8B60AE1C1BABCEA800672762 /* XCGroup.m in Sources */,
-				8B60ADEA1BABCE6B00672762 /* XCTarget+XCProject.m in Sources */,
-				8B60AE221BABCEA800672762 /* XCSourceFileDefinition.m in Sources */,
-				8B60AE201BABCEA800672762 /* XCProjectBuildConfig.m in Sources */,
-				8B60AE1E1BABCEA800672762 /* XCProject.m in Sources */,
-				8B60AE231BABCEA800672762 /* XCSubProjectDefinition.m in Sources */,
-				8B60AE271BABCEA800672762 /* XcodeSourceFileType.m in Sources */,
-				8B60AE191BABCEA800672762 /* XCClassDefinition.m in Sources */,
+				8B9C6C4D1BB1298D00242629 /* NSString+MHNSRange.m in Sources */,
+				8B9C6C2F1BB1297E00242629 /* XCXibDefinition.m in Sources */,
+				8B9C6C281BB1297E00242629 /* XCProject.m in Sources */,
+				8B9C6C4B1BB1298D00242629 /* NSString+Extensions.m in Sources */,
+				8B9C6C531BB129ED00242629 /* QYXcodePlugIn.m in Sources */,
+				8B9C6C271BB1297E00242629 /* XcodeSourceFileType.m in Sources */,
+				8B9C6C4C1BB1298D00242629 /* NSString+Files.m in Sources */,
+				8B9C6C2C1BB1297E00242629 /* XCSourceFileDefinition.m in Sources */,
+				8B9C6C201BB1297E00242629 /* XCAbstractDefinition.m in Sources */,
+				8B9C6C5C1BB129F800242629 /* MenuItemAchieve.m in Sources */,
+				8B9C6C5D1BB129F800242629 /* RequestTemplateAchieve.m in Sources */,
+				8B9C6C251BB1297E00242629 /* XCKeyBuilder.m in Sources */,
+				8B9C6BF71BB1295C00242629 /* XCTarget+XCProject.m in Sources */,
+				8B9C6BF51BB1295C00242629 /* NSString+XCAdditions.m in Sources */,
+				8B9C6BFD1BB1296A00242629 /* XCWorkspace.m in Sources */,
+				8B9C6C2B1BB1297E00242629 /* XCSourceFile.m in Sources */,
+				8B9C6C2A1BB1297E00242629 /* XCProjectBuildConfig.m in Sources */,
+				8B9C6C2E1BB1297E00242629 /* XCTarget.m in Sources */,
+				8B9C6C241BB1297E00242629 /* XCGroup.m in Sources */,
+				8B9C6C231BB1297E00242629 /* XCFrameworkDefinition.m in Sources */,
+				8B9C6C4A1BB1298D00242629 /* NSObject+MHLogMethods.m in Sources */,
+				8B9C6C2D1BB1297E00242629 /* XCSubProjectDefinition.m in Sources */,
+				8B9C6C261BB1297E00242629 /* XcodeMemberType.m in Sources */,
+				8B9C6C491BB1298D00242629 /* NSMutableIndexSet+NSArray.m in Sources */,
+				8B9C6C211BB1297E00242629 /* XCClassDefinition.m in Sources */,
+				8B9C6C291BB1297E00242629 /* XCProject+SubProject.m in Sources */,
+				8B9C6C471BB1298D00242629 /* NSArray+Operations.m in Sources */,
+				8B9C6C461BB1298D00242629 /* DVTSourceTextStorage+Operations.m in Sources */,
+				8B9C6BEE1BB1293E00242629 /* MHXcodeDocumentNavigator.m in Sources */,
+				8B9C6C4F1BB1298D00242629 /* NSView+Dumping.m in Sources */,
+				8B9C6BFC1BB1296A00242629 /* XCBuildSettings.m in Sources */,
+				8B9C6C5B1BB129F800242629 /* AutoGetterAchieve.m in Sources */,
+				8B9C6BF61BB1295C00242629 /* XCProject+Extensions.m in Sources */,
+				8B9C6C4E1BB1298D00242629 /* NSTextView+Operations.m in Sources */,
+				8B9C6C501BB1298D00242629 /* XCSourceFile+Path.m in Sources */,
+				8B9C6C221BB1297E00242629 /* XCFileOperationQueue.m in Sources */,
+				8B9C6C481BB1298D00242629 /* NSFileManager+Headers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
