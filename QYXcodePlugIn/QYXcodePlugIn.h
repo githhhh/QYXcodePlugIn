@@ -8,14 +8,14 @@
 
 #import <AppKit/AppKit.h>
 
-@class QYXcodePlugIn;
 
-static QYXcodePlugIn *sharedPlugin;
 
 @interface QYXcodePlugIn : NSObject
-
++ (void)pluginDidLoad:(NSBundle *)plugin;
 + (instancetype)sharedPlugin;
-- (id)initWithBundle:(NSBundle *)plugin;
 
 @property (nonatomic, strong, readonly) NSBundle* bundle;
+
+
+@property (nonatomic,retain)id globlaParamter;
 @end

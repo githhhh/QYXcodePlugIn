@@ -1,5 +1,5 @@
 //
-//  NSObject_Extension.h
+//  AutoGetterAchieve.h
 //  QYXcodePlugIn
 //
 //  Created by 唐斌 on 15/9/18.
@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface NSObject (Xcode_Plugin_Template_Extension)
-
-+ (void)pluginDidLoad:(NSBundle *)plugin;
-
+#import "QYMenuActionProtocol.h"
+@interface AutoGetterAchieve : NSObject<QYMenuActionProtocol>
 
 @end

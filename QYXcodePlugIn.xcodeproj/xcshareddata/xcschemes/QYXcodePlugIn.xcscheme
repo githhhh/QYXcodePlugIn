@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "890A4B3E171F031300AFE577"
+               BlueprintIdentifier = "8B60ADA31BABB7F100672762"
                BuildableName = "QYXcodePlugIn.xcplugin"
                BlueprintName = "QYXcodePlugIn"
                ReferencedContainer = "container:QYXcodePlugIn.xcodeproj">
@@ -56,12 +56,14 @@
       allowLocationSimulation = "NO"
       viewDebuggingEnabled = "No">
       <PathRunnable
+         runnableDebuggingMode = "0"
+         BundleIdentifier = "com.apple.dt.Xcode"
          FilePath = "/Applications/Xcode.app">
       </PathRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "890A4B3E171F031300AFE577"
+            BlueprintIdentifier = "8B60ADA31BABB7F100672762"
             BuildableName = "QYXcodePlugIn.xcplugin"
             BlueprintName = "QYXcodePlugIn"
             ReferencedContainer = "container:QYXcodePlugIn.xcodeproj">

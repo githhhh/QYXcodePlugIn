@@ -1,0 +1,41 @@
+
+@interface @&()
+
+@property (nonatomic,retain)NSDictionary *paramter;
+
+@end
+
+@implementation @&
+
+-(id)initWithParamter:(NSDictionary *)paramterDic{
+    self = [super init];
+    if (self) {
+        _paramter = paramterDic;
+    }
+    return self;
+}
+
+
+- (NSString *)requestUrl {
+    return @"/xx/xx/xx";
+}
+
+- (YTKRequestMethod)requestMethod {
+    return YTKRequestMethodGet;
+}
+
+
+- (NSDictionary *)requestParamter {
+    return _paramter;
+}
+ 
+-(id)validatorResult{
+    return  nil;
+}
+
+//-(NSDictionary *)testData{
+//    return nil;
+//}
+
+
+@end
