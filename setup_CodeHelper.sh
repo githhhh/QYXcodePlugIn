@@ -44,6 +44,11 @@ function codeTemplateFun(){
 #安装代码片段
 codeSnippetFun
 #安装代码模板
-# codeTemplateFun
+codeTemplateFun
 
-echo "==done="
+#重启xcode
+pkill -9 -x Xcode
+sleep 0.2
+open /Applications/Xcode.app
+
+echo "==enjoy="

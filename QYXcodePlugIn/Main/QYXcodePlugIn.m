@@ -84,7 +84,7 @@ static OSStatus lafHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEve
     lafHotKeyID.signature='lak1';
     lafHotKeyID.id=2;
     
-    RegisterEventHotKey(kVK_ANSI_H, cmdKey+shiftKey, lafHotKeyID, GetApplicationEventTarget(), 0, &lafHotKeyRef);
+    RegisterEventHotKey(kVK_ANSI_T, cmdKey+shiftKey, lafHotKeyID, GetApplicationEventTarget(), 0, &lafHotKeyRef);
 }
 
 @end
