@@ -38,17 +38,29 @@ function codeTemplateFun(){
     ln -s ${SRC_HOME}/QYFileTemplate ~/Library/Developer/Xcode/Templates/File\ Templates/QYFileTemplate
 }
 
+#安装clang-format
+function install_clangFormat(){
+   brew install clang-format
+   export PATH=/usr/local/bin:$PATH
+   clang-format
+}
+
 
 #call fun
 
+#安装clang-format
+install_clangFormat
 #安装代码片段
 codeSnippetFun
 #安装代码模板
 codeTemplateFun
+
+
+
 
 #重启xcode
 pkill -9 -x Xcode
 sleep 0.2
 open /Applications/Xcode.app
 
-echo "==enjoy="
+echo "======enjoy==GO!!!!!!!!====="

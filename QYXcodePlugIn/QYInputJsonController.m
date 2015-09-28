@@ -137,7 +137,10 @@ static NSString *NumberClass = @"[NSNumber class]";
     }
     
    NSString *path = [self launchClangFormatPath];
-   NSString *newContent = [self formatWithStyle:@"LLVM" usingClangFormatAtLaunchPath:path filePath:tempPath];
+    
+    //直接指定style
+   NSString *newContent  = [self runCommand:[NSString stringWithFormat:@"%@ -style=\"{IndentWidth: 4,TabWidth: 4,UseTab: Never,BreakBeforeBraces: Stroustrup,ObjCBlockIndentWidth: 4,ObjCSpaceAfterProperty: true,ColumnLimit: 120,AlignTrailingComments: true,SpaceAfterCStyleCast: true}\"  %@",path,tempPath] ];
+    [[NSFileManager defaultManager] removeItemAtPath:tempPath  error:nil];
     
    return newContent;
 }
@@ -253,6 +256,9 @@ static NSString *NumberClass = @"[NSNumber class]";
     return dictStr;
 }
 
+#pragma mark -
+#pragma mark - NSTask shell
+
 /**
  *  获取clang-format 启动路径
  *
@@ -296,11 +302,11 @@ static NSString *NumberClass = @"[NSNumber class]";
 /**
  *  格式化
  *
- *  @param style      <#style description#>
- *  @param launchPath <#launchPath description#>
- *  @param tmpFileURL <#tmpFileURL description#>
+ *  @param style      style description
+ *  @param launchPath launchPath description
+ *  @param tmpFileURL tmpFileURL description
  *
- *  @return <#return value description#>
+ *  @return return value description
  */
 - (NSString *)formatWithStyle:(NSString *)style
  usingClangFormatAtLaunchPath:(NSString *)launchPath
@@ -340,6 +346,39 @@ static NSString *NumberClass = @"[NSNumber class]";
     [[NSFileManager defaultManager] removeItemAtPath:tmpFileURL  error:nil];
     
     return newContent;
+}
+
+
+/**
+ *  直接执行shell  command
+ *
+ *  @param commandToRun commandToRun description
+ *
+ *  @return return value description
+ */
+- (NSString *)runCommand:(NSString *)commandToRun
+{
+    NSTask *task = [[NSTask alloc] init];
+    [task setLaunchPath:@"/bin/sh"];
+    
+    NSArray *arguments = [NSArray arrayWithObjects:
+                          @"-c" ,
+                          [NSString stringWithFormat:@"%@", commandToRun],
+                          nil];
+    NSLog(@"run command:%@", commandToRun);
+    [task setArguments:arguments];
+    
+    NSPipe *pipe = [NSPipe pipe];
+    [task setStandardOutput:pipe];
+    
+    NSFileHandle *file = [pipe fileHandleForReading];
+    
+    [task launch];
+    
+    NSData *data = [file readDataToEndOfFile];
+    
+    NSString *output = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return output;
 }
 
 
