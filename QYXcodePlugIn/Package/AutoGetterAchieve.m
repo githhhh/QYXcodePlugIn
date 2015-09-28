@@ -16,6 +16,11 @@
 
 @implementation AutoGetterAchieve
 
+-(void)dealloc{
+    NSLog(@"===AutoGetterAchieve=======dealloc=");
+}
+
+
 -(void)menuItemAction:(NSString *)selecteText{
     
     if (!(selecteText && selecteText.length > 0)) {

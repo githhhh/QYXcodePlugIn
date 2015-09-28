@@ -11,6 +11,13 @@
 #import <AppKit/AppKit.h>
 #import "QYMenuActionProtocol.h"
 #import "MenuItemAchieve.h"
+#import "QYInputJsonController.h"
+#import "MHXcodeDocumentNavigator.h"
+
+@interface QYIDENotificationHandler ()<QYInputJsonControllerDelegate>
+@property (nonatomic,retain)QYInputJsonController *inputJsonWindow;
+@end
+
 @implementation QYIDENotificationHandler
 
 
@@ -92,6 +99,7 @@
     //设置热键
     [subItem setKeyEquivalentModifierMask:NSControlKeyMask];
     [subItem setTarget:self];
+    subItem.tag = 1;
     
     //分割线
     [subMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
@@ -101,9 +109,18 @@
     //设置热键
     [subItem1 setKeyEquivalentModifierMask:NSControlKeyMask];
     [subItem1 setTarget:self];
+    subItem1.tag = 2;
     
+    //分割线
+    [subMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
+
     
-    
+    NSMenuItem*subItem2 = [subMenu addItemWithTitle:@"Input Json Window" action:@selector(itemAction:) keyEquivalent:@"s"];//热键 + 『D』
+    //设置热键
+    [subItem2 setKeyEquivalentModifierMask:NSControlKeyMask];
+    [subItem2 setTarget:self];
+    subItem2.tag = 12;
+
     
     [actionMenuItem setSubmenu:subMenu];
 }
@@ -114,10 +131,26 @@
  */
 - (void)itemAction:(NSMenuItem *)item
 {
-    id<QYMenuActionProtocol> achieve = [MenuItemAchieve createMenuActionResponse:item];
-    [achieve menuItemAction:self.globlaParamter];
+    if (item.tag < 10) {
+        id<QYMenuActionProtocol> achieve = [MenuItemAchieve createMenuActionResponse:item];
+        [achieve menuItemAction:self.globlaParamter];
+    }else{
+        NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
+        
+        self.inputJsonWindow = [[QYInputJsonController alloc] initWithWindowNibName:@"QYInputJsonController"];
+        
+        self.inputJsonWindow.sourcePath = [MHXcodeDocumentNavigator currentFilePath];
+        self.inputJsonWindow.sourceTextView = textView;
+        self.inputJsonWindow.delegate = self;
+        [self.inputJsonWindow showWindow:self.inputJsonWindow];
+    }
+   
 }
 
+#pragma mark - 释放
+-(void)windowDidClose{
+    self.inputJsonWindow = nil;
+}
 
 
 

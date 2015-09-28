@@ -62,9 +62,9 @@
 - (id)validatorResult {
     
     return @{
-             @"xx" : [ClassName class],
-             @"yy" : [ClassName class],
-             @"zz" : [ClassName class]
+             @"xx" : [NSString class],
+             @"yy" : [NSString class],
+             @"zz" : [NSString class]
              };
 }
 
