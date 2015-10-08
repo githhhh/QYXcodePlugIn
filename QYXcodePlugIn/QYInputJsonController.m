@@ -78,8 +78,8 @@ static NSString *NumberClass = @"[NSNumber class]";
     self.validatorMethodStr = validatorMStr;
     
     NSMutableString *testDataMStr = [NSMutableString stringWithCapacity:0];
-    [testDataMStr appendString:@"//#warning  本地测试数据，正式环境需要注释或删除\n/*\n-(NSDictionary *)testData {\n"];
-    [testDataMStr appendString:[NSString stringWithFormat:@"      return %@;\n}\n*/\n",self.testDataMethodStr]];
+    [testDataMStr appendString:@"\n#warning  本地测试数据，正式环境需要注释或删除\n\n-(NSDictionary *)testData {\n"];
+    [testDataMStr appendString:[NSString stringWithFormat:@"      return %@;\n}\n",self.testDataMethodStr]];
     self.testDataMethodStr = testDataMStr;
     
     
