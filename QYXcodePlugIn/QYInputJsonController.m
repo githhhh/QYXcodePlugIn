@@ -139,7 +139,7 @@ static NSString *NumberClass = @"[NSNumber class]";
    NSString *path = [self launchClangFormatPath];
     
     //直接指定style
-   NSString *newContent  = [self runCommand:[NSString stringWithFormat:@"%@ -style=\"{IndentWidth: 4,TabWidth: 4,UseTab: Never,BreakBeforeBraces: Stroustrup,ObjCBlockIndentWidth: 4,ObjCSpaceAfterProperty: true,ColumnLimit: 120,AlignTrailingComments: true,SpaceAfterCStyleCast: true}\"  %@",path,tempPath] ];
+   NSString *newContent  = [self runCommand:[NSString stringWithFormat:@"%@ -style=\"{BasedOnStyle: llvm,AlignTrailingComments: true,BreakBeforeBraces: Linux,ColumnLimit: 120,IndentWidth: 4,KeepEmptyLinesAtTheStartOfBlocks: false,MaxEmptyLinesToKeep: 2,ObjCSpaceAfterProperty: true,ObjCSpaceBeforeProtocolList: true,PointerBindsToType: false,SpacesBeforeTrailingComments: 1,TabWidth: 4,UseTab: Never,BinPackParameters: false}\"  %@",path,tempPath] ];
    [[NSFileManager defaultManager] removeItemAtPath:tempPath  error:nil];
     
    return newContent;
