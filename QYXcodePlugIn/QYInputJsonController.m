@@ -55,7 +55,13 @@ static NSString *NumberClass = @"[NSNumber class]";
 
 
 - (IBAction)confirmAction:(id)sender {
+    if (!self.currJsonStr) {
+        self.window.title = @"JSON 内容为空";
+        [self.window setBackgroundColor:[NSColor redColor]];
+        return;
+    }
     id resulte = [self dictionaryWithJsonStr:self.currJsonStr];
+ 
     if ([resulte isKindOfClass:[NSError class]]) {
         self.window.title = @"不符合Json 格式";
         [self.window setBackgroundColor:[NSColor redColor]];
@@ -67,7 +73,6 @@ static NSString *NumberClass = @"[NSNumber class]";
     if ([resulte isKindOfClass:[NSDictionary class]]) {
         data = resulte[@"data"];
     }
-    
     self.validatorMethodStr = [self getJsonString:data withValidator:YES];
     
     self.testDataMethodStr = [self getJsonString:resulte withValidator:NO];

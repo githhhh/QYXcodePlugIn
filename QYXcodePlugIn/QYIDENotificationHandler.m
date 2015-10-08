@@ -13,7 +13,7 @@
 #import "MenuItemAchieve.h"
 #import "QYInputJsonController.h"
 #import "MHXcodeDocumentNavigator.h"
-
+#import "NSString+Extensions.h"
 @interface QYIDENotificationHandler ()<QYInputJsonControllerDelegate>
 @property (nonatomic,retain)QYInputJsonController *inputJsonWindow;
 @end
@@ -105,14 +105,14 @@
     [subMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
     
     
-    NSMenuItem*subItem1 = [subMenu addItemWithTitle:@"RequestTemplate" action:@selector(itemAction:) keyEquivalent:@"D"];//热键 + 『D』
-    //设置热键
-    [subItem1 setKeyEquivalentModifierMask:NSControlKeyMask];
-    [subItem1 setTarget:self];
-    subItem1.tag = 2;
-    
-    //分割线
-    [subMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
+//    NSMenuItem*subItem1 = [subMenu addItemWithTitle:@"RequestTemplate" action:@selector(itemAction:) keyEquivalent:@"D"];//热键 + 『D』
+//    //设置热键
+//    [subItem1 setKeyEquivalentModifierMask:NSControlKeyMask];
+//    [subItem1 setTarget:self];
+//    subItem1.tag = 2;
+//    
+//    //分割线
+//    [subMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
 
     
     NSMenuItem*subItem2 = [subMenu addItemWithTitle:@"Input Json Window" action:@selector(itemAction:) keyEquivalent:@"S"];//热键 + 『D』
@@ -135,11 +135,23 @@
         id<QYMenuActionProtocol> achieve = [MenuItemAchieve createMenuActionResponse:item];
         [achieve menuItemAction:self.globlaParamter];
     }else{
+        NSString *currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
+        if (!currentFilePath) {
+            return;
+        }
         NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
         
-        self.inputJsonWindow = [[QYInputJsonController alloc] initWithWindowNibName:@"QYInputJsonController"];
         
-        self.inputJsonWindow.sourcePath = [MHXcodeDocumentNavigator currentFilePath];
+        currentFilePath = [currentFilePath stringByReplacingCharactersInRange:NSMakeRange(currentFilePath.length-1, 1) withString:@"h"];
+        NSString *soureString = [NSString stringWithContentsOfFile:currentFilePath encoding:NSUTF8StringEncoding error:nil];
+        
+        NSArray *contents = [soureString matcheGroupWith:@"@\\w+\\s*(\\w+)\\s*\\:\\s+QYRequest\\s"];
+        if (!([contents count]>0)) {
+            return;
+        }
+        
+        self.inputJsonWindow = [[QYInputJsonController alloc] initWithWindowNibName:@"QYInputJsonController"];
+        self.inputJsonWindow.sourcePath = currentFilePath;
         self.inputJsonWindow.sourceTextView = textView;
         self.inputJsonWindow.delegate = self;
         [self.inputJsonWindow showWindow:self.inputJsonWindow];
