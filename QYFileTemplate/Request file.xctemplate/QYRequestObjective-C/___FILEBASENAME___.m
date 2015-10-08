@@ -31,7 +31,7 @@
  */
 - (NSString *)requestUrl {
     //: /qyer/startpage/banner
-    return @"/xx/xx";
+    return <#@"/xx/xx"#>;
 }
 
 /**
@@ -41,7 +41,7 @@
  */
 - (YTKRequestMethod)requestMethod {
     
-    return YTKRequestMethodGet;
+    return <#YTKRequestMethodGet#>;
 }
 
 /**
@@ -55,24 +55,7 @@
 }
 
 /**
- *  验证服务器返回字段
- *
- *  @return return value description
+ *  快捷键 control+S 输入接口文档返回数据结构模板【JSON】
+ *  自动生成验证返回字段方法 和 本地测试数据方法
  */
-- (id)validatorResult {
-    
-    return @{
-             @"xx" : [NSString class],
-             @"yy" : [NSString class],
-             @"zz" : [NSString class]
-             };
-}
-
-/**
- *  本地测试数据,联调是需要删除
- */
-//-(NSDictionary *)testData{
-//    return nil;
-//}
-
 @end

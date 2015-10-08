@@ -78,12 +78,12 @@ static NSString *NumberClass = @"[NSNumber class]";
     self.validatorMethodStr = validatorMStr;
     
     NSMutableString *testDataMStr = [NSMutableString stringWithCapacity:0];
-    [testDataMStr appendString:@"\n-(NSDictionary *)testData {\n"];
-    [testDataMStr appendString:[NSString stringWithFormat:@"      return %@;\n}\n",self.testDataMethodStr]];
+    [testDataMStr appendString:@"//#warning  本地测试数据，正式环境需要注释或删除\n/*\n-(NSDictionary *)testData {\n"];
+    [testDataMStr appendString:[NSString stringWithFormat:@"      return %@;\n}\n*/\n",self.testDataMethodStr]];
     self.testDataMethodStr = testDataMStr;
     
     
-    
+
     NSMutableString *methodStr = [NSMutableString stringWithString:self.validatorMethodStr];
     [methodStr appendString:self.testDataMethodStr];
     [methodStr appendString:@"@end"];
@@ -140,7 +140,7 @@ static NSString *NumberClass = @"[NSNumber class]";
     
     //直接指定style
    NSString *newContent  = [self runCommand:[NSString stringWithFormat:@"%@ -style=\"{IndentWidth: 4,TabWidth: 4,UseTab: Never,BreakBeforeBraces: Stroustrup,ObjCBlockIndentWidth: 4,ObjCSpaceAfterProperty: true,ColumnLimit: 120,AlignTrailingComments: true,SpaceAfterCStyleCast: true}\"  %@",path,tempPath] ];
-    [[NSFileManager defaultManager] removeItemAtPath:tempPath  error:nil];
+   [[NSFileManager defaultManager] removeItemAtPath:tempPath  error:nil];
     
    return newContent;
 }

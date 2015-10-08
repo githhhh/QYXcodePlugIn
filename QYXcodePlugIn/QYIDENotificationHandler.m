@@ -115,7 +115,7 @@
     [subMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
 
     
-    NSMenuItem*subItem2 = [subMenu addItemWithTitle:@"Input Json Window" action:@selector(itemAction:) keyEquivalent:@"s"];//热键 + 『D』
+    NSMenuItem*subItem2 = [subMenu addItemWithTitle:@"Input Json Window" action:@selector(itemAction:) keyEquivalent:@"S"];//热键 + 『D』
     //设置热键
     [subItem2 setKeyEquivalentModifierMask:NSControlKeyMask];
     [subItem2 setTarget:self];
