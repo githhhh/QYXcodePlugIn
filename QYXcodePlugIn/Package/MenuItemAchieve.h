@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 #import "QYMenuActionProtocol.h"
 @interface MenuItemAchieve : NSObject
-+ (id<QYMenuActionProtocol>)createMenuActionResponse:(NSMenuItem *)item;
++ (id)createMenuActionResponse:(NSMenuItem *)item preBlock:(BOOL(^)(void))preBlock;
 @end

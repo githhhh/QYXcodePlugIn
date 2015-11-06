@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "QYMenuActionProtocol.h"
+
+//无用
+
 @interface RequestTemplateAchieve : NSObject<QYMenuActionProtocol>
 
 @end

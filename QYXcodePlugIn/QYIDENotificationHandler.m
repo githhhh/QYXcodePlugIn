@@ -14,8 +14,14 @@
 #import "QYInputJsonController.h"
 #import "MHXcodeDocumentNavigator.h"
 #import "NSString+Extensions.h"
+#import "NSMenuItem+QYXcodePluginMenuItem.h"
+
+#import "QYPluginSetingController.h"
+
 @interface QYIDENotificationHandler ()<QYInputJsonControllerDelegate>
 @property (nonatomic,retain)QYInputJsonController *inputJsonWindow;
+@property (nonatomic,retain)QYPluginSetingController  *setingWindow;
+
 @end
 
 @implementation QYIDENotificationHandler
@@ -73,6 +79,7 @@
     }
 }
 
+#pragma mark -  选中内容改变
 - (void)didChangeSelecteText:(NSNotification *)noti{
     
     if ([[noti object] isKindOfClass:[NSTextView class]]) {
@@ -95,11 +102,12 @@
 -(void)addMenuOnQYActionMenu:(NSMenuItem *)actionMenuItem{
     
     NSMenu *subMenu = [[NSMenu alloc] init];
-    NSMenuItem*subItem = [subMenu addItemWithTitle:@"AutoGetter" action:@selector(itemAction:) keyEquivalent:@"F"];//热键 + 『F』
+    NSMenuItem*geterMenuItem = [subMenu addItemWithTitle:@"AutoGetter" action:@selector(itemAction:) keyEquivalent:@"F"];//热键 + 『F』
     //设置热键
-    [subItem setKeyEquivalentModifierMask:NSControlKeyMask];
-    [subItem setTarget:self];
-    subItem.tag = 1;
+    [geterMenuItem setKeyEquivalentModifierMask:NSControlKeyMask];
+    [geterMenuItem setTarget:self];
+    geterMenuItem.tag = 1;
+    geterMenuItem.achieveClassName = @"AutoGetterAchieve";
     
     //分割线
     [subMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
@@ -115,11 +123,23 @@
 //    [subMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
 
     
-    NSMenuItem*subItem2 = [subMenu addItemWithTitle:@"Input Json Window" action:@selector(itemAction:) keyEquivalent:@"S"];//热键 + 『D』
+    NSMenuItem*requestVerifiMenuItem = [subMenu addItemWithTitle:@"请求类校验方法" action:@selector(itemAction:) keyEquivalent:@"S"];//热键 + 『S』
     //设置热键
-    [subItem2 setKeyEquivalentModifierMask:NSControlKeyMask];
-    [subItem2 setTarget:self];
-    subItem2.tag = 12;
+    [requestVerifiMenuItem setKeyEquivalentModifierMask:NSControlKeyMask];
+    [requestVerifiMenuItem setTarget:self];
+    requestVerifiMenuItem.tag = 12;
+    requestVerifiMenuItem.achieveClassName = @"QYInputJsonController";
+    
+    
+    [subMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
+    
+    //全局设置
+    NSMenuItem *setMenuItem = [subMenu addItemWithTitle:@"Seting" action:@selector(itemAction:) keyEquivalent:@""];
+    [setMenuItem setTarget:self];
+    setMenuItem.tag = 13;
+    setMenuItem.achieveClassName = @"QYPluginSetingController";
+    
+    [subMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
 
     
     [actionMenuItem setSubmenu:subMenu];
@@ -132,29 +152,63 @@
 - (void)itemAction:(NSMenuItem *)item
 {
     if (item.tag < 10) {
-        id<QYMenuActionProtocol> achieve = [MenuItemAchieve createMenuActionResponse:item];
+        id<QYMenuActionProtocol> achieve = [MenuItemAchieve createMenuActionResponse:item preBlock:nil];
+        if (!achieve) {
+            return;
+        }
         [achieve menuItemAction:self.globlaParamter];
+        
     }else{
-        NSString *currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
-        if (!currentFilePath) {
-            return;
-        }
-        NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
         
         
-        currentFilePath = [currentFilePath stringByReplacingCharactersInRange:NSMakeRange(currentFilePath.length-1, 1) withString:@"h"];
-        NSString *soureString = [NSString stringWithContentsOfFile:currentFilePath encoding:NSUTF8StringEncoding error:nil];
-        
-        NSArray *contents = [soureString matcheGroupWith:@"@\\w+\\s*(\\w+)\\s*\\:\\s+QYRequest\\s"];
-        if (!([contents count]>0)) {
-            return;
-        }
-        
-        self.inputJsonWindow = [[QYInputJsonController alloc] initWithWindowNibName:@"QYInputJsonController"];
-        self.inputJsonWindow.sourcePath = currentFilePath;
-        self.inputJsonWindow.sourceTextView = textView;
-        self.inputJsonWindow.delegate = self;
-        [self.inputJsonWindow showWindow:self.inputJsonWindow];
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            
+            if (item.tag == 12) {
+                id achieve = [MenuItemAchieve createMenuActionResponse:item preBlock:^BOOL{
+                    
+                    NSString *currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
+                    if (!currentFilePath) {
+                        return NO;
+                    }
+                    NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
+                    if (!textView) {
+                        return NO;
+                    }
+                    currentFilePath = [currentFilePath stringByReplacingCharactersInRange:NSMakeRange(currentFilePath.length-1, 1) withString:@"h"];
+                    NSString *soureString = [NSString stringWithContentsOfFile:currentFilePath encoding:NSUTF8StringEncoding error:nil];
+                    
+                    NSArray *contents = [soureString matcheGroupWith:@"@\\w+\\s*(\\w+)\\s*\\:\\s+QYRequest\\s"];
+                    if (!([contents count]>0)) {
+                        return NO;
+                    }
+                    return YES;
+                }];
+                
+                if (!achieve) {
+                    return;
+                }
+                self.inputJsonWindow = achieve;
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.inputJsonWindow.sourceTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
+                    self.inputJsonWindow.delegate = self;
+                    [self.inputJsonWindow showWindow:self.inputJsonWindow];
+                    
+                });
+            }else if (item.tag == 13){
+                
+                id achieve = [MenuItemAchieve createMenuActionResponse:item preBlock:nil];
+                self.setingWindow = achieve;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.setingWindow.delegate = self;
+                    [self.setingWindow showWindow:self.setingWindow];
+                });
+            }
+            
+            
+            
+        });
+       
     }
    
 }
@@ -162,6 +216,7 @@
 #pragma mark - 释放
 -(void)windowDidClose{
     self.inputJsonWindow = nil;
+    self.setingWindow = nil;
 }
 
 

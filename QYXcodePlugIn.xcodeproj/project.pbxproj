@@ -7,23 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B0775391BB1578600458FD3 /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0775341BB1578600458FD3 /* TemplateIcon.png */; };
-		8B07753A1BB1578600458FD3 /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0775351BB1578600458FD3 /* TemplateIcon@2x.png */; };
-		8B07753B1BB1578600458FD3 /* TemplateInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B0775361BB1578600458FD3 /* TemplateInfo.plist */; };
 		8B171DB51BB144ED00BCD9F7 /* QYIDENotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B171DB41BB144ED00BCD9F7 /* QYIDENotificationHandler.m */; };
-		8B296FB81BB3DA0300621255 /* QYInputJsonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B296FB61BB3DA0300621255 /* QYInputJsonController.m */; settings = {ASSET_TAGS = (); }; };
-		8B296FB91BB3DA0300621255 /* QYInputJsonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B296FB71BB3DA0300621255 /* QYInputJsonController.xib */; settings = {ASSET_TAGS = (); }; };
+		8B296FB81BB3DA0300621255 /* QYInputJsonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B296FB61BB3DA0300621255 /* QYInputJsonController.m */; };
+		8B296FB91BB3DA0300621255 /* QYInputJsonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B296FB71BB3DA0300621255 /* QYInputJsonController.xib */; };
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
 		8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA91BABB7F100672762 /* Foundation.framework */; };
 		8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 8B60ADAE1BABB7F100672762 /* QYXcodePlugIn.xcscheme */; };
 		8B60AE291BABCEBB00672762 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60AE281BABCEBB00672762 /* Cocoa.framework */; };
-		8B60AE711BAC1A5D00672762 /* RequestTemplate in Resources */ = {isa = PBXBuildFile; fileRef = 8B60AE701BAC1A5D00672762 /* RequestTemplate */; };
+		8B8006A61BEB639E00E558C5 /* QYClangFormatCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8006A51BEB639E00E558C5 /* QYClangFormatCode.m */; };
+		8B8006AD1BEC56E300E558C5 /* QYPluginSetingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8006AB1BEC56E300E558C5 /* QYPluginSetingController.m */; };
+		8B8006AE1BEC56E300E558C5 /* QYPluginSetingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8006AC1BEC56E300E558C5 /* QYPluginSetingController.xib */; };
+		8B8006B31BEC598A00E558C5 /* NSMenuItem+QYXcodePluginMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8006B21BEC598A00E558C5 /* NSMenuItem+QYXcodePluginMenuItem.m */; };
 		8B9C6BD81BB1247700242629 /* setup_CodeHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */; };
-		8B9C6BDB1BB125A500242629 /* colloctionView.codesnippet in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD91BB125A500242629 /* colloctionView.codesnippet */; };
-		8B9C6BDC1BB125A500242629 /* hello.codesnippet in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BDA1BB125A500242629 /* hello.codesnippet */; };
-		8B9C6BE81BB125D300242629 /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BE31BB125D300242629 /* TemplateIcon.png */; };
-		8B9C6BE91BB125D300242629 /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BE41BB125D300242629 /* TemplateIcon@2x.png */; };
-		8B9C6BEA1BB125D300242629 /* TemplateInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BE51BB125D300242629 /* TemplateInfo.plist */; };
 		8B9C6BEE1BB1293E00242629 /* MHXcodeDocumentNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BEC1BB1293E00242629 /* MHXcodeDocumentNavigator.m */; };
 		8B9C6BF51BB1295C00242629 /* NSString+XCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BF01BB1295C00242629 /* NSString+XCAdditions.m */; };
 		8B9C6BF61BB1295C00242629 /* XCProject+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BF21BB1295C00242629 /* XCProject+Extensions.m */; };
@@ -81,7 +76,13 @@
 		8B60ADAD1BABB7F100672762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B60ADAE1BABB7F100672762 /* QYXcodePlugIn.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = QYXcodePlugIn.xcscheme; path = QYXcodePlugIn.xcodeproj/xcshareddata/xcschemes/QYXcodePlugIn.xcscheme; sourceTree = SOURCE_ROOT; };
 		8B60AE281BABCEBB00672762 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		8B60AE701BAC1A5D00672762 /* RequestTemplate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RequestTemplate; path = ../RequestTemplate; sourceTree = "<group>"; };
+		8B8006A41BEB639E00E558C5 /* QYClangFormatCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYClangFormatCode.h; sourceTree = "<group>"; };
+		8B8006A51BEB639E00E558C5 /* QYClangFormatCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYClangFormatCode.m; sourceTree = "<group>"; };
+		8B8006AA1BEC56E300E558C5 /* QYPluginSetingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYPluginSetingController.h; sourceTree = "<group>"; };
+		8B8006AB1BEC56E300E558C5 /* QYPluginSetingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYPluginSetingController.m; sourceTree = "<group>"; };
+		8B8006AC1BEC56E300E558C5 /* QYPluginSetingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QYPluginSetingController.xib; sourceTree = "<group>"; };
+		8B8006B11BEC598A00E558C5 /* NSMenuItem+QYXcodePluginMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMenuItem+QYXcodePluginMenuItem.h"; sourceTree = "<group>"; };
+		8B8006B21BEC598A00E558C5 /* NSMenuItem+QYXcodePluginMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMenuItem+QYXcodePluginMenuItem.m"; sourceTree = "<group>"; };
 		8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = setup_CodeHelper.sh; sourceTree = "<group>"; };
 		8B9C6BD91BB125A500242629 /* colloctionView.codesnippet */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = colloctionView.codesnippet; path = CodeSnippets/colloctionView.codesnippet; sourceTree = "<group>"; };
 		8B9C6BDA1BB125A500242629 /* hello.codesnippet */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = hello.codesnippet; path = CodeSnippets/hello.codesnippet; sourceTree = "<group>"; };
@@ -248,12 +249,14 @@
 		8B60ADAB1BABB7F100672762 /* QYXcodePlugIn */ = {
 			isa = PBXGroup;
 			children = (
-				8B60ADF51BABCE9C00672762 /* XcodeEditor */,
-				8B60ADDE1BABCE2D00672762 /* External */,
-				8B60ADBC1BABCE1C00672762 /* Categories */,
 				8B60ADBB1BABB81D00672762 /* Main */,
-				8B60AE2A1BABCF1F00672762 /* Package */,
+				8B8006A81BEC480300E558C5 /* AchieveFactory */,
+				8B8006A71BEB6E2C00E558C5 /* ClangFormat */,
+				8B60AE2A1BABCF1F00672762 /* Func */,
+				8B8006A91BEC484C00E558C5 /* Uitility */,
 				8B60ADAC1BABB7F100672762 /* Supporting Files */,
+				8B9C6C591BB129F800242629 /* RequestTemplateAchieve.h */,
+				8B9C6C5A1BB129F800242629 /* RequestTemplateAchieve.m */,
 			);
 			path = QYXcodePlugIn;
 			sourceTree = "<group>";
@@ -392,30 +395,50 @@
 			name = XcodeEditor;
 			sourceTree = "<group>";
 		};
-		8B60AE2A1BABCF1F00672762 /* Package */ = {
+		8B60AE2A1BABCF1F00672762 /* Func */ = {
+			isa = PBXGroup;
+			children = (
+				8B9C6C541BB129F800242629 /* AutoGetterAchieve.h */,
+				8B9C6C551BB129F800242629 /* AutoGetterAchieve.m */,
+				8B296FB51BB3DA0300621255 /* QYInputJsonController.h */,
+				8B296FB61BB3DA0300621255 /* QYInputJsonController.m */,
+				8B296FB71BB3DA0300621255 /* QYInputJsonController.xib */,
+				8B8006AA1BEC56E300E558C5 /* QYPluginSetingController.h */,
+				8B8006AB1BEC56E300E558C5 /* QYPluginSetingController.m */,
+				8B8006AC1BEC56E300E558C5 /* QYPluginSetingController.xib */,
+			);
+			name = Func;
+			sourceTree = "<group>";
+		};
+		8B8006A71BEB6E2C00E558C5 /* ClangFormat */ = {
+			isa = PBXGroup;
+			children = (
+				8B8006A41BEB639E00E558C5 /* QYClangFormatCode.h */,
+				8B8006A51BEB639E00E558C5 /* QYClangFormatCode.m */,
+			);
+			name = ClangFormat;
+			sourceTree = "<group>";
+		};
+		8B8006A81BEC480300E558C5 /* AchieveFactory */ = {
 			isa = PBXGroup;
 			children = (
 				8B9C6C561BB129F800242629 /* MenuItemAchieve.h */,
 				8B9C6C571BB129F800242629 /* MenuItemAchieve.m */,
 				8B9C6C581BB129F800242629 /* QYMenuActionProtocol.h */,
-				8B9C6C541BB129F800242629 /* AutoGetterAchieve.h */,
-				8B9C6C551BB129F800242629 /* AutoGetterAchieve.m */,
-				8B9C6C591BB129F800242629 /* RequestTemplateAchieve.h */,
-				8B9C6C5A1BB129F800242629 /* RequestTemplateAchieve.m */,
-				8B60AE721BAC2CD100672762 /* Template */,
-				8B296FB51BB3DA0300621255 /* QYInputJsonController.h */,
-				8B296FB61BB3DA0300621255 /* QYInputJsonController.m */,
-				8B296FB71BB3DA0300621255 /* QYInputJsonController.xib */,
+				8B8006B11BEC598A00E558C5 /* NSMenuItem+QYXcodePluginMenuItem.h */,
+				8B8006B21BEC598A00E558C5 /* NSMenuItem+QYXcodePluginMenuItem.m */,
 			);
-			name = Package;
+			name = AchieveFactory;
 			sourceTree = "<group>";
 		};
-		8B60AE721BAC2CD100672762 /* Template */ = {
+		8B8006A91BEC484C00E558C5 /* Uitility */ = {
 			isa = PBXGroup;
 			children = (
-				8B60AE701BAC1A5D00672762 /* RequestTemplate */,
+				8B60ADF51BABCE9C00672762 /* XcodeEditor */,
+				8B60ADDE1BABCE2D00672762 /* External */,
+				8B60ADBC1BABCE1C00672762 /* Categories */,
 			);
-			name = Template;
+			name = Uitility;
 			sourceTree = "<group>";
 		};
 		8B9C6BC31BB1231700242629 /* QYFileTemplate */ = {
@@ -522,18 +545,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B9C6BE81BB125D300242629 /* TemplateIcon.png in Resources */,
+				8B8006AE1BEC56E300E558C5 /* QYPluginSetingController.xib in Resources */,
 				8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */,
 				8B296FB91BB3DA0300621255 /* QYInputJsonController.xib in Resources */,
-				8B9C6BDC1BB125A500242629 /* hello.codesnippet in Resources */,
-				8B0775391BB1578600458FD3 /* TemplateIcon.png in Resources */,
-				8B9C6BDB1BB125A500242629 /* colloctionView.codesnippet in Resources */,
-				8B9C6BEA1BB125D300242629 /* TemplateInfo.plist in Resources */,
-				8B60AE711BAC1A5D00672762 /* RequestTemplate in Resources */,
-				8B07753A1BB1578600458FD3 /* TemplateIcon@2x.png in Resources */,
 				8B9C6BD81BB1247700242629 /* setup_CodeHelper.sh in Resources */,
-				8B9C6BE91BB125D300242629 /* TemplateIcon@2x.png in Resources */,
-				8B07753B1BB1578600458FD3 /* TemplateInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,14 +564,17 @@
 				8B9C6C281BB1297E00242629 /* XCProject.m in Sources */,
 				8B9C6C4B1BB1298D00242629 /* NSString+Extensions.m in Sources */,
 				8B9C6C531BB129ED00242629 /* QYXcodePlugIn.m in Sources */,
+				8B8006AD1BEC56E300E558C5 /* QYPluginSetingController.m in Sources */,
 				8B9C6C271BB1297E00242629 /* XcodeSourceFileType.m in Sources */,
 				8B9C6C4C1BB1298D00242629 /* NSString+Files.m in Sources */,
 				8B9C6C2C1BB1297E00242629 /* XCSourceFileDefinition.m in Sources */,
 				8B9C6C201BB1297E00242629 /* XCAbstractDefinition.m in Sources */,
+				8B8006A61BEB639E00E558C5 /* QYClangFormatCode.m in Sources */,
 				8B9C6C5C1BB129F800242629 /* MenuItemAchieve.m in Sources */,
 				8B9C6C5D1BB129F800242629 /* RequestTemplateAchieve.m in Sources */,
 				8B9C6C251BB1297E00242629 /* XCKeyBuilder.m in Sources */,
 				8B9C6BF71BB1295C00242629 /* XCTarget+XCProject.m in Sources */,
+				8B8006B31BEC598A00E558C5 /* NSMenuItem+QYXcodePluginMenuItem.m in Sources */,
 				8B9C6BF51BB1295C00242629 /* NSString+XCAdditions.m in Sources */,
 				8B9C6BFD1BB1296A00242629 /* XCWorkspace.m in Sources */,
 				8B9C6C2B1BB1297E00242629 /* XCSourceFile.m in Sources */,

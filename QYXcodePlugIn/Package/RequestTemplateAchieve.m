@@ -17,6 +17,7 @@
 @implementation RequestTemplateAchieve
 
 -(void)menuItemAction:(id)paramte{
+    
     NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
     //先获取类名
     NSArray *arr = [textView.textStorage.string matcheGroupWith:@"\\//\\s+(\\w+)\\.m"];
@@ -32,9 +33,6 @@
    
     NSArray *contents = [soureString matcheGroupWith:@"@\\w+\\s*(\\w+)\\s*\\:\\s+QYRequest\\s"];
     if (!([contents count]>1&&[className isEqualToString:contents[1]])) {
-        NSAlert *alert = [[NSAlert alloc] init];
-        [alert setMessageText:@"确保是QYRequest子类"];
-        [alert runModal];
         return;
     }
     

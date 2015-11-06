@@ -17,6 +17,5 @@
 @interface QYInputJsonController : NSWindowController
 
 @property (nonatomic,strong) NSTextView *sourceTextView;
-@property (nonatomic,copy) NSString *sourcePath;
-@property (nonatomic,weak) id delegate;
+@property (nonatomic,weak) id<QYInputJsonControllerDelegate> delegate;
 @end
