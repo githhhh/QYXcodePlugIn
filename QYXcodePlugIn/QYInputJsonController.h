@@ -7,15 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
-@protocol QYInputJsonControllerDelegate <NSObject>
-
--(void)windowDidClose;
-
-@end
-
+#import "QYWindowsCloseProtocol.h"
 @interface QYInputJsonController : NSWindowController
 
 @property (nonatomic,strong) NSTextView *sourceTextView;
-@property (nonatomic,weak) id<QYInputJsonControllerDelegate> delegate;
+@property (nonatomic,weak) id<QYWindowsCloseProtocol> delegate;
 @end

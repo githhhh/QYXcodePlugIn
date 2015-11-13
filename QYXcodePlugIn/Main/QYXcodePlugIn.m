@@ -7,7 +7,6 @@
 //
 
 #import "QYXcodePlugIn.h"
-#import "MenuItemAchieve.h"
 #import <Carbon/Carbon.h>
 #import "QYIDENotificationHandler.h"
 

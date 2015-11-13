@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QYMenuActionProtocol.h"
-@interface AutoGetterAchieve : NSObject<QYMenuActionProtocol>
 
+@interface AutoGetterAchieve : NSObject
+
+-(void)getterAction:(NSString *)selecteText;
 @end

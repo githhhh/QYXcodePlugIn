@@ -23,10 +23,12 @@
 }
 
 
--(void)menuItemAction:(NSString *)selecteText{
+-(void)getterAction:(NSString *)selecteText{
     if (!(selecteText && selecteText.length > 0)) {
         return;
     }
+    NSString *currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
+
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
@@ -61,7 +63,7 @@
         
         [resulteStr appendString:@"\n\n@end"];
         
-        NSString *getString = [QYClangFormatCode clangFormatSourceCode:resulteStr];
+        NSString *getString = [QYClangFormatCode clangFormatSourceCode:resulteStr andFilePath:currentFilePath];
         // 对str字符串进行匹配
         NSArray *endMatches =
         [textView.textStorage.string matcheStrWith:@"@end"];

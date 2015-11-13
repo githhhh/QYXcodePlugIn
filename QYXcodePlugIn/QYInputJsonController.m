@@ -9,6 +9,8 @@
 #import "QYInputJsonController.h"
 #import "NSString+Extensions.h"
 #import "QYClangFormatCode.h"
+#import "MHXcodeDocumentNavigator.h"
+#import "QYPluginSetingController.h"
 static NSString *StringClass = @"[NSString class]";
 
 static NSString *NumberClass = @"[NSNumber class]";
@@ -26,6 +28,8 @@ static NSString *NumberClass = @"[NSNumber class]";
 
 @property (nonatomic,copy) NSString *testDataMethodStr;
 @property (nonatomic,copy) NSString *validatorMethodStr;
+
+@property (nonatomic,copy) NSString *currentFilePath;
 @end
 
 @implementation QYInputJsonController
@@ -37,6 +41,10 @@ static NSString *NumberClass = @"[NSNumber class]";
     
     self.inputTextView.delegate = self;
     self.window.delegate = self;
+    
+    self.currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
+
+    
 }
 -(void)dealloc{
     self.sourceTextView = nil;
@@ -70,32 +78,41 @@ static NSString *NumberClass = @"[NSNumber class]";
     }
     self.window.title = @"执行中....";
     
-    
+
     __block NSMutableString *methodStr = nil;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
        
-        
+
         id data = nil;
         if ([resulte isKindOfClass:[NSDictionary class]]) {
             data = resulte[@"data"];
         }
         self.validatorMethodStr = [self getJsonString:data withValidator:YES];
+        NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
+        NSString *vMethodName = [userdf objectForKey:validatorMName];
         
-        self.testDataMethodStr = [self getJsonString:resulte withValidator:NO];
         
         NSMutableString *validatorMStr = [NSMutableString stringWithCapacity:0];
-        [validatorMStr appendString:@"\n- (id)validatorResult {\n"];
+        [validatorMStr appendString:[NSString stringWithFormat:@"\n- (id)%@ {\n",vMethodName?:@"validatorResult"] ];
         [validatorMStr appendString:[NSString stringWithFormat:@"      return %@;\n}\n",self.validatorMethodStr]];
         self.validatorMethodStr = validatorMStr;
-        
-        NSMutableString *testDataMStr = [NSMutableString stringWithCapacity:0];
-        [testDataMStr appendString:@"\n#warning  本地测试数据，正式环境需要注释或删除\n\n-(NSDictionary *)testData {\n"];
-        [testDataMStr appendString:[NSString stringWithFormat:@"      return %@;\n}\n",self.testDataMethodStr]];
-        self.testDataMethodStr = testDataMStr;
-        
-        
         methodStr = [NSMutableString stringWithString:self.validatorMethodStr];
-        [methodStr appendString:self.testDataMethodStr];
+        
+        
+        /**
+         *  本地测试数据
+         */
+        NSString *isTd = [userdf objectForKey:isTD];
+        if ([isTd boolValue]) {
+            NSString *tdMdName = [userdf objectForKey:testdateMethodName];
+            self.testDataMethodStr = [self getJsonString:resulte withValidator:NO];
+            NSMutableString *testDataMStr = [NSMutableString stringWithCapacity:0];
+            [testDataMStr appendString:[NSString stringWithFormat:@"\n#warning  本地测试数据，正式环境需要注释或删除\n\n-(id)%@ {\n",tdMdName?:@"testData"] ];
+            [testDataMStr appendString:[NSString stringWithFormat:@"      return %@;\n}\n",self.testDataMethodStr]];
+            self.testDataMethodStr = testDataMStr;
+            [methodStr appendString:self.testDataMethodStr];
+        }
+        
         [methodStr appendString:@"@end"];
 
         if (!self.sourceTextView) {
@@ -114,7 +131,10 @@ static NSString *NumberClass = @"[NSNumber class]";
         NSRange lastEndRange = [match range];
         
         //格式化
-        NSString *source = [QYClangFormatCode clangFormatSourceCode:methodStr];
+        NSString *source = [QYClangFormatCode clangFormatSourceCode:methodStr andFilePath:self.currentFilePath];
+        if (!source) {
+            return;
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.sourceTextView insertText:source replacementRange:lastEndRange];
             if (self.delegate &&[self.delegate respondsToSelector:@selector(windowDidClose)]) {

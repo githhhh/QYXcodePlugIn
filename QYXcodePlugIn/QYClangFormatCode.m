@@ -23,15 +23,14 @@
 
 @implementation QYClangFormatCode
 
-+(NSString *)clangFormatSourceCode:(NSString *)sourceCode{
-    NSString *currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
-    if (!sourceCode||!currentFilePath||sourceCode.length==0) {
++(NSString *)clangFormatSourceCode:(NSString *)sourceCode andFilePath:(NSString *)filePath{
+    if (!sourceCode||!filePath||sourceCode.length==0) {
         return nil;
     }
     
     __block NSString *newContent = nil;    
 
-    NSString *tempPath = [NSString stringWithFormat:@"%@.tm",currentFilePath];
+    NSString *tempPath = [NSString stringWithFormat:@"%@.tm",filePath];
     BOOL isWrite = [sourceCode writeToFile:tempPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
     if (!isWrite) {
         newContent = nil;

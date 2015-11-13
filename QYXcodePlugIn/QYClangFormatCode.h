@@ -17,7 +17,7 @@
  *
  *  @return return value description
  */
-+(NSString *)clangFormatSourceCode:(NSString *)sourceCode;
++(NSString *)clangFormatSourceCode:(NSString *)sourceCode andFilePath:(NSString *)filePath;
 /**
  *  直接执行shell  command
  *
