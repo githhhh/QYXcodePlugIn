@@ -10,7 +10,7 @@
 #import <AppKit/AppKit.h>
 #import "MHXcodeDocumentNavigator.h"
 #import "NSString+Extensions.h"
-#import "QYClangFormatCode.h"
+#import "QYClangFormat.h"
 #import "QYPluginSetingController.h"
 @interface AutoGetterAchieve()
 
@@ -63,7 +63,7 @@
         
         [resulteStr appendString:@"\n\n@end"];
         
-        NSString *getString = [QYClangFormatCode clangFormatSourceCode:resulteStr andFilePath:currentFilePath];
+        NSString *getString = [QYClangFormat clangFormatSourceCode:resulteStr andFilePath:currentFilePath];
         // 对str字符串进行匹配
         NSArray *endMatches =
         [textView.textStorage.string matcheStrWith:@"@end"];

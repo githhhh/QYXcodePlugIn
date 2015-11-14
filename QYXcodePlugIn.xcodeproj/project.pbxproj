@@ -7,89 +7,75 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B05B53E1BF591EB00F37998 /* QYShortcutRecorderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B05B53C1BF591EB00F37998 /* QYShortcutRecorderController.m */; };
-		8B05B53F1BF591EB00F37998 /* QYShortcutRecorderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B05B53D1BF591EB00F37998 /* QYShortcutRecorderController.xib */; };
 		8B05B57F1BF5A32E00F37998 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B05B57E1BF5A32E00F37998 /* Carbon.framework */; };
-		8B05B5831BF5A67100F37998 /* PTHotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B05B5821BF5A67100F37998 /* PTHotKey.framework */; };
-		8B05B5851BF5A73D00F37998 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B05B5841BF5A73D00F37998 /* ShortcutRecorder.framework */; };
-		8B171DB51BB144ED00BCD9F7 /* QYIDENotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B171DB41BB144ED00BCD9F7 /* QYIDENotificationHandler.m */; };
-		8B296FB81BB3DA0300621255 /* QYInputJsonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B296FB61BB3DA0300621255 /* QYInputJsonController.m */; };
-		8B296FB91BB3DA0300621255 /* QYInputJsonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B296FB71BB3DA0300621255 /* QYInputJsonController.xib */; };
+		8B4C00821BF7852300A77AD9 /* PTHotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00801BF7852300A77AD9 /* PTHotKey.framework */; };
+		8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */; };
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
 		8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA91BABB7F100672762 /* Foundation.framework */; };
 		8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 8B60ADAE1BABB7F100672762 /* QYXcodePlugIn.xcscheme */; };
 		8B60AE291BABCEBB00672762 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60AE281BABCEBB00672762 /* Cocoa.framework */; };
-		8B8006A61BEB639E00E558C5 /* QYClangFormatCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8006A51BEB639E00E558C5 /* QYClangFormatCode.m */; };
-		8B8006AD1BEC56E300E558C5 /* QYPluginSetingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8006AB1BEC56E300E558C5 /* QYPluginSetingController.m */; };
-		8B8006AE1BEC56E300E558C5 /* QYPluginSetingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8006AC1BEC56E300E558C5 /* QYPluginSetingController.xib */; };
 		8B9C6BD81BB1247700242629 /* setup_CodeHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */; };
-		8B9C6BEE1BB1293E00242629 /* MHXcodeDocumentNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BEC1BB1293E00242629 /* MHXcodeDocumentNavigator.m */; };
-		8B9C6BF51BB1295C00242629 /* NSString+XCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BF01BB1295C00242629 /* NSString+XCAdditions.m */; };
-		8B9C6BF61BB1295C00242629 /* XCProject+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BF21BB1295C00242629 /* XCProject+Extensions.m */; };
-		8B9C6BF71BB1295C00242629 /* XCTarget+XCProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BF41BB1295C00242629 /* XCTarget+XCProject.m */; };
-		8B9C6BFC1BB1296A00242629 /* XCBuildSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BF91BB1296A00242629 /* XCBuildSettings.m */; };
-		8B9C6BFD1BB1296A00242629 /* XCWorkspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BFB1BB1296A00242629 /* XCWorkspace.m */; };
-		8B9C6C201BB1297E00242629 /* XCAbstractDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6BFF1BB1297E00242629 /* XCAbstractDefinition.m */; };
-		8B9C6C211BB1297E00242629 /* XCClassDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C011BB1297E00242629 /* XCClassDefinition.m */; };
-		8B9C6C221BB1297E00242629 /* XCFileOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C031BB1297E00242629 /* XCFileOperationQueue.m */; };
-		8B9C6C231BB1297E00242629 /* XCFrameworkDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C051BB1297E00242629 /* XCFrameworkDefinition.m */; };
-		8B9C6C241BB1297E00242629 /* XCGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C071BB1297E00242629 /* XCGroup.m */; };
-		8B9C6C251BB1297E00242629 /* XCKeyBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C091BB1297E00242629 /* XCKeyBuilder.m */; };
-		8B9C6C261BB1297E00242629 /* XcodeMemberType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C0D1BB1297E00242629 /* XcodeMemberType.m */; };
-		8B9C6C271BB1297E00242629 /* XcodeSourceFileType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C0F1BB1297E00242629 /* XcodeSourceFileType.m */; };
-		8B9C6C281BB1297E00242629 /* XCProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C111BB1297E00242629 /* XCProject.m */; };
-		8B9C6C291BB1297E00242629 /* XCProject+SubProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C131BB1297E00242629 /* XCProject+SubProject.m */; };
-		8B9C6C2A1BB1297E00242629 /* XCProjectBuildConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C151BB1297E00242629 /* XCProjectBuildConfig.m */; };
-		8B9C6C2B1BB1297E00242629 /* XCSourceFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C171BB1297E00242629 /* XCSourceFile.m */; };
-		8B9C6C2C1BB1297E00242629 /* XCSourceFileDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C191BB1297E00242629 /* XCSourceFileDefinition.m */; };
-		8B9C6C2D1BB1297E00242629 /* XCSubProjectDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C1B1BB1297E00242629 /* XCSubProjectDefinition.m */; };
-		8B9C6C2E1BB1297E00242629 /* XCTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C1D1BB1297E00242629 /* XCTarget.m */; };
-		8B9C6C2F1BB1297E00242629 /* XCXibDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C1F1BB1297E00242629 /* XCXibDefinition.m */; };
-		8B9C6C461BB1298D00242629 /* DVTSourceTextStorage+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C311BB1298D00242629 /* DVTSourceTextStorage+Operations.m */; };
-		8B9C6C471BB1298D00242629 /* NSArray+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C331BB1298D00242629 /* NSArray+Operations.m */; };
-		8B9C6C481BB1298D00242629 /* NSFileManager+Headers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C351BB1298D00242629 /* NSFileManager+Headers.m */; };
-		8B9C6C491BB1298D00242629 /* NSMutableIndexSet+NSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C371BB1298D00242629 /* NSMutableIndexSet+NSArray.m */; };
-		8B9C6C4A1BB1298D00242629 /* NSObject+MHLogMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C391BB1298D00242629 /* NSObject+MHLogMethods.m */; };
-		8B9C6C4B1BB1298D00242629 /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C3B1BB1298D00242629 /* NSString+Extensions.m */; };
-		8B9C6C4C1BB1298D00242629 /* NSString+Files.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C3D1BB1298D00242629 /* NSString+Files.m */; };
-		8B9C6C4D1BB1298D00242629 /* NSString+MHNSRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C3F1BB1298D00242629 /* NSString+MHNSRange.m */; };
-		8B9C6C4E1BB1298D00242629 /* NSTextView+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C411BB1298D00242629 /* NSTextView+Operations.m */; };
-		8B9C6C4F1BB1298D00242629 /* NSView+Dumping.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C431BB1298D00242629 /* NSView+Dumping.m */; };
-		8B9C6C501BB1298D00242629 /* XCSourceFile+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C451BB1298D00242629 /* XCSourceFile+Path.m */; };
 		8B9C6C531BB129ED00242629 /* QYXcodePlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */; };
-		8B9C6C5B1BB129F800242629 /* AutoGetterAchieve.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C551BB129F800242629 /* AutoGetterAchieve.m */; };
+		8BA852791BF7879600EE9398 /* DVTSourceTextStorage+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852301BF7879600EE9398 /* DVTSourceTextStorage+Operations.m */; };
+		8BA8527A1BF7879600EE9398 /* NSArray+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852321BF7879600EE9398 /* NSArray+Operations.m */; };
+		8BA8527B1BF7879600EE9398 /* NSFileManager+Headers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852341BF7879600EE9398 /* NSFileManager+Headers.m */; };
+		8BA8527C1BF7879600EE9398 /* NSMutableIndexSet+NSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852361BF7879600EE9398 /* NSMutableIndexSet+NSArray.m */; };
+		8BA8527D1BF7879600EE9398 /* NSObject+MHLogMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852381BF7879600EE9398 /* NSObject+MHLogMethods.m */; };
+		8BA8527E1BF7879600EE9398 /* NSString+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8523A1BF7879600EE9398 /* NSString+Extensions.m */; };
+		8BA8527F1BF7879600EE9398 /* NSString+Files.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8523C1BF7879600EE9398 /* NSString+Files.m */; };
+		8BA852801BF7879600EE9398 /* NSString+MHNSRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8523E1BF7879600EE9398 /* NSString+MHNSRange.m */; };
+		8BA852811BF7879600EE9398 /* NSTextView+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852401BF7879600EE9398 /* NSTextView+Operations.m */; };
+		8BA852821BF7879600EE9398 /* NSView+Dumping.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852421BF7879600EE9398 /* NSView+Dumping.m */; };
+		8BA852831BF7879600EE9398 /* XCSourceFile+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852441BF7879600EE9398 /* XCSourceFile+Path.m */; };
+		8BA852841BF7879600EE9398 /* MHXcodeDocumentNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852481BF7879600EE9398 /* MHXcodeDocumentNavigator.m */; };
+		8BA852851BF7879600EE9398 /* NSString+XCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8524D1BF7879600EE9398 /* NSString+XCAdditions.m */; };
+		8BA852861BF7879600EE9398 /* XCProject+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8524F1BF7879600EE9398 /* XCProject+Extensions.m */; };
+		8BA852871BF7879600EE9398 /* XCTarget+XCProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852511BF7879600EE9398 /* XCTarget+XCProject.m */; };
+		8BA852881BF7879600EE9398 /* XCBuildSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852531BF7879600EE9398 /* XCBuildSettings.m */; };
+		8BA852891BF7879600EE9398 /* XCWorkspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852551BF7879600EE9398 /* XCWorkspace.m */; };
+		8BA8528A1BF7879600EE9398 /* XCAbstractDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852581BF7879600EE9398 /* XCAbstractDefinition.m */; };
+		8BA8528B1BF7879600EE9398 /* XCClassDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8525A1BF7879600EE9398 /* XCClassDefinition.m */; };
+		8BA8528C1BF7879600EE9398 /* XCFileOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8525C1BF7879600EE9398 /* XCFileOperationQueue.m */; };
+		8BA8528D1BF7879600EE9398 /* XCFrameworkDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8525E1BF7879600EE9398 /* XCFrameworkDefinition.m */; };
+		8BA8528E1BF7879600EE9398 /* XCGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852601BF7879600EE9398 /* XCGroup.m */; };
+		8BA8528F1BF7879600EE9398 /* XCKeyBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852621BF7879600EE9398 /* XCKeyBuilder.m */; };
+		8BA852901BF7879600EE9398 /* XcodeMemberType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852661BF7879600EE9398 /* XcodeMemberType.m */; };
+		8BA852911BF7879600EE9398 /* XcodeSourceFileType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852681BF7879600EE9398 /* XcodeSourceFileType.m */; };
+		8BA852921BF7879600EE9398 /* XCProject+SubProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8526A1BF7879600EE9398 /* XCProject+SubProject.m */; };
+		8BA852931BF7879600EE9398 /* XCProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8526C1BF7879600EE9398 /* XCProject.m */; };
+		8BA852941BF7879600EE9398 /* XCProjectBuildConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8526E1BF7879600EE9398 /* XCProjectBuildConfig.m */; };
+		8BA852951BF7879600EE9398 /* XCSourceFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852701BF7879600EE9398 /* XCSourceFile.m */; };
+		8BA852961BF7879600EE9398 /* XCSourceFileDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852721BF7879600EE9398 /* XCSourceFileDefinition.m */; };
+		8BA852971BF7879600EE9398 /* XCSubProjectDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852741BF7879600EE9398 /* XCSubProjectDefinition.m */; };
+		8BA852981BF7879600EE9398 /* XCTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852761BF7879600EE9398 /* XCTarget.m */; };
+		8BA852991BF7879600EE9398 /* XCXibDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852781BF7879600EE9398 /* XCXibDefinition.m */; };
+		8BA852A01BF7886000EE9398 /* QYIDENotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8529E1BF7886000EE9398 /* QYIDENotificationHandler.m */; };
+		8BA852AD1BF7896200EE9398 /* QYInputJsonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BA852AA1BF7896200EE9398 /* QYInputJsonController.xib */; };
+		8BA852AE1BF7896200EE9398 /* QYPluginSetingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BA852AB1BF7896200EE9398 /* QYPluginSetingController.xib */; };
+		8BA852AF1BF7896200EE9398 /* QYShortcutRecorderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BA852AC1BF7896200EE9398 /* QYShortcutRecorderController.xib */; };
+		8BA852B51BF78A3500EE9398 /* AutoGetterAchieve.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852B41BF78A3500EE9398 /* AutoGetterAchieve.m */; };
+		8BA852B81BF78A3F00EE9398 /* QYInputJsonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852B71BF78A3F00EE9398 /* QYInputJsonController.m */; };
+		8BA852BD1BF78A4D00EE9398 /* QYPluginSetingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852BA1BF78A4D00EE9398 /* QYPluginSetingController.m */; };
+		8BA852BE1BF78A4D00EE9398 /* QYShortcutRecorderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852BC1BF78A4D00EE9398 /* QYShortcutRecorderController.m */; };
+		8BA852C21BF78A6700EE9398 /* QYClangFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852C11BF78A6700EE9398 /* QYClangFormat.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8B05B4E11BF4871900F37998 /* QYWindowsCloseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYWindowsCloseProtocol.h; sourceTree = "<group>"; };
-		8B05B53B1BF591EB00F37998 /* QYShortcutRecorderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYShortcutRecorderController.h; sourceTree = "<group>"; };
-		8B05B53C1BF591EB00F37998 /* QYShortcutRecorderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYShortcutRecorderController.m; sourceTree = "<group>"; };
-		8B05B53D1BF591EB00F37998 /* QYShortcutRecorderController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QYShortcutRecorderController.xib; sourceTree = "<group>"; };
 		8B05B57E1BF5A32E00F37998 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		8B05B5821BF5A67100F37998 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-fzosyqzpslbenfdkykecaoqzsynh/Build/Products/Debug/PTHotKey.framework"; sourceTree = "<group>"; };
-		8B05B5841BF5A73D00F37998 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-fzosyqzpslbenfdkykecaoqzsynh/Build/Products/Debug/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		8B0775301BB1578600458FD3 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
 		8B0775311BB1578600458FD3 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8B0775331BB1578600458FD3 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
 		8B0775341BB1578600458FD3 /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
 		8B0775351BB1578600458FD3 /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
 		8B0775361BB1578600458FD3 /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
-		8B171DB31BB144ED00BCD9F7 /* QYIDENotificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYIDENotificationHandler.h; sourceTree = "<group>"; };
-		8B171DB41BB144ED00BCD9F7 /* QYIDENotificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYIDENotificationHandler.m; sourceTree = "<group>"; };
-		8B296FB51BB3DA0300621255 /* QYInputJsonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYInputJsonController.h; sourceTree = "<group>"; };
-		8B296FB61BB3DA0300621255 /* QYInputJsonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYInputJsonController.m; sourceTree = "<group>"; };
-		8B296FB71BB3DA0300621255 /* QYInputJsonController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QYInputJsonController.xib; sourceTree = "<group>"; };
+		8B4C00801BF7852300A77AD9 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/PTHotKey.framework"; sourceTree = "<group>"; };
+		8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		8B60ADA41BABB7F100672762 /* QYXcodePlugIn.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QYXcodePlugIn.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B60ADA71BABB7F100672762 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		8B60ADA91BABB7F100672762 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8B60ADAD1BABB7F100672762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B60ADAE1BABB7F100672762 /* QYXcodePlugIn.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = QYXcodePlugIn.xcscheme; path = QYXcodePlugIn.xcodeproj/xcshareddata/xcschemes/QYXcodePlugIn.xcscheme; sourceTree = SOURCE_ROOT; };
 		8B60AE281BABCEBB00672762 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		8B8006A41BEB639E00E558C5 /* QYClangFormatCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYClangFormatCode.h; sourceTree = "<group>"; };
-		8B8006A51BEB639E00E558C5 /* QYClangFormatCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYClangFormatCode.m; sourceTree = "<group>"; };
-		8B8006AA1BEC56E300E558C5 /* QYPluginSetingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYPluginSetingController.h; sourceTree = "<group>"; };
-		8B8006AB1BEC56E300E558C5 /* QYPluginSetingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYPluginSetingController.m; sourceTree = "<group>"; };
-		8B8006AC1BEC56E300E558C5 /* QYPluginSetingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QYPluginSetingController.xib; sourceTree = "<group>"; };
 		8B8D837A1BF5B9EC0016A838 /* QYXcodePlugIn.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYXcodePlugIn.pch; sourceTree = "<group>"; };
 		8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = setup_CodeHelper.sh; sourceTree = "<group>"; };
 		8B9C6BDF1BB125D300242629 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
@@ -98,79 +84,93 @@
 		8B9C6BE31BB125D300242629 /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
 		8B9C6BE41BB125D300242629 /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
 		8B9C6BE51BB125D300242629 /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
-		8B9C6BEB1BB1293E00242629 /* MHXcodeDocumentNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHXcodeDocumentNavigator.h; path = External/Benoit/MHXcodeDocumentNavigator.h; sourceTree = "<group>"; };
-		8B9C6BEC1BB1293E00242629 /* MHXcodeDocumentNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHXcodeDocumentNavigator.m; path = External/Benoit/MHXcodeDocumentNavigator.m; sourceTree = "<group>"; };
-		8B9C6BED1BB1293E00242629 /* XCFXcodePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCFXcodePrivate.h; path = External/Benoit/XCFXcodePrivate.h; sourceTree = "<group>"; };
-		8B9C6BEF1BB1295C00242629 /* NSString+XCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+XCAdditions.h"; path = "External/XcodeEditor/Categories/NSString+XCAdditions.h"; sourceTree = "<group>"; };
-		8B9C6BF01BB1295C00242629 /* NSString+XCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+XCAdditions.m"; path = "External/XcodeEditor/Categories/NSString+XCAdditions.m"; sourceTree = "<group>"; };
-		8B9C6BF11BB1295C00242629 /* XCProject+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCProject+Extensions.h"; path = "External/XcodeEditor/Categories/XCProject+Extensions.h"; sourceTree = "<group>"; };
-		8B9C6BF21BB1295C00242629 /* XCProject+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCProject+Extensions.m"; path = "External/XcodeEditor/Categories/XCProject+Extensions.m"; sourceTree = "<group>"; };
-		8B9C6BF31BB1295C00242629 /* XCTarget+XCProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCTarget+XCProject.h"; path = "External/XcodeEditor/Categories/XCTarget+XCProject.h"; sourceTree = "<group>"; };
-		8B9C6BF41BB1295C00242629 /* XCTarget+XCProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCTarget+XCProject.m"; path = "External/XcodeEditor/Categories/XCTarget+XCProject.m"; sourceTree = "<group>"; };
-		8B9C6BF81BB1296A00242629 /* XCBuildSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCBuildSettings.h; path = External/XcodeEditor/XCBuildSettings.h; sourceTree = "<group>"; };
-		8B9C6BF91BB1296A00242629 /* XCBuildSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCBuildSettings.m; path = External/XcodeEditor/XCBuildSettings.m; sourceTree = "<group>"; };
-		8B9C6BFA1BB1296A00242629 /* XCWorkspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCWorkspace.h; path = External/XcodeEditor/XCWorkspace.h; sourceTree = "<group>"; };
-		8B9C6BFB1BB1296A00242629 /* XCWorkspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCWorkspace.m; path = External/XcodeEditor/XCWorkspace.m; sourceTree = "<group>"; };
-		8B9C6BFE1BB1297E00242629 /* XCAbstractDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCAbstractDefinition.h; path = XcodeEditor/XCAbstractDefinition.h; sourceTree = "<group>"; };
-		8B9C6BFF1BB1297E00242629 /* XCAbstractDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCAbstractDefinition.m; path = XcodeEditor/XCAbstractDefinition.m; sourceTree = "<group>"; };
-		8B9C6C001BB1297E00242629 /* XCClassDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCClassDefinition.h; path = XcodeEditor/XCClassDefinition.h; sourceTree = "<group>"; };
-		8B9C6C011BB1297E00242629 /* XCClassDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCClassDefinition.m; path = XcodeEditor/XCClassDefinition.m; sourceTree = "<group>"; };
-		8B9C6C021BB1297E00242629 /* XCFileOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCFileOperationQueue.h; path = XcodeEditor/XCFileOperationQueue.h; sourceTree = "<group>"; };
-		8B9C6C031BB1297E00242629 /* XCFileOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCFileOperationQueue.m; path = XcodeEditor/XCFileOperationQueue.m; sourceTree = "<group>"; };
-		8B9C6C041BB1297E00242629 /* XCFrameworkDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCFrameworkDefinition.h; path = XcodeEditor/XCFrameworkDefinition.h; sourceTree = "<group>"; };
-		8B9C6C051BB1297E00242629 /* XCFrameworkDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCFrameworkDefinition.m; path = XcodeEditor/XCFrameworkDefinition.m; sourceTree = "<group>"; };
-		8B9C6C061BB1297E00242629 /* XCGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCGroup.h; path = XcodeEditor/XCGroup.h; sourceTree = "<group>"; };
-		8B9C6C071BB1297E00242629 /* XCGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCGroup.m; path = XcodeEditor/XCGroup.m; sourceTree = "<group>"; };
-		8B9C6C081BB1297E00242629 /* XCKeyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCKeyBuilder.h; path = XcodeEditor/XCKeyBuilder.h; sourceTree = "<group>"; };
-		8B9C6C091BB1297E00242629 /* XCKeyBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCKeyBuilder.m; path = XcodeEditor/XCKeyBuilder.m; sourceTree = "<group>"; };
-		8B9C6C0A1BB1297E00242629 /* XcodeEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XcodeEditor.h; path = XcodeEditor/XcodeEditor.h; sourceTree = "<group>"; };
-		8B9C6C0B1BB1297E00242629 /* XcodeGroupMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XcodeGroupMember.h; path = XcodeEditor/XcodeGroupMember.h; sourceTree = "<group>"; };
-		8B9C6C0C1BB1297E00242629 /* XcodeMemberType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XcodeMemberType.h; path = XcodeEditor/XcodeMemberType.h; sourceTree = "<group>"; };
-		8B9C6C0D1BB1297E00242629 /* XcodeMemberType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XcodeMemberType.m; path = XcodeEditor/XcodeMemberType.m; sourceTree = "<group>"; };
-		8B9C6C0E1BB1297E00242629 /* XcodeSourceFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XcodeSourceFileType.h; path = XcodeEditor/XcodeSourceFileType.h; sourceTree = "<group>"; };
-		8B9C6C0F1BB1297E00242629 /* XcodeSourceFileType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XcodeSourceFileType.m; path = XcodeEditor/XcodeSourceFileType.m; sourceTree = "<group>"; };
-		8B9C6C101BB1297E00242629 /* XCProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCProject.h; path = XcodeEditor/XCProject.h; sourceTree = "<group>"; };
-		8B9C6C111BB1297E00242629 /* XCProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCProject.m; path = XcodeEditor/XCProject.m; sourceTree = "<group>"; };
-		8B9C6C121BB1297E00242629 /* XCProject+SubProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCProject+SubProject.h"; path = "XcodeEditor/XCProject+SubProject.h"; sourceTree = "<group>"; };
-		8B9C6C131BB1297E00242629 /* XCProject+SubProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCProject+SubProject.m"; path = "XcodeEditor/XCProject+SubProject.m"; sourceTree = "<group>"; };
-		8B9C6C141BB1297E00242629 /* XCProjectBuildConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCProjectBuildConfig.h; path = XcodeEditor/XCProjectBuildConfig.h; sourceTree = "<group>"; };
-		8B9C6C151BB1297E00242629 /* XCProjectBuildConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCProjectBuildConfig.m; path = XcodeEditor/XCProjectBuildConfig.m; sourceTree = "<group>"; };
-		8B9C6C161BB1297E00242629 /* XCSourceFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCSourceFile.h; path = XcodeEditor/XCSourceFile.h; sourceTree = "<group>"; };
-		8B9C6C171BB1297E00242629 /* XCSourceFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCSourceFile.m; path = XcodeEditor/XCSourceFile.m; sourceTree = "<group>"; };
-		8B9C6C181BB1297E00242629 /* XCSourceFileDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCSourceFileDefinition.h; path = XcodeEditor/XCSourceFileDefinition.h; sourceTree = "<group>"; };
-		8B9C6C191BB1297E00242629 /* XCSourceFileDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCSourceFileDefinition.m; path = XcodeEditor/XCSourceFileDefinition.m; sourceTree = "<group>"; };
-		8B9C6C1A1BB1297E00242629 /* XCSubProjectDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCSubProjectDefinition.h; path = XcodeEditor/XCSubProjectDefinition.h; sourceTree = "<group>"; };
-		8B9C6C1B1BB1297E00242629 /* XCSubProjectDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCSubProjectDefinition.m; path = XcodeEditor/XCSubProjectDefinition.m; sourceTree = "<group>"; };
-		8B9C6C1C1BB1297E00242629 /* XCTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCTarget.h; path = XcodeEditor/XCTarget.h; sourceTree = "<group>"; };
-		8B9C6C1D1BB1297E00242629 /* XCTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCTarget.m; path = XcodeEditor/XCTarget.m; sourceTree = "<group>"; };
-		8B9C6C1E1BB1297E00242629 /* XCXibDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCXibDefinition.h; path = XcodeEditor/XCXibDefinition.h; sourceTree = "<group>"; };
-		8B9C6C1F1BB1297E00242629 /* XCXibDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCXibDefinition.m; path = XcodeEditor/XCXibDefinition.m; sourceTree = "<group>"; };
-		8B9C6C301BB1298D00242629 /* DVTSourceTextStorage+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DVTSourceTextStorage+Operations.h"; path = "Categorites/DVTSourceTextStorage+Operations.h"; sourceTree = "<group>"; };
-		8B9C6C311BB1298D00242629 /* DVTSourceTextStorage+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DVTSourceTextStorage+Operations.m"; path = "Categorites/DVTSourceTextStorage+Operations.m"; sourceTree = "<group>"; };
-		8B9C6C321BB1298D00242629 /* NSArray+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+Operations.h"; path = "Categorites/NSArray+Operations.h"; sourceTree = "<group>"; };
-		8B9C6C331BB1298D00242629 /* NSArray+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Operations.m"; path = "Categorites/NSArray+Operations.m"; sourceTree = "<group>"; };
-		8B9C6C341BB1298D00242629 /* NSFileManager+Headers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSFileManager+Headers.h"; path = "Categorites/NSFileManager+Headers.h"; sourceTree = "<group>"; };
-		8B9C6C351BB1298D00242629 /* NSFileManager+Headers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSFileManager+Headers.m"; path = "Categorites/NSFileManager+Headers.m"; sourceTree = "<group>"; };
-		8B9C6C361BB1298D00242629 /* NSMutableIndexSet+NSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableIndexSet+NSArray.h"; path = "Categorites/NSMutableIndexSet+NSArray.h"; sourceTree = "<group>"; };
-		8B9C6C371BB1298D00242629 /* NSMutableIndexSet+NSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableIndexSet+NSArray.m"; path = "Categorites/NSMutableIndexSet+NSArray.m"; sourceTree = "<group>"; };
-		8B9C6C381BB1298D00242629 /* NSObject+MHLogMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+MHLogMethods.h"; path = "Categorites/NSObject+MHLogMethods.h"; sourceTree = "<group>"; };
-		8B9C6C391BB1298D00242629 /* NSObject+MHLogMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MHLogMethods.m"; path = "Categorites/NSObject+MHLogMethods.m"; sourceTree = "<group>"; };
-		8B9C6C3A1BB1298D00242629 /* NSString+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Extensions.h"; path = "Categorites/NSString+Extensions.h"; sourceTree = "<group>"; };
-		8B9C6C3B1BB1298D00242629 /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Extensions.m"; path = "Categorites/NSString+Extensions.m"; sourceTree = "<group>"; };
-		8B9C6C3C1BB1298D00242629 /* NSString+Files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Files.h"; path = "Categorites/NSString+Files.h"; sourceTree = "<group>"; };
-		8B9C6C3D1BB1298D00242629 /* NSString+Files.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Files.m"; path = "Categorites/NSString+Files.m"; sourceTree = "<group>"; };
-		8B9C6C3E1BB1298D00242629 /* NSString+MHNSRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MHNSRange.h"; path = "Categorites/NSString+MHNSRange.h"; sourceTree = "<group>"; };
-		8B9C6C3F1BB1298D00242629 /* NSString+MHNSRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MHNSRange.m"; path = "Categorites/NSString+MHNSRange.m"; sourceTree = "<group>"; };
-		8B9C6C401BB1298D00242629 /* NSTextView+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTextView+Operations.h"; path = "Categorites/NSTextView+Operations.h"; sourceTree = "<group>"; };
-		8B9C6C411BB1298D00242629 /* NSTextView+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTextView+Operations.m"; path = "Categorites/NSTextView+Operations.m"; sourceTree = "<group>"; };
-		8B9C6C421BB1298D00242629 /* NSView+Dumping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSView+Dumping.h"; path = "Categorites/NSView+Dumping.h"; sourceTree = "<group>"; };
-		8B9C6C431BB1298D00242629 /* NSView+Dumping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSView+Dumping.m"; path = "Categorites/NSView+Dumping.m"; sourceTree = "<group>"; };
-		8B9C6C441BB1298D00242629 /* XCSourceFile+Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "XCSourceFile+Path.h"; path = "Categorites/XCSourceFile+Path.h"; sourceTree = "<group>"; };
-		8B9C6C451BB1298D00242629 /* XCSourceFile+Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "XCSourceFile+Path.m"; path = "Categorites/XCSourceFile+Path.m"; sourceTree = "<group>"; };
 		8B9C6C511BB129ED00242629 /* QYXcodePlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYXcodePlugIn.h; path = Main/QYXcodePlugIn.h; sourceTree = "<group>"; };
 		8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYXcodePlugIn.m; path = Main/QYXcodePlugIn.m; sourceTree = "<group>"; };
-		8B9C6C541BB129F800242629 /* AutoGetterAchieve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutoGetterAchieve.h; path = Package/AutoGetterAchieve.h; sourceTree = "<group>"; };
-		8B9C6C551BB129F800242629 /* AutoGetterAchieve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AutoGetterAchieve.m; path = Package/AutoGetterAchieve.m; sourceTree = "<group>"; };
+		8BA8522F1BF7879600EE9398 /* DVTSourceTextStorage+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DVTSourceTextStorage+Operations.h"; sourceTree = "<group>"; };
+		8BA852301BF7879600EE9398 /* DVTSourceTextStorage+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DVTSourceTextStorage+Operations.m"; sourceTree = "<group>"; };
+		8BA852311BF7879600EE9398 /* NSArray+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Operations.h"; sourceTree = "<group>"; };
+		8BA852321BF7879600EE9398 /* NSArray+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Operations.m"; sourceTree = "<group>"; };
+		8BA852331BF7879600EE9398 /* NSFileManager+Headers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Headers.h"; sourceTree = "<group>"; };
+		8BA852341BF7879600EE9398 /* NSFileManager+Headers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Headers.m"; sourceTree = "<group>"; };
+		8BA852351BF7879600EE9398 /* NSMutableIndexSet+NSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableIndexSet+NSArray.h"; sourceTree = "<group>"; };
+		8BA852361BF7879600EE9398 /* NSMutableIndexSet+NSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableIndexSet+NSArray.m"; sourceTree = "<group>"; };
+		8BA852371BF7879600EE9398 /* NSObject+MHLogMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MHLogMethods.h"; sourceTree = "<group>"; };
+		8BA852381BF7879600EE9398 /* NSObject+MHLogMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MHLogMethods.m"; sourceTree = "<group>"; };
+		8BA852391BF7879600EE9398 /* NSString+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extensions.h"; sourceTree = "<group>"; };
+		8BA8523A1BF7879600EE9398 /* NSString+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extensions.m"; sourceTree = "<group>"; };
+		8BA8523B1BF7879600EE9398 /* NSString+Files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Files.h"; sourceTree = "<group>"; };
+		8BA8523C1BF7879600EE9398 /* NSString+Files.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Files.m"; sourceTree = "<group>"; };
+		8BA8523D1BF7879600EE9398 /* NSString+MHNSRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MHNSRange.h"; sourceTree = "<group>"; };
+		8BA8523E1BF7879600EE9398 /* NSString+MHNSRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MHNSRange.m"; sourceTree = "<group>"; };
+		8BA8523F1BF7879600EE9398 /* NSTextView+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTextView+Operations.h"; sourceTree = "<group>"; };
+		8BA852401BF7879600EE9398 /* NSTextView+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTextView+Operations.m"; sourceTree = "<group>"; };
+		8BA852411BF7879600EE9398 /* NSView+Dumping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Dumping.h"; sourceTree = "<group>"; };
+		8BA852421BF7879600EE9398 /* NSView+Dumping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Dumping.m"; sourceTree = "<group>"; };
+		8BA852431BF7879600EE9398 /* XCSourceFile+Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCSourceFile+Path.h"; sourceTree = "<group>"; };
+		8BA852441BF7879600EE9398 /* XCSourceFile+Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCSourceFile+Path.m"; sourceTree = "<group>"; };
+		8BA852471BF7879600EE9398 /* MHXcodeDocumentNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHXcodeDocumentNavigator.h; sourceTree = "<group>"; };
+		8BA852481BF7879600EE9398 /* MHXcodeDocumentNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHXcodeDocumentNavigator.m; sourceTree = "<group>"; };
+		8BA852491BF7879600EE9398 /* XCFXcodePrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFXcodePrivate.h; sourceTree = "<group>"; };
+		8BA8524C1BF7879600EE9398 /* NSString+XCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XCAdditions.h"; sourceTree = "<group>"; };
+		8BA8524D1BF7879600EE9398 /* NSString+XCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XCAdditions.m"; sourceTree = "<group>"; };
+		8BA8524E1BF7879600EE9398 /* XCProject+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCProject+Extensions.h"; sourceTree = "<group>"; };
+		8BA8524F1BF7879600EE9398 /* XCProject+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCProject+Extensions.m"; sourceTree = "<group>"; };
+		8BA852501BF7879600EE9398 /* XCTarget+XCProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTarget+XCProject.h"; sourceTree = "<group>"; };
+		8BA852511BF7879600EE9398 /* XCTarget+XCProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTarget+XCProject.m"; sourceTree = "<group>"; };
+		8BA852521BF7879600EE9398 /* XCBuildSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBuildSettings.h; sourceTree = "<group>"; };
+		8BA852531BF7879600EE9398 /* XCBuildSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCBuildSettings.m; sourceTree = "<group>"; };
+		8BA852541BF7879600EE9398 /* XCWorkspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCWorkspace.h; sourceTree = "<group>"; };
+		8BA852551BF7879600EE9398 /* XCWorkspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCWorkspace.m; sourceTree = "<group>"; };
+		8BA852571BF7879600EE9398 /* XCAbstractDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCAbstractDefinition.h; sourceTree = "<group>"; };
+		8BA852581BF7879600EE9398 /* XCAbstractDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCAbstractDefinition.m; sourceTree = "<group>"; };
+		8BA852591BF7879600EE9398 /* XCClassDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCClassDefinition.h; sourceTree = "<group>"; };
+		8BA8525A1BF7879600EE9398 /* XCClassDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCClassDefinition.m; sourceTree = "<group>"; };
+		8BA8525B1BF7879600EE9398 /* XCFileOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFileOperationQueue.h; sourceTree = "<group>"; };
+		8BA8525C1BF7879600EE9398 /* XCFileOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFileOperationQueue.m; sourceTree = "<group>"; };
+		8BA8525D1BF7879600EE9398 /* XCFrameworkDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFrameworkDefinition.h; sourceTree = "<group>"; };
+		8BA8525E1BF7879600EE9398 /* XCFrameworkDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFrameworkDefinition.m; sourceTree = "<group>"; };
+		8BA8525F1BF7879600EE9398 /* XCGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCGroup.h; sourceTree = "<group>"; };
+		8BA852601BF7879600EE9398 /* XCGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCGroup.m; sourceTree = "<group>"; };
+		8BA852611BF7879600EE9398 /* XCKeyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCKeyBuilder.h; sourceTree = "<group>"; };
+		8BA852621BF7879600EE9398 /* XCKeyBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCKeyBuilder.m; sourceTree = "<group>"; };
+		8BA852631BF7879600EE9398 /* XcodeEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeEditor.h; sourceTree = "<group>"; };
+		8BA852641BF7879600EE9398 /* XcodeGroupMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeGroupMember.h; sourceTree = "<group>"; };
+		8BA852651BF7879600EE9398 /* XcodeMemberType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeMemberType.h; sourceTree = "<group>"; };
+		8BA852661BF7879600EE9398 /* XcodeMemberType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeMemberType.m; sourceTree = "<group>"; };
+		8BA852671BF7879600EE9398 /* XcodeSourceFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeSourceFileType.h; sourceTree = "<group>"; };
+		8BA852681BF7879600EE9398 /* XcodeSourceFileType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeSourceFileType.m; sourceTree = "<group>"; };
+		8BA852691BF7879600EE9398 /* XCProject+SubProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCProject+SubProject.h"; sourceTree = "<group>"; };
+		8BA8526A1BF7879600EE9398 /* XCProject+SubProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCProject+SubProject.m"; sourceTree = "<group>"; };
+		8BA8526B1BF7879600EE9398 /* XCProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCProject.h; sourceTree = "<group>"; };
+		8BA8526C1BF7879600EE9398 /* XCProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCProject.m; sourceTree = "<group>"; };
+		8BA8526D1BF7879600EE9398 /* XCProjectBuildConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCProjectBuildConfig.h; sourceTree = "<group>"; };
+		8BA8526E1BF7879600EE9398 /* XCProjectBuildConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCProjectBuildConfig.m; sourceTree = "<group>"; };
+		8BA8526F1BF7879600EE9398 /* XCSourceFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSourceFile.h; sourceTree = "<group>"; };
+		8BA852701BF7879600EE9398 /* XCSourceFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSourceFile.m; sourceTree = "<group>"; };
+		8BA852711BF7879600EE9398 /* XCSourceFileDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSourceFileDefinition.h; sourceTree = "<group>"; };
+		8BA852721BF7879600EE9398 /* XCSourceFileDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSourceFileDefinition.m; sourceTree = "<group>"; };
+		8BA852731BF7879600EE9398 /* XCSubProjectDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSubProjectDefinition.h; sourceTree = "<group>"; };
+		8BA852741BF7879600EE9398 /* XCSubProjectDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSubProjectDefinition.m; sourceTree = "<group>"; };
+		8BA852751BF7879600EE9398 /* XCTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTarget.h; sourceTree = "<group>"; };
+		8BA852761BF7879600EE9398 /* XCTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTarget.m; sourceTree = "<group>"; };
+		8BA852771BF7879600EE9398 /* XCXibDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCXibDefinition.h; sourceTree = "<group>"; };
+		8BA852781BF7879600EE9398 /* XCXibDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCXibDefinition.m; sourceTree = "<group>"; };
+		8BA8529D1BF7886000EE9398 /* QYIDENotificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYIDENotificationHandler.h; path = Main/QYIDENotificationHandler.h; sourceTree = "<group>"; };
+		8BA8529E1BF7886000EE9398 /* QYIDENotificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYIDENotificationHandler.m; path = Main/QYIDENotificationHandler.m; sourceTree = "<group>"; };
+		8BA8529F1BF7886000EE9398 /* QYWindowsCloseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYWindowsCloseProtocol.h; path = Main/QYWindowsCloseProtocol.h; sourceTree = "<group>"; };
+		8BA852AA1BF7896200EE9398 /* QYInputJsonController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QYInputJsonController.xib; sourceTree = "<group>"; };
+		8BA852AB1BF7896200EE9398 /* QYPluginSetingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QYPluginSetingController.xib; sourceTree = "<group>"; };
+		8BA852AC1BF7896200EE9398 /* QYShortcutRecorderController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QYShortcutRecorderController.xib; sourceTree = "<group>"; };
+		8BA852B31BF78A3500EE9398 /* AutoGetterAchieve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutoGetterAchieve.h; path = Func/AutoGetter/AutoGetterAchieve.h; sourceTree = "<group>"; };
+		8BA852B41BF78A3500EE9398 /* AutoGetterAchieve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AutoGetterAchieve.m; path = Func/AutoGetter/AutoGetterAchieve.m; sourceTree = "<group>"; };
+		8BA852B61BF78A3F00EE9398 /* QYInputJsonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYInputJsonController.h; path = Func/RequestVerify/QYInputJsonController.h; sourceTree = "<group>"; };
+		8BA852B71BF78A3F00EE9398 /* QYInputJsonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYInputJsonController.m; path = Func/RequestVerify/QYInputJsonController.m; sourceTree = "<group>"; };
+		8BA852B91BF78A4D00EE9398 /* QYPluginSetingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYPluginSetingController.h; path = Func/Setting/QYPluginSetingController.h; sourceTree = "<group>"; };
+		8BA852BA1BF78A4D00EE9398 /* QYPluginSetingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYPluginSetingController.m; path = Func/Setting/QYPluginSetingController.m; sourceTree = "<group>"; };
+		8BA852BB1BF78A4D00EE9398 /* QYShortcutRecorderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYShortcutRecorderController.h; path = Func/Setting/QYShortcutRecorderController.h; sourceTree = "<group>"; };
+		8BA852BC1BF78A4D00EE9398 /* QYShortcutRecorderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYShortcutRecorderController.m; path = Func/Setting/QYShortcutRecorderController.m; sourceTree = "<group>"; };
+		8BA852C01BF78A6700EE9398 /* QYClangFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYClangFormat.h; sourceTree = "<group>"; };
+		8BA852C11BF78A6700EE9398 /* QYClangFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYClangFormat.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,8 +178,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B05B5851BF5A73D00F37998 /* ShortcutRecorder.framework in Frameworks */,
-				8B05B5831BF5A67100F37998 /* PTHotKey.framework in Frameworks */,
+				8B4C00821BF7852300A77AD9 /* PTHotKey.framework in Frameworks */,
+				8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */,
 				8B05B57F1BF5A32E00F37998 /* Carbon.framework in Frameworks */,
 				8B60AE291BABCEBB00672762 /* Cocoa.framework in Frameworks */,
 				8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */,
@@ -243,8 +243,8 @@
 		8B60ADA61BABB7F100672762 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8B05B5841BF5A73D00F37998 /* ShortcutRecorder.framework */,
-				8B05B5821BF5A67100F37998 /* PTHotKey.framework */,
+				8B4C00801BF7852300A77AD9 /* PTHotKey.framework */,
+				8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */,
 				8B05B57E1BF5A32E00F37998 /* Carbon.framework */,
 				8B60AE281BABCEBB00672762 /* Cocoa.framework */,
 				8B60ADA71BABB7F100672762 /* AppKit.framework */,
@@ -256,20 +256,9 @@
 		8B60ADAB1BABB7F100672762 /* QYXcodePlugIn */ = {
 			isa = PBXGroup;
 			children = (
-				8B8006A71BEB6E2C00E558C5 /* ClangFormat */,
-				8B9C6C541BB129F800242629 /* AutoGetterAchieve.h */,
-				8B9C6C551BB129F800242629 /* AutoGetterAchieve.m */,
-				8B296FB51BB3DA0300621255 /* QYInputJsonController.h */,
-				8B296FB61BB3DA0300621255 /* QYInputJsonController.m */,
-				8B296FB71BB3DA0300621255 /* QYInputJsonController.xib */,
-				8B8006AA1BEC56E300E558C5 /* QYPluginSetingController.h */,
-				8B8006AB1BEC56E300E558C5 /* QYPluginSetingController.m */,
-				8B8006AC1BEC56E300E558C5 /* QYPluginSetingController.xib */,
-				8B05B53B1BF591EB00F37998 /* QYShortcutRecorderController.h */,
-				8B05B53C1BF591EB00F37998 /* QYShortcutRecorderController.m */,
-				8B05B53D1BF591EB00F37998 /* QYShortcutRecorderController.xib */,
+				8BA852A81BF7892700EE9398 /* Func */,
 				8B60ADBB1BABB81D00672762 /* Main */,
-				8B8006A91BEC484C00E558C5 /* Uitility */,
+				8BA8522D1BF7879600EE9398 /* Uitility */,
 				8B60ADAC1BABB7F100672762 /* Supporting Files */,
 			);
 			path = QYXcodePlugIn;
@@ -288,146 +277,13 @@
 		8B60ADBB1BABB81D00672762 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				8B05B4E11BF4871900F37998 /* QYWindowsCloseProtocol.h */,
+				8BA8529D1BF7886000EE9398 /* QYIDENotificationHandler.h */,
+				8BA8529E1BF7886000EE9398 /* QYIDENotificationHandler.m */,
+				8BA8529F1BF7886000EE9398 /* QYWindowsCloseProtocol.h */,
 				8B9C6C511BB129ED00242629 /* QYXcodePlugIn.h */,
 				8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */,
-				8B171DB31BB144ED00BCD9F7 /* QYIDENotificationHandler.h */,
-				8B171DB41BB144ED00BCD9F7 /* QYIDENotificationHandler.m */,
 			);
 			name = Main;
-			sourceTree = "<group>";
-		};
-		8B60ADBC1BABCE1C00672762 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				8B9C6C301BB1298D00242629 /* DVTSourceTextStorage+Operations.h */,
-				8B9C6C311BB1298D00242629 /* DVTSourceTextStorage+Operations.m */,
-				8B9C6C321BB1298D00242629 /* NSArray+Operations.h */,
-				8B9C6C331BB1298D00242629 /* NSArray+Operations.m */,
-				8B9C6C341BB1298D00242629 /* NSFileManager+Headers.h */,
-				8B9C6C351BB1298D00242629 /* NSFileManager+Headers.m */,
-				8B9C6C361BB1298D00242629 /* NSMutableIndexSet+NSArray.h */,
-				8B9C6C371BB1298D00242629 /* NSMutableIndexSet+NSArray.m */,
-				8B9C6C381BB1298D00242629 /* NSObject+MHLogMethods.h */,
-				8B9C6C391BB1298D00242629 /* NSObject+MHLogMethods.m */,
-				8B9C6C3A1BB1298D00242629 /* NSString+Extensions.h */,
-				8B9C6C3B1BB1298D00242629 /* NSString+Extensions.m */,
-				8B9C6C3C1BB1298D00242629 /* NSString+Files.h */,
-				8B9C6C3D1BB1298D00242629 /* NSString+Files.m */,
-				8B9C6C3E1BB1298D00242629 /* NSString+MHNSRange.h */,
-				8B9C6C3F1BB1298D00242629 /* NSString+MHNSRange.m */,
-				8B9C6C401BB1298D00242629 /* NSTextView+Operations.h */,
-				8B9C6C411BB1298D00242629 /* NSTextView+Operations.m */,
-				8B9C6C421BB1298D00242629 /* NSView+Dumping.h */,
-				8B9C6C431BB1298D00242629 /* NSView+Dumping.m */,
-				8B9C6C441BB1298D00242629 /* XCSourceFile+Path.h */,
-				8B9C6C451BB1298D00242629 /* XCSourceFile+Path.m */,
-			);
-			name = Categories;
-			sourceTree = "<group>";
-		};
-		8B60ADDE1BABCE2D00672762 /* External */ = {
-			isa = PBXGroup;
-			children = (
-				8B60ADE01BABCE4E00672762 /* XcodeEditor */,
-				8B60ADDF1BABCE4000672762 /* Benoit */,
-			);
-			name = External;
-			sourceTree = "<group>";
-		};
-		8B60ADDF1BABCE4000672762 /* Benoit */ = {
-			isa = PBXGroup;
-			children = (
-				8B9C6BEB1BB1293E00242629 /* MHXcodeDocumentNavigator.h */,
-				8B9C6BEC1BB1293E00242629 /* MHXcodeDocumentNavigator.m */,
-				8B9C6BED1BB1293E00242629 /* XCFXcodePrivate.h */,
-			);
-			name = Benoit;
-			sourceTree = "<group>";
-		};
-		8B60ADE01BABCE4E00672762 /* XcodeEditor */ = {
-			isa = PBXGroup;
-			children = (
-				8B9C6BF81BB1296A00242629 /* XCBuildSettings.h */,
-				8B9C6BF91BB1296A00242629 /* XCBuildSettings.m */,
-				8B9C6BFA1BB1296A00242629 /* XCWorkspace.h */,
-				8B9C6BFB1BB1296A00242629 /* XCWorkspace.m */,
-				8B60ADE11BABCE5900672762 /* Categories */,
-			);
-			name = XcodeEditor;
-			sourceTree = "<group>";
-		};
-		8B60ADE11BABCE5900672762 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				8B9C6BEF1BB1295C00242629 /* NSString+XCAdditions.h */,
-				8B9C6BF01BB1295C00242629 /* NSString+XCAdditions.m */,
-				8B9C6BF11BB1295C00242629 /* XCProject+Extensions.h */,
-				8B9C6BF21BB1295C00242629 /* XCProject+Extensions.m */,
-				8B9C6BF31BB1295C00242629 /* XCTarget+XCProject.h */,
-				8B9C6BF41BB1295C00242629 /* XCTarget+XCProject.m */,
-			);
-			name = Categories;
-			sourceTree = "<group>";
-		};
-		8B60ADF51BABCE9C00672762 /* XcodeEditor */ = {
-			isa = PBXGroup;
-			children = (
-				8B9C6BFE1BB1297E00242629 /* XCAbstractDefinition.h */,
-				8B9C6BFF1BB1297E00242629 /* XCAbstractDefinition.m */,
-				8B9C6C001BB1297E00242629 /* XCClassDefinition.h */,
-				8B9C6C011BB1297E00242629 /* XCClassDefinition.m */,
-				8B9C6C021BB1297E00242629 /* XCFileOperationQueue.h */,
-				8B9C6C031BB1297E00242629 /* XCFileOperationQueue.m */,
-				8B9C6C041BB1297E00242629 /* XCFrameworkDefinition.h */,
-				8B9C6C051BB1297E00242629 /* XCFrameworkDefinition.m */,
-				8B9C6C061BB1297E00242629 /* XCGroup.h */,
-				8B9C6C071BB1297E00242629 /* XCGroup.m */,
-				8B9C6C081BB1297E00242629 /* XCKeyBuilder.h */,
-				8B9C6C091BB1297E00242629 /* XCKeyBuilder.m */,
-				8B9C6C0A1BB1297E00242629 /* XcodeEditor.h */,
-				8B9C6C0B1BB1297E00242629 /* XcodeGroupMember.h */,
-				8B9C6C0C1BB1297E00242629 /* XcodeMemberType.h */,
-				8B9C6C0D1BB1297E00242629 /* XcodeMemberType.m */,
-				8B9C6C0E1BB1297E00242629 /* XcodeSourceFileType.h */,
-				8B9C6C0F1BB1297E00242629 /* XcodeSourceFileType.m */,
-				8B9C6C101BB1297E00242629 /* XCProject.h */,
-				8B9C6C111BB1297E00242629 /* XCProject.m */,
-				8B9C6C121BB1297E00242629 /* XCProject+SubProject.h */,
-				8B9C6C131BB1297E00242629 /* XCProject+SubProject.m */,
-				8B9C6C141BB1297E00242629 /* XCProjectBuildConfig.h */,
-				8B9C6C151BB1297E00242629 /* XCProjectBuildConfig.m */,
-				8B9C6C161BB1297E00242629 /* XCSourceFile.h */,
-				8B9C6C171BB1297E00242629 /* XCSourceFile.m */,
-				8B9C6C181BB1297E00242629 /* XCSourceFileDefinition.h */,
-				8B9C6C191BB1297E00242629 /* XCSourceFileDefinition.m */,
-				8B9C6C1A1BB1297E00242629 /* XCSubProjectDefinition.h */,
-				8B9C6C1B1BB1297E00242629 /* XCSubProjectDefinition.m */,
-				8B9C6C1C1BB1297E00242629 /* XCTarget.h */,
-				8B9C6C1D1BB1297E00242629 /* XCTarget.m */,
-				8B9C6C1E1BB1297E00242629 /* XCXibDefinition.h */,
-				8B9C6C1F1BB1297E00242629 /* XCXibDefinition.m */,
-			);
-			name = XcodeEditor;
-			sourceTree = "<group>";
-		};
-		8B8006A71BEB6E2C00E558C5 /* ClangFormat */ = {
-			isa = PBXGroup;
-			children = (
-				8B8006A41BEB639E00E558C5 /* QYClangFormatCode.h */,
-				8B8006A51BEB639E00E558C5 /* QYClangFormatCode.m */,
-			);
-			name = ClangFormat;
-			sourceTree = "<group>";
-		};
-		8B8006A91BEC484C00E558C5 /* Uitility */ = {
-			isa = PBXGroup;
-			children = (
-				8B60ADF51BABCE9C00672762 /* XcodeEditor */,
-				8B60ADDE1BABCE2D00672762 /* External */,
-				8B60ADBC1BABCE1C00672762 /* Categories */,
-			);
-			name = Uitility;
 			sourceTree = "<group>";
 		};
 		8B9C6BC31BB1231700242629 /* QYFileTemplate */ = {
@@ -474,6 +330,191 @@
 				8B9C6BE21BB125D300242629 /* ___FILEBASENAME___.swift */,
 			);
 			path = QYRequestSwift;
+			sourceTree = "<group>";
+		};
+		8BA8522D1BF7879600EE9398 /* Uitility */ = {
+			isa = PBXGroup;
+			children = (
+				8BA852BF1BF78A6700EE9398 /* ClangFormat */,
+				8BA8522E1BF7879600EE9398 /* Categorites */,
+				8BA852451BF7879600EE9398 /* External */,
+				8BA852561BF7879600EE9398 /* XcodeEditor */,
+			);
+			path = Uitility;
+			sourceTree = "<group>";
+		};
+		8BA8522E1BF7879600EE9398 /* Categorites */ = {
+			isa = PBXGroup;
+			children = (
+				8BA8522F1BF7879600EE9398 /* DVTSourceTextStorage+Operations.h */,
+				8BA852301BF7879600EE9398 /* DVTSourceTextStorage+Operations.m */,
+				8BA852311BF7879600EE9398 /* NSArray+Operations.h */,
+				8BA852321BF7879600EE9398 /* NSArray+Operations.m */,
+				8BA852331BF7879600EE9398 /* NSFileManager+Headers.h */,
+				8BA852341BF7879600EE9398 /* NSFileManager+Headers.m */,
+				8BA852351BF7879600EE9398 /* NSMutableIndexSet+NSArray.h */,
+				8BA852361BF7879600EE9398 /* NSMutableIndexSet+NSArray.m */,
+				8BA852371BF7879600EE9398 /* NSObject+MHLogMethods.h */,
+				8BA852381BF7879600EE9398 /* NSObject+MHLogMethods.m */,
+				8BA852391BF7879600EE9398 /* NSString+Extensions.h */,
+				8BA8523A1BF7879600EE9398 /* NSString+Extensions.m */,
+				8BA8523B1BF7879600EE9398 /* NSString+Files.h */,
+				8BA8523C1BF7879600EE9398 /* NSString+Files.m */,
+				8BA8523D1BF7879600EE9398 /* NSString+MHNSRange.h */,
+				8BA8523E1BF7879600EE9398 /* NSString+MHNSRange.m */,
+				8BA8523F1BF7879600EE9398 /* NSTextView+Operations.h */,
+				8BA852401BF7879600EE9398 /* NSTextView+Operations.m */,
+				8BA852411BF7879600EE9398 /* NSView+Dumping.h */,
+				8BA852421BF7879600EE9398 /* NSView+Dumping.m */,
+				8BA852431BF7879600EE9398 /* XCSourceFile+Path.h */,
+				8BA852441BF7879600EE9398 /* XCSourceFile+Path.m */,
+			);
+			path = Categorites;
+			sourceTree = "<group>";
+		};
+		8BA852451BF7879600EE9398 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				8BA852461BF7879600EE9398 /* Benoit */,
+				8BA8524A1BF7879600EE9398 /* XcodeEditor */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		8BA852461BF7879600EE9398 /* Benoit */ = {
+			isa = PBXGroup;
+			children = (
+				8BA852471BF7879600EE9398 /* MHXcodeDocumentNavigator.h */,
+				8BA852481BF7879600EE9398 /* MHXcodeDocumentNavigator.m */,
+				8BA852491BF7879600EE9398 /* XCFXcodePrivate.h */,
+			);
+			path = Benoit;
+			sourceTree = "<group>";
+		};
+		8BA8524A1BF7879600EE9398 /* XcodeEditor */ = {
+			isa = PBXGroup;
+			children = (
+				8BA8524B1BF7879600EE9398 /* Categories */,
+				8BA852521BF7879600EE9398 /* XCBuildSettings.h */,
+				8BA852531BF7879600EE9398 /* XCBuildSettings.m */,
+				8BA852541BF7879600EE9398 /* XCWorkspace.h */,
+				8BA852551BF7879600EE9398 /* XCWorkspace.m */,
+			);
+			path = XcodeEditor;
+			sourceTree = "<group>";
+		};
+		8BA8524B1BF7879600EE9398 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8BA8524C1BF7879600EE9398 /* NSString+XCAdditions.h */,
+				8BA8524D1BF7879600EE9398 /* NSString+XCAdditions.m */,
+				8BA8524E1BF7879600EE9398 /* XCProject+Extensions.h */,
+				8BA8524F1BF7879600EE9398 /* XCProject+Extensions.m */,
+				8BA852501BF7879600EE9398 /* XCTarget+XCProject.h */,
+				8BA852511BF7879600EE9398 /* XCTarget+XCProject.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		8BA852561BF7879600EE9398 /* XcodeEditor */ = {
+			isa = PBXGroup;
+			children = (
+				8BA852571BF7879600EE9398 /* XCAbstractDefinition.h */,
+				8BA852581BF7879600EE9398 /* XCAbstractDefinition.m */,
+				8BA852591BF7879600EE9398 /* XCClassDefinition.h */,
+				8BA8525A1BF7879600EE9398 /* XCClassDefinition.m */,
+				8BA8525B1BF7879600EE9398 /* XCFileOperationQueue.h */,
+				8BA8525C1BF7879600EE9398 /* XCFileOperationQueue.m */,
+				8BA8525D1BF7879600EE9398 /* XCFrameworkDefinition.h */,
+				8BA8525E1BF7879600EE9398 /* XCFrameworkDefinition.m */,
+				8BA8525F1BF7879600EE9398 /* XCGroup.h */,
+				8BA852601BF7879600EE9398 /* XCGroup.m */,
+				8BA852611BF7879600EE9398 /* XCKeyBuilder.h */,
+				8BA852621BF7879600EE9398 /* XCKeyBuilder.m */,
+				8BA852631BF7879600EE9398 /* XcodeEditor.h */,
+				8BA852641BF7879600EE9398 /* XcodeGroupMember.h */,
+				8BA852651BF7879600EE9398 /* XcodeMemberType.h */,
+				8BA852661BF7879600EE9398 /* XcodeMemberType.m */,
+				8BA852671BF7879600EE9398 /* XcodeSourceFileType.h */,
+				8BA852681BF7879600EE9398 /* XcodeSourceFileType.m */,
+				8BA852691BF7879600EE9398 /* XCProject+SubProject.h */,
+				8BA8526A1BF7879600EE9398 /* XCProject+SubProject.m */,
+				8BA8526B1BF7879600EE9398 /* XCProject.h */,
+				8BA8526C1BF7879600EE9398 /* XCProject.m */,
+				8BA8526D1BF7879600EE9398 /* XCProjectBuildConfig.h */,
+				8BA8526E1BF7879600EE9398 /* XCProjectBuildConfig.m */,
+				8BA8526F1BF7879600EE9398 /* XCSourceFile.h */,
+				8BA852701BF7879600EE9398 /* XCSourceFile.m */,
+				8BA852711BF7879600EE9398 /* XCSourceFileDefinition.h */,
+				8BA852721BF7879600EE9398 /* XCSourceFileDefinition.m */,
+				8BA852731BF7879600EE9398 /* XCSubProjectDefinition.h */,
+				8BA852741BF7879600EE9398 /* XCSubProjectDefinition.m */,
+				8BA852751BF7879600EE9398 /* XCTarget.h */,
+				8BA852761BF7879600EE9398 /* XCTarget.m */,
+				8BA852771BF7879600EE9398 /* XCXibDefinition.h */,
+				8BA852781BF7879600EE9398 /* XCXibDefinition.m */,
+			);
+			path = XcodeEditor;
+			sourceTree = "<group>";
+		};
+		8BA852A81BF7892700EE9398 /* Func */ = {
+			isa = PBXGroup;
+			children = (
+				8BA852B01BF7896B00EE9398 /* AutoGetter */,
+				8BA852B11BF789C300EE9398 /* RequestVerify */,
+				8BA852B21BF789D200EE9398 /* Setting */,
+				8BA852A91BF7896200EE9398 /* Resources */,
+			);
+			name = Func;
+			sourceTree = "<group>";
+		};
+		8BA852A91BF7896200EE9398 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8BA852AA1BF7896200EE9398 /* QYInputJsonController.xib */,
+				8BA852AB1BF7896200EE9398 /* QYPluginSetingController.xib */,
+				8BA852AC1BF7896200EE9398 /* QYShortcutRecorderController.xib */,
+			);
+			name = Resources;
+			path = Func/Resources;
+			sourceTree = "<group>";
+		};
+		8BA852B01BF7896B00EE9398 /* AutoGetter */ = {
+			isa = PBXGroup;
+			children = (
+				8BA852B31BF78A3500EE9398 /* AutoGetterAchieve.h */,
+				8BA852B41BF78A3500EE9398 /* AutoGetterAchieve.m */,
+			);
+			name = AutoGetter;
+			sourceTree = "<group>";
+		};
+		8BA852B11BF789C300EE9398 /* RequestVerify */ = {
+			isa = PBXGroup;
+			children = (
+				8BA852B61BF78A3F00EE9398 /* QYInputJsonController.h */,
+				8BA852B71BF78A3F00EE9398 /* QYInputJsonController.m */,
+			);
+			name = RequestVerify;
+			sourceTree = "<group>";
+		};
+		8BA852B21BF789D200EE9398 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				8BA852B91BF78A4D00EE9398 /* QYPluginSetingController.h */,
+				8BA852BA1BF78A4D00EE9398 /* QYPluginSetingController.m */,
+				8BA852BB1BF78A4D00EE9398 /* QYShortcutRecorderController.h */,
+				8BA852BC1BF78A4D00EE9398 /* QYShortcutRecorderController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		8BA852BF1BF78A6700EE9398 /* ClangFormat */ = {
+			isa = PBXGroup;
+			children = (
+				8BA852C01BF78A6700EE9398 /* QYClangFormat.h */,
+				8BA852C11BF78A6700EE9398 /* QYClangFormat.m */,
+			);
+			path = ClangFormat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,11 +573,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B8006AE1BEC56E300E558C5 /* QYPluginSetingController.xib in Resources */,
-				8B05B53F1BF591EB00F37998 /* QYShortcutRecorderController.xib in Resources */,
+				8BA852AE1BF7896200EE9398 /* QYPluginSetingController.xib in Resources */,
+				8BA852AF1BF7896200EE9398 /* QYShortcutRecorderController.xib in Resources */,
 				8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */,
-				8B296FB91BB3DA0300621255 /* QYInputJsonController.xib in Resources */,
 				8B9C6BD81BB1247700242629 /* setup_CodeHelper.sh in Resources */,
+				8BA852AD1BF7896200EE9398 /* QYInputJsonController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,46 +588,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B9C6C4D1BB1298D00242629 /* NSString+MHNSRange.m in Sources */,
-				8B9C6C2F1BB1297E00242629 /* XCXibDefinition.m in Sources */,
-				8B9C6C281BB1297E00242629 /* XCProject.m in Sources */,
-				8B9C6C4B1BB1298D00242629 /* NSString+Extensions.m in Sources */,
+				8BA8528E1BF7879600EE9398 /* XCGroup.m in Sources */,
+				8BA852991BF7879600EE9398 /* XCXibDefinition.m in Sources */,
+				8BA852911BF7879600EE9398 /* XcodeSourceFileType.m in Sources */,
+				8BA8528B1BF7879600EE9398 /* XCClassDefinition.m in Sources */,
+				8BA8527C1BF7879600EE9398 /* NSMutableIndexSet+NSArray.m in Sources */,
 				8B9C6C531BB129ED00242629 /* QYXcodePlugIn.m in Sources */,
-				8B8006AD1BEC56E300E558C5 /* QYPluginSetingController.m in Sources */,
-				8B9C6C271BB1297E00242629 /* XcodeSourceFileType.m in Sources */,
-				8B9C6C4C1BB1298D00242629 /* NSString+Files.m in Sources */,
-				8B9C6C2C1BB1297E00242629 /* XCSourceFileDefinition.m in Sources */,
-				8B9C6C201BB1297E00242629 /* XCAbstractDefinition.m in Sources */,
-				8B8006A61BEB639E00E558C5 /* QYClangFormatCode.m in Sources */,
-				8B9C6C251BB1297E00242629 /* XCKeyBuilder.m in Sources */,
-				8B9C6BF71BB1295C00242629 /* XCTarget+XCProject.m in Sources */,
-				8B9C6BF51BB1295C00242629 /* NSString+XCAdditions.m in Sources */,
-				8B9C6BFD1BB1296A00242629 /* XCWorkspace.m in Sources */,
-				8B9C6C2B1BB1297E00242629 /* XCSourceFile.m in Sources */,
-				8B171DB51BB144ED00BCD9F7 /* QYIDENotificationHandler.m in Sources */,
-				8B9C6C2A1BB1297E00242629 /* XCProjectBuildConfig.m in Sources */,
-				8B9C6C2E1BB1297E00242629 /* XCTarget.m in Sources */,
-				8B9C6C241BB1297E00242629 /* XCGroup.m in Sources */,
-				8B9C6C231BB1297E00242629 /* XCFrameworkDefinition.m in Sources */,
-				8B9C6C4A1BB1298D00242629 /* NSObject+MHLogMethods.m in Sources */,
-				8B9C6C2D1BB1297E00242629 /* XCSubProjectDefinition.m in Sources */,
-				8B9C6C261BB1297E00242629 /* XcodeMemberType.m in Sources */,
-				8B9C6C491BB1298D00242629 /* NSMutableIndexSet+NSArray.m in Sources */,
-				8B9C6C211BB1297E00242629 /* XCClassDefinition.m in Sources */,
-				8B9C6C291BB1297E00242629 /* XCProject+SubProject.m in Sources */,
-				8B9C6C471BB1298D00242629 /* NSArray+Operations.m in Sources */,
-				8B9C6C461BB1298D00242629 /* DVTSourceTextStorage+Operations.m in Sources */,
-				8B9C6BEE1BB1293E00242629 /* MHXcodeDocumentNavigator.m in Sources */,
-				8B9C6C4F1BB1298D00242629 /* NSView+Dumping.m in Sources */,
-				8B9C6BFC1BB1296A00242629 /* XCBuildSettings.m in Sources */,
-				8B9C6C5B1BB129F800242629 /* AutoGetterAchieve.m in Sources */,
-				8B9C6BF61BB1295C00242629 /* XCProject+Extensions.m in Sources */,
-				8B9C6C4E1BB1298D00242629 /* NSTextView+Operations.m in Sources */,
-				8B296FB81BB3DA0300621255 /* QYInputJsonController.m in Sources */,
-				8B9C6C501BB1298D00242629 /* XCSourceFile+Path.m in Sources */,
-				8B9C6C221BB1297E00242629 /* XCFileOperationQueue.m in Sources */,
-				8B05B53E1BF591EB00F37998 /* QYShortcutRecorderController.m in Sources */,
-				8B9C6C481BB1298D00242629 /* NSFileManager+Headers.m in Sources */,
+				8BA852791BF7879600EE9398 /* DVTSourceTextStorage+Operations.m in Sources */,
+				8BA8527E1BF7879600EE9398 /* NSString+Extensions.m in Sources */,
+				8BA852961BF7879600EE9398 /* XCSourceFileDefinition.m in Sources */,
+				8BA852C21BF78A6700EE9398 /* QYClangFormat.m in Sources */,
+				8BA852981BF7879600EE9398 /* XCTarget.m in Sources */,
+				8BA852841BF7879600EE9398 /* MHXcodeDocumentNavigator.m in Sources */,
+				8BA852861BF7879600EE9398 /* XCProject+Extensions.m in Sources */,
+				8BA852891BF7879600EE9398 /* XCWorkspace.m in Sources */,
+				8BA852941BF7879600EE9398 /* XCProjectBuildConfig.m in Sources */,
+				8BA852931BF7879600EE9398 /* XCProject.m in Sources */,
+				8BA852B51BF78A3500EE9398 /* AutoGetterAchieve.m in Sources */,
+				8BA8528A1BF7879600EE9398 /* XCAbstractDefinition.m in Sources */,
+				8BA852821BF7879600EE9398 /* NSView+Dumping.m in Sources */,
+				8BA8528C1BF7879600EE9398 /* XCFileOperationQueue.m in Sources */,
+				8BA852BE1BF78A4D00EE9398 /* QYShortcutRecorderController.m in Sources */,
+				8BA852971BF7879600EE9398 /* XCSubProjectDefinition.m in Sources */,
+				8BA852921BF7879600EE9398 /* XCProject+SubProject.m in Sources */,
+				8BA852811BF7879600EE9398 /* NSTextView+Operations.m in Sources */,
+				8BA8527D1BF7879600EE9398 /* NSObject+MHLogMethods.m in Sources */,
+				8BA8527A1BF7879600EE9398 /* NSArray+Operations.m in Sources */,
+				8BA852831BF7879600EE9398 /* XCSourceFile+Path.m in Sources */,
+				8BA8528D1BF7879600EE9398 /* XCFrameworkDefinition.m in Sources */,
+				8BA852901BF7879600EE9398 /* XcodeMemberType.m in Sources */,
+				8BA8527F1BF7879600EE9398 /* NSString+Files.m in Sources */,
+				8BA852BD1BF78A4D00EE9398 /* QYPluginSetingController.m in Sources */,
+				8BA852851BF7879600EE9398 /* NSString+XCAdditions.m in Sources */,
+				8BA852881BF7879600EE9398 /* XCBuildSettings.m in Sources */,
+				8BA8527B1BF7879600EE9398 /* NSFileManager+Headers.m in Sources */,
+				8BA852801BF7879600EE9398 /* NSString+MHNSRange.m in Sources */,
+				8BA852871BF7879600EE9398 /* XCTarget+XCProject.m in Sources */,
+				8BA852A01BF7886000EE9398 /* QYIDENotificationHandler.m in Sources */,
+				8BA852951BF7879600EE9398 /* XCSourceFile.m in Sources */,
+				8BA8528F1BF7879600EE9398 /* XCKeyBuilder.m in Sources */,
+				8BA852B81BF78A3F00EE9398 /* QYInputJsonController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,7 +714,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ShortcutRecorder-master/build/Debug";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QYXcodePlugIn/QYXcodePlugIn.pch";
 				HEADER_SEARCH_PATHS = "";
@@ -694,7 +735,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ShortcutRecorder-master/build/Debug";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QYXcodePlugIn/QYXcodePlugIn.pch";
 				HEADER_SEARCH_PATHS = "";

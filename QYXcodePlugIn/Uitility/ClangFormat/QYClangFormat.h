@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QYClangFormatCode : NSObject
+@interface QYClangFormat : NSObject
 
 /**
  *  clang-formate  可以异步执行

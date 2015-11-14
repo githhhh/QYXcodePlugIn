@@ -6,7 +6,7 @@
 //  Copyright © 2015年 X.Y. All rights reserved.
 //
 
-#import "QYClangFormatCode.h"
+#import "QYClangFormat.h"
 #import "MHXcodeDocumentNavigator.h"
 
 /**
@@ -21,7 +21,7 @@
 
 
 
-@implementation QYClangFormatCode
+@implementation QYClangFormat
 
 +(NSString *)clangFormatSourceCode:(NSString *)sourceCode andFilePath:(NSString *)filePath{
     if (!sourceCode||!filePath||sourceCode.length==0) {
