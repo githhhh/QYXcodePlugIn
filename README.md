@@ -65,16 +65,16 @@
   ![](ys.gif)
  
 - 请求方法校验
-  ![](gif\\ys1.gif)
+  ![](ys1.gif)
   
 - 生成getter
-  ![](gif\\ys2.gif)
+  ![](ys2.gif)
 
 - 代码片段 自己diy 吧
-  ![](gif\\ys4.gif)
+  ![](ys4.gif)
   
 - 文件模板和代码片段可以直接在这里添加
-  ![](gif\\ys5.gif)
+  ![](ys5.gif)
 
 
 
