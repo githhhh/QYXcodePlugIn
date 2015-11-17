@@ -1,18 +1,17 @@
-# 功能
+# 功能、性能
 *  共享常用文件模板和代码片段
+*  请求类生成校验和测试数据方法、生成getter方法
 *  支持格式代码并输出 
+*  自定义菜单热键
 *  其它待扩展(共同维护，尽量少点体力劳动)
 
-# 性能
-
-    所有操作均异步执行，执行完成后并不占用很多内存，除 一个监听XCode 的单例对象。
-
-# 依赖
-    
-     clang-format 
+ 所有操作均异步执行，执行完成后立即释放内存，除 一个监听XCode 的单例对象。
 
 # 安装依赖、镜像模板
      
+     依赖：clang-format 
+     
+     ***安装方法***
      git clone git@gitlab.dev:TangBin/QYXcodePlugIn.git
      cd QYXcodePlugIn
      ./setup_CodeHelper.sh
@@ -20,7 +19,7 @@
 
 #  加载/更新 插件
 
-     open QYXcodePlugIn.xcodeproj
+     open QYXcodePlugIn.xcworkspace
      command + R
  
 #  QYXcodePlugIn使用
@@ -56,10 +55,30 @@
            ]
        }
        
-      %@用了替换私有变量如：_var,可以在线编辑JSON,然后替换setting 自定义getter的内容。
+      %@用用替换私有变量如：_var,可以在线编辑JSON,然后替换setting 自定义getter的内容。
       
       
       RequestValidator配置：自定义校验方法名、测试方法名、在某个一请求基类的子类中触发、及是否生成测试方法。
       
-      
+# 演示
+- 设置和文件模板
+  ![](gif\ys.gif)
+ 
+- 请求方法校验
+  ![](gif\ys1.gif)
+  
+- 生成getter
+  ![](gif\ys2.gif)
+
+- 代码片段 自己diy 吧
+  ![](gif\ys4.gif)
+  
+- 文件模板和代码片段可以直接在这里添加
+  ![](gif\ys5.gif)
+
+
+
+
+
+
    
