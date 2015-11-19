@@ -24,14 +24,10 @@
  
 #  QYXcodePlugIn使用
 
-  Edit->QYAction->AutoGetter   生成getter方法
-         
+   Edit->QYAction->AutoGetter  生成getter方法   
       触发条件：在.m 文件中选择私有属性 
-          
       自动生成Getter方法，只支持"引用类型" 如：
-        
       @property (copy, nonatomic) NSString *testName;
-        
       "值类型"将被忽略 如： NSInterge
       
   Edit->QYAction->RequestValidator   生成请求类的校验方法和测试数据 根据api返回范例
@@ -75,10 +71,3 @@
   
 - 文件模板和代码片段可以直接在这里添加
   ![](ys5.gif)
-
-
-
-
-
-
-   
