@@ -3,11 +3,12 @@
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
+//  Template From QYXcodePlugin
 //___COPYRIGHT___
 //
 
-import UIKit
+#import "___FILEBASENAME___.h"
 
-class ___FILEBASENAMEASIDENTIFIER___: ___VARIABLE_cocoaTouchSubclass___ {
-   
-}
+@implementation ___FILEBASENAMEASIDENTIFIER___
+
+@end

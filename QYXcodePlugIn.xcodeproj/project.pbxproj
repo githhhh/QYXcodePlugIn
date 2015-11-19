@@ -58,16 +58,13 @@
 		8BA852BD1BF78A4D00EE9398 /* QYPluginSetingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852BA1BF78A4D00EE9398 /* QYPluginSetingController.m */; };
 		8BA852BE1BF78A4D00EE9398 /* QYShortcutRecorderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852BC1BF78A4D00EE9398 /* QYShortcutRecorderController.m */; };
 		8BA852C21BF78A6700EE9398 /* QYClangFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852C11BF78A6700EE9398 /* QYClangFormat.m */; };
+		8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F6681BFDB14E00F4A4AD /* TemplateIcon.png */; };
+		8BF5F6831BFDB14E00F4A4AD /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F6691BFDB14E00F4A4AD /* TemplateIcon@2x.png */; };
+		8BF5F6841BFDB14E00F4A4AD /* TemplateInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F66A1BFDB14E00F4A4AD /* TemplateInfo.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8B05B57E1BF5A32E00F37998 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		8B0775301BB1578600458FD3 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8B0775311BB1578600458FD3 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8B0775331BB1578600458FD3 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
-		8B0775341BB1578600458FD3 /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
-		8B0775351BB1578600458FD3 /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
-		8B0775361BB1578600458FD3 /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
 		8B4C00801BF7852300A77AD9 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/PTHotKey.framework"; sourceTree = "<group>"; };
 		8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		8B60ADA41BABB7F100672762 /* QYXcodePlugIn.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QYXcodePlugIn.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,12 +75,6 @@
 		8B60AE281BABCEBB00672762 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8B8D837A1BF5B9EC0016A838 /* QYXcodePlugIn.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYXcodePlugIn.pch; sourceTree = "<group>"; };
 		8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = setup_CodeHelper.sh; sourceTree = "<group>"; };
-		8B9C6BDF1BB125D300242629 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8B9C6BE01BB125D300242629 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8B9C6BE21BB125D300242629 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
-		8B9C6BE31BB125D300242629 /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
-		8B9C6BE41BB125D300242629 /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
-		8B9C6BE51BB125D300242629 /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
 		8B9C6C511BB129ED00242629 /* QYXcodePlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYXcodePlugIn.h; path = Main/QYXcodePlugIn.h; sourceTree = "<group>"; };
 		8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYXcodePlugIn.m; path = Main/QYXcodePlugIn.m; sourceTree = "<group>"; };
 		8BA8522F1BF7879600EE9398 /* DVTSourceTextStorage+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DVTSourceTextStorage+Operations.h"; sourceTree = "<group>"; };
@@ -171,6 +162,30 @@
 		8BA852BC1BF78A4D00EE9398 /* QYShortcutRecorderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYShortcutRecorderController.m; path = Func/Setting/QYShortcutRecorderController.m; sourceTree = "<group>"; };
 		8BA852C01BF78A6700EE9398 /* QYClangFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYClangFormat.h; sourceTree = "<group>"; };
 		8BA852C11BF78A6700EE9398 /* QYClangFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYClangFormat.m; sourceTree = "<group>"; };
+		8BF5F6551BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
+		8BF5F6561BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
+		8BF5F6581BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8BF5F65A1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
+		8BF5F65B1BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
+		8BF5F65D1BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8BF5F65F1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
+		8BF5F6601BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
+		8BF5F6621BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
+		8BF5F6631BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
+		8BF5F6651BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8BF5F6671BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8BF5F6681BFDB14E00F4A4AD /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
+		8BF5F6691BFDB14E00F4A4AD /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
+		8BF5F66A1BFDB14E00F4A4AD /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
+		8BF5F66C1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
+		8BF5F66D1BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
+		8BF5F66F1BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8BF5F6711BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
+		8BF5F6721BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
+		8BF5F6741BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8BF5F6761BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
+		8BF5F6771BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
+		8BF5F6791BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,36 +205,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8B07752E1BB1578600458FD3 /* Singleton file.xctemplate */ = {
-			isa = PBXGroup;
-			children = (
-				8B07752F1BB1578600458FD3 /* GCDSingletonObjective-C */,
-				8B0775321BB1578600458FD3 /* GCDSingletonSwift */,
-				8B0775341BB1578600458FD3 /* TemplateIcon.png */,
-				8B0775351BB1578600458FD3 /* TemplateIcon@2x.png */,
-				8B0775361BB1578600458FD3 /* TemplateInfo.plist */,
-			);
-			name = "Singleton file.xctemplate";
-			path = "QYFileTemplate/Singleton file.xctemplate";
-			sourceTree = "<group>";
-		};
-		8B07752F1BB1578600458FD3 /* GCDSingletonObjective-C */ = {
-			isa = PBXGroup;
-			children = (
-				8B0775301BB1578600458FD3 /* ___FILEBASENAME___.h */,
-				8B0775311BB1578600458FD3 /* ___FILEBASENAME___.m */,
-			);
-			path = "GCDSingletonObjective-C";
-			sourceTree = "<group>";
-		};
-		8B0775321BB1578600458FD3 /* GCDSingletonSwift */ = {
-			isa = PBXGroup;
-			children = (
-				8B0775331BB1578600458FD3 /* ___FILEBASENAME___.swift */,
-			);
-			path = GCDSingletonSwift;
-			sourceTree = "<group>";
-		};
 		8B60AD9B1BABB7F100672762 = {
 			isa = PBXGroup;
 			children = (
@@ -289,8 +274,7 @@
 		8B9C6BC31BB1231700242629 /* QYFileTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				8B07752E1BB1578600458FD3 /* Singleton file.xctemplate */,
-				8B9C6BDD1BB125D300242629 /* Request file.xctemplate */,
+				8BF5F6531BFDB14E00F4A4AD /* QYCocoaToouchClass.xctemplate */,
 			);
 			name = QYFileTemplate;
 			sourceTree = "<group>";
@@ -300,36 +284,6 @@
 			children = (
 			);
 			name = CodeSnippets;
-			sourceTree = "<group>";
-		};
-		8B9C6BDD1BB125D300242629 /* Request file.xctemplate */ = {
-			isa = PBXGroup;
-			children = (
-				8B9C6BDE1BB125D300242629 /* QYRequestObjective-C */,
-				8B9C6BE11BB125D300242629 /* QYRequestSwift */,
-				8B9C6BE31BB125D300242629 /* TemplateIcon.png */,
-				8B9C6BE41BB125D300242629 /* TemplateIcon@2x.png */,
-				8B9C6BE51BB125D300242629 /* TemplateInfo.plist */,
-			);
-			name = "Request file.xctemplate";
-			path = "QYFileTemplate/Request file.xctemplate";
-			sourceTree = "<group>";
-		};
-		8B9C6BDE1BB125D300242629 /* QYRequestObjective-C */ = {
-			isa = PBXGroup;
-			children = (
-				8B9C6BDF1BB125D300242629 /* ___FILEBASENAME___.h */,
-				8B9C6BE01BB125D300242629 /* ___FILEBASENAME___.m */,
-			);
-			path = "QYRequestObjective-C";
-			sourceTree = "<group>";
-		};
-		8B9C6BE11BB125D300242629 /* QYRequestSwift */ = {
-			isa = PBXGroup;
-			children = (
-				8B9C6BE21BB125D300242629 /* ___FILEBASENAME___.swift */,
-			);
-			path = QYRequestSwift;
 			sourceTree = "<group>";
 		};
 		8BA8522D1BF7879600EE9398 /* Uitility */ = {
@@ -517,6 +471,150 @@
 			path = ClangFormat;
 			sourceTree = "<group>";
 		};
+		8BF5F6531BFDB14E00F4A4AD /* QYCocoaToouchClass.xctemplate */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F6541BFDB14E00F4A4AD /* JoyRequestObjective-C */,
+				8BF5F6571BFDB14E00F4A4AD /* JoyRequestSwift */,
+				8BF5F6591BFDB14E00F4A4AD /* JYTableViewBaseCellObjective-C */,
+				8BF5F65C1BFDB14E00F4A4AD /* JYTableViewBaseCellSwift */,
+				8BF5F65E1BFDB14E00F4A4AD /* NSObjectObjective-C */,
+				8BF5F6611BFDB14E00F4A4AD /* NSObjectSingletonObjective-C */,
+				8BF5F6641BFDB14E00F4A4AD /* NSObjectSingletonSwift */,
+				8BF5F6661BFDB14E00F4A4AD /* NSObjectSwift */,
+				8BF5F6681BFDB14E00F4A4AD /* TemplateIcon.png */,
+				8BF5F6691BFDB14E00F4A4AD /* TemplateIcon@2x.png */,
+				8BF5F66A1BFDB14E00F4A4AD /* TemplateInfo.plist */,
+				8BF5F66B1BFDB14E00F4A4AD /* UITableViewCellObjective-C */,
+				8BF5F66E1BFDB14E00F4A4AD /* UITableViewCellSwift */,
+				8BF5F6701BFDB14E00F4A4AD /* UIViewControllerObjective-C */,
+				8BF5F6731BFDB14E00F4A4AD /* UIViewControllerSwift */,
+				8BF5F6751BFDB14E00F4A4AD /* UIViewObjective-C */,
+				8BF5F6781BFDB14E00F4A4AD /* UIViewSwift */,
+			);
+			name = QYCocoaToouchClass.xctemplate;
+			path = QYFileTemplate/QYCocoaToouchClass.xctemplate;
+			sourceTree = "<group>";
+		};
+		8BF5F6541BFDB14E00F4A4AD /* JoyRequestObjective-C */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F6551BFDB14E00F4A4AD /* ___FILEBASENAME___.h */,
+				8BF5F6561BFDB14E00F4A4AD /* ___FILEBASENAME___.m */,
+			);
+			path = "JoyRequestObjective-C";
+			sourceTree = "<group>";
+		};
+		8BF5F6571BFDB14E00F4A4AD /* JoyRequestSwift */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F6581BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */,
+			);
+			path = JoyRequestSwift;
+			sourceTree = "<group>";
+		};
+		8BF5F6591BFDB14E00F4A4AD /* JYTableViewBaseCellObjective-C */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F65A1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */,
+				8BF5F65B1BFDB14E00F4A4AD /* ___FILEBASENAME___.m */,
+			);
+			path = "JYTableViewBaseCellObjective-C";
+			sourceTree = "<group>";
+		};
+		8BF5F65C1BFDB14E00F4A4AD /* JYTableViewBaseCellSwift */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F65D1BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */,
+			);
+			path = JYTableViewBaseCellSwift;
+			sourceTree = "<group>";
+		};
+		8BF5F65E1BFDB14E00F4A4AD /* NSObjectObjective-C */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F65F1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */,
+				8BF5F6601BFDB14E00F4A4AD /* ___FILEBASENAME___.m */,
+			);
+			path = "NSObjectObjective-C";
+			sourceTree = "<group>";
+		};
+		8BF5F6611BFDB14E00F4A4AD /* NSObjectSingletonObjective-C */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F6621BFDB14E00F4A4AD /* ___FILEBASENAME___.h */,
+				8BF5F6631BFDB14E00F4A4AD /* ___FILEBASENAME___.m */,
+			);
+			path = "NSObjectSingletonObjective-C";
+			sourceTree = "<group>";
+		};
+		8BF5F6641BFDB14E00F4A4AD /* NSObjectSingletonSwift */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F6651BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */,
+			);
+			path = NSObjectSingletonSwift;
+			sourceTree = "<group>";
+		};
+		8BF5F6661BFDB14E00F4A4AD /* NSObjectSwift */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F6671BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */,
+			);
+			path = NSObjectSwift;
+			sourceTree = "<group>";
+		};
+		8BF5F66B1BFDB14E00F4A4AD /* UITableViewCellObjective-C */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F66C1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */,
+				8BF5F66D1BFDB14E00F4A4AD /* ___FILEBASENAME___.m */,
+			);
+			path = "UITableViewCellObjective-C";
+			sourceTree = "<group>";
+		};
+		8BF5F66E1BFDB14E00F4A4AD /* UITableViewCellSwift */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F66F1BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */,
+			);
+			path = UITableViewCellSwift;
+			sourceTree = "<group>";
+		};
+		8BF5F6701BFDB14E00F4A4AD /* UIViewControllerObjective-C */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F6711BFDB14E00F4A4AD /* ___FILEBASENAME___.h */,
+				8BF5F6721BFDB14E00F4A4AD /* ___FILEBASENAME___.m */,
+			);
+			path = "UIViewControllerObjective-C";
+			sourceTree = "<group>";
+		};
+		8BF5F6731BFDB14E00F4A4AD /* UIViewControllerSwift */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F6741BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */,
+			);
+			path = UIViewControllerSwift;
+			sourceTree = "<group>";
+		};
+		8BF5F6751BFDB14E00F4A4AD /* UIViewObjective-C */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F6761BFDB14E00F4A4AD /* ___FILEBASENAME___.h */,
+				8BF5F6771BFDB14E00F4A4AD /* ___FILEBASENAME___.m */,
+			);
+			path = "UIViewObjective-C";
+			sourceTree = "<group>";
+		};
+		8BF5F6781BFDB14E00F4A4AD /* UIViewSwift */ = {
+			isa = PBXGroup;
+			children = (
+				8BF5F6791BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */,
+			);
+			path = UIViewSwift;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -543,6 +641,7 @@
 		8B60AD9C1BABB7F100672762 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = X.Y;
 				TargetAttributes = {
@@ -573,11 +672,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */,
 				8BA852AE1BF7896200EE9398 /* QYPluginSetingController.xib in Resources */,
 				8BA852AF1BF7896200EE9398 /* QYShortcutRecorderController.xib in Resources */,
 				8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */,
+				8BF5F6841BFDB14E00F4A4AD /* TemplateInfo.plist in Resources */,
 				8B9C6BD81BB1247700242629 /* setup_CodeHelper.sh in Resources */,
 				8BA852AD1BF7896200EE9398 /* QYInputJsonController.xib in Resources */,
+				8BF5F6831BFDB14E00F4A4AD /* TemplateIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,6 +813,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
@@ -724,6 +827,8 @@
 				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QYFileTemplate/Request file.xctemplate/QYRequestSwift/QYXcodePlugIn-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Debug;
@@ -732,6 +837,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
@@ -745,6 +851,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "QYFileTemplate/Request file.xctemplate/QYRequestSwift/QYXcodePlugIn-Bridging-Header.h";
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Release;

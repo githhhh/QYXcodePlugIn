@@ -3,8 +3,10 @@
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
+//  Template From QYXcodePlugin
 //___COPYRIGHT___
 //
+
 
 #import "___FILEBASENAME___.h"
 
@@ -26,24 +28,15 @@
 }
 
 
--(id)init{
-    
+- (id)init
+{
     self = [super init];
     if (self) {
-        
-        
         
         
     }
     return self;
 }
-
-
-
-//-(void)dealloc{
-//
-//}
-
 
 
 @end
