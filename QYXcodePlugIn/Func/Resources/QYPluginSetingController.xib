@@ -20,7 +20,7 @@
         <window title="设置" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="1Qn-2A-PWI">
             <windowStyleMask key="styleMask" titled="YES"/>
             <rect key="contentRect" x="768" y="530" width="1021" height="605"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <rect key="screenRect" x="-324" y="800" width="1920" height="1057"/>
             <view key="contentView" id="VSE-lm-Ldo">
                 <rect key="frame" x="0.0" y="0.0" width="1021" height="605"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -79,15 +79,16 @@ Gw
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b9G-eZ-Jdz">
                         <rect key="frame" x="639" y="543" width="191" height="17"/>
                         <gestureRecognizers>
-                            <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="Kd7-0k-g1W"/>
+                            <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="Kd7-0k-g1W">
+                                <connections>
+                                    <action selector="onLineEdit:" target="-2" id="kh1-3v-aFE"/>
+                                </connections>
+                            </clickGestureRecognizer>
                         </gestureRecognizers>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="在线编辑JSON" id="VPT-Dk-IIr">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            <connections>
-                                <action selector="onLineEdit:" target="-2" id="IZA-SA-3MS"/>
-                            </connections>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srM-0l-VBM">

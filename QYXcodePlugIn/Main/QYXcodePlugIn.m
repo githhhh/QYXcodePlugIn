@@ -12,7 +12,7 @@
 
 static QYXcodePlugIn *sharedPlugin;
 
-@interface QYXcodePlugIn()
+@interface QYXcodePlugIn ()
 
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
 
@@ -20,28 +20,20 @@ static QYXcodePlugIn *sharedPlugin;
 
 @implementation QYXcodePlugIn
 
-static OSStatus lafHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void *userData) {
-    
+static OSStatus lafHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void *userData)
+{
     EventHotKeyID lafRef;
-    GetEventParameter(anEvent,kEventParamDirectObject,typeEventHotKeyID,NULL,sizeof(lafRef),NULL,&lafRef);
+    GetEventParameter(anEvent, kEventParamDirectObject, typeEventHotKeyID, NULL, sizeof(lafRef), NULL, &lafRef);
     switch (lafRef.id) {
-        case 2:
-        {
+        case 2: {
             NSLog(@"============");
-        }
-            break;
-            
+        } break;
     }
     return noErr;
 }
 
 
-
-
-+ (instancetype)sharedPlugin
-{
-    return sharedPlugin;
-}
++ (instancetype)sharedPlugin { return sharedPlugin; }
 
 + (void)pluginDidLoad:(NSBundle *)plugin
 {
@@ -61,7 +53,7 @@ static OSStatus lafHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEve
         // reference to plugin's bundle, for resource access
         self.bundle = plugin;
         //通知
-        [QYIDENotificationHandler  sharedHandler];
+        [QYIDENotificationHandler sharedHandler];
         
         [self loadKeyboardHandler];
     }
@@ -69,21 +61,21 @@ static OSStatus lafHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEve
 }
 
 
-
 #pragma mark -  直接注册热键 事件
-- (void)loadKeyboardHandler {
+- (void)loadKeyboardHandler
+{
     EventHotKeyRef lafHotKeyRef;
     EventHotKeyID lafHotKeyID;
     EventTypeSpec eventType;
     
-    eventType.eventClass=kEventClassKeyboard;
-    eventType.eventKind=kEventHotKeyPressed;
-    InstallApplicationEventHandler(&lafHotKeyHandler,1,&eventType,NULL,NULL);
+    eventType.eventClass = kEventClassKeyboard;
+    eventType.eventKind = kEventHotKeyPressed;
+    InstallApplicationEventHandler(&lafHotKeyHandler, 1, &eventType, NULL, NULL);
     
-    lafHotKeyID.signature='lak1';
-    lafHotKeyID.id=2;
+    lafHotKeyID.signature = 'lak1';
+    lafHotKeyID.id = 2;
     
-    RegisterEventHotKey(kVK_ANSI_T, cmdKey+shiftKey, lafHotKeyID, GetApplicationEventTarget(), 0, &lafHotKeyRef);
+    RegisterEventHotKey(kVK_ANSI_T, cmdKey + shiftKey, lafHotKeyID, GetApplicationEventTarget(), 0, &lafHotKeyRef);
 }
 
 @end

@@ -12,30 +12,24 @@
 
 @end
 
-@implementation QYShortcutRecorderController
-{
+@implementation QYShortcutRecorderController {
     SRValidator *_validator;
 }
 
--(void)dealloc{
-    NSLog(@"======QYShortcutRecorderController========");
-}
+- (void)dealloc { NSLog(@"======QYShortcutRecorderController========"); }
 
 #pragma mark SRRecorderControlDelegate
 
 - (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder canRecordShortcut:(NSDictionary *)aShortcut
 {
     __autoreleasing NSError *error = nil;
-    BOOL isTaken = [_validator isKeyCode:[aShortcut[SRShortcutKeyCode] unsignedShortValue] andFlagsTaken:[aShortcut[SRShortcutModifierFlagsKey] unsignedIntegerValue] error:&error];
+    BOOL isTaken = [_validator isKeyCode:[aShortcut[SRShortcutKeyCode] unsignedShortValue]
+                           andFlagsTaken:[aShortcut[SRShortcutModifierFlagsKey] unsignedIntegerValue]
+                                   error:&error];
     
-    if (isTaken)
-    {
+    if (isTaken) {
         NSBeep();
-        [self presentError:error
-            modalForWindow:self.window
-                  delegate:nil
-        didPresentSelector:NULL
-               contextInfo:NULL];
+        [self presentError:error modalForWindow:self.window delegate:nil didPresentSelector:NULL contextInfo:NULL];
     }
     
     return !isTaken;
@@ -47,12 +41,11 @@
     return YES;
 }
 
-- (void)shortcutRecorderDidEndRecording:(SRRecorderControl *)aRecorder
-{
-    [[PTHotKeyCenter sharedCenter] resume];
-}
+- (void)shortcutRecorderDidEndRecording:(SRRecorderControl *)aRecorder { [[PTHotKeyCenter sharedCenter] resume]; }
 
-- (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder shouldUnconditionallyAllowModifierFlags:(NSEventModifierFlags)aModifierFlags forKeyCode:(unsigned short)aKeyCode
+- (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder
+shouldUnconditionallyAllowModifierFlags:(NSEventModifierFlags)aModifierFlags
+              forKeyCode:(unsigned short)aKeyCode
 {
     // Keep required flags required.
     if ((aModifierFlags & aRecorder.requiredModifierFlags) != aRecorder.requiredModifierFlags)
@@ -62,8 +55,7 @@
     if ((aModifierFlags & aRecorder.allowedModifierFlags) != aModifierFlags)
         return NO;
     
-    switch (aKeyCode)
-    {
+    switch (aKeyCode) {
         case kVK_F1:
         case kVK_F2:
         case kVK_F3:
@@ -93,9 +85,12 @@
 
 #pragma mark SRValidatorDelegate
 
-- (BOOL)shortcutValidator:(SRValidator *)aValidator isKeyCode:(unsigned short)aKeyCode andFlagsTaken:(NSEventModifierFlags)aFlags reason:(NSString **)outReason
+- (BOOL)shortcutValidator:(SRValidator *)aValidator
+                isKeyCode:(unsigned short)aKeyCode
+            andFlagsTaken:(NSEventModifierFlags)aFlags
+                   reason:(NSString **)outReason
 {
-#define IS_TAKEN(aRecorder) (recorder != (aRecorder) && SRShortcutEqualToShortcut(shortcut, [(aRecorder) objectValue]))
+#define IS_TAKEN(aRecorder) (recorder != (aRecorder) && SRShortcutEqualToShortcut(shortcut, [(aRecorder)objectValue]))
     SRRecorderControl *recorder = (SRRecorderControl *)self.window.firstResponder;
     
     if (![recorder isKindOfClass:[SRRecorderControl class]])
@@ -103,20 +98,15 @@
     
     NSDictionary *shortcut = SRShortcutWithCocoaModifierFlagsAndKeyCode(aFlags, aKeyCode);
     
-    if (IS_TAKEN(_agRecorderControl)||IS_TAKEN(_rvRecorderControl)||IS_TAKEN(_settingRecorderControl))
-    {
+    if (IS_TAKEN(_agRecorderControl) || IS_TAKEN(_rvRecorderControl) || IS_TAKEN(_settingRecorderControl)) {
         *outReason = @"it's already used. To use this shortcut, first remove or change the other shortcut";
         return YES;
-    }
-    else
+    } else
         return NO;
 #undef IS_TAKEN
 }
 
-- (BOOL)shortcutValidatorShouldCheckMenu:(SRValidator *)aValidator
-{
-    return YES;
-}
+- (BOOL)shortcutValidatorShouldCheckMenu:(SRValidator *)aValidator { return YES; }
 
 
 #pragma mark NSObject
@@ -126,25 +116,14 @@
     [super awakeFromNib];
     _validator = [[SRValidator alloc] initWithDelegate:self];
     
-     NSUserDefaultsController *defaults = [NSUserDefaultsController sharedUserDefaultsController];
+    NSUserDefaultsController *defaults = [NSUserDefaultsController sharedUserDefaultsController];
     
     
-    [self.agRecorderControl bind:NSValueBinding
-                        toObject:defaults
-                     withKeyPath:AutoGetterMenuKeyPath
-                         options:nil];
+    [self.agRecorderControl bind:NSValueBinding toObject:defaults withKeyPath:AutoGetterMenuKeyPath options:nil];
     
-    [self.rvRecorderControl bind:NSValueBinding
-                        toObject:defaults
-                     withKeyPath:RequestVerifiMenuKeyPath
-                         options:nil];
+    [self.rvRecorderControl bind:NSValueBinding toObject:defaults withKeyPath:RequestVerifiMenuKeyPath options:nil];
     
-    [self.settingRecorderControl bind:NSValueBinding
-                        toObject:defaults
-                     withKeyPath:SettingsMenuKeyPath
-                         options:nil];
-    
-    
+    [self.settingRecorderControl bind:NSValueBinding toObject:defaults withKeyPath:SettingsMenuKeyPath options:nil];
 }
 
 

@@ -10,8 +10,7 @@
 #import "QYShortcutRecorderController.h"
 
 
-
-@interface QYPluginSetingController ()<NSWindowDelegate>{
+@interface QYPluginSetingController () <NSWindowDelegate> {
     BOOL isSave;
 }
 
@@ -33,17 +32,16 @@
 @property (weak) IBOutlet NSTextField *validatorMethodName;
 
 
-@property (nonatomic,retain)QYShortcutRecorderController *shortcutRC;
+@property (nonatomic, retain) QYShortcutRecorderController *shortcutRC;
 
 @end
 
 @implementation QYPluginSetingController
 
--(void)dealloc{
-    NSLog(@"===QYPluginSetingController===dealloc=");
-}
+- (void)dealloc { NSLog(@"===QYPluginSetingController===dealloc="); }
 
-- (void)windowWillClose:(NSNotification *)notification {
+- (void)windowWillClose:(NSNotification *)notification
+{
     // whichever operations are needed when the
     // window is about to be closed
     
@@ -58,16 +56,16 @@
     [userdf setObject:self.validatorMethodName.stringValue forKey:validatorMName];
     
     [userdf synchronize];
-    
 }
 
 
-- (void)windowDidLoad {
+- (void)windowDidLoad
+{
     [super windowDidLoad];
     self.window.delegate = self;
     self.msgLable.hidden = NO;
     self.msgLable.textColor = [NSColor redColor];
-
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         
         NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
@@ -78,40 +76,44 @@
         NSString *vMethodName = [userdf objectForKey:validatorMName];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-    
-            self.requestBaseName.stringValue = requstBName?:@"QYRequest";
-            self.isTestData.state = isTd?[isTd integerValue]:0;
-            self.testDataMethodName.stringValue = tdMdName?:@"testData";
-            self.validatorMethodName.stringValue = vMethodName?:@"validatorResult";
             
-            self.setingTextView.string = allContent?:@"{\n\'UIView\':[\n   \'%@ = [[UIView alloc] init];\',\n   \'%@.backgroundColor = [UIColor clearColor];\'\n  ]\n}\n";
+            self.requestBaseName.stringValue = requstBName ?: @"QYRequest";
+            self.isTestData.state = isTd ? [isTd integerValue] : 0;
+            self.testDataMethodName.stringValue = tdMdName ?: @"testData";
+            self.validatorMethodName.stringValue = vMethodName ?: @"validatorResult";
+            
+            self.setingTextView.string = allContent ?: @"{\n\'UIView\':[\n   \'%@ = [[UIView alloc] init];\',\n   "
+            @"\'%@.backgroundColor = [UIColor clearColor];\'\n  ]\n}\n";
         });
     });
 }
 
-- (IBAction)shortcutRecorderAction:(id)sender {
+- (IBAction)shortcutRecorderAction:(id)sender
+{
     self.shortcutRC = [[QYShortcutRecorderController alloc] initWithWindowNibName:@"QYShortcutRecorderController"];
     [self.shortcutRC showWindow:self];
 }
 
 
-- (IBAction)onLineEdit:(id)sender {
-    NSURL* url = [[ NSURL alloc ] initWithString :@"http://www.qqe2.com/"];
+- (IBAction)onLineEdit:(id)sender
+{
+    NSURL *url = [[NSURL alloc] initWithString:@"http://www.qqe2.com/"];
     [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
 
-- (IBAction)cancelAction:(id)sender {
+- (IBAction)cancelAction:(id)sender
+{
     isSave = NO;
     [self close];
-    if (self.pgDelegate &&[self.pgDelegate respondsToSelector:@selector(windowDidClose)]) {
+    if (self.pgDelegate && [self.pgDelegate respondsToSelector:@selector(windowDidClose)]) {
         [self.pgDelegate windowDidClose];
     }
 }
 
 
-- (IBAction)saveAction:(id)sender {
-    
+- (IBAction)saveAction:(id)sender
+{
     id resulte = [self dictionaryWithJsonStr:self.setingTextView.string];
     if ([resulte isKindOfClass:[NSError class]]) {
         self.msgLable.stringValue = @"不符合Json 格式";
@@ -119,18 +121,18 @@
     }
     
     
-    if (self.requestBaseName.stringValue.length==0) {
+    if (self.requestBaseName.stringValue.length == 0) {
         self.msgLable.stringValue = @"基类不能为空";
         return;
     }
     
-    if (self.testDataMethodName.stringValue.length==0&&!self.isTestData.state) {
+    if (self.testDataMethodName.stringValue.length == 0 && !self.isTestData.state) {
         self.msgLable.stringValue = @"测试数据方法名不能为空";
         return;
     }
     isSave = YES;
     [self close];
-    if (self.pgDelegate &&[self.pgDelegate respondsToSelector:@selector(windowDidClose)]) {
+    if (self.pgDelegate && [self.pgDelegate respondsToSelector:@selector(windowDidClose)]) {
         [self.pgDelegate windowDidClose];
     }
 }
@@ -139,18 +141,18 @@
 /**
  *  检查是否是一个有效的JSON
  */
--(id)dictionaryWithJsonStr:(NSString *)jsonString{
-    jsonString = [[jsonString stringByReplacingOccurrencesOfString:@" " withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+- (id)dictionaryWithJsonStr:(NSString *)jsonString
+{
+    jsonString = [[jsonString stringByReplacingOccurrencesOfString:@" " withString:@""]
+                  stringByReplacingOccurrencesOfString:@" "
+                  withString:@""];
     NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *err;
-    id dicOrArray = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                    options:NSJSONReadingMutableContainers
-                                                      error:&err];
+    id dicOrArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
     if (err) {
         return err;
-    }else{
+    } else {
         return dicOrArray;
     }
-    
 }
 @end

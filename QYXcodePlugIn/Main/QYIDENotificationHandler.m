@@ -9,7 +9,6 @@
 #import "QYIDENotificationHandler.h"
 #import "MHXcodeDocumentNavigator.h"
 #import "NSString+Extensions.h"
-
 #import <ShortcutRecorder/ShortcutRecorder.h>
 #import <PTHotKey/PTHotKeyCenter.h>
 #import <PTHotKey/PTHotKey+ShortcutRecorder.h>
@@ -19,23 +18,21 @@
 #import "QYInputJsonController.h"
 #import "QYPluginSetingController.h"
 #import "QYWindowsCloseProtocol.h"
-
+#import "NSTextView+Operations.h"
 /**
  *  菜单结构
  */
-#define  SuperMenu @"Edit"
-#define  QYMenu @"QYAction"
-#define  QYMenu_AutoGetter @"AutoGetter"
-#define  QYMenu_RequestValidator @"RequestValidator"
-#define  QYMenu_Settings @"Settings"
+#define SuperMenu @"Edit"
+#define QYMenu @"QYAction"
+#define QYMenu_AutoGetter @"AutoGetter"
+#define QYMenu_RequestValidator @"RequestValidator"
+#define QYMenu_Settings @"Settings"
 
 
-@interface QYIDENotificationHandler ()<QYWindowsCloseProtocol>{
-    
+@interface QYIDENotificationHandler () <QYWindowsCloseProtocol> {
 }
-@property (nonatomic,retain)QYInputJsonController *inputJsonWindow;
-@property (nonatomic,retain)QYPluginSetingController  *setingWindow;
-
+@property (nonatomic, retain) QYInputJsonController *inputJsonWindow;
+@property (nonatomic, retain) QYPluginSetingController *setingWindow;
 
 @end
 
@@ -73,10 +70,12 @@
 }
 #pragma mark -  Xcode 通知
 #pragma mark -  启动
-- (void)didApplicationFinishLaunchingNotification:(NSNotification*)noti
+- (void)didApplicationFinishLaunchingNotification:(NSNotification *)noti
 {
-    //removeObserver
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSApplicationDidFinishLaunchingNotification object:nil];
+    // removeObserver
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NSApplicationDidFinishLaunchingNotification
+                                                  object:nil];
     
     // Create menu items, initialize UI, etc.
     // Sample Menu Item:
@@ -86,22 +85,23 @@
 }
 
 #pragma mark -  选中内容改变
-- (void)didChangeSelecteText:(NSNotification *)noti{
-    
+- (void)didChangeSelecteText:(NSNotification *)noti
+{
     if ([[noti object] isKindOfClass:[NSTextView class]]) {
         NSTextView *textView = (NSTextView *)[noti object];
         
         NSArray *selectedRanges = [textView selectedRanges];
         
-        if ([selectedRanges count]== 0) {
+        if ([selectedRanges count] == 0) {
             return;
         }
         
         NSRange selectedRange = [[selectedRanges objectAtIndex:0] rangeValue];
         NSString *text = textView.textStorage.string;
-        self.globlaParamter = [text substringWithRange:selectedRange];
+        NSString *selectedText = [text substringWithRange:selectedRange];
+        
+        self.globlaParamter = selectedText;
     }
-    
 }
 
 /**
@@ -120,13 +120,11 @@
     [[editItem submenu] addItem:actionMenuItem];
     
     
-    
     NSUserDefaultsController *defaults = [NSUserDefaultsController sharedUserDefaultsController];
     
     NSMenu *actinMenus = [[NSMenu alloc] init];
-    //get方法生成
-    self.geterMenuItem = [self menuItemWithTitle:QYMenu_AutoGetter
-                                          action:@selector(autoGetterAction:)];
+    // get方法生成
+    self.geterMenuItem = [self menuItemWithTitle:QYMenu_AutoGetter action:@selector(autoGetterAction:)];
     
     [actinMenus addItem:self.geterMenuItem];
     [self.geterMenuItem bind:@"keyEquivalent"
@@ -142,25 +140,25 @@
     
     
     //请求校验生成
-    self.requestVerifiMenuItem = [self menuItemWithTitle:QYMenu_RequestValidator
-                                                  action:@selector(requestValidatorAction:)];
+    self.requestVerifiMenuItem =
+    [self menuItemWithTitle:QYMenu_RequestValidator action:@selector(requestValidatorAction:)];
     [actinMenus addItem:self.requestVerifiMenuItem];
     
     [self.requestVerifiMenuItem bind:@"keyEquivalent"
                             toObject:defaults
                          withKeyPath:RequestVerifiMenuKeyPath
                              options:@{NSValueTransformerBindingOption : [SRKeyEquivalentTransformer new]}];
-    [self.requestVerifiMenuItem bind:@"keyEquivalentModifierMask"
-                            toObject:defaults
-                         withKeyPath:RequestVerifiMenuKeyPath
-                             options:@{NSValueTransformerBindingOption : [SRKeyEquivalentModifierMaskTransformer new]}];
+    [self.requestVerifiMenuItem
+     bind:@"keyEquivalentModifierMask"
+     toObject:defaults
+     withKeyPath:RequestVerifiMenuKeyPath
+     options:@{NSValueTransformerBindingOption : [SRKeyEquivalentModifierMaskTransformer new]}];
     //分割线
     [actinMenus insertItem:[NSMenuItem separatorItem] atIndex:1];
     
     
     //全局设置
-    self.settingsMenuItem = [self menuItemWithTitle:QYMenu_Settings
-                                             action:@selector(settingsAction:)];
+    self.settingsMenuItem = [self menuItemWithTitle:QYMenu_Settings action:@selector(settingsAction:)];
     
     [actinMenus addItem:self.settingsMenuItem];
     
@@ -180,15 +178,17 @@
 #pragma mark -
 #pragma mark - menuAction
 
--(void)autoGetterAction:(id)sender{
+- (void)autoGetterAction:(id)sender
+{
     AutoGetterAchieve *agAchieve = [[AutoGetterAchieve alloc] init];
     [agAchieve getterAction:self.globlaParamter];
 }
 
--(void)requestValidatorAction:(id)sender{
+- (void)requestValidatorAction:(id)sender
+{
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-
-        BOOL isRf =  [self isRequestFileCurrent];
+        
+        BOOL isRf = [self isRequestFileCurrent];
         if (!isRf) {
             return;
         }
@@ -200,17 +200,18 @@
         });
     });
 }
--(void)settingsAction:(id)sender{
+- (void)settingsAction:(id)sender
+{
     self.setingWindow = [[QYPluginSetingController alloc] initWithWindowNibName:@"QYPluginSetingController"];
     self.setingWindow.pgDelegate = self;
     [self.setingWindow showWindow:self];
 }
 
 
-
 #pragma mark - private method
 
--(BOOL)isRequestFileCurrent{
+- (BOOL)isRequestFileCurrent
+{
     NSString *currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
     if (!currentFilePath) {
         return NO;
@@ -219,7 +220,8 @@
     if (!textView) {
         return NO;
     }
-    currentFilePath = [currentFilePath stringByReplacingCharactersInRange:NSMakeRange(currentFilePath.length-1, 1) withString:@"h"];
+    currentFilePath =
+    [currentFilePath stringByReplacingCharactersInRange:NSMakeRange(currentFilePath.length - 1, 1) withString:@"h"];
     NSString *soureString = [NSString stringWithContentsOfFile:currentFilePath encoding:NSUTF8StringEncoding error:nil];
     
     //读取配置
@@ -230,8 +232,9 @@
     }
     
     // 验证当前.h 文件的父类是否是制定类
-    NSArray *contents = [soureString matcheGroupWith:[NSString stringWithFormat:@"@\\w+\\s*(\\w+)\\s*\\:\\s+%@\\s",requstBName] ];
-    if (!([contents count]>0)) {
+    NSArray *contents =
+    [soureString matcheGroupWith:[NSString stringWithFormat:@"@\\w+\\s*(\\w+)\\s*\\:\\s+%@\\s", requstBName]];
+    if (!([contents count] > 0)) {
         return NO;
     }
     return YES;
@@ -239,8 +242,8 @@
 
 
 #pragma mark - create MenuItem
--(NSMenuItem *)menuItemWithTitle:(NSString *)title
-                          action:(SEL)action{
+- (NSMenuItem *)menuItemWithTitle:(NSString *)title action:(SEL)action
+{
     NSMenuItem *rvMenu = [[NSMenuItem alloc] init];
     rvMenu.target = self;
     rvMenu.action = action;
@@ -265,9 +268,7 @@
     }
 }
 
--(void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+- (void)dealloc { [[NSNotificationCenter defaultCenter] removeObserver:self]; }
 
 
 @end
