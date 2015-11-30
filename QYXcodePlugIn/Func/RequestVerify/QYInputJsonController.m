@@ -58,9 +58,7 @@ static NSString *NumberClass = @"[NSNumber class]";
 - (IBAction)cancelAction:(id)sender
 {
     [super close];
-    if (self.delegate && [self.delegate respondsToSelector:@selector(windowDidClose)]) {
-        [self.delegate windowDidClose];
-    }
+    [self closeWindown];
 }
 
 
@@ -104,13 +102,16 @@ static NSString *NumberClass = @"[NSNumber class]";
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.sourceTextView insertText:source replacementRange:lastEndRange];
-            if (self.delegate && [self.delegate respondsToSelector:@selector(windowDidClose)]) {
-                [self.delegate windowDidClose];
-            }
+            [self closeWindown];
         });
     });
 }
 
+-(void)closeWindown{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(windowDidClose)]) {
+        [self.delegate windowDidClose];
+    }
+}
 
 - (void)textDidChange:(NSNotification *)notification
 {
@@ -141,7 +142,13 @@ static NSString *NumberClass = @"[NSNumber class]";
     [methodStr appendString:@"@end"];
     return [NSString stringWithString:methodStr];
 }
-
+/**
+ *  获取验证方法字符串
+ *
+ *  @param data <#data description#>
+ *
+ *  @return <#return value description#>
+ */
 - (NSString *)getValidatorMethodStrWithJsonData:(id)data
 {
     NSString *validatorStr = [self getJsonString:data withValidator:YES];
@@ -154,7 +161,13 @@ static NSString *NumberClass = @"[NSNumber class]";
     [validatorMStr appendString:[NSString stringWithFormat:@"      return %@;\n}\n", validatorStr]];
     return [NSString stringWithString:validatorMStr];
 }
-
+/**
+ *  获取本地测试方法字符串
+ *
+ *  @param data <#data description#>
+ *
+ *  @return <#return value description#>
+ */
 - (NSString *)getLocTestDataMethodStrWithJsonData:(id)data
 {
     /**
