@@ -18,6 +18,13 @@
 
 - (void)dealloc { NSLog(@"======QYShortcutRecorderController========"); }
 
+
+#pragma mark - sheet
+- (IBAction)CloseSheet:(id)sender {
+    [self.window.sheetParent endSheet:self.window returnCode:NSModalResponseOK];
+}
+
+
 #pragma mark SRRecorderControlDelegate
 
 - (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder canRecordShortcut:(NSDictionary *)aShortcut

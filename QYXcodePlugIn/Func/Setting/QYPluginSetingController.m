@@ -90,8 +90,13 @@
 
 - (IBAction)shortcutRecorderAction:(id)sender
 {
-    self.shortcutRC = [[QYShortcutRecorderController alloc] initWithWindowNibName:@"QYShortcutRecorderController"];
-    [self.shortcutRC showWindow:self];
+    if (!self.shortcutRC) {
+      self.shortcutRC = [[QYShortcutRecorderController alloc] initWithWindowNibName:@"QYShortcutRecorderController"];
+    }
+   
+    [self.window beginSheet:self.shortcutRC.window completionHandler:^(NSModalResponse returnCode) {
+        
+    }];
 }
 
 

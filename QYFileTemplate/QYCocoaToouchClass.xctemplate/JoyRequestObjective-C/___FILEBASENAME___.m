@@ -35,16 +35,6 @@
 }
 
 /**
- *  请求方式
- *
- *  @return return value description
- */
-- (YTKRequestMethod)requestMethod {
-    
-    return <#YTKRequestMethodGet#>;
-}
-
-/**
  *  请求参数
  *
  *  @return return value description
