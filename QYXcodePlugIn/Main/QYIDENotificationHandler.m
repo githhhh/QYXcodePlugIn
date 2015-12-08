@@ -13,7 +13,6 @@
 #import <PTHotKey/PTHotKeyCenter.h>
 #import <PTHotKey/PTHotKey+ShortcutRecorder.h>
 
-
 #import "AutoGetterAchieve.h"
 #import "QYInputJsonController.h"
 #import "QYPluginSetingController.h"
@@ -33,6 +32,7 @@
 }
 @property (nonatomic, retain) QYInputJsonController *inputJsonWindow;
 @property (nonatomic, retain) QYPluginSetingController *setingWindow;
+@property (nonatomic,retain)NSString *tempFilePath;
 
 @end
 
@@ -239,7 +239,18 @@
     }
     return YES;
 }
+#pragma mark - publice method
 
+- (NSString *)projectTempFilePath{
+    if (!_tempFilePath) {
+        NSString *currentFilePath = [MHXcodeDocumentNavigator currentWorkspacePath];
+        if (currentFilePath&&currentFilePath.length>0) {
+            NSString *dicStr = [currentFilePath stringByDeletingLastPathComponent];
+            _tempFilePath = [NSString stringWithFormat:@"%@/tempFilee",dicStr];
+        }
+    }
+    return _tempFilePath;
+}
 
 #pragma mark - create MenuItem
 - (NSMenuItem *)menuItemWithTitle:(NSString *)title action:(SEL)action

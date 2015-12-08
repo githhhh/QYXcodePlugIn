@@ -9,12 +9,6 @@
 
 #import "___FILEBASENAME___.h"
 
-@interface ___FILEBASENAMEASIDENTIFIER___()
-
-@property (nonatomic,retain)NSDictionary *paramter;
-
-@end
-
 @implementation ___FILEBASENAMEASIDENTIFIER___
 
 - (id)initWithParamter:(NSDictionary *)paramterDic {

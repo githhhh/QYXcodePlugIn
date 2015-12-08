@@ -10,10 +10,11 @@
 
 @interface QYIDENotificationHandler : NSObject
 + (id)sharedHandler;
-
 @property (nonatomic,retain)id globlaParamter;
 
 @property (nonatomic,retain)NSMenuItem* geterMenuItem;
 @property (nonatomic,retain)NSMenuItem* requestVerifiMenuItem;
 @property (nonatomic,retain)NSMenuItem* settingsMenuItem;
+
+- (NSString *)projectTempFilePath;
 @end

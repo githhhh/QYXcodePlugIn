@@ -12,6 +12,7 @@
 #import "NSString+Extensions.h"
 #import "QYClangFormat.h"
 #import "QYPluginSetingController.h"
+#import "QYIDENotificationHandler.h"
 static NSString *const propertyMatcheStr = @"@property\\s*\\(.+?\\)\\s*(\\w+)?\\s*\\*{1}\\s*(\\w+)\\s*;{1}";
 static NSInteger const groupBaseCount = 3;
 @interface AutoGetterAchieve ()
@@ -32,6 +33,7 @@ static NSInteger const groupBaseCount = 3;
     if (!selecteText || (selecteText.length == 0)) {
         return;
     }
+    NSTextView *currentCodeTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         //解析选中property
         NSArray *propertyArr = [self MatcheSelectText:selecteText];
@@ -39,37 +41,47 @@ static NSInteger const groupBaseCount = 3;
             return;
         }
         //格式化选中代码
-        NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
-        NSRange seletedRange = [textView.textStorage.string rangeOfString:selecteText];
-        [self FormatAndReplaceCode:selecteText Range:seletedRange];
+        NSRange raplaceRange = [currentCodeTextView.textStorage.string rangeOfString:selecteText];
+        NSString *formateCode =[self FormatCode:selecteText ReplaceRange:raplaceRange  OnCodeTextView:currentCodeTextView];
+        if (!formateCode) {
+            return;
+        }
+        NSRange formateCodeRange = [currentCodeTextView.textStorage.string rangeOfString:formateCode];
         
         //拼接方法
-        NSString *allMethodsStr = [self AppendMethodesStrWithArr:propertyArr];
+        NSString *allMethodsStr = [self AppendMethodesStrWithPropertyArr:propertyArr CurrentSourceCodeTextView:currentCodeTextView];
         if (allMethodsStr.length == 0) {
             return;
         }
         //格式化代码
-        NSRange endRange = [self FindReplaceLocationBySelectedRange:seletedRange];
-        [self FormatAndReplaceCode:allMethodsStr Range:endRange];
-        
+      
+        NSRange endRange = [self FindReplaceLocationBySelectedRange:formateCodeRange andCurrentSourceCodeTextView:currentCodeTextView];
+        [self FormatCode:allMethodsStr ReplaceRange:endRange OnCodeTextView:currentCodeTextView];
     });
 }
 
-
-- (void)FormatAndReplaceCode:(NSString *)source Range:(NSRange)raplaceRange
+/**
+ *  格式代码并替换
+ *
+ *  @param source       source description
+ *  @param raplaceRange raplaceRange description
+ *  @param codeTextView codeTextView description
+ *
+ *  @return return value description
+ */
+- (NSString *)FormatCode:(NSString *)source ReplaceRange:(NSRange)raplaceRange OnCodeTextView:(NSTextView *)codeTextView
 {
     if (raplaceRange.location == NSNotFound || !source || source.length == 0) {
-        return;
+        return nil;
     }
-    NSString *currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
-    NSString *formatedCode = [QYClangFormat clangFormatSourceCode:source andFilePath:currentFilePath];
+    NSString *formatedCode = [QYClangFormat clangFormatSourceCode:source ];
     if (!formatedCode || formatedCode.length == 0) {
-        return;
+        return nil;
     }
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
-        [textView insertText:formatedCode replacementRange:raplaceRange];
+        [codeTextView insertText:formatedCode replacementRange:raplaceRange];
     });
+    return formatedCode;
 }
 
 /**
@@ -79,11 +91,10 @@ static NSInteger const groupBaseCount = 3;
  *
  *  @return return value description
  */
-- (NSRange)FindReplaceLocationBySelectedRange:(NSRange)seletedRange
+- (NSRange)FindReplaceLocationBySelectedRange:(NSRange)seletedRange andCurrentSourceCodeTextView:(NSTextView *)textView
 {
     // 查找对应@end 位置
-    NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
-    if (seletedRange.location == NSNotFound) {
+    if (seletedRange.location == NSNotFound||!textView) {
         return NSMakeRange(0, 0);
     }
     
@@ -113,19 +124,17 @@ static NSInteger const groupBaseCount = 3;
  *
  *  @return return value description
  */
-- (NSString *)AppendMethodesStrWithArr:(NSArray *)propertyArr
+- (NSString *)AppendMethodesStrWithPropertyArr:(NSArray *)propertyArr CurrentSourceCodeTextView:(NSTextView *)textView
 {
-    NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
-    
     NSMutableString *allMethodsStr = [NSMutableString stringWithCapacity:0];
     NSString *regexPragma = @"#pragma  mark - Getter";
     // 对str字符串进行匹配
-    NSArray *pragmaMatches = [textView.textStorage.string matcheStrWith:regexPragma];
+    NSArray *pragmaMatches = [textView.textStorage.string matcheStrWith:@"Getter"];
     
     if (!(pragmaMatches && [pragmaMatches count] > 0)) {
         [allMethodsStr appendString:regexPragma];
     }
-    [allMethodsStr appendString:@"\n\n"];
+    [allMethodsStr appendString:@"\n"];
     
     [propertyArr enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         NSDictionary *ppDic = propertyArr[idx];
@@ -135,7 +144,7 @@ static NSInteger const groupBaseCount = 3;
         [allMethodsStr appendString:methodStr];
     }];
     
-    [allMethodsStr appendString:@"\n@end"];
+    [allMethodsStr appendString:@"\n\n@end"];
     
     return [NSString stringWithString:allMethodsStr];
 }

@@ -44,8 +44,6 @@ static NSString *NumberClass = @"[NSNumber class]";
     
     self.inputTextView.delegate = self;
     self.window.delegate = self;
-    
-    self.currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
 }
 - (void)dealloc
 {
@@ -96,7 +94,7 @@ static NSString *NumberClass = @"[NSNumber class]";
         NSRange lastEndRange = [match range];
         
         //格式化
-        NSString *source = [QYClangFormat clangFormatSourceCode:methodStr andFilePath:self.currentFilePath];
+        NSString *source = [QYClangFormat clangFormatSourceCode:methodStr];
         if (!source) {
             return;
         }

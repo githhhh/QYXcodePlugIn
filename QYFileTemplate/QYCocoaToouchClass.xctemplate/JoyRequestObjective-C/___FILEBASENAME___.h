@@ -10,6 +10,7 @@ ___IMPORTHEADER_cocoaTouchSubclass___
 
 @interface ___FILEBASENAMEASIDENTIFIER___ : ___VARIABLE_cocoaTouchSubclass___
 
+@property (nonatomic,retain)NSDictionary *paramter;
 
 -(id)initWithParamter:(NSDictionary *)paramterDic;
 

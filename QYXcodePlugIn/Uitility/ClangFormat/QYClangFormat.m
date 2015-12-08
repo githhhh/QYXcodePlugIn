@@ -8,6 +8,7 @@
 
 #import "QYClangFormat.h"
 #import "MHXcodeDocumentNavigator.h"
+#import "QYIDENotificationHandler.h"
 
 /**
  *  定义clang-form style
@@ -23,12 +24,15 @@
 
 @implementation QYClangFormat
 
-+(NSString *)clangFormatSourceCode:(NSString *)sourceCode andFilePath:(NSString *)filePath{
-    if (!sourceCode||!filePath||sourceCode.length==0) {
++(NSString *)clangFormatSourceCode:(NSString *)sourceCode{
+    if (!sourceCode||sourceCode.length==0) {
         return nil;
     }
-    
-    __block NSString *newContent = nil;    
+    NSString *filePath = [[QYIDENotificationHandler  sharedHandler] projectTempFilePath];
+    if (!filePath) {
+        return nil;
+    }
+    __block NSString *newContent = nil;
 
     NSString *tempPath = [NSString stringWithFormat:@"%@.tm",filePath];
     BOOL isWrite = [sourceCode writeToFile:tempPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
