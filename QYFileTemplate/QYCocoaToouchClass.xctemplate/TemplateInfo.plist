@@ -58,6 +58,8 @@
 			</array>
 			<key>Suffixes</key>
 			<dict>
+				<key>NSObject</key>
+				<string></string>
 				<key>JoyRequest</key>
 				<string>Request</string>
 				<key>UIViewController</key>
@@ -74,7 +76,7 @@
 			<key>Identifier</key>
 			<string>Singleton</string>
 			<key>Name</key>
-			<string>Is create Singleton</string>
+			<string>Is Create Singleton</string>
 			<key>Description</key>
 			<string>create Singleton</string>
 			<key>Type</key>
@@ -85,11 +87,78 @@
 				<array>
 					<string>NSObject</string>
 				</array>
+				<key>Delegate</key>
+				<array>
+					<string>false</string>
+				</array>
+			</dict>
+			<key>Suffixes</key>
+			<dict>
+				<key>NSObject</key>
+				<string></string>
+			</dict>
+			<key>Default</key>
+			<string>false</string>
+			<key>NotPersisted</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>Delegate</string>
+			<key>Name</key>
+			<string>Is Create ListViewDelegate</string>
+			<key>Type</key>
+			<string>checkbox</string>
+			<key>RequiredOptions</key>
+			<dict>
+				<key>cocoaTouchSubclass</key>
+				<array>
+					<string>NSObject</string>
+				</array>
+				<key>Singleton</key>
+				<array>
+					<string>false</string>
+				</array>
 			</dict>
 			<key>Default</key>
 			<string>false</string>
 			<key>NotPersisted</key>
 			<true/>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>ListViewDelegate</string>
+			<key>Name</key>
+			<string></string>
+			<key>Description</key>
+			<string>What ListView Delegate to create the file for</string>
+			<key>Type</key>
+			<string>popup</string>
+			<key>RequiredOptions</key>
+			<dict>
+				<key>cocoaTouchSubclass</key>
+				<array>
+					<string>NSObject</string>
+				</array>
+				<key>Delegate</key>
+				<array>
+					<string>true</string>
+				</array>
+			</dict>
+			<key>Values</key>
+			<array>
+				<string>UITableViewDelegate</string>
+				<string>UICollectionViewDelegate</string>
+			</array>
+			<key>Suffixes</key>
+			<dict>
+				<key>UITableViewDelegate</key>
+				<string>TableViewDelegate</string>
+				<key>UICollectionViewDelegate</key>
+				<string>CollectionViewDelegate</string>
+			</dict>
+			<key>Default</key>
+			<string></string>
 		</dict>
 		<dict>
 			<key>Identifier</key>
