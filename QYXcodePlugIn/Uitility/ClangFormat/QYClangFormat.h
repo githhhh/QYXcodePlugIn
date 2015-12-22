@@ -7,17 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Promise.h"
 
 @interface QYClangFormat : NSObject
 
 /**
- *  clang-formate  可以异步执行
+ *  clang-formate  promise
  *
  *  @param sourceCode sourceCode description
  *
  *  @return return value description
  */
-+(NSString *)clangFormatSourceCode:(NSString *)sourceCode;
++(PMKPromise *)promiseClangFormatSourceCode:(NSString *)sourceCode;
 /**
  *  直接执行shell  command
  *
@@ -26,4 +27,5 @@
  *  @return return value description
  */
 + (NSString *)runCommand:(NSString *)commandToRun;
+
 @end

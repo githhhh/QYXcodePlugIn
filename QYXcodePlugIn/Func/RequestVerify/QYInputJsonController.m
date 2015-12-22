@@ -6,11 +6,14 @@
 //  Copyright © 2015年 X.Y. All rights reserved.
 //
 
-#import "QYInputJsonController.h"
-#import "NSString+Extensions.h"
-#import "QYClangFormat.h"
 #import "MHXcodeDocumentNavigator.h"
+#import "NSString+Extensions.h"
+#import "Promise.h"
+#import "QYClangFormat.h"
+#import "QYIDENotificationHandler.h"
+#import "QYInputJsonController.h"
 #import "QYPluginSetingController.h"
+
 static NSString *StringClass = @"[NSString class]";
 
 static NSString *NumberClass = @"[NSNumber class]";
@@ -25,12 +28,9 @@ static NSString *NumberClass = @"[NSNumber class]";
 @property (weak) IBOutlet NSButton *confirmBtn;
 
 @property (nonatomic, copy) NSString *currJsonStr;
-
 @property (nonatomic, copy) NSString *testDataMethodStr;
 @property (nonatomic, copy) NSString *validatorMethodStr;
-
 @property (nonatomic, copy) NSString *currentFilePath;
-
 @end
 
 @implementation QYInputJsonController
@@ -62,46 +62,33 @@ static NSString *NumberClass = @"[NSNumber class]";
 
 - (IBAction)confirmAction:(id)sender
 {
-    if (!self.currJsonStr) {
-        self.window.title = @"JSON 内容为空";
-        [self.window setBackgroundColor:[NSColor redColor]];
-        return;
-    }
-    if (!self.sourceTextView) {
-        return;
-    }
-    id resulte = [self dictionaryWithJsonStr:self.currJsonStr];
-    
-    if ([resulte isKindOfClass:[NSError class]]) {
-        self.window.title = @"不符合Json 格式";
-        [self.window setBackgroundColor:[NSColor redColor]];
-        return;
-    }
-    self.window.title = @"执行中....";
-    
-    
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    [self.window setBackgroundColor:[NSColor whiteColor]];
+
+    dispatch_promise_on(dispatch_get_global_queue(0, 0),^id(){
+        id resulte = [self validatorJSONAndUpdateUI];
+        
+        if (!resulte||[resulte isKindOfClass:[NSError class]]) {
+            return  error(@"不符合Json 格式。。。。", 0, nil);
+        }
+
         NSString *methodStr = [self getMethodStrWithJson:resulte];
-        
-        
+        //格式化
+        return [QYClangFormat promiseClangFormatSourceCode:methodStr];
+    }).thenOn(dispatch_get_main_queue(),^(NSString *source){
         // 对str字符串进行匹配
         NSArray *endMatches = [self.sourceTextView.string matcheStrWith:@"@end"];
-        
+
         if (!(endMatches && [endMatches count] > 0)) {
-            return;
+            @throw  error(@"正则匹配出错。。。。", 0, nil);
         }
         NSTextCheckingResult *match = endMatches[endMatches.count - 1];
         NSRange lastEndRange = [match range];
-        
-        //格式化
-        NSString *source = [QYClangFormat clangFormatSourceCode:methodStr];
-        if (!source) {
-            return;
-        }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.sourceTextView insertText:source replacementRange:lastEndRange];
-            [self closeWindown];
-        });
+
+        [self.sourceTextView insertText:source replacementRange:lastEndRange];
+        [self closeWindown];
+    }).catch(^(NSError *error){
+        self.window.title = error.domain;
+        [self.window setBackgroundColor:[NSColor redColor]];
     });
 }
 
@@ -120,6 +107,20 @@ static NSString *NumberClass = @"[NSNumber class]";
 
 #pragma mark -
 #pragma mark -  private Methode
+
+-(id)validatorJSONAndUpdateUI{
+    if (!self.currJsonStr) {
+        return error(@"JSON 内容为空", 0, nil);
+    }
+    if (!self.sourceTextView) {
+        return error(@"获取当前Document失败。。", 0, nil);
+    }
+    id resulte = [self dictionaryWithJsonStr:self.currJsonStr];
+    
+    return  resulte;
+}
+
+
 
 - (NSString *)getMethodStrWithJson:(id)resulte
 {

@@ -9,90 +9,117 @@
 #import "QYClangFormat.h"
 #import "MHXcodeDocumentNavigator.h"
 #import "QYIDENotificationHandler.h"
-
 /**
  *  定义clang-form style
  *
  *  @param clang_fpath  clang-form 启动路径
  *  @param tempCodePath 要格式化的代码路径
  *
- *
  */
 #define defineClangFromatStyle(clang_fpath,tempCodePath) [NSString stringWithFormat:@"%@ -style=\"{BasedOnStyle: llvm,AlignTrailingComments: true,BreakBeforeBraces: Linux,ColumnLimit: 120,IndentWidth: 4,KeepEmptyLinesAtTheStartOfBlocks: false,MaxEmptyLinesToKeep: 2,ObjCSpaceAfterProperty: true,ObjCSpaceBeforeProtocolList: true,PointerBindsToType: false,SpacesBeforeTrailingComments: 1,TabWidth: 4,UseTab: Never,BinPackParameters: false}\"  %@",clang_fpath,tempCodePath]
 
 
+static dispatch_queue_t clangFormateQueue;
+static NSString *cfExecutablePath;
 
-@implementation QYClangFormat
-
-+(NSString *)clangFormatSourceCode:(NSString *)sourceCode{
-    if (!sourceCode||sourceCode.length==0) {
-        return nil;
+/**
+ *  CFQueue
+ *
+ *  @return return value description
+ */
+static dispatch_queue_t ClangFormateCreateQueue() {
+    if (!clangFormateQueue) {
+        clangFormateQueue = dispatch_queue_create("org.clangFormate.Q", DISPATCH_QUEUE_CONCURRENT);
     }
-    NSString *filePath = [[QYIDENotificationHandler  sharedHandler] projectTempFilePath];
-    if (!filePath) {
-        return nil;
-    }
-    __block NSString *newContent = nil;
-
-    NSString *tempPath = [NSString stringWithFormat:@"%@.tm",filePath];
-    BOOL isWrite = [sourceCode writeToFile:tempPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    if (!isWrite) {
-        newContent = nil;
-    }else{
-        NSString *clangFpath = [self launchClangFormatPath];
-        //直接指定style
-        newContent  = [self runCommand:defineClangFromatStyle(clangFpath, tempPath) ];
-        [[NSFileManager defaultManager] removeItemAtPath:tempPath  error:nil];
-    }
-    
-    return newContent;
+    return clangFormateQueue;
 }
-
-
-
-#pragma mark -
-#pragma mark - NSTask shell
 
 /**
  *  获取clang-format 启动路径
  *
  *  @return return value description
  */
-+ (NSString *)launchClangFormatPath{
+static NSString * launchClangFormatPath(){
     
-    NSString *executablePath = nil;
-    
-    NSDictionary *environmentDict = [[NSProcessInfo processInfo] environment];
-    NSString *shellString =
-    [environmentDict objectForKey:@"SHELL"] ?: @"/bin/bash";
-    
-    NSPipe *outputPipe = [NSPipe pipe];
-    NSPipe *errorPipe = [NSPipe pipe];
-    
-    NSTask *task = [[NSTask alloc] init];
-    task.standardOutput = outputPipe;
-    task.standardError = errorPipe;
-    task.launchPath = shellString;
-    task.arguments = @[ @"-l", @"-c", @"which clang-format" ];
-    
-    [task launch];
-    [task waitUntilExit];
-    [errorPipe.fileHandleForReading readDataToEndOfFile];
-    NSData *outputData = [outputPipe.fileHandleForReading readDataToEndOfFile];
-    NSString *outputPath = [[NSString alloc] initWithData:outputData
-                                                 encoding:NSUTF8StringEncoding];
-    outputPath = [outputPath
-                  stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-    
-    BOOL isDirectory = NO;
-    if ([[NSFileManager defaultManager] fileExistsAtPath:outputPath isDirectory:&isDirectory] && !isDirectory) {
-        executablePath = outputPath;
+    if (!cfExecutablePath) {
+        NSDictionary *environmentDict = [[NSProcessInfo processInfo] environment];
+        NSString *shellString =
+        [environmentDict objectForKey:@"SHELL"] ?: @"/bin/bash";
+        
+        NSPipe *outputPipe = [NSPipe pipe];
+        NSPipe *errorPipe = [NSPipe pipe];
+        
+        NSTask *task = [[NSTask alloc] init];
+        task.standardOutput = outputPipe;
+        task.standardError = errorPipe;
+        task.launchPath = shellString;
+        task.arguments = @[ @"-l", @"-c", @"which clang-format" ];
+        
+        [task launch];
+        [task waitUntilExit];
+        [errorPipe.fileHandleForReading readDataToEndOfFile];
+        NSData *outputData = [outputPipe.fileHandleForReading readDataToEndOfFile];
+        NSString *outputPath = [[NSString alloc] initWithData:outputData
+                                                     encoding:NSUTF8StringEncoding];
+        outputPath = [outputPath
+                      stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+        
+        BOOL isDirectory = NO;
+        if ([[NSFileManager defaultManager] fileExistsAtPath:outputPath isDirectory:&isDirectory] && !isDirectory) {
+            cfExecutablePath = outputPath;
+        }
     }
-    return executablePath;
+    return cfExecutablePath;
 }
 
 
 
+@implementation QYClangFormat
+
++(PMKPromise *)promiseClangFormatSourceCode:(NSString *)sourceCode{
+    
+    PMKPromise *clangFormatPromise =
+    // promise 实现。。。。
+    dispatch_promise_on(ClangFormateCreateQueue(), ^id() {
+        if (!sourceCode || sourceCode.length == 0) {
+            return error(@"源代码为空。。", 0, nil);
+        }
+        NSString *clangFpath = launchClangFormatPath();
+        if (!clangFpath||clangFpath.length == 0) {
+            return error(@"没有找到Clang-Formate", 100, nil);
+        }
+        NSString *cfContentPath = [[QYIDENotificationHandler sharedHandler] clangFormateContentPath];
+        if (!cfContentPath) {
+            return error(@"获取临时文件路径出错。。。", 0, nil);
+        }
+        return  PMKManifold(sourceCode,clangFpath,cfContentPath);
+
+    }).thenOn(ClangFormateCreateQueue(), ^id(NSString *sCode,NSString *cfPath,NSString *cfConentPath) {
+        //判断文件是否存在
+        if (![[NSFileManager defaultManager] fileExistsAtPath:cfPath]) {
+            return error(@"clang-formate 启动文件不存在", 0, nil);
+        }
+        BOOL isWrite = [sCode writeToFile:cfConentPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        if (!isWrite) {
+            return error(@"写入文件出错。。。。", 0, nil);
+        }
+        //直接指定style
+        NSString *newContent = [self runCommand:defineClangFromatStyle(cfPath, cfConentPath)];
+        //        NSError *removeError;
+        //        [[NSFileManager defaultManager] removeItemAtPath:filePath error:&removeError];
+        //        if (removeError)
+        //            return removeError;
+        return newContent;
+    });
+
+    return clangFormatPromise;
+}
+
+
+
+
+#pragma mark -
+#pragma mark - NSTask shell
 /**
  *  格式化
  *
@@ -159,7 +186,7 @@
                           @"-c" ,
                           [NSString stringWithFormat:@"%@", commandToRun],
                           nil];
-    NSLog(@"run command:%@", commandToRun);
+//    NSLog(@"run command:%@", commandToRun);
     [task setArguments:arguments];
     
     NSPipe *pipe = [NSPipe pipe];

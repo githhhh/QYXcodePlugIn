@@ -7,12 +7,14 @@
 //
 
 #import "AutoGetterAchieve.h"
-#import <AppKit/AppKit.h>
 #import "MHXcodeDocumentNavigator.h"
 #import "NSString+Extensions.h"
 #import "QYClangFormat.h"
-#import "QYPluginSetingController.h"
 #import "QYIDENotificationHandler.h"
+#import "QYPluginSetingController.h"
+#import <AppKit/AppKit.h>
+#import "Promise.h"
+#import "Promise+When.h"
 static NSString *const propertyMatcheStr = @"@property\\s*\\(.+?\\)\\s*(\\w+)?\\s*\\*{1}\\s*(\\w+)\\s*;{1}";
 static NSInteger const groupBaseCount = 3;
 @interface AutoGetterAchieve ()
@@ -28,61 +30,63 @@ static NSInteger const groupBaseCount = 3;
 - (void)dealloc { NSLog(@"===AutoGetterAchieve=======dealloc="); }
 
 
-- (void)getterAction:(NSString *)selecteText
+- (void)createGetterAction
 {
-    if (!selecteText || (selecteText.length == 0)) {
-        return;
-    }
-    NSTextView *currentCodeTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    NSString *selecteText = globleParamter;
+    PMKPromise *cfGetterPromise = [self promiseClangFormateGetterStr:selecteText];
+    PMKPromise *cfSelectePromise = [QYClangFormat promiseClangFormatSourceCode:selecteText];
+    PMKPromise *insertLocPromise = [self prommiseReplaceLocationBySelecteText:selecteText];
+    NSDictionary *promiseDic = @{
+                                     @"cfGp":cfGetterPromise,
+                                     @"cfSp":cfSelectePromise,
+                                     @"insertLoc":insertLocPromise
+                                 };
+    
+    [PMKPromise when:promiseDic].thenOn(dispatch_get_main_queue(),^(NSDictionary *resulte){
+        //插入allGetterStr
+        NSString * allGetterStr = resulte[@"cfGp"];
+        NSValue  * rangValue = resulte[@"insertLoc"];
+        NSRange replaceRang = [rangValue rangeValue];
+        NSTextView *codeTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
+        [codeTextView insertText:allGetterStr replacementRange:replaceRang];
+        
+        //重新获取当前选择内容的位置。。
+        NSString * selecteStr = resulte[@"cfSp"];
+        NSRange selecteRange = [codeTextView.textStorage.string rangeOfString:selecteText];
+        [codeTextView insertText:selecteStr replacementRange:selecteRange];
+    }).catch(^(NSError *error){
+        NSLog(@"createGetterAction==error==%@",error);
+    });
+    
+}
+
+
+#pragma mark - 根据选择内容获取所有生成getterStr
+
+-(PMKPromise *)promiseClangFormateGetterStr:(NSString *)selecteText{
+    
+    PMKPromise *cfAllGetterStr =
+    
+    dispatch_promise_on(dispatch_get_main_queue(), ^id(){
+        return  [MHXcodeDocumentNavigator currentSourceCodeTextView];
+    }).thenOn(dispatch_get_global_queue(0, 0),^(NSTextView *currentCodeTextView){
         //解析选中property
         NSArray *propertyArr = [self MatcheSelectText:selecteText];
-        if ([propertyArr count] == 0) {
-            return;
-        }
-        //格式化选中代码
-        NSRange raplaceRange = [currentCodeTextView.textStorage.string rangeOfString:selecteText];
-        NSString *formateCode =[self FormatCode:selecteText ReplaceRange:raplaceRange  OnCodeTextView:currentCodeTextView];
-        if (!formateCode) {
-            return;
-        }
-        NSRange formateCodeRange = [currentCodeTextView.textStorage.string rangeOfString:formateCode];
+        if ([propertyArr count] == 0)
+            @throw  error(@"解析选中property错误.....", 0, nil);
         
         //拼接方法
         NSString *allMethodsStr = [self AppendMethodesStrWithPropertyArr:propertyArr CurrentSourceCodeTextView:currentCodeTextView];
-        if (allMethodsStr.length == 0) {
-            return;
-        }
-        //格式化代码
-      
-        NSRange endRange = [self FindReplaceLocationBySelectedRange:formateCodeRange andCurrentSourceCodeTextView:currentCodeTextView];
-        [self FormatCode:allMethodsStr ReplaceRange:endRange OnCodeTextView:currentCodeTextView];
+        if (allMethodsStr.length == 0)
+            @throw  error(@"拼接getter代码出错。。。", 0, nil);
+
+        return [QYClangFormat  promiseClangFormatSourceCode:allMethodsStr];
     });
+    return cfAllGetterStr;
 }
 
-/**
- *  格式代码并替换
- *
- *  @param source       source description
- *  @param raplaceRange raplaceRange description
- *  @param codeTextView codeTextView description
- *
- *  @return return value description
- */
-- (NSString *)FormatCode:(NSString *)source ReplaceRange:(NSRange)raplaceRange OnCodeTextView:(NSTextView *)codeTextView
-{
-    if (raplaceRange.location == NSNotFound || !source || source.length == 0) {
-        return nil;
-    }
-    NSString *formatedCode = [QYClangFormat clangFormatSourceCode:source ];
-    if (!formatedCode || formatedCode.length == 0) {
-        return nil;
-    }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [codeTextView insertText:formatedCode replacementRange:raplaceRange];
-    });
-    return formatedCode;
-}
+
+#pragma mark - 根据选中内容位置确定插入代码位置
 
 /**
  *  根据选中内容位置确定插入代码位置
@@ -91,31 +95,48 @@ static NSInteger const groupBaseCount = 3;
  *
  *  @return return value description
  */
-- (NSRange)FindReplaceLocationBySelectedRange:(NSRange)seletedRange andCurrentSourceCodeTextView:(NSTextView *)textView
+- (PMKPromise *)prommiseReplaceLocationBySelecteText:(NSString *)selecteText
 {
-    // 查找对应@end 位置
-    if (seletedRange.location == NSNotFound||!textView) {
-        return NSMakeRange(0, 0);
-    }
-    
-    NSArray *endMatches = [textView.textStorage.string matcheStrWith:@"@end"];
-    if (!(endMatches && [endMatches count] >= 2)) {
-        return NSMakeRange(0, 0);
-    }
-    __block NSInteger index = 0;
-    [endMatches enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
-        NSTextCheckingResult *match = endMatches[idx];
-        NSRange range = [match range];
-        if (seletedRange.location < range.location) {
-            index = idx;
-            *stop = YES;
+    PMKPromise *insertRange =
+    dispatch_promise_on(dispatch_get_main_queue(), ^id(){
+        if (!selecteText||selecteText.length == 0) {
+            return error(@"选中内容为空。。。", 0, nil);
         }
-    }];
-    NSTextCheckingResult *match = endMatches[index + 1];
-    NSRange endRange = [match range];
-    return endRange;
+        NSTextView *currentCodeTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
+        if (!currentCodeTextView) {
+            return error(@"获取当前TextView失败。。。", 0, nil);
+        }
+        return currentCodeTextView;
+    }).thenOn(dispatch_get_global_queue(0, 0),^id(NSTextView *currentCodeTextView){
+
+        NSRange selecteRange = [currentCodeTextView.textStorage.string rangeOfString:selecteText];
+        // 查找对应@end 位置
+        if (selecteRange.location == NSNotFound)
+            return error(@"获取选中range失败。。。", 0, nil);
+        
+        NSArray *endMatches = [currentCodeTextView.textStorage.string matcheStrWith:@"@end"];
+        if (!(endMatches && [endMatches count] >= 2))
+            return error(@"获取end位置失败", 0, nil);
+        
+        __block NSInteger index = 0;
+        [endMatches enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
+            NSTextCheckingResult *match = endMatches[idx];
+            NSRange range = [match range];
+            if (selecteRange.location < range.location) {
+                index = idx;
+                *stop = YES;
+            }
+        }];
+    
+        NSTextCheckingResult *match = endMatches[index + 1];
+        NSRange endRange = [match range];
+        return [NSValue valueWithRange:endRange];
+    });
+    
+    return insertRange;
 }
 
+#pragma mark - 生成所有get方法代码字符串
 
 /**
  *  生成所有get方法代码字符串
@@ -149,6 +170,7 @@ static NSInteger const groupBaseCount = 3;
     return [NSString stringWithString:allMethodsStr];
 }
 
+#pragma mark - 解析选中内容，返回类型和变量名的dic
 
 /**
  *  解析选中内容，返回类型和变量名的dic
@@ -182,6 +204,8 @@ static NSInteger const groupBaseCount = 3;
     return propertyArr;
 }
 
+#pragma mark - 根据配置构造get方法
+
 /**
  *  根据配置构造get方法
  *
@@ -212,6 +236,7 @@ static NSInteger const groupBaseCount = 3;
     return [NSString stringWithString:methodStr];
 }
 
+#pragma mark - 获取配置信息
 
 /**
  *  获取配置信息
@@ -221,12 +246,12 @@ static NSInteger const groupBaseCount = 3;
 - (NSDictionary *)configDic
 {
     if (!_configDic) {
-        NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
-        NSString *allContent = [userdf objectForKey:geterSetingKey];
-        if (!allContent || allContent.length == 0) {
+        QYSettingModel *setModel = [[QYIDENotificationHandler sharedHandler] settingModel];
+        
+        if (!setModel.getterJSON || setModel.getterJSON.length == 0) {
             return nil;
         }
-        NSData *jsonData = [allContent dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *jsonData = [setModel.getterJSON dataUsingEncoding:NSUTF8StringEncoding];
         NSError *err;
         NSDictionary *dic =
         [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];

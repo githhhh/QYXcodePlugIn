@@ -10,5 +10,5 @@
 
 @interface AutoGetterAchieve : NSObject
 
--(void)getterAction:(NSString *)selecteText;
+-(void)createGetterAction;
 @end

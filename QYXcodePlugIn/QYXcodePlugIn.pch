@@ -12,17 +12,43 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+/**
+ *  菜单结构
+ */
+#define SuperMenu @"Edit"
+#define QYMenu @"QYAction"
+#define QYMenu_AutoGetter @"AutoGetter"
+#define QYMenu_CategoryProperty @"CategoryProperty"
+#define QYMenu_RequestValidator @"RequestValidator"
+#define QYMenu_Settings @"Settings"
+
+/**
+ *  热键key
+ */
 #define  RequestVerifiMenuKeyPath  @"values.requestVerifiKey"
-
+#define  AutoCategorySetterGetterMenuKeyPath  @"values.AutoCategorySetterGetter"
 #define  AutoGetterMenuKeyPath     @"values.AutoGetterKey"
-
 #define  SettingsMenuKeyPath       @"values.SettingsKey"
+
+/**
+ *  settingKeys
+ */
+#define  geterSetingKey @"allGeter"
+#define  rqBName @"rqBName"
+#define  isTD @"isTestDate"
+#define  testdateMethodName @"tdMethodName"
+#define  validatorMName @"validatorMName"
+
+
+
+
+#define  error(msg,cd,userInfoDic)  [NSError errorWithDomain:msg code:cd userInfo:userInfoDic]
+#define globleParamter [[QYIDENotificationHandler sharedHandler] globlaParamter]
 
 
 #ifdef __OBJC__
-
+#import "QYIDENotificationHandler.h"
 //要引入的类
-
 #endif
 
 

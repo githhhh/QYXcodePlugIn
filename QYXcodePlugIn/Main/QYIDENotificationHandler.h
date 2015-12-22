@@ -7,14 +7,14 @@
 //
 #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
+#import "QYSettingModel.h"
 
 @interface QYIDENotificationHandler : NSObject
+
+@property (nonatomic, retain) id globlaParamter;
+
 + (id)sharedHandler;
-@property (nonatomic,retain)id globlaParamter;
 
-@property (nonatomic,retain)NSMenuItem* geterMenuItem;
-@property (nonatomic,retain)NSMenuItem* requestVerifiMenuItem;
-@property (nonatomic,retain)NSMenuItem* settingsMenuItem;
-
-- (NSString *)projectTempFilePath;
+- (NSString *)clangFormateContentPath;
+- (QYSettingModel *)settingModel;
 @end

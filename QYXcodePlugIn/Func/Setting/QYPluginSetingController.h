@@ -8,11 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "QYWindowsCloseProtocol.h"
-#define  geterSetingKey @"allGeter"
-#define  rqBName @"rqBName"
-#define  isTD @"isTestDate"
-#define  testdateMethodName @"tdMethodName"
-#define  validatorMName @"validatorMName"
+
 
 @interface QYPluginSetingController : NSWindowController
 @property (nonatomic,weak) id<QYWindowsCloseProtocol> pgDelegate;

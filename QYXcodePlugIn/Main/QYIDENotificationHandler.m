@@ -6,34 +6,30 @@
 //  Copyright (c) 2015年 X.Y. All rights reserved.
 //
 
-#import "QYIDENotificationHandler.h"
-#import "MHXcodeDocumentNavigator.h"
-#import "NSString+Extensions.h"
-#import <ShortcutRecorder/ShortcutRecorder.h>
-#import <PTHotKey/PTHotKeyCenter.h>
-#import <PTHotKey/PTHotKey+ShortcutRecorder.h>
-
 #import "AutoGetterAchieve.h"
+#import "CategoryGetterSetterAchieve.h"
+#import "MHXcodeDocumentNavigator.h"
+#import "NSMenu+RegisterMenuItem.h"
+#import "NSString+Extensions.h"
+#import "NSTextView+Operations.h"
+#import "Promise.h"
+#import "QYAutoGetterMenuItem.h"
+#import "QYCategoryPropertyMenuItem.h"
+#import "QYIDENotificationHandler.h"
 #import "QYInputJsonController.h"
 #import "QYPluginSetingController.h"
+#import "QYRequestVerifiMenuItem.h"
+#import "QYSettingMenuItem.h"
 #import "QYWindowsCloseProtocol.h"
-#import "NSTextView+Operations.h"
-/**
- *  菜单结构
- */
-#define SuperMenu @"Edit"
-#define QYMenu @"QYAction"
-#define QYMenu_AutoGetter @"AutoGetter"
-#define QYMenu_RequestValidator @"RequestValidator"
-#define QYMenu_Settings @"Settings"
+//#import <PTHotKey/PTHotKey+ShortcutRecorder.h>
+//#import <PTHotKey/PTHotKeyCenter.h>
+//#import <ShortcutRecorder/ShortcutRecorder.h>
+@interface QYIDENotificationHandler () <QYWindowsCloseProtocol>
 
-
-@interface QYIDENotificationHandler () <QYWindowsCloseProtocol> {
-}
 @property (nonatomic, retain) QYInputJsonController *inputJsonWindow;
 @property (nonatomic, retain) QYPluginSetingController *setingWindow;
-@property (nonatomic,retain)NSString *tempFilePath;
-
+@property (nonatomic, retain) NSString *clangFormateContentPath;
+@property (nonatomic, retain) QYSettingModel *settingModel;
 @end
 
 @implementation QYIDENotificationHandler
@@ -119,151 +115,87 @@
     [actionMenuItem setTitle:QYMenu];
     [[editItem submenu] addItem:actionMenuItem];
     
-    
-    NSUserDefaultsController *defaults = [NSUserDefaultsController sharedUserDefaultsController];
-    
-    NSMenu *actinMenus = [[NSMenu alloc] init];
-    // get方法生成
-    self.geterMenuItem = [self menuItemWithTitle:QYMenu_AutoGetter action:@selector(autoGetterAction:)];
-    
-    [actinMenus addItem:self.geterMenuItem];
-    [self.geterMenuItem bind:@"keyEquivalent"
-                    toObject:defaults
-                 withKeyPath:AutoGetterMenuKeyPath
-                     options:@{NSValueTransformerBindingOption : [SRKeyEquivalentTransformer new]}];
-    [self.geterMenuItem bind:@"keyEquivalentModifierMask"
-                    toObject:defaults
-                 withKeyPath:AutoGetterMenuKeyPath
-                     options:@{NSValueTransformerBindingOption : [SRKeyEquivalentModifierMaskTransformer new]}];
-    //分割线
-    [actinMenus insertItem:[NSMenuItem separatorItem] atIndex:1];
-    
-    
-    //请求校验生成
-    self.requestVerifiMenuItem =
-    [self menuItemWithTitle:QYMenu_RequestValidator action:@selector(requestValidatorAction:)];
-    [actinMenus addItem:self.requestVerifiMenuItem];
-    
-    [self.requestVerifiMenuItem bind:@"keyEquivalent"
-                            toObject:defaults
-                         withKeyPath:RequestVerifiMenuKeyPath
-                             options:@{NSValueTransformerBindingOption : [SRKeyEquivalentTransformer new]}];
-    [self.requestVerifiMenuItem
-     bind:@"keyEquivalentModifierMask"
-     toObject:defaults
-     withKeyPath:RequestVerifiMenuKeyPath
-     options:@{NSValueTransformerBindingOption : [SRKeyEquivalentModifierMaskTransformer new]}];
-    //分割线
-    [actinMenus insertItem:[NSMenuItem separatorItem] atIndex:1];
-    
-    
+    NSMenu *subMenus = [[NSMenu alloc] init];
+    //AutoGetter
+    [subMenus registerMenuItem:[QYAutoGetterMenuItem class]];
+    //CategoryAutoGetter
+    [subMenus registerMenuItem:[QYCategoryPropertyMenuItem class]];
+    //请求校验
+    [subMenus registerMenuItem:[QYRequestVerifiMenuItem class]];
     //全局设置
-    self.settingsMenuItem = [self menuItemWithTitle:QYMenu_Settings action:@selector(settingsAction:)];
+    [subMenus registerMenuItem:[QYSettingMenuItem class]];
     
-    [actinMenus addItem:self.settingsMenuItem];
-    
-    [self.settingsMenuItem bind:@"keyEquivalent"
-                       toObject:defaults
-                    withKeyPath:SettingsMenuKeyPath
-                        options:@{NSValueTransformerBindingOption : [SRKeyEquivalentTransformer new]}];
-    [self.settingsMenuItem bind:@"keyEquivalentModifierMask"
-                       toObject:defaults
-                    withKeyPath:SettingsMenuKeyPath
-                        options:@{NSValueTransformerBindingOption : [SRKeyEquivalentModifierMaskTransformer new]}];
-    
-    [actionMenuItem setSubmenu:actinMenus];
+    [actionMenuItem setSubmenu:subMenus];
 }
 
 
 #pragma mark -
-#pragma mark - menuAction
+#pragma mark - receiveMenuItemPromise
 
-- (void)autoGetterAction:(id)sender
-{
-    AutoGetterAchieve *agAchieve = [[AutoGetterAchieve alloc] init];
-    [agAchieve getterAction:self.globlaParamter];
-}
-
-- (void)requestValidatorAction:(id)sender
-{
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
-        BOOL isRf = [self isRequestFileCurrent];
-        if (!isRf) {
-            return;
+-(void)receiveMenuItemPromise:(PMKPromise *)promise sender:(QYMenuBaseItem *)sender{
+    
+    promise.thenOn(dispatch_get_main_queue(),^(NSNumber *isValedate){
+        //show window
+        if ([sender isKindOfClass:[QYRequestVerifiMenuItem class]]) {
+            [self showRequestVerifiWindow];
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.inputJsonWindow = [[QYInputJsonController alloc] initWithWindowNibName:@"QYInputJsonController"];
-            self.inputJsonWindow.sourceTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
-            self.inputJsonWindow.delegate = self;
-            [self.inputJsonWindow showWindow:self];
-        });
+        if ([sender isKindOfClass:[QYSettingMenuItem class]]) {
+            [self showSettingWindow];
+        }
+    
+    }).catch(^(NSError *error){
+    
+    }).finally(^(){
+        sender.windowDelegate = nil;
     });
 }
-- (void)settingsAction:(id)sender
-{
+
+-(void)showRequestVerifiWindow{
+    self.inputJsonWindow = [[QYInputJsonController alloc] initWithWindowNibName:@"QYInputJsonController"];
+    self.inputJsonWindow.sourceTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
+    self.inputJsonWindow.delegate = self;
+    [self.inputJsonWindow showWindow:self];
+}
+
+-(void)showSettingWindow{
     self.setingWindow = [[QYPluginSetingController alloc] initWithWindowNibName:@"QYPluginSetingController"];
     self.setingWindow.pgDelegate = self;
     [self.setingWindow showWindow:self];
 }
 
 
-#pragma mark - private method
-
-- (BOOL)isRequestFileCurrent
-{
-    NSString *currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
-    if (!currentFilePath) {
-        return NO;
-    }
-    NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
-    if (!textView) {
-        return NO;
-    }
-    currentFilePath =
-    [currentFilePath stringByReplacingCharactersInRange:NSMakeRange(currentFilePath.length - 1, 1) withString:@"h"];
-    NSString *soureString = [NSString stringWithContentsOfFile:currentFilePath encoding:NSUTF8StringEncoding error:nil];
-    
-    //读取配置
-    NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
-    NSString *requstBName = [userdf objectForKey:rqBName];
-    if (!requstBName) {
-        requstBName = @"QYRequest";
-    }
-    
-    // 验证当前.h 文件的父类是否是制定类
-    NSArray *contents =
-    [soureString matcheGroupWith:[NSString stringWithFormat:@"@\\w+\\s*(\\w+)\\s*\\:\\s+%@\\s", requstBName]];
-    if (!([contents count] > 0)) {
-        return NO;
-    }
-    return YES;
-}
 #pragma mark - publice method
 
-- (NSString *)projectTempFilePath{
-    if (!_tempFilePath) {
+- (NSString *)clangFormateContentPath{
+    if (!_clangFormateContentPath) {
         NSString *currentFilePath = [MHXcodeDocumentNavigator currentWorkspacePath];
         if (currentFilePath&&currentFilePath.length>0) {
             NSString *dicStr = [currentFilePath stringByDeletingLastPathComponent];
-            _tempFilePath = [NSString stringWithFormat:@"%@/tempFilee",dicStr];
+            _clangFormateContentPath = [NSString stringWithFormat:@"%@/clangFormateContent.tm",dicStr];
         }
     }
-    return _tempFilePath;
+    return _clangFormateContentPath;
 }
 
-#pragma mark - create MenuItem
-- (NSMenuItem *)menuItemWithTitle:(NSString *)title action:(SEL)action
-{
-    NSMenuItem *rvMenu = [[NSMenuItem alloc] init];
-    rvMenu.target = self;
-    rvMenu.action = action;
-    rvMenu.title = title;
-    return rvMenu;
+- (QYSettingModel *)settingModel{
+    if (!_settingModel) {
+        NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
+        NSData *data = [userdf objectForKey:@"settingModel"];
+        
+        id setMode = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        
+        if (!setMode||![setMode isKindOfClass:[QYSettingModel class]]) {
+            return nil;
+        }
+        _settingModel = setMode;
+    }
+    return _settingModel;
 }
 
 
-#pragma mark - 释放
+
+#pragma mark - close window
+
 - (void)windowDidClose
 {
     if (self.inputJsonWindow) {
