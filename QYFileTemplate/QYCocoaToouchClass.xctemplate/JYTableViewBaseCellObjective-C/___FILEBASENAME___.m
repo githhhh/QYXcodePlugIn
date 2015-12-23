@@ -31,11 +31,26 @@
     
 }
 
--(void)layoutSubviews{
-    [super layoutSubviews];
-    
-    
+#pragma mark - updateConstraints
+
+/**
+ *  tell UIKit that you are using AutoLayout
+ */
++ (BOOL)requiresConstraintBasedLayout {
+    return YES;
 }
+
+/**
+ *  this is Apple's recommended place for adding/updating constraints
+ */
+-(void)updateConstraints{
+    //TODO AutoLayout update/add
+    
+    
+    [super updateConstraints];
+}
+
+
 
 
 @end

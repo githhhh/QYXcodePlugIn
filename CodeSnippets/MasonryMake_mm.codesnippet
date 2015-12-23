@@ -10,6 +10,7 @@
 	</array>
 	<key>IDECodeSnippetContents</key>
 	<string>[&lt;#Targe#&gt; mas_makeConstraints:^(MASConstraintMaker *make) {
+    &lt;#make.#&gt;
         
     }];</string>
 	<key>IDECodeSnippetIdentifier</key>

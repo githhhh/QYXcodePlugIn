@@ -19,10 +19,24 @@
     // Do any additional setup after loading the view.
 }
 
+/**
+ *  this is Apple's recommended place for adding/updating constraints
+ */
+- (void)updateViewConstraints {
+    [super updateViewConstraints];
+    //TODO adding/updating subViews constraints
+    
+    
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Getter
+
 
 /*
 #pragma mark - Navigation

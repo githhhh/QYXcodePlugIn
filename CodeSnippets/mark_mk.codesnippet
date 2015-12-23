@@ -9,8 +9,7 @@
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>#pragma mark -
-#pragma mark - &lt;#想标记什么#&gt;</string>
+	<string>#pragma mark - &lt;#想标记什么#&gt;</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>158A43A9-019D-4CE5-A096-52488FB3277E</string>
 	<key>IDECodeSnippetLanguage</key>

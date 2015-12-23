@@ -3,8 +3,8 @@
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
-//  Template From QYXcodePlugin
 //___COPYRIGHT___
+//  Template From QYXcodePlugin
 //
 
 #import "___FILEBASENAME___.h"
