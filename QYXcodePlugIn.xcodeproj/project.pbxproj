@@ -17,7 +17,6 @@
 		8B746C921C27BF8200C4A1A4 /* QYMenuBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B746C911C27BF8200C4A1A4 /* QYMenuBaseItem.m */; };
 		8B746C951C27C03300C4A1A4 /* QYAutoGetterMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B746C941C27C03300C4A1A4 /* QYAutoGetterMenuItem.m */; };
 		8B746C981C27C3BE00C4A1A4 /* NSMenu+RegisterMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B746C971C27C3BE00C4A1A4 /* NSMenu+RegisterMenuItem.m */; };
-		8B746C9C1C27C80A00C4A1A4 /* QYCategoryPropertyMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B746C9B1C27C80A00C4A1A4 /* QYCategoryPropertyMenuItem.m */; };
 		8B746C9F1C27C8D300C4A1A4 /* QYRequestVerifiMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B746C9E1C27C8D300C4A1A4 /* QYRequestVerifiMenuItem.m */; };
 		8B746CA21C27C96C00C4A1A4 /* QYSettingMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B746CA11C27C96C00C4A1A4 /* QYSettingMenuItem.m */; };
 		8B746CA61C290C7900C4A1A4 /* QYSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B746CA51C290C7900C4A1A4 /* QYSettingModel.m */; };
@@ -96,8 +95,6 @@
 		8B746C941C27C03300C4A1A4 /* QYAutoGetterMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYAutoGetterMenuItem.m; sourceTree = "<group>"; };
 		8B746C961C27C3BE00C4A1A4 /* NSMenu+RegisterMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMenu+RegisterMenuItem.h"; sourceTree = "<group>"; };
 		8B746C971C27C3BE00C4A1A4 /* NSMenu+RegisterMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMenu+RegisterMenuItem.m"; sourceTree = "<group>"; };
-		8B746C9A1C27C80A00C4A1A4 /* QYCategoryPropertyMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYCategoryPropertyMenuItem.h; sourceTree = "<group>"; };
-		8B746C9B1C27C80A00C4A1A4 /* QYCategoryPropertyMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYCategoryPropertyMenuItem.m; sourceTree = "<group>"; };
 		8B746C9D1C27C8D300C4A1A4 /* QYRequestVerifiMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYRequestVerifiMenuItem.h; sourceTree = "<group>"; };
 		8B746C9E1C27C8D300C4A1A4 /* QYRequestVerifiMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYRequestVerifiMenuItem.m; sourceTree = "<group>"; };
 		8B746CA01C27C96C00C4A1A4 /* QYSettingMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYSettingMenuItem.h; sourceTree = "<group>"; };
@@ -356,8 +353,6 @@
 				8B746C911C27BF8200C4A1A4 /* QYMenuBaseItem.m */,
 				8B746C931C27C03300C4A1A4 /* QYAutoGetterMenuItem.h */,
 				8B746C941C27C03300C4A1A4 /* QYAutoGetterMenuItem.m */,
-				8B746C9A1C27C80A00C4A1A4 /* QYCategoryPropertyMenuItem.h */,
-				8B746C9B1C27C80A00C4A1A4 /* QYCategoryPropertyMenuItem.m */,
 				8B746C9D1C27C8D300C4A1A4 /* QYRequestVerifiMenuItem.h */,
 				8B746C9E1C27C8D300C4A1A4 /* QYRequestVerifiMenuItem.m */,
 				8B746CA01C27C96C00C4A1A4 /* QYSettingMenuItem.h */,
@@ -875,7 +870,6 @@
 				8BA852851BF7879600EE9398 /* NSString+XCAdditions.m in Sources */,
 				8BA852881BF7879600EE9398 /* XCBuildSettings.m in Sources */,
 				8B746C981C27C3BE00C4A1A4 /* NSMenu+RegisterMenuItem.m in Sources */,
-				8B746C9C1C27C80A00C4A1A4 /* QYCategoryPropertyMenuItem.m in Sources */,
 				8BA8527B1BF7879600EE9398 /* NSFileManager+Headers.m in Sources */,
 				8B746CA61C290C7900C4A1A4 /* QYSettingModel.m in Sources */,
 				8BA852801BF7879600EE9398 /* NSString+MHNSRange.m in Sources */,

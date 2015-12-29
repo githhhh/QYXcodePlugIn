@@ -6,15 +6,16 @@
 //  Copyright (c) 2015年 X.Y. All rights reserved.
 //
 
+
 #import "AutoGetterAchieve.h"
+#import "CategoryGetterSetterAchieve.h"
 #import "MHXcodeDocumentNavigator.h"
 #import "NSString+Extensions.h"
 #import "QYClangFormat.h"
 #import "QYIDENotificationHandler.h"
 #import "QYPluginSetingController.h"
 #import <AppKit/AppKit.h>
-#import "Promise.h"
-#import "Promise+When.h"
+
 static NSString *const propertyMatcheStr = @"@property\\s*\\(.+?\\)\\s*(\\w+)?\\s*\\*{1}\\s*(\\w+)\\s*;{1}";
 static NSInteger const groupBaseCount = 3;
 @interface AutoGetterAchieve ()
@@ -32,10 +33,19 @@ static NSInteger const groupBaseCount = 3;
 
 - (void)createGetterAction
 {
+    NSString  *currentFileName =  [[MHXcodeDocumentNavigator currentFilePath] lastPathComponent];
+    if ([currentFileName rangeOfString:@"+"].location != NSNotFound) {
+        //Category
+        BOOL isHeaderFile = [[currentFileName pathExtension] isEqualToString:@"h"];
+        CategoryGetterSetterAchieve *cgsAchieve =  [[CategoryGetterSetterAchieve alloc] init];
+        [cgsAchieve createCategoryGetterSetterAction:isHeaderFile];
+        return;
+    }
+    //AutoGeter
     NSString *selecteText = globleParamter;
     PMKPromise *cfGetterPromise = [self promiseClangFormateGetterStr:selecteText];
     PMKPromise *cfSelectePromise = [QYClangFormat promiseClangFormatSourceCode:selecteText];
-    PMKPromise *insertLocPromise = [self prommiseReplaceLocationBySelecteText:selecteText];
+    PMKPromise *insertLocPromise = [AutoGetterAchieve promiseInsertLoction];
     NSDictionary *promiseDic = @{
                                      @"cfGp":cfGetterPromise,
                                      @"cfSp":cfSelectePromise,
@@ -71,7 +81,7 @@ static NSInteger const groupBaseCount = 3;
         return  [MHXcodeDocumentNavigator currentSourceCodeTextView];
     }).thenOn(dispatch_get_global_queue(0, 0),^(NSTextView *currentCodeTextView){
         //解析选中property
-        NSArray *propertyArr = [self MatcheSelectText:selecteText];
+        NSArray *propertyArr = [AutoGetterAchieve MatcheSelectText:selecteText];
         if ([propertyArr count] == 0)
             @throw  error(@"解析选中property错误.....", 0, nil);
         
@@ -86,55 +96,90 @@ static NSInteger const groupBaseCount = 3;
 }
 
 
-#pragma mark - 根据选中内容位置确定插入代码位置
+#pragma mark - 确定插入代码位置
 
-/**
- *  根据选中内容位置确定插入代码位置
- *
- *  @param selecteText selecteText description
- *
- *  @return return value description
- */
-- (PMKPromise *)prommiseReplaceLocationBySelecteText:(NSString *)selecteText
-{
-    PMKPromise *insertRange =
-    dispatch_promise_on(dispatch_get_main_queue(), ^id(){
-        if (!selecteText||selecteText.length == 0) {
-            return error(@"选中内容为空。。。", 0, nil);
-        }
-        NSTextView *currentCodeTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
-        if (!currentCodeTextView) {
-            return error(@"获取当前TextView失败。。。", 0, nil);
-        }
-        return currentCodeTextView;
-    }).thenOn(dispatch_get_global_queue(0, 0),^id(NSTextView *currentCodeTextView){
-
-        NSRange selecteRange = [currentCodeTextView.textStorage.string rangeOfString:selecteText];
-        // 查找对应@end 位置
-        if (selecteRange.location == NSNotFound)
-            return error(@"获取选中range失败。。。", 0, nil);
++ (PMKPromise *)promiseInsertLoction{
+    
+    PMKPromise *promise =
+    
+    dispatch_promise_on(dispatch_get_main_queue(),^id(){
+        NSString *currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
+        IsFilePathEmpty(currentFilePath);
+        NSTextView *currentTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
         
-        NSArray *endMatches = [currentCodeTextView.textStorage.string matcheStrWith:@"@end"];
-        if (!(endMatches && [endMatches count] >= 2))
-            return error(@"获取end位置失败", 0, nil);
+        return PMKManifold(currentFilePath,currentTextView);
+    }).thenOn(dispatch_get_global_queue(0, 0), ^id(NSString *currentFilePath,NSTextView *currentTextView){
         
-        __block NSInteger index = 0;
-        [endMatches enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
-            NSTextCheckingResult *match = endMatches[idx];
-            NSRange range = [match range];
-            if (selecteRange.location < range.location) {
+        NSString *lastPathComponent = [currentFilePath lastPathComponent];
+        
+        BOOL isHeaderFile = ([lastPathComponent rangeOfString:@".h"].location != NSNotFound);
+        BOOL isCategoryFile = ([lastPathComponent rangeOfString:@"+"].location != NSNotFound);
+        //头文件
+        if (isHeaderFile && !isCategoryFile)
+            return error(@"一般类的头文件不处理", 10, nil);
+        //解析ClassName
+        NSString *matchClassNameStr =  [lastPathComponent substringToIndex:lastPathComponent.length - 2];
+        if (isCategoryFile) {
+            NSArray * classNameArr = [matchClassNameStr componentsSeparatedByString:@"+"];
+            if (!classNameArr || [classNameArr count] == 0)
+                return  error(@"获取分类名失败", 0, nil);
+            matchClassNameStr = [NSString stringWithFormat:@"%@\\s*\\(\\s*%@\\s*\\)",classNameArr[0],classNameArr[1]];
+        }
+        
+        // 匹配.m 内容
+        NSString *soureString = @"";
+        if (isHeaderFile) {
+            //读取.h 内容
+            currentFilePath =
+            [currentFilePath stringByReplacingCharactersInRange:NSMakeRange(currentFilePath.length - 1, 1) withString:@"m"];
+            
+            soureString = [NSString stringWithContentsOfFile:currentFilePath encoding:NSUTF8StringEncoding error:nil];
+            if (!soureString||soureString.length == 0)
+                return error(@"读取文件失败", 0, nil);
+            
+        }else{
+            soureString = currentTextView.textStorage.string;
+        }
+        if (soureString.length == 0)
+            return error(@"获取文件内容失败", 0, nil);
+        
+        //匹配@end
+        NSArray *endMatches = [soureString matcheStrWith:@"@end"];
+        if (!endMatches || [endMatches count] == 0)
+            return error(@"获取@end位置失败", 0, nil);
+        //直接使用end
+        if ([endMatches count] == 1)
+            return  [NSValue valueWithRange:[endMatches[0] range]];
+        
+        
+        //匹配到多个@end 则 匹配@implementation className
+        NSString *matchStr = [NSString stringWithFormat:@"@implementation\\s+%@\\s*",matchClassNameStr];
+        
+        NSArray *impMatches = [soureString matcheStrWith:matchStr];
+        if (!impMatches || [impMatches count] != 1)
+            return error(@"获取categoryName位置错误", 0, nil);
+        
+        //查找@end
+        __block NSInteger index = -1;
+        
+        [endMatches enumerateObjectsUsingBlock:^(NSTextCheckingResult * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            NSRange endRang = [obj range];
+            NSRange impRange = [impMatches[0] range];
+            if (endRang.location > impRange.location) {
                 index = idx;
                 *stop = YES;
             }
         }];
-    
-        NSTextCheckingResult *match = endMatches[index + 1];
-        NSRange endRange = [match range];
-        return [NSValue valueWithRange:endRange];
+        if (index < 0)
+            return error(@"没有找到正确的@end位置", 0, nil);
+        
+        return [NSValue valueWithRange:[endMatches[index] range]];
     });
     
-    return insertRange;
+    return promise;
 }
+
 
 #pragma mark - 生成所有get方法代码字符串
 
@@ -179,7 +224,7 @@ static NSInteger const groupBaseCount = 3;
  *
  *  @return return value description
  */
-- (NSArray *)MatcheSelectText:(NSString *)sourceStr
++ (NSArray *)MatcheSelectText:(NSString *)sourceStr
 {
     NSMutableArray *propertyArr = [NSMutableArray arrayWithCapacity:0];
     NSRange tempRange = [sourceStr rangeOfString:@"@end"];

@@ -43,11 +43,27 @@
 
 
 #define  error(msg,cd,userInfoDic)  [NSError errorWithDomain:msg code:cd userInfo:userInfoDic]
-#define globleParamter [[QYIDENotificationHandler sharedHandler] globlaParamter]
+#define  globleParamter [[QYIDENotificationHandler sharedHandler] globlaParamter]
+
+/**
+ *  条件判断
+ */
+#define IsEmpty(str) (![str respondsToSelector:@selector(isEqualToString:)] || [str isEqualToString:@""] || [str isEqualToString:@"(null)"])
+
+
+
+#define  IsFilePathEmpty(path) ({\
+                                    if(IsEmpty(path)) {\
+                                     return error(@"获取文件路径失败。。", 0, nil);\
+                                    }\
+                                })
+
+
 
 
 #ifdef __OBJC__
 #import "QYIDENotificationHandler.h"
+#import "XcodeEditor.h"
 //要引入的类
 #endif
 

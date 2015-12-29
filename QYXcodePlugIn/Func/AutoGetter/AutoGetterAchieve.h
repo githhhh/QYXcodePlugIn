@@ -7,8 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Promise.h"
+#import "Promise+When.h"
 
 @interface AutoGetterAchieve : NSObject
 
 -(void)createGetterAction;
+
++ (NSArray *)MatcheSelectText:(NSString *)sourceStr;
+
++ (PMKPromise *)promiseInsertLoction;
 @end

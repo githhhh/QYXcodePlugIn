@@ -14,16 +14,14 @@
 #import "NSTextView+Operations.h"
 #import "Promise.h"
 #import "QYAutoGetterMenuItem.h"
-#import "QYCategoryPropertyMenuItem.h"
 #import "QYIDENotificationHandler.h"
 #import "QYInputJsonController.h"
 #import "QYPluginSetingController.h"
 #import "QYRequestVerifiMenuItem.h"
 #import "QYSettingMenuItem.h"
 #import "QYWindowsCloseProtocol.h"
-//#import <PTHotKey/PTHotKey+ShortcutRecorder.h>
-//#import <PTHotKey/PTHotKeyCenter.h>
-//#import <ShortcutRecorder/ShortcutRecorder.h>
+
+
 @interface QYIDENotificationHandler () <QYWindowsCloseProtocol>
 
 @property (nonatomic, retain) QYInputJsonController *inputJsonWindow;
@@ -118,8 +116,7 @@
     NSMenu *subMenus = [[NSMenu alloc] init];
     //AutoGetter
     [subMenus registerMenuItem:[QYAutoGetterMenuItem class]];
-    //CategoryAutoGetter
-    [subMenus registerMenuItem:[QYCategoryPropertyMenuItem class]];
+
     //请求校验
     [subMenus registerMenuItem:[QYRequestVerifiMenuItem class]];
     //全局设置
