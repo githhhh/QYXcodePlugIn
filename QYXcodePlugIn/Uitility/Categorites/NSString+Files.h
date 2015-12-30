@@ -39,4 +39,9 @@
  */
 - (NSString *)filePathByAddingSuffix:(NSString*) suffix;
 
+//modified
+
+-(BOOL) isCategoryFilePath;
+- (NSString *)currentFileName;
+- (NSString *)currentClassName;
 @end

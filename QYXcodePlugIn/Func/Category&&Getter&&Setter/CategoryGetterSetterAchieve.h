@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface CategoryGetterSetterAchieve : NSObject
--(void)createCategoryGetterSetterAction:(BOOL)isHeaderFile;
+-(void)createCategoryGetterSetterAction;
 @end

@@ -10,7 +10,7 @@
 #import "Promise.h"
 #import "MHXcodeDocumentNavigator.h"
 #import "NSString+Extensions.h"
-
+#import "AutoGetterAchieve.h"
 @implementation QYRequestVerifiMenuItem
 
 -(instancetype)init{
@@ -28,40 +28,32 @@
     
     self.windowDelegate = [QYIDENotificationHandler sharedHandler];
 
+    // 验证请求文件。。
     PMKPromise *promise =
     
     dispatch_promise_on(dispatch_get_main_queue(), ^id{
-    
+        
+        return [MHXcodeDocumentNavigator currentSourceCodeTextView];
+        
+    }).thenOn(dispatch_get_global_queue(0, 0),^id(NSTextView *textView){
+        //读取.h 内容
         NSString *currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
-        if (!currentFilePath)
-            return error(@"获取当前文件路径错误。。。", 0, nil);
-        
-        NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
-        if (!textView)
-            return error(@"获取当前textView错误。。。", 0, nil);
-
-        return PMKManifold(currentFilePath,textView);
-    }).thenOn(dispatch_get_global_queue(0, 0),^id(NSString *currentFilePath,NSTextView *textView){
-        
         currentFilePath =
         [currentFilePath stringByReplacingCharactersInRange:NSMakeRange(currentFilePath.length - 1, 1) withString:@"h"];
-        //读取.h 内容
         NSString *soureString = [NSString stringWithContentsOfFile:currentFilePath encoding:NSUTF8StringEncoding error:nil];
     
         //读取配置
-        NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
-        NSString *requstBName = [userdf objectForKey:rqBName];
-        if (!requstBName) {
-            requstBName = @"QYRequest";
-        }
-
+        NSString *requstBName = [[QYIDENotificationHandler sharedHandler] settingModel].requestClassBaseName;
+        
         // 验证当前.h 文件的父类是否是制定类
         NSArray *contents =
         [soureString matcheGroupWith:[NSString stringWithFormat:@"@\\w+\\s*(\\w+)\\s*\\:\\s+%@\\s", requstBName]];
-        if (!([contents count] > 0)) {
-            return error(@"当前类和指定类没有匹配。。。", 0, nil);
+        if (ArrIsEmpty(contents)){
+            NSString *errInfo  = [NSString stringWithFormat:@"该功能只适用于%@ 的子类",requstBName];
+            return error(errInfo, 0, nil);
         }
-        return @1;
+        //返回插入位置。。
+        return [AutoGetterAchieve promiseInsertLoction];
     });
     
     if (self.windowDelegate&&[self.windowDelegate respondsToSelector:@selector(receiveMenuItemPromise:sender:)])

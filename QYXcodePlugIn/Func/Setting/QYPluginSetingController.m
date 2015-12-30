@@ -10,6 +10,7 @@
 #import "QYShortcutRecorderController.h"
 #import "QYSettingModel.h"
 #import "Promise.h"
+#import "QYIDENotificationHandler.h"
 
 @interface QYPluginSetingController () <NSWindowDelegate> {
     BOOL isSave;
@@ -46,56 +47,34 @@
 
 - (void)dealloc { NSLog(@"===QYPluginSetingController===dealloc="); }
 
-- (void)windowWillClose:(NSNotification *)notification
-{
-    // whichever operations are needed when the
-    // window is about to be closed
-    
-    if (!isSave) {
-        return;
-    }
-    
-    QYSettingModel *setModel = [[QYSettingModel alloc] init];
-    setModel.getterJSON = self.setingTextView.string;
-    setModel.requestClassBaseName = self.requestBaseName.stringValue;
-    setModel.isCreatTestMethod = self.isTestData.state;
-    setModel.testMethodName = self.testDataMethodName.stringValue;
-    setModel.requestValidatorMethodName = self.validatorMethodName.stringValue;
-    
-    NSData *customData = [NSKeyedArchiver archivedDataWithRootObject:setModel] ;
-    NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
-    [userdf setObject:customData forKey:@"settingModel"];
-    [userdf synchronize];
-}
+
 
 
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    dispatch_promise_on(dispatch_get_global_queue(0, 0), ^id(){
-    
-        return [[QYIDENotificationHandler sharedHandler] settingModel];
+    self.window.delegate = self;
+
+    dispatch_promise_on(dispatch_get_main_queue(),^(){
+        QYSettingModel *setModel = [[QYIDENotificationHandler sharedHandler] settingModel];
         
-    }).thenOn(dispatch_get_main_queue(),^(QYSettingModel *setModel){
-        
-        self.window.delegate = self;
         self.msgLable.hidden = NO;
         self.msgLable.textColor = [NSColor redColor];
         
-        self.requestBaseName.stringValue = setModel.requestClassBaseName ?: @"QYRequest";
+        self.requestBaseName.stringValue = !IsEmpty(setModel.requestClassBaseName ) ?setModel.requestClassBaseName : @"QYRequest";
         
-        self.isTestData.state = setModel.isCreatTestMethod ;
+        self.isTestData.state = setModel.isCreatTestMethod?1:0;
         
-        self.testDataMethodName.stringValue = setModel.testMethodName ?: @"testData";
+        self.testDataMethodName.stringValue = !IsEmpty(setModel.testMethodName) ?setModel.testMethodName: @"testData";
         
-        self.validatorMethodName.stringValue = setModel.requestValidatorMethodName ?: @"validatorResult";
+        self.validatorMethodName.stringValue = !IsEmpty(setModel.requestValidatorMethodName)  ?setModel.requestValidatorMethodName: @"validatorResult";
         
-        self.setingTextView.string = setModel.getterJSON ?: @"{\n\'UIView\':[\n   \'%@ = [[UIView alloc] init];\',\n   "
+        self.setingTextView.string = !IsEmpty(setModel.getterJSON) ? setModel.getterJSON : @"{\n\'UIView\':[\n   \'%@ = [[UIView alloc] init];\',\n   "
         @"\'%@.backgroundColor = [UIColor clearColor];\'\n  ]\n}\n";
-
     
     });
 }
+#pragma mark - 录制菜单热键。。
 
 - (IBAction)shortcutRecorderAction:(id)sender
 {
@@ -108,6 +87,7 @@
     }];
 }
 
+#pragma mark - 在线编辑 JSON
 
 - (IBAction)onLineEdit:(id)sender
 {
@@ -115,6 +95,7 @@
     [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
+#pragma mark - 保存/取消
 
 - (IBAction)cancelAction:(id)sender
 {
@@ -128,25 +109,51 @@
 
 - (IBAction)saveAction:(id)sender
 {
-    [self promiseValidatorJsonStr].then(^(id resulte){
+    [self promiseValidatorJsonStr].thenOn(dispatch_get_main_queue(),^(id resulte){
     
-        if (self.requestBaseName.stringValue.length == 0)
-            @throw  error(@"基类不能为空", 0, nil);
+        if (IsEmpty(self.requestBaseName.stringValue))
+            @throw  error(@"基类名不能为空", 0, nil);
         
-        if (self.testDataMethodName.stringValue.length == 0 && !self.isTestData.state)
+        if (IsEmpty(self.validatorMethodName.stringValue))
+            @throw  error(@"校验方法名不能为空", 0, nil);
+        
+        if (IsEmpty(self.testDataMethodName.stringValue) && self.isTestData.state == 1 )
             @throw error(@"测试数据方法名不能为空", 0, nil);
         
         isSave = YES;
-        
         [self close];
         
         if (self.pgDelegate && [self.pgDelegate respondsToSelector:@selector(windowDidClose)])
             [self.pgDelegate windowDidClose];
         
-    }).catch(^(NSError *err){
-        self.msgLable.stringValue = err.domain;
+    }).catchOn(dispatch_get_main_queue(),^(NSError *err){
+        
+        self.msgLable.stringValue = dominWithError(err);
     });
 }
+
+#pragma mark - windowClose Notifi
+
+- (void)windowWillClose:(NSNotification *)notification
+{
+    // whichever operations are needed when the
+    // window is about to be closed
+    
+    if (!isSave) {
+        return;
+    }
+    
+    QYSettingModel *setModel = [[QYSettingModel alloc] init];
+    setModel.getterJSON = self.setingTextView.string;
+    setModel.requestClassBaseName = self.requestBaseName.stringValue;
+    setModel.isCreatTestMethod = self.isTestData.state == 1?YES:NO;
+    setModel.testMethodName = self.testDataMethodName.stringValue;
+    setModel.requestValidatorMethodName = self.validatorMethodName.stringValue;
+    
+    
+    [[QYIDENotificationHandler sharedHandler] updateSettingModel:setModel];
+}
+
 
 
 /**
@@ -159,17 +166,23 @@
     [PMKPromise new:^(PMKFulfiller fulfill, PMKRejecter reject) {
         
         NSString *jsonString  = self.setingTextView.string;
-        jsonString = [[jsonString stringByReplacingOccurrencesOfString:@" " withString:@""]
-                      stringByReplacingOccurrencesOfString:@" "
-                      withString:@""];
-        NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *err;
-        id dicOrArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
-        if (!err){
-            fulfill(dicOrArray);
+        if (IsEmpty(jsonString)) {
+            reject(error(@"getter配置JSON为空,去试试在线编辑JSON工具？？？？", 10, nil));
         }else{
-            reject(error(@"不符合Json 格式", 0, nil));
+            
+            jsonString = [[jsonString stringByReplacingOccurrencesOfString:@" " withString:@""]
+                          stringByReplacingOccurrencesOfString:@" "
+                          withString:@""];
+            NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+            NSError *err;
+            id dicOrArray = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
+            if (!err){
+                fulfill(dicOrArray);
+            }else{
+                reject(error(@"不符合Json 格式,去试试在线编辑JSON工具？？？？", 10, nil));
+            }
         }
+        
     }];
     
     return validatorPromise;

@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "Promise.h"
 #import "Promise+When.h"
-
+#import "NSString+Files.h"
 @interface AutoGetterAchieve : NSObject
 
--(void)createGetterAction;
+-(void)getterAction;
 
 + (NSArray *)MatcheSelectText:(NSString *)sourceStr;
 

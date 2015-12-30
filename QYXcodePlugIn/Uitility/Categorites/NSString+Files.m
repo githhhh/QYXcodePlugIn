@@ -57,4 +57,22 @@
     return extension ? [filePath stringByAppendingPathExtension:extension] : filePath;
 }
 
+
+-(BOOL) isCategoryFilePath {
+    NSString *lastPathComponent = [self lastPathComponent];
+    
+    return ([lastPathComponent rangeOfString:@"+"].location != NSNotFound);
+}
+
+//Modefied
+- (NSString *)currentFileName{
+    return [self lastPathComponent];
+}
+
+- (NSString *)currentClassName{
+    return [[self currentFileName] substringToIndex:[self currentFileName].length - 2];
+}
+
+//-(NSArray *
+
 @end

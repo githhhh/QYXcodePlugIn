@@ -23,9 +23,11 @@
 
 
 @interface QYIDENotificationHandler () <QYWindowsCloseProtocol>
-
+//window
 @property (nonatomic, retain) QYInputJsonController *inputJsonWindow;
 @property (nonatomic, retain) QYPluginSetingController *setingWindow;
+
+//
 @property (nonatomic, retain) NSString *clangFormateContentPath;
 @property (nonatomic, retain) QYSettingModel *settingModel;
 @end
@@ -52,13 +54,6 @@
                                                  selector:@selector(didApplicationFinishLaunchingNotification:)
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
-        
-        
-        //选中改变
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(didChangeSelecteText:)
-                                                     name:NSTextViewDidChangeSelectionNotification
-                                                   object:nil];
     }
     return self;
 }
@@ -76,26 +71,6 @@
     
     //添加子菜单
     [self addCustomMenuOnEdit];
-}
-
-#pragma mark -  选中内容改变
-- (void)didChangeSelecteText:(NSNotification *)noti
-{
-    if ([[noti object] isKindOfClass:[NSTextView class]]) {
-        NSTextView *textView = (NSTextView *)[noti object];
-        
-        NSArray *selectedRanges = [textView selectedRanges];
-        
-        if ([selectedRanges count] == 0) {
-            return;
-        }
-        
-        NSRange selectedRange = [[selectedRanges objectAtIndex:0] rangeValue];
-        NSString *text = textView.textStorage.string;
-        NSString *selectedText = [text substringWithRange:selectedRange];
-        
-        self.globlaParamter = selectedText;
-    }
 }
 
 /**
@@ -116,7 +91,6 @@
     NSMenu *subMenus = [[NSMenu alloc] init];
     //AutoGetter
     [subMenus registerMenuItem:[QYAutoGetterMenuItem class]];
-
     //请求校验
     [subMenus registerMenuItem:[QYRequestVerifiMenuItem class]];
     //全局设置
@@ -131,17 +105,23 @@
 
 -(void)receiveMenuItemPromise:(PMKPromise *)promise sender:(QYMenuBaseItem *)sender{
     
-    promise.thenOn(dispatch_get_main_queue(),^(NSNumber *isValedate){
+    promise.thenOn(dispatch_get_main_queue(),^(id obj){
         //show window
-        if ([sender isKindOfClass:[QYRequestVerifiMenuItem class]]) {
+        if ([sender isKindOfClass:[QYRequestVerifiMenuItem class]] && [obj isKindOfClass:[NSValue class]]) {
             [self showRequestVerifiWindow];
+            self.inputJsonWindow.insertRangeValue = obj;
         }
         if ([sender isKindOfClass:[QYSettingMenuItem class]]) {
             [self showSettingWindow];
         }
     
-    }).catch(^(NSError *error){
-    
+    }).catchOn(dispatch_get_main_queue(),^(NSError *err){
+        
+        LAFIDESourceCodeEditor *editor = [[LAFIDESourceCodeEditor alloc] init];
+        NSString* errInfo = dominWithError(err);
+//        [editor showAboveCaret:errInfo color:[NSColor yellowColor]];
+        [editor showAboveCaretOnCenter:errInfo color:[NSColor yellowColor]];
+
     }).finally(^(){
         sender.windowDelegate = nil;
     });
@@ -175,6 +155,7 @@
 }
 
 - (QYSettingModel *)settingModel{
+    
     if (!_settingModel) {
         NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
         NSData *data = [userdf objectForKey:@"settingModel"];
@@ -186,8 +167,18 @@
         }
         _settingModel = setMode;
     }
+    
     return _settingModel;
 }
+
+- (void)updateSettingModel:(QYSettingModel *)setModel{
+    _settingModel = setModel;
+    NSData *customData = [NSKeyedArchiver archivedDataWithRootObject:setModel] ;
+    NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
+    [userdf setObject:customData forKey:@"settingModel"];
+    [userdf synchronize];
+}
+
 
 
 

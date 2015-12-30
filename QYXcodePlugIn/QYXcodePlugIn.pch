@@ -30,33 +30,36 @@
 #define  AutoGetterMenuKeyPath     @"values.AutoGetterKey"
 #define  SettingsMenuKeyPath       @"values.SettingsKey"
 
-/**
- *  settingKeys
- */
-#define  geterSetingKey @"allGeter"
-#define  rqBName @"rqBName"
-#define  isTD @"isTestDate"
-#define  testdateMethodName @"tdMethodName"
-#define  validatorMName @"validatorMName"
-
 
 
 
 #define  error(msg,cd,userInfoDic)  [NSError errorWithDomain:msg code:cd userInfo:userInfoDic]
-#define  globleParamter [[QYIDENotificationHandler sharedHandler] globlaParamter]
 
 /**
  *  条件判断
  */
 #define IsEmpty(str) (![str respondsToSelector:@selector(isEqualToString:)] || [str isEqualToString:@""] || [str isEqualToString:@"(null)"])
 
+#define  ArrIsEmpty(arr) (!arr || [arr count] == 0)
+#define  RangIsNotFound(Rang)  (Rang.length == 0 || Rang.location != NSNotFound )
 
+//解析Error
+#define  dominWithError(err)  ({\
+                                ^NSString *(){\
+                                        switch (err.code) {\
+                                            case 1:{\
+                                                NSDictionary *userInfo = [err userInfo];\
+                                                NSError *customError = userInfo[@"PMKUnderlyingExceptionKey"];\
+                                                return [NSString stringWithFormat:@"QYXcodePluginError: %@..", customError.domain];\
+                                            }\
+                                                break;\
+                                            default:\
+                                                return  [NSString stringWithFormat:@"QYXcodePluginError: %@..",err.domain];\
+                                                break;\
+                                        }\
+                                    }();\
+                                });
 
-#define  IsFilePathEmpty(path) ({\
-                                    if(IsEmpty(path)) {\
-                                     return error(@"获取文件路径失败。。", 0, nil);\
-                                    }\
-                                })
 
 
 
@@ -64,6 +67,9 @@
 #ifdef __OBJC__
 #import "QYIDENotificationHandler.h"
 #import "XcodeEditor.h"
+#import "XCTarget+XCProject.h"
+#import "XCFXcodePrivate.h"
+#import "LAFIDESourceCodeEditor.h"
 //要引入的类
 #endif
 

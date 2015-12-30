@@ -22,6 +22,7 @@
 		8B746CA61C290C7900C4A1A4 /* QYSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B746CA51C290C7900C4A1A4 /* QYSettingModel.m */; };
 		8B9C6BD81BB1247700242629 /* setup_CodeHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */; };
 		8B9C6C531BB129ED00242629 /* QYXcodePlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */; };
+		8B9ED1ED1C337D900072CCE2 /* LAFIDESourceCodeEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9ED1EC1C337D900072CCE2 /* LAFIDESourceCodeEditor.m */; };
 		8BA852791BF7879600EE9398 /* DVTSourceTextStorage+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852301BF7879600EE9398 /* DVTSourceTextStorage+Operations.m */; };
 		8BA8527A1BF7879600EE9398 /* NSArray+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852321BF7879600EE9398 /* NSArray+Operations.m */; };
 		8BA8527B1BF7879600EE9398 /* NSFileManager+Headers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852341BF7879600EE9398 /* NSFileManager+Headers.m */; };
@@ -105,6 +106,8 @@
 		8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = setup_CodeHelper.sh; sourceTree = "<group>"; };
 		8B9C6C511BB129ED00242629 /* QYXcodePlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYXcodePlugIn.h; path = Main/QYXcodePlugIn.h; sourceTree = "<group>"; };
 		8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYXcodePlugIn.m; path = Main/QYXcodePlugIn.m; sourceTree = "<group>"; };
+		8B9ED1EB1C337D900072CCE2 /* LAFIDESourceCodeEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAFIDESourceCodeEditor.h; sourceTree = "<group>"; };
+		8B9ED1EC1C337D900072CCE2 /* LAFIDESourceCodeEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAFIDESourceCodeEditor.m; sourceTree = "<group>"; };
 		8BA8522F1BF7879600EE9398 /* DVTSourceTextStorage+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DVTSourceTextStorage+Operations.h"; sourceTree = "<group>"; };
 		8BA852301BF7879600EE9398 /* DVTSourceTextStorage+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DVTSourceTextStorage+Operations.m"; sourceTree = "<group>"; };
 		8BA852311BF7879600EE9398 /* NSArray+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Operations.h"; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 		8BA852461BF7879600EE9398 /* Benoit */ = {
 			isa = PBXGroup;
 			children = (
+				8B9ED1EB1C337D900072CCE2 /* LAFIDESourceCodeEditor.h */,
+				8B9ED1EC1C337D900072CCE2 /* LAFIDESourceCodeEditor.m */,
 				8BA852471BF7879600EE9398 /* MHXcodeDocumentNavigator.h */,
 				8BA852481BF7879600EE9398 /* MHXcodeDocumentNavigator.m */,
 				8BA852491BF7879600EE9398 /* XCFXcodePrivate.h */,
@@ -846,6 +851,7 @@
 				8BA852861BF7879600EE9398 /* XCProject+Extensions.m in Sources */,
 				8BA852891BF7879600EE9398 /* XCWorkspace.m in Sources */,
 				8BA852941BF7879600EE9398 /* XCProjectBuildConfig.m in Sources */,
+				8B9ED1ED1C337D900072CCE2 /* LAFIDESourceCodeEditor.m in Sources */,
 				8BD1B2791C2161B000FA02BC /* PMKPromise+When.m in Sources */,
 				8BD1B2761C2161A900FA02BC /* PMKPromise+Until.m in Sources */,
 				8BA852931BF7879600EE9398 /* XCProject.m in Sources */,

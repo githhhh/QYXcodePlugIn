@@ -8,14 +8,12 @@
 
 #import "MHXcodeDocumentNavigator.h"
 #import "NSString+Extensions.h"
-#import "Promise.h"
 #import "QYClangFormat.h"
 #import "QYIDENotificationHandler.h"
 #import "QYInputJsonController.h"
 #import "QYPluginSetingController.h"
 
 static NSString *StringClass = @"[NSString class]";
-
 static NSString *NumberClass = @"[NSNumber class]";
 
 
@@ -27,10 +25,12 @@ static NSString *NumberClass = @"[NSNumber class]";
 @property (weak) IBOutlet NSButton *cancelBtn;
 @property (weak) IBOutlet NSButton *confirmBtn;
 
+//
 @property (nonatomic, copy) NSString *currJsonStr;
 @property (nonatomic, copy) NSString *testDataMethodStr;
 @property (nonatomic, copy) NSString *validatorMethodStr;
 @property (nonatomic, copy) NSString *currentFilePath;
+
 @end
 
 @implementation QYInputJsonController
@@ -52,6 +52,7 @@ static NSString *NumberClass = @"[NSNumber class]";
     NSLog(@"=====QYInputJsonController======dealloc===");
 }
 
+#pragma mark - Action Method
 
 - (IBAction)cancelAction:(id)sender
 {
@@ -65,32 +66,35 @@ static NSString *NumberClass = @"[NSNumber class]";
     [self.window setBackgroundColor:[NSColor whiteColor]];
 
     dispatch_promise_on(dispatch_get_global_queue(0, 0),^id(){
-        id resulte = [self validatorJSONAndUpdateUI];
         
-        if (!resulte||[resulte isKindOfClass:[NSError class]]) {
-            return  error(@"不符合Json 格式。。。。", 0, nil);
-        }
-
-        NSString *methodStr = [self getMethodStrWithJson:resulte];
+        if (IsEmpty(self.currJsonStr))
+            return error(@"JSON内容为空。。", 0, nil);
+        //验证JSON
+        id resulte =  [self dictionaryWithJsonStr:self.currJsonStr];
+        if (!resulte||[resulte isKindOfClass:[NSError class]])
+            return  error(@"JSON格式错误。。", 0, nil);
         //格式化
+        NSString *methodStr = [self getMethodStrWithJson:resulte];
         return [QYClangFormat promiseClangFormatSourceCode:methodStr];
+        
     }).thenOn(dispatch_get_main_queue(),^(NSString *source){
-        // 对str字符串进行匹配
-        NSArray *endMatches = [self.sourceTextView.string matcheStrWith:@"@end"];
-
-        if (!(endMatches && [endMatches count] > 0)) {
-            @throw  error(@"正则匹配出错。。。。", 0, nil);
-        }
-        NSTextCheckingResult *match = endMatches[endMatches.count - 1];
-        NSRange lastEndRange = [match range];
-
+        
+        NSRange lastEndRange = [self.insertRangeValue rangeValue];
         [self.sourceTextView insertText:source replacementRange:lastEndRange];
         [self closeWindown];
-    }).catch(^(NSError *error){
-        self.window.title = error.domain;
+        
+    }).catchOn(dispatch_get_main_queue(),^(NSError *err){
+        
+        NSString *errStr = dominWithError(err);
+        self.window.title = errStr;
         [self.window setBackgroundColor:[NSColor redColor]];
+        
     });
 }
+
+
+
+#pragma mark -  private Methode
 
 -(void)closeWindown{
     if (self.delegate && [self.delegate respondsToSelector:@selector(windowDidClose)]) {
@@ -103,23 +107,6 @@ static NSString *NumberClass = @"[NSNumber class]";
     NSTextView *textView = (NSTextView *)[notification object];
     self.currJsonStr = textView.textStorage.string;
 }
-
-
-#pragma mark -
-#pragma mark -  private Methode
-
--(id)validatorJSONAndUpdateUI{
-    if (!self.currJsonStr) {
-        return error(@"JSON 内容为空", 0, nil);
-    }
-    if (!self.sourceTextView) {
-        return error(@"获取当前Document失败。。", 0, nil);
-    }
-    id resulte = [self dictionaryWithJsonStr:self.currJsonStr];
-    
-    return  resulte;
-}
-
 
 
 - (NSString *)getMethodStrWithJson:(id)resulte
@@ -137,47 +124,36 @@ static NSString *NumberClass = @"[NSNumber class]";
     if (self.testDataMethodStr) {
         [methodStr appendString:self.testDataMethodStr];
     }
-    
-    [methodStr appendString:@"@end"];
+    if (methodStr.length != 0) {
+        [methodStr appendString:@"@end"];
+    }
     return [NSString stringWithString:methodStr];
 }
-/**
- *  获取验证方法字符串
- *
- *  @param data <#data description#>
- *
- *  @return <#return value description#>
- */
+
+#pragma mark - 获取验证方法字符串
+
 - (NSString *)getValidatorMethodStrWithJsonData:(id)data
 {
     NSString *validatorStr = [self getJsonString:data withValidator:YES];
-    NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
-    NSString *vMethodName = [userdf objectForKey:validatorMName];
-    
+    NSString *vMethodName = [[QYIDENotificationHandler sharedHandler] settingModel].requestValidatorMethodName;
     
     NSMutableString *validatorMStr = [NSMutableString stringWithCapacity:0];
     [validatorMStr appendString:[NSString stringWithFormat:@"\n- (id)%@ {\n", vMethodName ?: @"validatorResult"]];
     [validatorMStr appendString:[NSString stringWithFormat:@"      return %@;\n}\n", validatorStr]];
     return [NSString stringWithString:validatorMStr];
 }
-/**
- *  获取本地测试方法字符串
- *
- *  @param data <#data description#>
- *
- *  @return <#return value description#>
- */
+
+#pragma mark - 获取本地测试方法字符串
+
 - (NSString *)getLocTestDataMethodStrWithJsonData:(id)data
 {
     /**
      *  本地测试数据
      */
-    NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
-    NSString *isTd = [userdf objectForKey:isTD];
-    if (![isTd boolValue]) {
+    if (![[QYIDENotificationHandler sharedHandler] settingModel].isCreatTestMethod) {
         return nil;
     }
-    NSString *tdMdName = [userdf objectForKey:testdateMethodName];
+    NSString *tdMdName = [[QYIDENotificationHandler sharedHandler] settingModel].testMethodName;
     NSString *testDataStr = [self getJsonString:data withValidator:NO];
     NSMutableString *testDataMethodStr = [NSMutableString stringWithCapacity:0];
     [testDataMethodStr

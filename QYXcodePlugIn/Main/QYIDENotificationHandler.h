@@ -11,10 +11,11 @@
 
 @interface QYIDENotificationHandler : NSObject
 
-@property (nonatomic, retain) id globlaParamter;
-
 + (id)sharedHandler;
 
 - (NSString *)clangFormateContentPath;
+
 - (QYSettingModel *)settingModel;
+
+- (void)updateSettingModel:(QYSettingModel *)setModel;
 @end

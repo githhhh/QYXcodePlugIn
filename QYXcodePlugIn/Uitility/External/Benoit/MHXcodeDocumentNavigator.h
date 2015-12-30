@@ -19,4 +19,5 @@
 
 + (NSString *)pathForFrameworkNamed:(NSString *)frameworkName;
 + (XCTarget *)currentTarget;
+
 @end

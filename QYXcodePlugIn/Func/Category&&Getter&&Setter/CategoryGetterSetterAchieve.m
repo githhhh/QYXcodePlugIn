@@ -13,57 +13,70 @@
 #import "NSString+Extensions.h"
 #import "QYClangFormat.h"
 
+@interface CategoryGetterSetterAchieve()
+
+@property (nonatomic,retain) LAFIDESourceCodeEditor *editor;
+@end
 
 @implementation CategoryGetterSetterAchieve
 
 
--(void)createCategoryGetterSetterAction:(BOOL)isHeaderFile{
-    NSString *selecteText  = globleParamter;
+-(void)createCategoryGetterSetterAction{
 
-    PMKPromise *promiseMethodStr = [self promiseMethodStr:selecteText];
+    PMKPromise *promiseMethodStr = [self promiseMethodStr];
     PMKPromise *promiseInserLoc =  [AutoGetterAchieve promiseInsertLoction];
     
     NSDictionary *promiseDic = @{@"str":promiseMethodStr,@"rang":promiseInserLoc};
     
     [PMKPromise when:promiseDic].thenOn(dispatch_get_main_queue(),^(NSDictionary *dic){
+        
         NSValue *rangValue = dic[@"rang"];
 
-        if (!isHeaderFile) {
+        if (![[MHXcodeDocumentNavigator currentFilePath] isHeaderFilePath]) {
             
-            NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
-            [textView insertText:dic[@"str"] replacementRange:[rangValue rangeValue]];
+            [self.editor.view insertText:dic[@"str"] replacementRange:[rangValue rangeValue]];
             
         }else {
             
             [self upateSourceContentWith:dic[@"str"] andReplaceRange:[rangValue rangeValue]];
         }
         
-    }).catch(^(NSError *err){
-        NSLog(@"==err===%@",err);
+    }).catchOn(dispatch_get_main_queue(),^(NSError *err){
+        NSString *dominStr = dominWithError(err);
+        [self.editor showAboveCaret:dominStr color:[NSColor yellowColor]];
     });
 
     
 };
 
+
+
+
+
 -(void)upateSourceContentWith:(NSString *)content andReplaceRange:(NSRange)range{
     
-    dispatch_promise_on(dispatch_get_global_queue(0, 0), ^(){
+    dispatch_promise_on(dispatch_get_global_queue(0, 0), ^id(){
         
         NSString *currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
         //读取.m 内容
         currentFilePath =
         [currentFilePath stringByReplacingCharactersInRange:NSMakeRange(currentFilePath.length - 1, 1) withString:@"m"];
+        
         NSString *soureString = [NSString stringWithContentsOfFile:currentFilePath encoding:NSUTF8StringEncoding error:nil];
         if (!soureString||soureString.length == 0)
-            @throw error(@"读取文件失败", 0, nil);
-        
+            return error(@"读取文件失败", 0, nil);
+
         //替换
         soureString = [soureString stringByReplacingCharactersInRange:range withString:content];
+        return  PMKManifold(soureString,currentFilePath);
         
-        BOOL isWrite = [soureString writeToFile:currentFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    }).thenOn(dispatch_get_main_queue(),^(NSString *soureString,NSString *sourceFilePath){
+        BOOL isWrite = [soureString writeToFile:sourceFilePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
         if (!isWrite)
             @throw  error(@".m写入内容失败", 0, nil);
-    
+        //添加头文件
+        if (![self.editor hasImportedHeader:@"#import <objc/runtime.h>"])
+            [self.editor importHeader:@"#import <objc/runtime.h>"];
     });
     
 }
@@ -72,22 +85,22 @@
 
 
 
--(PMKPromise *)promiseMethodStr:(NSString *)selecteText{
+-(PMKPromise *)promiseMethodStr{
     PMKPromise *promise =
     
-    dispatch_promise_on(dispatch_get_main_queue(), ^(){
-        return [MHXcodeDocumentNavigator currentSourceCodeTextView];
-    }).thenOn(dispatch_get_global_queue(0, 0), ^id (NSTextView *currentTextView){
-        NSArray *ppArr = [AutoGetterAchieve MatcheSelectText:selecteText];
+    dispatch_promise_on(dispatch_get_main_queue(),^id(){
+        return self.editor.selectedText;
+    }).thenOn(dispatch_get_global_queue(0, 0), ^id (NSString *selectedText){
+        NSArray *ppArr = [AutoGetterAchieve MatcheSelectText:selectedText];
         if ([ppArr count] == 0)
-            @throw  error(@"解析选中property错误.....", 0, nil);
+            return  error(@"解析选中property错误.....", 0, nil);
     
         NSString *allMethodStr = [self appendMethodWithPropertyArr:ppArr];
        
         // 匹配Mark
         NSString *regexPragma = @"#pragma mark - Setter&&Getter\n";
-        NSArray *pragmaMatches = [currentTextView.textStorage.string matcheStrWith:@"Setter&&Getter"];
-        if (!(pragmaMatches && [pragmaMatches count] > 0))
+        NSArray *markMatches = [self.editor.view.textStorage.string matcheStrWith:@"Setter&&Getter"];
+        if (ArrIsEmpty(markMatches))
             allMethodStr = [NSString stringWithFormat:@"%@\n%@",regexPragma,allMethodStr];
         
         //formate
@@ -135,6 +148,14 @@
     [allMethodsStr appendString:@"\n\n@end"];
     
     return [NSString stringWithFormat:@"%@\n%@",allCharKeyDef,allMethodsStr];
+}
+
+
+-(LAFIDESourceCodeEditor *)editor{
+    if (!_editor) {
+        _editor = [[LAFIDESourceCodeEditor alloc] init];
+    }
+    return _editor;
 }
 
 @end

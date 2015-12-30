@@ -8,8 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import "QYWindowsCloseProtocol.h"
+#import "Promise.h"
+
 @interface QYInputJsonController : NSWindowController
 
 @property (nonatomic,strong) NSTextView *sourceTextView;
+
+@property (nonatomic,retain) NSValue *insertRangeValue;
+
 @property (nonatomic,weak) id<QYWindowsCloseProtocol> delegate;
 @end

@@ -24,8 +24,7 @@
 
 -(void)menuItemAction:(id)sender{
     [super menuItemAction:sender];
-    AutoGetterAchieve *agAchieve = [[AutoGetterAchieve alloc] init];
-    [agAchieve createGetterAction];
+    [[[AutoGetterAchieve alloc] init] getterAction];
 }
 
 #pragma mark - 动态绑定热键
