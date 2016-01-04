@@ -81,7 +81,7 @@
     for (NSTextCheckingResult *match in matches) {
         for (int i = 0;i<match.numberOfRanges;i++) {
             NSRange range = [match rangeAtIndex:i];
-            NSString *mStr = [self substringWithRange:range];
+            NSString *mStr = (NSString *)[self substringWithRange:range];
             [groupContentArr addObject:mStr];
         }
         

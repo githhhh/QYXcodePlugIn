@@ -16,7 +16,9 @@
 #import "QYPluginSetingController.h"
 #import <AppKit/AppKit.h>
 
-static NSString *const propertyMatcheStr = @"@property\\s*\\(.+?\\)\\s*(\\w+)?\\s*\\*{1}\\s*(\\w+)\\s*;{1}";
+static NSString *const propertyMatcheStr = @"@property\\s*\\(.+?\\)\\s*(\\w+?\\s*\\*{0,1})\\s*(\\w+)\\s*;{1}";
+
+//@"@property\\s*\\(.+?\\)\\s*(\\w+)?\\s*\\*{1}\\s*(\\w+)\\s*;{1}";
 static NSInteger const groupBaseCount = 3;
 @interface AutoGetterAchieve ()
 
@@ -253,19 +255,24 @@ static NSInteger const groupBaseCount = 3;
 {
     NSMutableString *methodStr = [NSMutableString stringWithCapacity:0];
     
-    NSString *typeStr = keyType;
+    
     NSString *ivarNameStr = [NSString stringWithFormat:@"_%@", valueIvar];
     
-    [methodStr appendFormat:@"-(%@ *)%@{if(!%@){", typeStr, valueIvar, ivarNameStr];
+    [methodStr appendFormat:@"-(%@)%@{if(!%@){", keyType, valueIvar, ivarNameStr];
     
-    
-    if (self.configDic && [[self.configDic allKeys] containsObject:typeStr]) {
-        NSArray *configList = self.configDic[typeStr];
+    BOOL isObj = [keyType mh_containsString:@"*"];
+    if (isObj) {
+        keyType = [keyType substringToIndex:keyType.length - 1];
+    }
+
+    if (self.configDic && [[self.configDic allKeys] containsObject:keyType]) {
+        NSArray *configList = self.configDic[keyType];
         [configList enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
             [methodStr appendFormat:obj, ivarNameStr];
         }];
     } else {
-        [methodStr appendFormat:@"%@ = [[%@ alloc] init];", ivarNameStr, typeStr];
+        if (isObj)
+        [methodStr appendFormat:@"%@ = [[%@ alloc] init];", ivarNameStr, keyType];
     }
     [methodStr appendFormat:@"}return %@;}", ivarNameStr];
     return [NSString stringWithString:methodStr];

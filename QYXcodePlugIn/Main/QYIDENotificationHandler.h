@@ -8,6 +8,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
 #import "QYSettingModel.h"
+#import <dlfcn.h>
 
 @interface QYIDENotificationHandler : NSObject
 

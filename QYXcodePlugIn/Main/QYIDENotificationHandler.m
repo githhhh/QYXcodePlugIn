@@ -57,10 +57,18 @@
     }
     return self;
 }
+
+
+
 #pragma mark -  Xcode 通知
 #pragma mark -  启动
 - (void)didApplicationFinishLaunchingNotification:(NSNotification *)noti
 {
+    //cycript
+    void *handle = dlopen("/usr/lib/libcycript.dylib", RTLD_NOW);
+    void (*listenServer)(short) = dlsym(handle, "CYListenServer");
+    (*listenServer)(54321);
+    
     // removeObserver
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:NSApplicationDidFinishLaunchingNotification

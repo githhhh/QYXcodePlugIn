@@ -40,8 +40,8 @@
  */
 #define IsEmpty(str) (![str respondsToSelector:@selector(isEqualToString:)] || [str isEqualToString:@""] || [str isEqualToString:@"(null)"])
 
-#define  ArrIsEmpty(arr) (!arr || [arr count] == 0)
-#define  RangIsNotFound(Rang)  (Rang.length == 0 || Rang.location != NSNotFound )
+#define  ArrIsEmpty(arr) (!(arr && [arr count] > 0))
+#define  RangIsNotFound(Rang)  (!(Rang.length > 0 && Rang.location != NSNotFound))
 
 //解析Error
 #define  dominWithError(err)  ({\

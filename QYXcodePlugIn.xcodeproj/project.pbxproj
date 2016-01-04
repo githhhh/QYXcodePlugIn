@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B05B57F1BF5A32E00F37998 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B05B57E1BF5A32E00F37998 /* Carbon.framework */; };
+		8B1A56891C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1A56881C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.m */; };
 		8B4C00821BF7852300A77AD9 /* PTHotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00801BF7852300A77AD9 /* PTHotKey.framework */; };
 		8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */; };
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
@@ -23,6 +24,9 @@
 		8B9C6BD81BB1247700242629 /* setup_CodeHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */; };
 		8B9C6C531BB129ED00242629 /* QYXcodePlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */; };
 		8B9ED1ED1C337D900072CCE2 /* LAFIDESourceCodeEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9ED1EC1C337D900072CCE2 /* LAFIDESourceCodeEditor.m */; };
+		8B9ED1F41C33E7900072CCE2 /* NSObject+MethodSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9ED1F31C33E7900072CCE2 /* NSObject+MethodSwizzler.m */; };
+		8B9ED1F71C33E8130072CCE2 /* NSObject+MagicDVTBezelAlertPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9ED1F61C33E8130072CCE2 /* NSObject+MagicDVTBezelAlertPanel.m */; };
+		8B9ED1FB1C33EF690072CCE2 /* IDEAlertBezel_Generic_Rayrolling.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8B9ED1FA1C33EF690072CCE2 /* IDEAlertBezel_Generic_Rayrolling.pdf */; };
 		8BA852791BF7879600EE9398 /* DVTSourceTextStorage+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852301BF7879600EE9398 /* DVTSourceTextStorage+Operations.m */; };
 		8BA8527A1BF7879600EE9398 /* NSArray+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852321BF7879600EE9398 /* NSArray+Operations.m */; };
 		8BA8527B1BF7879600EE9398 /* NSFileManager+Headers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852341BF7879600EE9398 /* NSFileManager+Headers.m */; };
@@ -65,10 +69,13 @@
 		8BA852BD1BF78A4D00EE9398 /* QYPluginSetingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852BA1BF78A4D00EE9398 /* QYPluginSetingController.m */; };
 		8BA852BE1BF78A4D00EE9398 /* QYShortcutRecorderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852BC1BF78A4D00EE9398 /* QYShortcutRecorderController.m */; };
 		8BA852C21BF78A6700EE9398 /* QYClangFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852C11BF78A6700EE9398 /* QYClangFormat.m */; };
+		8BBAB75C1C378EB900AAF4BA /* fail.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8BBAB75B1C378EB900AAF4BA /* fail.pdf */; };
+		8BBAB75F1C378F9B00AAF4BA /* NSObject+MagicIDEActivityReportStringSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BBAB75E1C378F9B00AAF4BA /* NSObject+MagicIDEActivityReportStringSegment.m */; };
 		8BD1B2391C215E3C00FA02BC /* CategoryGetterSetterAchieve.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1B2381C215E3C00FA02BC /* CategoryGetterSetterAchieve.m */; };
 		8BD1B2721C21604600FA02BC /* PMKPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1B26E1C21604600FA02BC /* PMKPromise.m */; };
 		8BD1B2761C2161A900FA02BC /* PMKPromise+Until.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1B2741C2161A900FA02BC /* PMKPromise+Until.m */; };
 		8BD1B2791C2161B000FA02BC /* PMKPromise+When.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1B2771C2161B000FA02BC /* PMKPromise+When.m */; };
+		8BD30F3A1C34D4E600DD9F17 /* Troll.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BD30F391C34D4E600DD9F17 /* Troll.png */; };
 		8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F6681BFDB14E00F4A4AD /* TemplateIcon.png */; };
 		8BF5F6831BFDB14E00F4A4AD /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F6691BFDB14E00F4A4AD /* TemplateIcon@2x.png */; };
 		8BF5F6841BFDB14E00F4A4AD /* TemplateInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F66A1BFDB14E00F4A4AD /* TemplateInfo.plist */; };
@@ -82,6 +89,8 @@
 		8B02E2351C1ED580005CE6D2 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8B02E2371C1ED580005CE6D2 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
 		8B05B57E1BF5A32E00F37998 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		8B1A56871C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebFrame+Rayrolling_WebFrame.h"; sourceTree = "<group>"; };
+		8B1A56881C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebFrame+Rayrolling_WebFrame.m"; sourceTree = "<group>"; };
 		8B4C00801BF7852300A77AD9 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/PTHotKey.framework"; sourceTree = "<group>"; };
 		8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		8B60ADA41BABB7F100672762 /* QYXcodePlugIn.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QYXcodePlugIn.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +117,11 @@
 		8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYXcodePlugIn.m; path = Main/QYXcodePlugIn.m; sourceTree = "<group>"; };
 		8B9ED1EB1C337D900072CCE2 /* LAFIDESourceCodeEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAFIDESourceCodeEditor.h; sourceTree = "<group>"; };
 		8B9ED1EC1C337D900072CCE2 /* LAFIDESourceCodeEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LAFIDESourceCodeEditor.m; sourceTree = "<group>"; };
+		8B9ED1F21C33E7900072CCE2 /* NSObject+MethodSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MethodSwizzler.h"; sourceTree = "<group>"; };
+		8B9ED1F31C33E7900072CCE2 /* NSObject+MethodSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MethodSwizzler.m"; sourceTree = "<group>"; };
+		8B9ED1F51C33E8130072CCE2 /* NSObject+MagicDVTBezelAlertPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MagicDVTBezelAlertPanel.h"; sourceTree = "<group>"; };
+		8B9ED1F61C33E8130072CCE2 /* NSObject+MagicDVTBezelAlertPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MagicDVTBezelAlertPanel.m"; sourceTree = "<group>"; };
+		8B9ED1FA1C33EF690072CCE2 /* IDEAlertBezel_Generic_Rayrolling.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = IDEAlertBezel_Generic_Rayrolling.pdf; sourceTree = "<group>"; };
 		8BA8522F1BF7879600EE9398 /* DVTSourceTextStorage+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DVTSourceTextStorage+Operations.h"; sourceTree = "<group>"; };
 		8BA852301BF7879600EE9398 /* DVTSourceTextStorage+Operations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DVTSourceTextStorage+Operations.m"; sourceTree = "<group>"; };
 		8BA852311BF7879600EE9398 /* NSArray+Operations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Operations.h"; sourceTree = "<group>"; };
@@ -193,6 +207,9 @@
 		8BA852BC1BF78A4D00EE9398 /* QYShortcutRecorderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYShortcutRecorderController.m; path = Func/Setting/QYShortcutRecorderController.m; sourceTree = "<group>"; };
 		8BA852C01BF78A6700EE9398 /* QYClangFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYClangFormat.h; sourceTree = "<group>"; };
 		8BA852C11BF78A6700EE9398 /* QYClangFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYClangFormat.m; sourceTree = "<group>"; };
+		8BBAB75B1C378EB900AAF4BA /* fail.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fail.pdf; sourceTree = "<group>"; };
+		8BBAB75D1C378F9B00AAF4BA /* NSObject+MagicIDEActivityReportStringSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MagicIDEActivityReportStringSegment.h"; sourceTree = "<group>"; };
+		8BBAB75E1C378F9B00AAF4BA /* NSObject+MagicIDEActivityReportStringSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MagicIDEActivityReportStringSegment.m"; sourceTree = "<group>"; };
 		8BD1B2371C215E3C00FA02BC /* CategoryGetterSetterAchieve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryGetterSetterAchieve.h; path = "Func/Category&&Getter&&Setter/CategoryGetterSetterAchieve.h"; sourceTree = "<group>"; };
 		8BD1B2381C215E3C00FA02BC /* CategoryGetterSetterAchieve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryGetterSetterAchieve.m; path = "Func/Category&&Getter&&Setter/CategoryGetterSetterAchieve.m"; sourceTree = "<group>"; };
 		8BD1B26C1C21604600FA02BC /* fwd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fwd.h; path = PromiseCore/fwd.h; sourceTree = "<group>"; };
@@ -203,6 +220,7 @@
 		8BD1B2751C2161A900FA02BC /* Promise+Until.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Promise+Until.h"; sourceTree = "<group>"; };
 		8BD1B2771C2161B000FA02BC /* PMKPromise+When.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PMKPromise+When.m"; sourceTree = "<group>"; };
 		8BD1B2781C2161B000FA02BC /* Promise+When.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Promise+When.h"; sourceTree = "<group>"; };
+		8BD30F391C34D4E600DD9F17 /* Troll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Troll.png; sourceTree = "<group>"; };
 		8BF5F6551BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
 		8BF5F6561BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8BF5F6581BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
@@ -283,6 +301,9 @@
 		8B60AD9B1BABB7F100672762 = {
 			isa = PBXGroup;
 			children = (
+				8BBAB75B1C378EB900AAF4BA /* fail.pdf */,
+				8BD30F391C34D4E600DD9F17 /* Troll.png */,
+				8B9ED1FA1C33EF690072CCE2 /* IDEAlertBezel_Generic_Rayrolling.pdf */,
 				8B9C6BD71BB1247700242629 /* setup_CodeHelper.sh */,
 				8B9C6BC41BB1232C00242629 /* CodeSnippets */,
 				8B9C6BC31BB1231700242629 /* QYFileTemplate */,
@@ -316,6 +337,7 @@
 		8B60ADAB1BABB7F100672762 /* QYXcodePlugIn */ = {
 			isa = PBXGroup;
 			children = (
+				8B9ED1EE1C33E72A0072CCE2 /* Magic */,
 				8BA852A81BF7892700EE9398 /* MenusFunc */,
 				8B60ADBB1BABB81D00672762 /* Main */,
 				8BA8522D1BF7879600EE9398 /* Uitility */,
@@ -395,6 +417,21 @@
 			children = (
 			);
 			name = CodeSnippets;
+			sourceTree = "<group>";
+		};
+		8B9ED1EE1C33E72A0072CCE2 /* Magic */ = {
+			isa = PBXGroup;
+			children = (
+				8B1A56871C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.h */,
+				8B1A56881C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.m */,
+				8B9ED1F21C33E7900072CCE2 /* NSObject+MethodSwizzler.h */,
+				8B9ED1F31C33E7900072CCE2 /* NSObject+MethodSwizzler.m */,
+				8B9ED1F51C33E8130072CCE2 /* NSObject+MagicDVTBezelAlertPanel.h */,
+				8B9ED1F61C33E8130072CCE2 /* NSObject+MagicDVTBezelAlertPanel.m */,
+				8BBAB75D1C378F9B00AAF4BA /* NSObject+MagicIDEActivityReportStringSegment.h */,
+				8BBAB75E1C378F9B00AAF4BA /* NSObject+MagicIDEActivityReportStringSegment.m */,
+			);
+			name = Magic;
 			sourceTree = "<group>";
 		};
 		8BA8522D1BF7879600EE9398 /* Uitility */ = {
@@ -819,8 +856,11 @@
 				8BA852AE1BF7896200EE9398 /* QYPluginSetingController.xib in Resources */,
 				8BA852AF1BF7896200EE9398 /* QYShortcutRecorderController.xib in Resources */,
 				8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */,
+				8B9ED1FB1C33EF690072CCE2 /* IDEAlertBezel_Generic_Rayrolling.pdf in Resources */,
 				8BF5F6841BFDB14E00F4A4AD /* TemplateInfo.plist in Resources */,
+				8BBAB75C1C378EB900AAF4BA /* fail.pdf in Resources */,
 				8B9C6BD81BB1247700242629 /* setup_CodeHelper.sh in Resources */,
+				8BD30F3A1C34D4E600DD9F17 /* Troll.png in Resources */,
 				8BA852AD1BF7896200EE9398 /* QYInputJsonController.xib in Resources */,
 				8BF5F6831BFDB14E00F4A4AD /* TemplateIcon@2x.png in Resources */,
 			);
@@ -845,6 +885,7 @@
 				8BA852791BF7879600EE9398 /* DVTSourceTextStorage+Operations.m in Sources */,
 				8BA8527E1BF7879600EE9398 /* NSString+Extensions.m in Sources */,
 				8BA852961BF7879600EE9398 /* XCSourceFileDefinition.m in Sources */,
+				8BBAB75F1C378F9B00AAF4BA /* NSObject+MagicIDEActivityReportStringSegment.m in Sources */,
 				8BA852C21BF78A6700EE9398 /* QYClangFormat.m in Sources */,
 				8BA852981BF7879600EE9398 /* XCTarget.m in Sources */,
 				8BA852841BF7879600EE9398 /* MHXcodeDocumentNavigator.m in Sources */,
@@ -859,6 +900,7 @@
 				8BA8528A1BF7879600EE9398 /* XCAbstractDefinition.m in Sources */,
 				8BA852821BF7879600EE9398 /* NSView+Dumping.m in Sources */,
 				8BA8528C1BF7879600EE9398 /* XCFileOperationQueue.m in Sources */,
+				8B1A56891C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.m in Sources */,
 				8BA852BE1BF78A4D00EE9398 /* QYShortcutRecorderController.m in Sources */,
 				8BA852971BF7879600EE9398 /* XCSubProjectDefinition.m in Sources */,
 				8BA852921BF7879600EE9398 /* XCProject+SubProject.m in Sources */,
@@ -867,6 +909,7 @@
 				8BA852811BF7879600EE9398 /* NSTextView+Operations.m in Sources */,
 				8BD1B2721C21604600FA02BC /* PMKPromise.m in Sources */,
 				8BA8527D1BF7879600EE9398 /* NSObject+MHLogMethods.m in Sources */,
+				8B9ED1F41C33E7900072CCE2 /* NSObject+MethodSwizzler.m in Sources */,
 				8BA8527A1BF7879600EE9398 /* NSArray+Operations.m in Sources */,
 				8BA852831BF7879600EE9398 /* XCSourceFile+Path.m in Sources */,
 				8BA8528D1BF7879600EE9398 /* XCFrameworkDefinition.m in Sources */,
@@ -879,6 +922,7 @@
 				8BA8527B1BF7879600EE9398 /* NSFileManager+Headers.m in Sources */,
 				8B746CA61C290C7900C4A1A4 /* QYSettingModel.m in Sources */,
 				8BA852801BF7879600EE9398 /* NSString+MHNSRange.m in Sources */,
+				8B9ED1F71C33E8130072CCE2 /* NSObject+MagicDVTBezelAlertPanel.m in Sources */,
 				8BA852871BF7879600EE9398 /* XCTarget+XCProject.m in Sources */,
 				8BA852A01BF7886000EE9398 /* QYIDENotificationHandler.m in Sources */,
 				8BA852951BF7879600EE9398 /* XCSourceFile.m in Sources */,
@@ -908,6 +952,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -948,6 +993,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
