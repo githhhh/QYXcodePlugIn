@@ -10,11 +10,14 @@
 #import "Promise.h"
 #import "Promise+When.h"
 #import "NSString+Files.h"
+
+static NSString *const propertyMatcheStr = @"@property\\s*\\(.+?\\)\\s*(\\w+?\\s*\\*{0,1})\\s*(\\w+)\\s*;{1}";
+
+
 @interface AutoGetterAchieve : NSObject
 
 -(void)getterAction;
 
-+ (NSArray *)MatcheSelectText:(NSString *)sourceStr;
 
 + (PMKPromise *)promiseInsertLoction;
 @end

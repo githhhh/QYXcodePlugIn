@@ -16,7 +16,6 @@
 #import "QYPluginSetingController.h"
 #import <AppKit/AppKit.h>
 
-static NSString *const propertyMatcheStr = @"@property\\s*\\(.+?\\)\\s*(\\w+?\\s*\\*{0,1})\\s*(\\w+)\\s*;{1}";
 
 //@"@property\\s*\\(.+?\\)\\s*(\\w+)?\\s*\\*{1}\\s*(\\w+)\\s*;{1}";
 static NSInteger const groupBaseCount = 3;
@@ -65,30 +64,50 @@ static NSInteger const groupBaseCount = 3;
         [self.editor insertOnCaret:resulte[@"cfSp"]];
     }).catch(^(NSError *err){
         NSString *dominStr = dominWithError(err);
-        [self.editor showAboveCaret:dominStr color:[NSColor yellowColor]];
+        [LAFIDESourceCodeEditor showAboveCaret:dominStr color:[NSColor yellowColor]];
     });
     
 }
 
 
-#pragma mark - 根据选择内容获取所有生成getterStr
+#pragma mark - PMKPromise Task
 
+/**
+ *  根据选择内容获取所有生成getterStr
+ *
+ *  @return return value description
+ */
 -(PMKPromise *)promiseClangFormateGetterStr{
     
     PMKPromise *cfAllGetterStr =
     
     dispatch_promise_on(dispatch_get_main_queue(),^id(){
-        return self.editor.selectedText;
-    }).thenOn(dispatch_get_global_queue(0, 0),^id(NSString *selectedText){
+        return PMKManifold(self.editor.selectedText,self.editor.view.textStorage.string);
+    }).thenOn(dispatch_get_global_queue(0, 0),^id(NSString *selectedText,NSString *implementationContent){
+        if (IsEmpty(selectedText))
+            return error(@"选中内容为空。。。", 0, nil);
         //解析选中property
-        NSArray *propertyArr = [AutoGetterAchieve MatcheSelectText:selectedText];
-        if ([propertyArr count] == 0)
-            return  error(@"解析选中property错误.....", 0, nil);
+        NSError *matchError;
+        NSArray *propertyArr = [AutoGetterAchieve MatcheSelectText:selectedText error:&matchError];
+        if (matchError)
+            return  matchError;
+        
+        //过滤已存在的
+        propertyArr = [self matchePropertyMethodOnCurrentEditor:propertyArr andCurrentEdiorContent:implementationContent];
+        if (ArrIsEmpty(propertyArr))
+            return  error(@"选中属性Getter方法已存在。。..", 0, nil);
         
         //拼接方法
-        NSString *allMethodsStr = [self AppendMethodesStrWithPropertyArr:propertyArr andSelectedText:selectedText];
-        if (allMethodsStr.length == 0)
-            return  error(@"拼接getter代码出错。。。", 0, nil);
+        NSString *allMethodsStr = [self AppendMethodesStrWithPropertyArr:propertyArr];
+        //匹配 mark
+        NSString *regexPragma = @"#pragma\\s*mark\\s*-\\s*AutoGetter";
+        NSArray *pragmaMatches = [implementationContent matcheStrWith:regexPragma error:&matchError];
+        if (matchError)
+            return  matchError;
+        
+        if (ArrIsEmpty(pragmaMatches)) {
+            allMethodsStr = [NSString stringWithFormat:@"%@\n\n%@",@"#pragma  mark -  AutoGetter",allMethodsStr];
+        }
 
         return [QYClangFormat  promiseClangFormatSourceCode:allMethodsStr];
     });
@@ -96,8 +115,45 @@ static NSInteger const groupBaseCount = 3;
 }
 
 
-#pragma mark - 确定插入代码位置
 
+#pragma mark - public method
+
+/**
+ *  解析选中内容，返回类型和变量名的dic
+ *
+ *  @param sourceStr sourceStr description
+ *
+ *  @return return value description
+ */
++ (NSArray *)MatcheSelectText:(NSString *)sourceStr error:(NSError **)error
+{
+    NSMutableArray *propertyArr = [NSMutableArray arrayWithCapacity:0];
+    NSRange range = [sourceStr rangeOfString:@"@end"];
+    if (!RangIsNotFound(range))
+        return propertyArr;
+    
+    NSArray *mathcheArr = [sourceStr matcheGroupWith:propertyMatcheStr error:error];
+    if (ArrIsEmpty(mathcheArr))
+        return propertyArr;
+    
+    NSInteger groupCount = [mathcheArr count] / groupBaseCount;
+    
+    for (int i = 0; i < groupCount; i++) {
+        NSInteger keyIndex = i * groupBaseCount + 1;
+        NSInteger valueIndex = keyIndex + 1;
+        
+        NSString *key = mathcheArr[keyIndex];
+        NSString *value = mathcheArr[valueIndex];
+        [propertyArr addObject:@{key : value}];
+    }
+    return propertyArr;
+}
+
+/**
+ *  确定插入代码位置
+ *
+ *  @return
+ */
 + (PMKPromise *)promiseInsertLoction{
     
     PMKPromise *promise =
@@ -135,11 +191,11 @@ static NSInteger const groupBaseCount = 3;
                 return error(@"读取文件失败", 0, nil);
             
         }
-        
+        NSError *matchError;
         //匹配@end
-        NSArray *endMatches = [soureString matcheStrWith:@"@end"];
-        if (ArrIsEmpty(endMatches))
-            return error(@"获取@end位置失败", 0, nil);
+        NSArray *endMatches = [soureString matcheStrWith:@"@end" error:&matchError];
+        if (matchError)
+            return matchError;
         //直接使用end
         if ([endMatches count] == 1)
             return  [NSValue valueWithRange:[endMatches[0] range]];
@@ -148,9 +204,9 @@ static NSInteger const groupBaseCount = 3;
         //匹配到多个@end 则 匹配@implementation className
         NSString *matchStr = [NSString stringWithFormat:@"@implementation\\s+%@\\s*",matchClassNameStr];
         
-        NSArray *impMatches = [soureString matcheStrWith:matchStr];
-        if (!impMatches || [impMatches count] != 1)
-            return error(@"获取categoryName位置错误", 0, nil);
+        NSArray *impMatches = [soureString matcheStrWith:matchStr error:&matchError];
+        if (matchError)
+            return matchError;
         
         //查找@end
         __block NSInteger index = -1;
@@ -173,75 +229,7 @@ static NSInteger const groupBaseCount = 3;
     return promise;
 }
 
-
-#pragma mark - 生成所有get方法代码字符串
-
-/**
- *  生成所有get方法代码字符串
- *
- *  @param propertyDic propertyDic description
- *
- *  @return return value description
- */
-- (NSString *)AppendMethodesStrWithPropertyArr:(NSArray *)propertyArr andSelectedText:(NSString *)selectedText
-{
-    NSMutableString *allMethodsStr = [NSMutableString stringWithCapacity:0];
-    NSString *regexPragma = @"#pragma  mark - Getter";
-    // 对str字符串进行匹配
-    NSArray *pragmaMatches = [selectedText matcheStrWith:@"Getter"];
-    
-    if (!(pragmaMatches && [pragmaMatches count] > 0)) {
-        [allMethodsStr appendString:regexPragma];
-    }
-    [allMethodsStr appendString:@"\n"];
-    
-    [propertyArr enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
-        NSDictionary *ppDic = propertyArr[idx];
-        NSString *key = [ppDic allKeys][0];
-        NSString *value = ppDic[key];
-        NSString *methodStr = [self SpliceMethodStr:key value:value];
-        [allMethodsStr appendString:methodStr];
-    }];
-    
-    [allMethodsStr appendString:@"\n\n@end"];
-    
-    return [NSString stringWithString:allMethodsStr];
-}
-
-#pragma mark - 解析选中内容，返回类型和变量名的dic
-
-/**
- *  解析选中内容，返回类型和变量名的dic
- *
- *  @param sourceStr sourceStr description
- *
- *  @return return value description
- */
-+ (NSArray *)MatcheSelectText:(NSString *)sourceStr
-{
-    NSMutableArray *propertyArr = [NSMutableArray arrayWithCapacity:0];
-    NSRange range = [sourceStr rangeOfString:@"@end"];
-    if (!RangIsNotFound(range))
-        return propertyArr;
-    
-    NSArray *mathcheArr = [sourceStr matcheGroupWith:propertyMatcheStr];
-    if (ArrIsEmpty(mathcheArr))
-        return propertyArr;
-    
-    NSInteger groupCount = [mathcheArr count] / groupBaseCount;
-    
-    for (int i = 0; i < groupCount; i++) {
-        NSInteger keyIndex = i * groupBaseCount + 1;
-        NSInteger valueIndex = keyIndex + 1;
-        
-        NSString *key = mathcheArr[keyIndex];
-        NSString *value = mathcheArr[valueIndex];
-        [propertyArr addObject:@{key : value}];
-    }
-    return propertyArr;
-}
-
-#pragma mark - 根据配置构造get方法
+#pragma mark - private Method
 
 /**
  *  根据配置构造get方法
@@ -255,27 +243,88 @@ static NSInteger const groupBaseCount = 3;
 {
     NSMutableString *methodStr = [NSMutableString stringWithCapacity:0];
     
-    
     NSString *ivarNameStr = [NSString stringWithFormat:@"_%@", valueIvar];
-    
-    [methodStr appendFormat:@"-(%@)%@{if(!%@){", keyType, valueIvar, ivarNameStr];
-    
     BOOL isObj = [keyType mh_containsString:@"*"];
+
+    
     if (isObj) {
+        [methodStr appendFormat:@"-(%@)%@{if(!%@){", keyType, valueIvar, ivarNameStr];
         keyType = [keyType substringToIndex:keyType.length - 1];
+        //读取配置。。。
+        if (self.configDic && [[self.configDic allKeys] containsObject:keyType]) {
+            NSArray *configList = self.configDic[keyType];
+            [configList enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
+                [methodStr appendFormat:obj, ivarNameStr];
+            }];
+        } else {
+            [methodStr appendFormat:@"%@ = [[%@ alloc] init];", ivarNameStr, keyType];
+        }
+        [methodStr appendFormat:@"}return %@;}", ivarNameStr];
+    }else{
+        [methodStr appendFormat:@"-(%@)%@{\n return %@;\n}", keyType, valueIvar,ivarNameStr];
     }
 
-    if (self.configDic && [[self.configDic allKeys] containsObject:keyType]) {
-        NSArray *configList = self.configDic[keyType];
-        [configList enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
-            [methodStr appendFormat:obj, ivarNameStr];
-        }];
-    } else {
-        if (isObj)
-        [methodStr appendFormat:@"%@ = [[%@ alloc] init];", ivarNameStr, keyType];
-    }
-    [methodStr appendFormat:@"}return %@;}", ivarNameStr];
+
     return [NSString stringWithString:methodStr];
+}
+
+
+/**
+ *  生成所有get方法代码字符串
+ *
+ *  @param propertyDic propertyDic description
+ *
+ *  @return return value description
+ */
+- (NSString *)AppendMethodesStrWithPropertyArr:(NSArray *)propertyArr
+{
+    NSMutableString *allMethodsStr = [NSMutableString stringWithCapacity:0];
+    
+    [propertyArr enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
+        NSDictionary *ppDic = propertyArr[idx];
+        NSString *key = [ppDic allKeys][0];
+        NSString *value = ppDic[key];
+        NSString *methodStr = [self SpliceMethodStr:key value:value];
+        [allMethodsStr appendString:methodStr];
+    }];
+    
+    [allMethodsStr appendString:@"\n\n@end"];
+    
+    return [NSString stringWithString:allMethodsStr];
+}
+/**
+ *  过滤选中属性
+ *
+ *  @param matcheProprotyArr matcheProprotyArr description
+ *  @param ediorContent      ediorContent description
+ *
+ *  @return return value description
+ */
+-(NSMutableArray *)matchePropertyMethodOnCurrentEditor:(NSArray *)matcheProprotyArr andCurrentEdiorContent:(NSString *)ediorContent{
+    
+    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:0];
+    
+    [matcheProprotyArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSDictionary *ppDic = matcheProprotyArr[idx];
+        NSString *key = [ppDic allKeys][0];
+        NSString *value = ppDic[key];
+        
+        BOOL isContain = [key mh_containsString:@"*"];
+        key = [key stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if (isContain) {
+            key = [key substringToIndex:key.length - 1];
+            key = [key stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        }
+        NSString *matcheStr = [NSString stringWithFormat:@"-\\s*\\(\\s*%@\\s*%@\\)\\s*%@\\s*",key,(isContain?@"\\*\\s*":@""),value];
+        NSError *matchError;
+        NSArray *matcheArr = [ediorContent matcheStrWith:matcheStr error:&matchError];
+        if (ArrIsEmpty(matcheArr)&&!matchError) {
+            [arr addObject:ppDic];
+        }
+        
+    }];
+    
+    return arr;
 }
 
 #pragma mark - 获取配置信息

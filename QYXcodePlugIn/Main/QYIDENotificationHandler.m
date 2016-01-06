@@ -125,10 +125,9 @@
     
     }).catchOn(dispatch_get_main_queue(),^(NSError *err){
         
-        LAFIDESourceCodeEditor *editor = [[LAFIDESourceCodeEditor alloc] init];
         NSString* errInfo = dominWithError(err);
-//        [editor showAboveCaret:errInfo color:[NSColor yellowColor]];
-        [editor showAboveCaretOnCenter:errInfo color:[NSColor yellowColor]];
+//        [LAFIDESourceCodeEditor showAboveCaret:errInfo color:[NSColor yellowColor]];
+        [LAFIDESourceCodeEditor showAboveCaretOnCenter:errInfo color:[NSColor yellowColor]];
 
     }).finally(^(){
         sender.windowDelegate = nil;

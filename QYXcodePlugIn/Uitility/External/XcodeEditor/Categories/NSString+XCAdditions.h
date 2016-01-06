@@ -14,6 +14,8 @@
 
 - (BOOL)containsOccurencesOfStrings:(NSArray *)strings;
 - (BOOL)mh_containsString:(NSString *)string;
+
+
 @end
 
 @interface NSString (ShellExecution)

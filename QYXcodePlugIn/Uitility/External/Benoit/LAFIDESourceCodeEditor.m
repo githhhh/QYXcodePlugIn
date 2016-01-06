@@ -71,7 +71,7 @@ NSString * const LAFAddImportOperationImportRegexPattern = @"^#.*(import|include
     [textView insertText:text replacementRange:range];
 }
 
-- (void)showAboveCaret:(NSString *)text color:(NSColor *)color {
++ (void)showAboveCaret:(NSString *)text color:(NSColor *)color {
     NSTextView *currentTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
     
     NSRect keyRectOnTextView = [currentTextView mhFrameForCaret];
@@ -88,18 +88,18 @@ NSString * const LAFAddImportOperationImportRegexPattern = @"^#.*(import|include
     
     [currentTextView addSubview:field];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [NSAnimationContext beginGrouping];
         [[NSAnimationContext currentContext] setCompletionHandler:^{
             [field removeFromSuperview];
         }];
-        [[NSAnimationContext currentContext] setDuration:1.5];
+        [[NSAnimationContext currentContext] setDuration:1.25];
         [[field animator] setAlphaValue:0.0];
         [NSAnimationContext endGrouping];
     });
 }
 
-- (void)showAboveCaretOnCenter:(NSString *)text color:(NSColor *)color {
++ (void)showAboveCaretOnCenter:(NSString *)text color:(NSColor *)color {
     NSTextView *currentTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
     
     NSTextField *field = [[NSTextField alloc] initWithFrame:CGRectMake(currentTextView.frame.size.width/2, currentTextView.frame.size.height/2, 0, 0)];
@@ -140,6 +140,7 @@ NSString * const LAFAddImportOperationImportRegexPattern = @"^#.*(import|include
 - (LAFImportResult)addImport:(NSString *)statement {
     BOOL duplicate = NO;
     DVTSourceTextStorage *textStorage = [self currentTextStorage];
+    
     NSInteger lastLine = [self appropriateLine:textStorage statement:statement duplicate:&duplicate];
     
     if (lastLine != NSNotFound) {

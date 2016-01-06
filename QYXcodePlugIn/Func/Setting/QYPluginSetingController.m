@@ -109,16 +109,16 @@
 
 - (IBAction)saveAction:(id)sender
 {
-    [self promiseValidatorJsonStr].thenOn(dispatch_get_main_queue(),^(id resulte){
+    [self promiseValidatorJsonStr].thenOn(dispatch_get_main_queue(),^id (id resulte){
     
         if (IsEmpty(self.requestBaseName.stringValue))
-            @throw  error(@"基类名不能为空", 0, nil);
+            return   error(@"基类名不能为空", 0, nil);
         
         if (IsEmpty(self.validatorMethodName.stringValue))
-            @throw  error(@"校验方法名不能为空", 0, nil);
+            return  error(@"校验方法名不能为空", 0, nil);
         
         if (IsEmpty(self.testDataMethodName.stringValue) && self.isTestData.state == 1 )
-            @throw error(@"测试数据方法名不能为空", 0, nil);
+            return error(@"测试数据方法名不能为空", 0, nil);
         
         isSave = YES;
         [self close];
@@ -126,6 +126,7 @@
         if (self.pgDelegate && [self.pgDelegate respondsToSelector:@selector(windowDidClose)])
             [self.pgDelegate windowDidClose];
         
+        return nil;
     }).catchOn(dispatch_get_main_queue(),^(NSError *err){
         
         self.msgLable.stringValue = dominWithError(err);

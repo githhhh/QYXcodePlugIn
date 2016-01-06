@@ -24,12 +24,12 @@ typedef enum {
 - (BOOL)hasImportedHeader:(NSString *)header;
 
 - (LAFImportResult)importHeader:(NSString *)header;
-- (void)showAboveCaret:(NSString *)text color:(NSColor *)color;
++ (void)showAboveCaret:(NSString *)text color:(NSColor *)color;
 - (NSString *)selectedText;
 - (void)insertOnCaret:(NSString *)text;
 - (NSTextView *)view;
 
 
 //Modified
-- (void)showAboveCaretOnCenter:(NSString *)text color:(NSColor *)color ;
++ (void)showAboveCaretOnCenter:(NSString *)text color:(NSColor *)color ;
 @end

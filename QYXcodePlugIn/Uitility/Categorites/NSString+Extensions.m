@@ -31,52 +31,49 @@
 
 
 
--(NSArray *)matcheStrWith:(NSString *)regex{
-    if (!(regex&&regex.length>0)||!(self&&self.length>0)) {
+-(NSArray *)matcheStrWith:(NSString *)regex error:(NSError **)error{
+    if (IsEmpty(regex)||IsEmpty(self)) {
         return nil;
     }
     
     
-    NSError *error;
+    NSError *matchError;
     NSRegularExpression *regular = [NSRegularExpression regularExpressionWithPattern:regex
                                                                              options:NSRegularExpressionCaseInsensitive
-                                                                               error:&error];
-    
+                                                                               error:&matchError];
+    if (matchError) {
+        *error = matchError;
+        return nil;
+    }
     // 对str字符串进行匹配
     NSArray *matches = [regular matchesInString:self
                                         options:0
                                           range:NSMakeRange(0, self.length)];
-    if (error) {
-        return nil;
-    }
-    
     return matches;
 }
 
 
--(NSArray *)matcheGroupWith:(NSString *)regex{
+-(NSArray *)matcheGroupWith:(NSString *)regex error:(NSError **)error{
+    if (IsEmpty(regex)||IsEmpty(self))
+        return nil;
+    
     NSMutableArray *groupContentArr = [NSMutableArray arrayWithCapacity:0];
-
-    if (!(regex&&regex.length>0)||!(self&&self.length>0)) {
-        return groupContentArr;
-    }
-    
-    
-    NSError *error;
+    NSError *matchError;
     NSRegularExpression *regular = [NSRegularExpression regularExpressionWithPattern:regex
                                                                              options:NSRegularExpressionCaseInsensitive
-                                                                               error:&error];
+                                                                               error:&matchError];
     
     // 对str字符串进行匹配
     NSArray *matches = [regular matchesInString:self
                                         options:0
                                           range:NSMakeRange(0, self.length)];
-    if (error) {
-        return groupContentArr;
+    if (matchError) {
+        *error = matchError;
+        return nil;
     }
-    if (!(matches&&[matches count]>0)) {
-        return groupContentArr;
-    }
+    if (ArrIsEmpty(matches))
+        return nil;
+    
     // 遍历匹配后的每一条记录
     for (NSTextCheckingResult *match in matches) {
         for (int i = 0;i<match.numberOfRanges;i++) {
@@ -84,11 +81,30 @@
             NSString *mStr = (NSString *)[self substringWithRange:range];
             [groupContentArr addObject:mStr];
         }
-        
     }
-
     
     return groupContentArr;
+}
+
+
+/**
+ *  首字母转大写
+ *
+ *  @return return value description
+ */
+- (NSString *)mh_capitalizedString{
+    if (IsEmpty(self)) {
+        return self;
+    }
+    if (self.length == 1) {
+        return [self capitalizedString];
+    }
+    NSString *firstChar = [self substringWithRange:NSMakeRange(0, 1)];
+    firstChar = [firstChar uppercaseString];
+    
+    NSString *capStr = [self stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:firstChar];
+    
+    return capStr;
 }
 
 @end

@@ -14,6 +14,9 @@
 - (BOOL)mh_isAlphaNumeric;
 - (BOOL)mh_isWhitespaceOrNewline;
 
+//modified
+- (NSString *)mh_capitalizedString;
+
 /**
  *  正则或字符串匹配
  *
@@ -21,7 +24,7 @@
  *
  *  @return return NSTextCheckingResult数组
  */
--(NSArray *)matcheStrWith:(NSString *)regex;
+-(NSArray *)matcheStrWith:(NSString *)regex error:(NSError **)error;
 /**
  *  返回匹配到组的内容
  *
@@ -29,5 +32,5 @@
  *
  *  @return return 匹配到每个组的内容数组
  */
--(NSArray *)matcheGroupWith:(NSString *)regex;
+-(NSArray *)matcheGroupWith:(NSString *)regex error:(NSError **)error;
 @end

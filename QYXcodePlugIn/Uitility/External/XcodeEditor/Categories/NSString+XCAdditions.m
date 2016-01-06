@@ -31,6 +31,10 @@
     return [self rangeOfString:string].location != NSNotFound;
 }
 
+
+
+
+
 @end
 
 //http://stackoverflow.com/questions/412562/execute-a-terminal-command-from-a-cocoa-app

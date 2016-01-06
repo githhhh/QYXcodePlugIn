@@ -76,6 +76,7 @@ static NSString * launchClangFormatPath(){
 
 @implementation QYClangFormat
 
+
 +(PMKPromise *)promiseClangFormatSourceCode:(NSString *)sourceCode{
     
     PMKPromise *clangFormatPromise =

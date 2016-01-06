@@ -46,8 +46,12 @@
         NSString *requstBName = [[QYIDENotificationHandler sharedHandler] settingModel].requestClassBaseName;
         
         // 验证当前.h 文件的父类是否是制定类
+        NSError *matchError;
         NSArray *contents =
-        [soureString matcheGroupWith:[NSString stringWithFormat:@"@\\w+\\s*(\\w+)\\s*\\:\\s+%@\\s", requstBName]];
+        [soureString matcheGroupWith:[NSString stringWithFormat:@"@\\w+\\s*(\\w+)\\s*\\:\\s+%@\\s", requstBName] error:&matchError];
+        if (matchError)
+            return matchError;
+        
         if (ArrIsEmpty(contents)){
             NSString *errInfo  = [NSString stringWithFormat:@"该功能只适用于%@ 的子类",requstBName];
             return error(errInfo, 0, nil);
