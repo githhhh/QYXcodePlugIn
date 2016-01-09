@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="QYPluginSetingController">
             <connections>
+                <outlet property="clearCalalogSearch" destination="xhC-q4-Rrn" id="R8h-HH-o8Q"/>
                 <outlet property="isTestData" destination="MbT-UP-zJX" id="pZ6-fC-SWm"/>
                 <outlet property="msgLable" destination="TJ3-5O-G0x" id="p4f-ex-Tif"/>
                 <outlet property="requestBaseName" destination="9yL-bn-kZM" id="90q-LG-3q8"/>
@@ -20,7 +21,7 @@
         <window title="设置" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="1Qn-2A-PWI">
             <windowStyleMask key="styleMask" titled="YES"/>
             <rect key="contentRect" x="768" y="530" width="1021" height="605"/>
-            <rect key="screenRect" x="-464" y="800" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" id="VSE-lm-Ldo">
                 <rect key="frame" x="0.0" y="0.0" width="1021" height="605"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -162,24 +163,6 @@ Gw
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgP-4B-AhN">
-                        <rect key="frame" x="164" y="395" width="116" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="自定义菜单热键" id="TA2-3s-kNy">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oGC-tW-JCY">
-                        <rect key="frame" x="160" y="357" width="124" height="32"/>
-                        <buttonCell key="cell" type="push" title="Go" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v7V-N5-W6m">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="shortcutRecorderAction:" target="-2" id="PXl-xx-5Pd"/>
-                        </connections>
-                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TJ3-5O-G0x">
                         <rect key="frame" x="18" y="586" width="985" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="e8u-ZY-FcI">
@@ -212,9 +195,34 @@ Gw
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhC-q4-Rrn">
+                        <rect key="frame" x="119" y="357" width="205" height="18"/>
+                        <buttonCell key="cell" type="check" title="始终清除Calalog 搜索条件" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fyJ-ad-aFa">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" size="13" name="STHeitiSC-Light"/>
+                        </buttonCell>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgP-4B-AhN">
+                        <rect key="frame" x="164" y="309" width="116" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="自定义菜单热键" id="TA2-3s-kNy">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oGC-tW-JCY">
+                        <rect key="frame" x="160" y="271" width="124" height="32"/>
+                        <buttonCell key="cell" type="push" title="Go" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v7V-N5-W6m">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="shortcutRecorderAction:" target="-2" id="PXl-xx-5Pd"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="125.5" y="286.5"/>
+            <point key="canvasLocation" x="287.5" y="240.5"/>
         </window>
     </objects>
 </document>

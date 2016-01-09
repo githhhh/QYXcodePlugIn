@@ -41,6 +41,10 @@
  */
 @property (nonatomic, retain) QYShortcutRecorderController *shortcutRC;
 
+
+@property (weak) IBOutlet NSButton *clearCalalogSearch;
+
+
 @end
 
 @implementation QYPluginSetingController
@@ -64,6 +68,8 @@
         self.requestBaseName.stringValue = !IsEmpty(setModel.requestClassBaseName ) ?setModel.requestClassBaseName : @"QYRequest";
         
         self.isTestData.state = setModel.isCreatTestMethod?1:0;
+        
+        self.clearCalalogSearch.state = setModel.isClearCalalogSearchTitle?1:0;
         
         self.testDataMethodName.stringValue = !IsEmpty(setModel.testMethodName) ?setModel.testMethodName: @"testData";
         
@@ -148,6 +154,7 @@
     setModel.getterJSON = self.setingTextView.string;
     setModel.requestClassBaseName = self.requestBaseName.stringValue;
     setModel.isCreatTestMethod = self.isTestData.state == 1?YES:NO;
+    setModel.isClearCalalogSearchTitle = self.clearCalalogSearch.state == 1?YES:NO;
     setModel.testMethodName = self.testDataMethodName.stringValue;
     setModel.requestValidatorMethodName = self.validatorMethodName.stringValue;
     

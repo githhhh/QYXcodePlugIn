@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8B05B57F1BF5A32E00F37998 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B05B57E1BF5A32E00F37998 /* Carbon.framework */; };
-		8B1A56891C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1A56881C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.m */; };
 		8B4C00821BF7852300A77AD9 /* PTHotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00801BF7852300A77AD9 /* PTHotKey.framework */; };
 		8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */; };
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
 		8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA91BABB7F100672762 /* Foundation.framework */; };
 		8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 8B60ADAE1BABB7F100672762 /* QYXcodePlugIn.xcscheme */; };
 		8B60AE291BABCEBB00672762 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60AE281BABCEBB00672762 /* Cocoa.framework */; };
+		8B6C959C1C40CBF30078E0C3 /* NSObject+MagicClearCatalogFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C959B1C40CBF30078E0C3 /* NSObject+MagicClearCatalogFilter.m */; };
 		8B746C921C27BF8200C4A1A4 /* QYMenuBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B746C911C27BF8200C4A1A4 /* QYMenuBaseItem.m */; };
 		8B746C951C27C03300C4A1A4 /* QYAutoGetterMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B746C941C27C03300C4A1A4 /* QYAutoGetterMenuItem.m */; };
 		8B746C981C27C3BE00C4A1A4 /* NSMenu+RegisterMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B746C971C27C3BE00C4A1A4 /* NSMenu+RegisterMenuItem.m */; };
@@ -89,8 +89,6 @@
 		8B02E2351C1ED580005CE6D2 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8B02E2371C1ED580005CE6D2 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
 		8B05B57E1BF5A32E00F37998 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		8B1A56871C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebFrame+Rayrolling_WebFrame.h"; sourceTree = "<group>"; };
-		8B1A56881C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebFrame+Rayrolling_WebFrame.m"; sourceTree = "<group>"; };
 		8B4C00801BF7852300A77AD9 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/PTHotKey.framework"; sourceTree = "<group>"; };
 		8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		8B60ADA41BABB7F100672762 /* QYXcodePlugIn.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QYXcodePlugIn.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +97,8 @@
 		8B60ADAD1BABB7F100672762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B60ADAE1BABB7F100672762 /* QYXcodePlugIn.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = QYXcodePlugIn.xcscheme; path = QYXcodePlugIn.xcodeproj/xcshareddata/xcschemes/QYXcodePlugIn.xcscheme; sourceTree = SOURCE_ROOT; };
 		8B60AE281BABCEBB00672762 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8B6C959A1C40CBF30078E0C3 /* NSObject+MagicClearCatalogFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MagicClearCatalogFilter.h"; sourceTree = "<group>"; };
+		8B6C959B1C40CBF30078E0C3 /* NSObject+MagicClearCatalogFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MagicClearCatalogFilter.m"; sourceTree = "<group>"; };
 		8B746C901C27BF8200C4A1A4 /* QYMenuBaseItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYMenuBaseItem.h; sourceTree = "<group>"; };
 		8B746C911C27BF8200C4A1A4 /* QYMenuBaseItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYMenuBaseItem.m; sourceTree = "<group>"; };
 		8B746C931C27C03300C4A1A4 /* QYAutoGetterMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYAutoGetterMenuItem.h; sourceTree = "<group>"; };
@@ -422,14 +422,14 @@
 		8B9ED1EE1C33E72A0072CCE2 /* Magic */ = {
 			isa = PBXGroup;
 			children = (
-				8B1A56871C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.h */,
-				8B1A56881C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.m */,
 				8B9ED1F21C33E7900072CCE2 /* NSObject+MethodSwizzler.h */,
 				8B9ED1F31C33E7900072CCE2 /* NSObject+MethodSwizzler.m */,
 				8B9ED1F51C33E8130072CCE2 /* NSObject+MagicDVTBezelAlertPanel.h */,
 				8B9ED1F61C33E8130072CCE2 /* NSObject+MagicDVTBezelAlertPanel.m */,
 				8BBAB75D1C378F9B00AAF4BA /* NSObject+MagicIDEActivityReportStringSegment.h */,
 				8BBAB75E1C378F9B00AAF4BA /* NSObject+MagicIDEActivityReportStringSegment.m */,
+				8B6C959A1C40CBF30078E0C3 /* NSObject+MagicClearCatalogFilter.h */,
+				8B6C959B1C40CBF30078E0C3 /* NSObject+MagicClearCatalogFilter.m */,
 			);
 			name = Magic;
 			sourceTree = "<group>";
@@ -885,6 +885,7 @@
 				8BA852791BF7879600EE9398 /* DVTSourceTextStorage+Operations.m in Sources */,
 				8BA8527E1BF7879600EE9398 /* NSString+Extensions.m in Sources */,
 				8BA852961BF7879600EE9398 /* XCSourceFileDefinition.m in Sources */,
+				8B6C959C1C40CBF30078E0C3 /* NSObject+MagicClearCatalogFilter.m in Sources */,
 				8BBAB75F1C378F9B00AAF4BA /* NSObject+MagicIDEActivityReportStringSegment.m in Sources */,
 				8BA852C21BF78A6700EE9398 /* QYClangFormat.m in Sources */,
 				8BA852981BF7879600EE9398 /* XCTarget.m in Sources */,
@@ -900,7 +901,6 @@
 				8BA8528A1BF7879600EE9398 /* XCAbstractDefinition.m in Sources */,
 				8BA852821BF7879600EE9398 /* NSView+Dumping.m in Sources */,
 				8BA8528C1BF7879600EE9398 /* XCFileOperationQueue.m in Sources */,
-				8B1A56891C352C3A00397300 /* WebFrame+Rayrolling_WebFrame.m in Sources */,
 				8BA852BE1BF78A4D00EE9398 /* QYShortcutRecorderController.m in Sources */,
 				8BA852971BF7879600EE9398 /* XCSubProjectDefinition.m in Sources */,
 				8BA852921BF7879600EE9398 /* XCProject+SubProject.m in Sources */,
@@ -1017,7 +1017,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QYXcodePlugIn/QYXcodePlugIn.pch";
 				HEADER_SEARCH_PATHS = "";
@@ -1041,7 +1041,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QYXcodePlugIn/QYXcodePlugIn.pch";
 				HEADER_SEARCH_PATHS = "";

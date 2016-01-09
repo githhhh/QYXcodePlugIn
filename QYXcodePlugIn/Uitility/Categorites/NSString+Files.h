@@ -42,6 +42,7 @@
 //modified
 
 -(BOOL) isCategoryFilePath;
+-(BOOL) isAssetsGatalogSourceFile;
 - (NSString *)currentFileName;
 - (NSString *)currentClassName;
 @end

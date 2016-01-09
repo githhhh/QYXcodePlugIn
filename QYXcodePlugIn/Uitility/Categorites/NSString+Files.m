@@ -64,6 +64,12 @@
     return ([lastPathComponent rangeOfString:@"+"].location != NSNotFound);
 }
 
+-(BOOL) isAssetsGatalogSourceFile{
+    NSString *lastPathComponent = [self lastPathComponent];
+    return ([lastPathComponent rangeOfString:@".xcassets"].location != NSNotFound);
+}
+
+
 //Modefied
 - (NSString *)currentFileName{
     return [self lastPathComponent];
