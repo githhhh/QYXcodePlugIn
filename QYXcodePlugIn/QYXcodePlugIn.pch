@@ -18,9 +18,8 @@
 #define SuperMenu @"Edit"
 #define QYMenu @"QYAction"
 #define QYMenu_AutoGetter @"AutoGetter"
-#define QYMenu_CategoryProperty @"CategoryProperty"
 #define QYMenu_RequestValidator @"RequestValidator"
-#define QYMenu_Settings @"Settings"
+#define QYMenu_Settings @"Preferences"
 
 /**
  *  热键key
@@ -28,7 +27,7 @@
 #define  RequestVerifiMenuKeyPath  @"values.requestVerifiKey"
 #define  AutoCategorySetterGetterMenuKeyPath  @"values.AutoCategorySetterGetter"
 #define  AutoGetterMenuKeyPath     @"values.AutoGetterKey"
-#define  SettingsMenuKeyPath       @"values.SettingsKey"
+#define  SettingsMenuKeyPath       @"values.PreferencesKey"
 
 
 

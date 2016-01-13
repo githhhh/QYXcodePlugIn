@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CategoryGetterSetterAchieve : NSObject
+@interface QYCategoryAutoGetterSetterAchieve : NSObject
+
 -(void)createCategoryGetterSetterAction;
 @end

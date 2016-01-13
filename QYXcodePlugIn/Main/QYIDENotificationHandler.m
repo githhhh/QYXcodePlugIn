@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 X.Y. All rights reserved.
 //
 
-#import "AutoGetterAchieve.h"
-#import "CategoryGetterSetterAchieve.h"
+#import "QYAutoGetterAchieve.h"
+#import "QYCategoryAutoGetterSetterAchieve.h"
 #import "MHXcodeDocumentNavigator.h"
 #import "NSMenu+RegisterMenuItem.h"
 #import "NSString+Extensions.h"
@@ -15,21 +15,21 @@
 #import "Promise.h"
 #import "QYAutoGetterMenuItem.h"
 #import "QYIDENotificationHandler.h"
-#import "QYInputJsonController.h"
-#import "QYPluginSetingController.h"
+#import "QYRequestVerifyController.h"
+#import "QYPreferencesController.h"
 #import "QYRequestVerifiMenuItem.h"
-#import "QYSettingMenuItem.h"
+#import "QYPreferencesMenuItem.h"
 #import "QYWindowsCloseProtocol.h"
 
 
 @interface QYIDENotificationHandler () <QYWindowsCloseProtocol>
 //window
-@property (nonatomic, retain) QYInputJsonController *inputJsonWindow;
-@property (nonatomic, retain) QYPluginSetingController *setingWindow;
+@property (nonatomic, retain) QYRequestVerifyController *requestVerifyWindow;
+@property (nonatomic, retain) QYPreferencesController *preferencesWindow;
 
 //
 @property (nonatomic, retain) NSString *clangFormateContentPath;
-@property (nonatomic, retain) QYSettingModel *settingModel;
+@property (nonatomic, retain) QYPreferencesModel *preferencesModel;
 @end
 
 @implementation QYIDENotificationHandler
@@ -102,7 +102,7 @@
     //请求校验
     [subMenus registerMenuItem:[QYRequestVerifiMenuItem class]];
     //全局设置
-    [subMenus registerMenuItem:[QYSettingMenuItem class]];
+    [subMenus registerMenuItem:[QYPreferencesMenuItem class]];
     
     [actionMenuItem setSubmenu:subMenus];
 }
@@ -117,10 +117,10 @@
         //show window
         if ([sender isKindOfClass:[QYRequestVerifiMenuItem class]] && [obj isKindOfClass:[NSValue class]]) {
             [self showRequestVerifiWindow];
-            self.inputJsonWindow.insertRangeValue = obj;
+            self.requestVerifyWindow.insertRangeValue = obj;
         }
-        if ([sender isKindOfClass:[QYSettingMenuItem class]]) {
-            [self showSettingWindow];
+        if ([sender isKindOfClass:[QYPreferencesMenuItem class]]) {
+            [self showPreferencesWindow];
         }
     
     }).catchOn(dispatch_get_main_queue(),^(NSError *err){
@@ -135,16 +135,16 @@
 }
 
 -(void)showRequestVerifiWindow{
-    self.inputJsonWindow = [[QYInputJsonController alloc] initWithWindowNibName:@"QYInputJsonController"];
-    self.inputJsonWindow.sourceTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
-    self.inputJsonWindow.delegate = self;
-    [self.inputJsonWindow showWindow:self];
+    self.requestVerifyWindow = [[QYRequestVerifyController alloc] initWithWindowNibName:@"QYRequestVerifyController"];
+    self.requestVerifyWindow.sourceTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
+    self.requestVerifyWindow.delegate = self;
+    [self.requestVerifyWindow showWindow:self];
 }
 
--(void)showSettingWindow{
-    self.setingWindow = [[QYPluginSetingController alloc] initWithWindowNibName:@"QYPluginSetingController"];
-    self.setingWindow.pgDelegate = self;
-    [self.setingWindow showWindow:self];
+-(void)showPreferencesWindow{
+    self.preferencesWindow = [[QYPreferencesController alloc] initWithWindowNibName:@"QYPreferencesController"];
+    self.preferencesWindow.pgDelegate = self;
+    [self.preferencesWindow showWindow:self];
 }
 
 
@@ -161,28 +161,28 @@
     return _clangFormateContentPath;
 }
 
-- (QYSettingModel *)settingModel{
+- (QYPreferencesModel *)preferencesModel{
     
-    if (!_settingModel) {
+    if (!_preferencesModel) {
         NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
-        NSData *data = [userdf objectForKey:@"settingModel"];
+        NSData *data = [userdf objectForKey:@"preferencesModel"];
         
         id setMode = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         
-        if (!setMode||![setMode isKindOfClass:[QYSettingModel class]]) {
+        if (!setMode||![setMode isKindOfClass:[QYPreferencesModel class]]) {
             return nil;
         }
-        _settingModel = setMode;
+        _preferencesModel = setMode;
     }
     
-    return _settingModel;
+    return _preferencesModel;
 }
 
-- (void)updateSettingModel:(QYSettingModel *)setModel{
-    _settingModel = setModel;
+- (void)updatePreferencesModel:(QYPreferencesModel *)setModel{
+    _preferencesModel = setModel;
     NSData *customData = [NSKeyedArchiver archivedDataWithRootObject:setModel] ;
     NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
-    [userdf setObject:customData forKey:@"settingModel"];
+    [userdf setObject:customData forKey:@"preferencesModel"];
     [userdf synchronize];
 }
 
@@ -193,16 +193,16 @@
 
 - (void)windowDidClose
 {
-    if (self.inputJsonWindow) {
-        [self.inputJsonWindow.window close];
-        self.inputJsonWindow.window = nil;
-        self.inputJsonWindow = nil;
+    if (self.requestVerifyWindow) {
+        [self.requestVerifyWindow.window close];
+        self.requestVerifyWindow.window = nil;
+        self.requestVerifyWindow = nil;
     }
     
-    if (self.setingWindow) {
-        [self.setingWindow.window close];
-        self.setingWindow.window = nil;
-        self.setingWindow = nil;
+    if (self.preferencesWindow) {
+        [self.preferencesWindow.window close];
+        self.preferencesWindow.window = nil;
+        self.preferencesWindow = nil;
     }
 }
 

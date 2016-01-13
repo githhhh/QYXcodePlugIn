@@ -7,7 +7,7 @@
 //
 #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
-#import "QYSettingModel.h"
+#import "QYPreferencesModel.h"
 #import <dlfcn.h>
 
 @interface QYIDENotificationHandler : NSObject
@@ -16,7 +16,7 @@
 
 - (NSString *)clangFormateContentPath;
 
-- (QYSettingModel *)settingModel;
+- (QYPreferencesModel *)preferencesModel;
 
-- (void)updateSettingModel:(QYSettingModel *)setModel;
+- (void)updatePreferencesModel:(QYPreferencesModel *)setModel;
 @end

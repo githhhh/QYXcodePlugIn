@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="QYPluginSetingController">
+        <customObject id="-2" userLabel="File's Owner" customClass="QYPreferencesController">
             <connections>
                 <outlet property="clearCalalogSearch" destination="xhC-q4-Rrn" id="R8h-HH-o8Q"/>
                 <outlet property="isTestData" destination="MbT-UP-zJX" id="pZ6-fC-SWm"/>
@@ -21,7 +21,7 @@
         <window title="设置" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="1Qn-2A-PWI">
             <windowStyleMask key="styleMask" titled="YES"/>
             <rect key="contentRect" x="768" y="530" width="1021" height="605"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <rect key="screenRect" x="-464" y="800" width="1920" height="1057"/>
             <view key="contentView" id="VSE-lm-Ldo">
                 <rect key="frame" x="0.0" y="0.0" width="1021" height="605"/>
                 <autoresizingMask key="autoresizingMask"/>

@@ -6,13 +6,13 @@
 //  Copyright © 2015年 X.Y. All rights reserved.
 //
 
-#import "QYPluginSetingController.h"
+#import "QYPreferencesController.h"
 #import "QYShortcutRecorderController.h"
-#import "QYSettingModel.h"
+#import "QYPreferencesModel.h"
 #import "Promise.h"
 #import "QYIDENotificationHandler.h"
 
-@interface QYPluginSetingController () <NSWindowDelegate> {
+@interface QYPreferencesController () <NSWindowDelegate> {
     BOOL isSave;
 }
 
@@ -47,7 +47,7 @@
 
 @end
 
-@implementation QYPluginSetingController
+@implementation QYPreferencesController
 
 - (void)dealloc { NSLog(@"===QYPluginSetingController===dealloc="); }
 
@@ -60,7 +60,7 @@
     self.window.delegate = self;
 
     dispatch_promise_on(dispatch_get_main_queue(),^(){
-        QYSettingModel *setModel = [[QYIDENotificationHandler sharedHandler] settingModel];
+        QYPreferencesModel *setModel = [[QYIDENotificationHandler sharedHandler] preferencesModel];
         
         self.msgLable.hidden = NO;
         self.msgLable.textColor = [NSColor redColor];
@@ -75,8 +75,7 @@
         
         self.validatorMethodName.stringValue = !IsEmpty(setModel.requestValidatorMethodName)  ?setModel.requestValidatorMethodName: @"validatorResult";
         
-        self.setingTextView.string = !IsEmpty(setModel.getterJSON) ? setModel.getterJSON : @"{\n\'UIView\':[\n   \'%@ = [[UIView alloc] init];\',\n   "
-        @"\'%@.backgroundColor = [UIColor clearColor];\'\n  ]\n}\n";
+        self.setingTextView.string = !IsEmpty(setModel.getterJSON) ? setModel.getterJSON : @"{\n\"UIView\":[\n   \"%@ = [[UIView alloc] init];\",\n   \"%@.backgroundColor = [UIColor clearColor];\"\n  ]\n}\n";
     
     });
 }
@@ -150,7 +149,7 @@
         return;
     }
     
-    QYSettingModel *setModel = [[QYSettingModel alloc] init];
+    QYPreferencesModel *setModel = [[QYPreferencesModel alloc] init];
     setModel.getterJSON = self.setingTextView.string;
     setModel.requestClassBaseName = self.requestBaseName.stringValue;
     setModel.isCreatTestMethod = self.isTestData.state == 1?YES:NO;
@@ -159,7 +158,7 @@
     setModel.requestValidatorMethodName = self.validatorMethodName.stringValue;
     
     
-    [[QYIDENotificationHandler sharedHandler] updateSettingModel:setModel];
+    [[QYIDENotificationHandler sharedHandler] updatePreferencesModel:setModel];
 }
 
 

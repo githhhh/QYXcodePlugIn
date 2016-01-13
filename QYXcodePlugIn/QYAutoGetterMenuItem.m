@@ -7,7 +7,7 @@
 //
 
 #import "QYAutoGetterMenuItem.h"
-#import "AutoGetterAchieve.h"
+#import "QYAutoGetterAchieve.h"
 #import "QYIDENotificationHandler.h"
 @implementation QYAutoGetterMenuItem
 
@@ -24,7 +24,7 @@
 
 -(void)menuItemAction:(id)sender{
     [super menuItemAction:sender];
-    [[[AutoGetterAchieve alloc] init] getterAction];
+    [[[QYAutoGetterAchieve alloc] init] getterAction];
 }
 
 #pragma mark - 动态绑定热键

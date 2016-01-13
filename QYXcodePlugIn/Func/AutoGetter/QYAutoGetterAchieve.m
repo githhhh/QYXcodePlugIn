@@ -7,19 +7,19 @@
 //
 
 
-#import "AutoGetterAchieve.h"
-#import "CategoryGetterSetterAchieve.h"
+#import "QYAutoGetterAchieve.h"
+#import "QYCategoryAutoGetterSetterAchieve.h"
 #import "MHXcodeDocumentNavigator.h"
 #import "NSString+Extensions.h"
 #import "QYClangFormat.h"
 #import "QYIDENotificationHandler.h"
-#import "QYPluginSetingController.h"
+#import "QYPreferencesController.h"
 #import <AppKit/AppKit.h>
 
 
 //@"@property\\s*\\(.+?\\)\\s*(\\w+)?\\s*\\*{1}\\s*(\\w+)\\s*;{1}";
 static NSInteger const groupBaseCount = 3;
-@interface AutoGetterAchieve ()
+@interface QYAutoGetterAchieve ()
 
 @property (nonatomic,retain) LAFIDESourceCodeEditor *editor;
 
@@ -30,7 +30,7 @@ static NSInteger const groupBaseCount = 3;
 
 @end
 
-@implementation AutoGetterAchieve
+@implementation QYAutoGetterAchieve
 
 - (void)dealloc { NSLog(@"===AutoGetterAchieve=======dealloc="); }
 
@@ -39,7 +39,7 @@ static NSInteger const groupBaseCount = 3;
 {
     //Category
     if ([[[MHXcodeDocumentNavigator currentFilePath] currentFileName] isCategoryFilePath]) {
-        CategoryGetterSetterAchieve *cgsAchieve =  [[CategoryGetterSetterAchieve alloc] init];
+        QYCategoryAutoGetterSetterAchieve *cgsAchieve =  [[QYCategoryAutoGetterSetterAchieve alloc] init];
         [cgsAchieve createCategoryGetterSetterAction];
         return;
     }
@@ -47,7 +47,7 @@ static NSInteger const groupBaseCount = 3;
     //AutoGeter
     PMKPromise *cfGetterPromise = [self promiseClangFormateGetterStr];
     PMKPromise *cfSelectePromise = [QYClangFormat promiseClangFormatSourceCode:self.editor.selectedText];
-    PMKPromise *insertLocPromise = [AutoGetterAchieve promiseInsertLoction];
+    PMKPromise *insertLocPromise = [QYAutoGetterAchieve promiseInsertLoction];
     NSDictionary *promiseDic = @{
                                      @"cfGp":cfGetterPromise,
                                      @"cfSp":cfSelectePromise,
@@ -88,7 +88,7 @@ static NSInteger const groupBaseCount = 3;
             return error(@"选中内容为空。。。", 0, nil);
         //解析选中property
         NSError *matchError;
-        NSArray *propertyArr = [AutoGetterAchieve MatcheSelectText:selectedText error:&matchError];
+        NSArray *propertyArr = [QYAutoGetterAchieve MatcheSelectText:selectedText error:&matchError];
         if (matchError)
             return  matchError;
         
@@ -337,7 +337,7 @@ static NSInteger const groupBaseCount = 3;
 - (NSDictionary *)configDic
 {
     if (!_configDic) {
-        QYSettingModel *setModel = [[QYIDENotificationHandler sharedHandler] settingModel];
+        QYPreferencesModel *setModel = [[QYIDENotificationHandler sharedHandler] preferencesModel];
         
         if (!setModel.getterJSON || setModel.getterJSON.length == 0) {
             return nil;

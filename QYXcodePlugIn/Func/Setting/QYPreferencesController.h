@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "QYWindowsCloseProtocol.h"
 
-@interface QYPluginSetingController : NSWindowController
+@interface QYPreferencesController : NSWindowController
 
 @property (nonatomic,weak) id<QYWindowsCloseProtocol> pgDelegate;
 @end

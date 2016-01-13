@@ -10,14 +10,14 @@
 #import "NSString+Extensions.h"
 #import "QYClangFormat.h"
 #import "QYIDENotificationHandler.h"
-#import "QYInputJsonController.h"
-#import "QYPluginSetingController.h"
+#import "QYRequestVerifyController.h"
+#import "QYPreferencesController.h"
 
 static NSString *StringClass = @"[NSString class]";
 static NSString *NumberClass = @"[NSNumber class]";
 
 
-@interface QYInputJsonController () <NSTextViewDelegate, NSWindowDelegate>
+@interface QYRequestVerifyController () <NSTextViewDelegate, NSWindowDelegate>
 
 
 @property (weak) IBOutlet NSScrollView *scrollView;
@@ -33,7 +33,7 @@ static NSString *NumberClass = @"[NSNumber class]";
 
 @end
 
-@implementation QYInputJsonController
+@implementation QYRequestVerifyController
 
 - (void)windowDidLoad
 {
@@ -135,7 +135,7 @@ static NSString *NumberClass = @"[NSNumber class]";
 - (NSString *)getValidatorMethodStrWithJsonData:(id)data
 {
     NSString *validatorStr = [self getJsonString:data withValidator:YES];
-    NSString *vMethodName = [[QYIDENotificationHandler sharedHandler] settingModel].requestValidatorMethodName;
+    NSString *vMethodName = [[QYIDENotificationHandler sharedHandler] preferencesModel].requestValidatorMethodName;
     
     NSMutableString *validatorMStr = [NSMutableString stringWithCapacity:0];
     [validatorMStr appendString:[NSString stringWithFormat:@"\n- (id)%@ {\n", vMethodName ?: @"validatorResult"]];
@@ -150,10 +150,10 @@ static NSString *NumberClass = @"[NSNumber class]";
     /**
      *  本地测试数据
      */
-    if (![[QYIDENotificationHandler sharedHandler] settingModel].isCreatTestMethod) {
+    if (![[QYIDENotificationHandler sharedHandler] preferencesModel].isCreatTestMethod) {
         return nil;
     }
-    NSString *tdMdName = [[QYIDENotificationHandler sharedHandler] settingModel].testMethodName;
+    NSString *tdMdName = [[QYIDENotificationHandler sharedHandler] preferencesModel].testMethodName;
     NSString *testDataStr = [self getJsonString:data withValidator:NO];
     NSMutableString *testDataMethodStr = [NSMutableString stringWithCapacity:0];
     [testDataMethodStr

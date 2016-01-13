@@ -16,7 +16,7 @@
  *  @param tempCodePath 要格式化的代码路径
  *
  */
-#define defineClangFromatStyle(clang_fpath,tempCodePath) [NSString stringWithFormat:@"%@ -style=\"{BasedOnStyle: llvm,AlignTrailingComments: true,BreakBeforeBraces: Linux,ColumnLimit: 120,IndentWidth: 4,KeepEmptyLinesAtTheStartOfBlocks: false,MaxEmptyLinesToKeep: 2,ObjCSpaceAfterProperty: true,ObjCSpaceBeforeProtocolList: true,PointerBindsToType: false,SpacesBeforeTrailingComments: 1,TabWidth: 4,UseTab: Never,BinPackParameters: false}\"  %@",clang_fpath,tempCodePath]
+#define defineClangFromatStyle(clang_fpath,tempCodePath) [NSString stringWithFormat:@"%@ -style=\"{BasedOnStyle: llvm,AlignTrailingComments: true,BreakBeforeBraces: Linux,ColumnLimit: 120,IndentWidth: 4,KeepEmptyLinesAtTheStartOfBlocks: false,MaxEmptyLinesToKeep: 2,ObjCSpaceAfterProperty: true,ObjCSpaceBeforeProtocolList: true,PointerBindsToType: false,SpacesBeforeTrailingComments: 1,TabWidth: 4,UseTab: Never,BinPackParameters: false}\"  %@ | /usr/local/bin/uncrustify  -q -c ~/.uncrustify.cfg -l OC",clang_fpath,tempCodePath]
 
 
 static dispatch_queue_t clangFormateQueue;

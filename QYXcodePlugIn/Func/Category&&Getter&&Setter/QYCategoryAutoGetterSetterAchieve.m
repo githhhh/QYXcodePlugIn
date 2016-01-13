@@ -6,8 +6,8 @@
 //  Copyright © 2015年 X.Y. All rights reserved.
 //
 
-#import "AutoGetterAchieve.h"
-#import "CategoryGetterSetterAchieve.h"
+#import "QYAutoGetterAchieve.h"
+#import "QYCategoryAutoGetterSetterAchieve.h"
 #import "MHXcodeDocumentNavigator.h"
 #import "NSString+Extensions.h"
 #import "Promise.h"
@@ -21,7 +21,7 @@ static const NSString * machsStr = @"static\\s+char\\s+const\\s+\\*\\s*const\\s+
 #define appendCharDefKey @"kAppendCharDefStr"
 #define appendMethodKey @"kAppendMethodStr"
 
-@interface CategoryGetterSetterAchieve()
+@interface QYCategoryAutoGetterSetterAchieve()
 
 @property (nonatomic,retain) LAFIDESourceCodeEditor *editor;
 
@@ -36,7 +36,7 @@ static const NSString * machsStr = @"static\\s+char\\s+const\\s+\\*\\s*const\\s+
 @property (nonatomic,retain) NSString *privateReadWritePropertyDef;
 @end
 
-@implementation CategoryGetterSetterAchieve
+@implementation QYCategoryAutoGetterSetterAchieve
 
 -(void)dealloc{
     NSLog(@"=CategoryGetterSetterAchieve===dealloc=");
@@ -47,7 +47,7 @@ static const NSString * machsStr = @"static\\s+char\\s+const\\s+\\*\\s*const\\s+
     self.isHeaderFile           = [[MHXcodeDocumentNavigator currentFilePath] isHeaderFilePath];
 
     PMKPromise *promiseStr      = [self promiseAppendCharDefAndMethodStr];
-    PMKPromise *promiseInserLoc = [AutoGetterAchieve promiseInsertLoction];
+    PMKPromise *promiseInserLoc = [QYAutoGetterAchieve promiseInsertLoction];
     NSDictionary *promiseDic    = @{@"strDic":promiseStr,@"rang":promiseInserLoc};
 
     [PMKPromise when:promiseDic] .thenOn(dispatch_get_main_queue(),^id(NSDictionary *dic){

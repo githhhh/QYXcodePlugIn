@@ -10,7 +10,7 @@
 #import "Promise.h"
 #import "MHXcodeDocumentNavigator.h"
 #import "NSString+Extensions.h"
-#import "AutoGetterAchieve.h"
+#import "QYAutoGetterAchieve.h"
 @implementation QYRequestVerifiMenuItem
 
 -(instancetype)init{
@@ -43,7 +43,7 @@
         NSString *soureString = [NSString stringWithContentsOfFile:currentFilePath encoding:NSUTF8StringEncoding error:nil];
     
         //读取配置
-        NSString *requstBName = [[QYIDENotificationHandler sharedHandler] settingModel].requestClassBaseName;
+        NSString *requstBName = [[QYIDENotificationHandler sharedHandler] preferencesModel].requestClassBaseName;
         
         // 验证当前.h 文件的父类是否是制定类
         NSError *matchError;
@@ -57,7 +57,7 @@
             return error(errInfo, 0, nil);
         }
         //返回插入位置。。
-        return [AutoGetterAchieve promiseInsertLoction];
+        return [QYAutoGetterAchieve promiseInsertLoction];
     });
     
     if (self.windowDelegate&&[self.windowDelegate respondsToSelector:@selector(receiveMenuItemPromise:sender:)])

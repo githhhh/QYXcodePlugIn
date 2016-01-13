@@ -10,7 +10,7 @@
 #import "QYWindowsCloseProtocol.h"
 #import "Promise.h"
 
-@interface QYInputJsonController : NSWindowController
+@interface QYRequestVerifyController : NSWindowController
 
 @property (nonatomic,strong) NSTextView *sourceTextView;
 

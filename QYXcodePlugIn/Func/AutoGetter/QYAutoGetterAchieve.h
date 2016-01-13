@@ -14,7 +14,7 @@
 static NSString *const propertyMatcheStr = @"@property\\s*\\(.+?\\)\\s*(\\w+?\\s*\\*{0,1})\\s*(\\w+)\\s*;{1}";
 
 
-@interface AutoGetterAchieve : NSObject
+@interface QYAutoGetterAchieve : NSObject
 
 -(void)getterAction;
 
