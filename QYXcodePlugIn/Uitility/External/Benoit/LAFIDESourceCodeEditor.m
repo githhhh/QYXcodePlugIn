@@ -72,6 +72,10 @@ NSString * const LAFAddImportOperationImportRegexPattern = @"^#.*(import|include
 }
 
 + (void)showAboveCaret:(NSString *)text color:(NSColor *)color {
+    if (![[QYIDENotificationHandler sharedHandler] preferencesModel].isPromptException) {
+        return;
+    }
+    
     NSTextView *currentTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
     
     NSRect keyRectOnTextView = [currentTextView mhFrameForCaret];
@@ -100,6 +104,10 @@ NSString * const LAFAddImportOperationImportRegexPattern = @"^#.*(import|include
 }
 
 + (void)showAboveCaretOnCenter:(NSString *)text color:(NSColor *)color {
+    if (![[QYIDENotificationHandler sharedHandler] preferencesModel].isPromptException) {
+        return;
+    }
+    
     NSTextView *currentTextView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
     
     NSTextField *field = [[NSTextField alloc] initWithFrame:CGRectMake(currentTextView.frame.size.width/2, currentTextView.frame.size.height/2, 0, 0)];

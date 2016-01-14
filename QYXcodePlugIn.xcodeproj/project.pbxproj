@@ -67,7 +67,6 @@
 		8BAE7EAE1C47980200A505FD /* QYShortcutRecorderController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BAE7EA61C47980200A505FD /* QYShortcutRecorderController.xib */; };
 		8BAE7EB71C47984100A505FD /* NSObject+MagicClearCatalogFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EB01C47984100A505FD /* NSObject+MagicClearCatalogFilter.m */; };
 		8BAE7EB81C47984100A505FD /* NSObject+MagicDVTBezelAlertPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EB21C47984100A505FD /* NSObject+MagicDVTBezelAlertPanel.m */; };
-		8BAE7EB91C47984100A505FD /* NSObject+MagicIDEActivityReportStringSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EB41C47984100A505FD /* NSObject+MagicIDEActivityReportStringSegment.m */; };
 		8BAE7EBA1C47984100A505FD /* NSObject+MethodSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EB61C47984100A505FD /* NSObject+MethodSwizzler.m */; };
 		8BAE7EBE1C4798E700A505FD /* QYPreferencesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EBD1C4798E700A505FD /* QYPreferencesModel.m */; };
 		8BAE7EC31C47997C00A505FD /* PMKPromise+Until.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EBF1C47997C00A505FD /* PMKPromise+Until.m */; };
@@ -202,8 +201,6 @@
 		8BAE7EB01C47984100A505FD /* NSObject+MagicClearCatalogFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MagicClearCatalogFilter.m"; path = "Magic/NSObject+MagicClearCatalogFilter.m"; sourceTree = "<group>"; };
 		8BAE7EB11C47984100A505FD /* NSObject+MagicDVTBezelAlertPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+MagicDVTBezelAlertPanel.h"; path = "Magic/NSObject+MagicDVTBezelAlertPanel.h"; sourceTree = "<group>"; };
 		8BAE7EB21C47984100A505FD /* NSObject+MagicDVTBezelAlertPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MagicDVTBezelAlertPanel.m"; path = "Magic/NSObject+MagicDVTBezelAlertPanel.m"; sourceTree = "<group>"; };
-		8BAE7EB31C47984100A505FD /* NSObject+MagicIDEActivityReportStringSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+MagicIDEActivityReportStringSegment.h"; path = "Magic/NSObject+MagicIDEActivityReportStringSegment.h"; sourceTree = "<group>"; };
-		8BAE7EB41C47984100A505FD /* NSObject+MagicIDEActivityReportStringSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MagicIDEActivityReportStringSegment.m"; path = "Magic/NSObject+MagicIDEActivityReportStringSegment.m"; sourceTree = "<group>"; };
 		8BAE7EB51C47984100A505FD /* NSObject+MethodSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+MethodSwizzler.h"; path = "Magic/NSObject+MethodSwizzler.h"; sourceTree = "<group>"; };
 		8BAE7EB61C47984100A505FD /* NSObject+MethodSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MethodSwizzler.m"; path = "Magic/NSObject+MethodSwizzler.m"; sourceTree = "<group>"; };
 		8BAE7EBC1C4798E700A505FD /* QYPreferencesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYPreferencesModel.h; path = Model/QYPreferencesModel.h; sourceTree = "<group>"; };
@@ -405,8 +402,6 @@
 				8BAE7EB01C47984100A505FD /* NSObject+MagicClearCatalogFilter.m */,
 				8BAE7EB11C47984100A505FD /* NSObject+MagicDVTBezelAlertPanel.h */,
 				8BAE7EB21C47984100A505FD /* NSObject+MagicDVTBezelAlertPanel.m */,
-				8BAE7EB31C47984100A505FD /* NSObject+MagicIDEActivityReportStringSegment.h */,
-				8BAE7EB41C47984100A505FD /* NSObject+MagicIDEActivityReportStringSegment.m */,
 			);
 			name = Magic;
 			sourceTree = "<group>";
@@ -874,7 +869,6 @@
 				8BA852891BF7879600EE9398 /* XCWorkspace.m in Sources */,
 				8BA852941BF7879600EE9398 /* XCProjectBuildConfig.m in Sources */,
 				8B9ED1ED1C337D900072CCE2 /* LAFIDESourceCodeEditor.m in Sources */,
-				8BAE7EB91C47984100A505FD /* NSObject+MagicIDEActivityReportStringSegment.m in Sources */,
 				8BAE7EBE1C4798E700A505FD /* QYPreferencesModel.m in Sources */,
 				8BAE7EAB1C47980200A505FD /* QYRequestVerifyController.m in Sources */,
 				8BAE7E911C4797E300A505FD /* QYMenuBaseItem.m in Sources */,

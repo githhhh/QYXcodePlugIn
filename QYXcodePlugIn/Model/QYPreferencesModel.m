@@ -12,33 +12,34 @@
 
 
 
-
-
-
 //===========================================================
 //  Keyed Archiving
 //
 //===========================================================
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
+    
     [encoder encodeObject:self.getterJSON forKey:@"GetterJSON"];
     [encoder encodeObject:self.requestClassBaseName forKey:@"RequestClassBaseName"];
     [encoder encodeBool:self.isCreatTestMethod forKey:@"CreatTestMethod"];
     [encoder encodeObject:self.testMethodName forKey:@"TestMethodName"];
     [encoder encodeObject:self.requestValidatorMethodName forKey:@"RequestValidatorMethodName"];
     [encoder encodeBool:self.isClearCalalogSearchTitle forKey:@"ClearCalalogSearchTitle"];
+    [encoder encodeBool:self.isPromptException forKey:@"PromptException"];
 
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
 {
     if ((self = [super init])) {
-        self.getterJSON = [decoder decodeObjectForKey:@"GetterJSON"];
-        self.requestClassBaseName = [decoder decodeObjectForKey:@"RequestClassBaseName"];
-        self.isCreatTestMethod = [decoder decodeBoolForKey:@"CreatTestMethod"];
-        self.testMethodName = [decoder decodeObjectForKey:@"TestMethodName"];
+        
+        self.getterJSON                 = [decoder decodeObjectForKey:@"GetterJSON"];
+        self.requestClassBaseName       = [decoder decodeObjectForKey:@"RequestClassBaseName"];
+        self.isCreatTestMethod          = [decoder decodeBoolForKey:@"CreatTestMethod"];
+        self.testMethodName             = [decoder decodeObjectForKey:@"TestMethodName"];
         self.requestValidatorMethodName = [decoder decodeObjectForKey:@"RequestValidatorMethodName"];
-        self.isClearCalalogSearchTitle = [decoder decodeBoolForKey:@"ClearCalalogSearchTitle"];
+        self.isClearCalalogSearchTitle  = [decoder decodeBoolForKey:@"ClearCalalogSearchTitle"];
+        self.isPromptException          = [decoder decodeBoolForKey:@"PromptException"];
 
     }
     return self;

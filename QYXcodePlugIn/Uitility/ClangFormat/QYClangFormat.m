@@ -82,35 +82,38 @@ static NSString * launchClangFormatPath(){
     PMKPromise *clangFormatPromise =
     // promise 实现。。。。
     dispatch_promise_on(ClangFormateCreateQueue(), ^id() {
-        if (!sourceCode || sourceCode.length == 0) {
+        if (!sourceCode || sourceCode.length == 0)
             return error(@"源代码为空。。", 0, nil);
-        }
-        NSString *clangFpath = launchClangFormatPath();
-        if (!clangFpath||clangFpath.length == 0) {
+
+        NSString *clangFpath    = launchClangFormatPath();
+        if (!clangFpath||clangFpath.length == 0)
             return error(@"没有找到Clang-Formate", 100, nil);
-        }
+
         NSString *cfContentPath = [[QYIDENotificationHandler sharedHandler] clangFormateContentPath];
-        if (!cfContentPath) {
+        if (!cfContentPath)
             return error(@"获取临时文件路径出错。。。", 0, nil);
-        }
+        
         return  PMKManifold(sourceCode,clangFpath,cfContentPath);
 
     }).thenOn(ClangFormateCreateQueue(), ^id(NSString *sCode,NSString *cfPath,NSString *cfConentPath) {
         //判断文件是否存在
-        if (![[NSFileManager defaultManager] fileExistsAtPath:cfPath]) {
+        if (![[NSFileManager defaultManager] fileExistsAtPath:cfPath])
             return error(@"clang-formate 启动文件不存在", 0, nil);
-        }
-        BOOL isWrite = [sCode writeToFile:cfConentPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
-        if (!isWrite) {
-            return error(@"写入文件出错。。。。", 0, nil);
-        }
+        
+        NSError *error;
+        BOOL isWrite         = [sCode writeToFile:cfConentPath atomically:YES
+                                         encoding:NSUTF8StringEncoding error:&error];
+        if (!isWrite)
+            return error;
+
         //直接指定style
         NSString *newContent = [self runCommand:defineClangFromatStyle(cfPath, cfConentPath)];
-        //        NSError *removeError;
-        //        [[NSFileManager defaultManager] removeItemAtPath:filePath error:&removeError];
-        //        if (removeError)
-        //            return removeError;
+        [[NSFileManager defaultManager] removeItemAtPath:cfConentPath error:&error];
+        if (error)
+            return error;
+        
         return newContent;
+        
     });
 
     return clangFormatPromise;

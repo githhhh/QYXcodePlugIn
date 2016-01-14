@@ -10,11 +10,12 @@
 
 @interface QYPreferencesModel : NSObject<NSCoding>
 
-@property (nonatomic, copy) NSString *getterJSON;
-@property (nonatomic, copy) NSString *requestClassBaseName;
-@property (nonatomic, assign) BOOL isCreatTestMethod;
-@property (nonatomic, copy) NSString *testMethodName;
-@property (nonatomic, copy) NSString *requestValidatorMethodName;
-@property (nonatomic, assign) BOOL isClearCalalogSearchTitle;
+@property (nonatomic, copy  ) NSString *getterJSON;
+@property (nonatomic, copy  ) NSString *requestClassBaseName;
+@property (nonatomic, assign) BOOL     isCreatTestMethod;
+@property (nonatomic, copy  ) NSString *testMethodName;
+@property (nonatomic, copy  ) NSString *requestValidatorMethodName;
+@property (nonatomic, assign) BOOL     isClearCalalogSearchTitle;
+@property (nonatomic, assign) BOOL     isPromptException;
 
 @end
