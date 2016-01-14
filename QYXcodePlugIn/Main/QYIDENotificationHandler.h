@@ -17,5 +17,5 @@
 
 - (QYPreferencesModel *)preferencesModel;
 
-- (void)updatePreferencesModel:(QYPreferencesModel *)setModel;
+- (void)updatePreferencesModel:(QYPreferencesModel *)preferencesModel;
 @end

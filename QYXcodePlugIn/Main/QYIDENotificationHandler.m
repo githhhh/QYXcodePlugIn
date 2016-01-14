@@ -178,9 +178,9 @@
     return _preferencesModel;
 }
 
-- (void)updatePreferencesModel:(QYPreferencesModel *)setModel{
-    _preferencesModel = setModel;
-    NSData *customData = [NSKeyedArchiver archivedDataWithRootObject:setModel] ;
+- (void)updatePreferencesModel:(QYPreferencesModel *)preferencesModel{
+    _preferencesModel = preferencesModel;
+    NSData *customData = [NSKeyedArchiver archivedDataWithRootObject:preferencesModel] ;
     NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
     [userdf setObject:customData forKey:@"preferencesModel"];
     [userdf synchronize];
