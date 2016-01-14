@@ -1,5 +1,0 @@
-备忘：
-
-如果要achieve  可能会报PTHotKey、ShortcutRecorder 找不到，
-
-需要把两个framwork 拷贝到项目根目录下即可
