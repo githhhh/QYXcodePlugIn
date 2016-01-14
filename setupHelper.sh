@@ -48,8 +48,8 @@ function install_Format(){
    ufFilePath=$(pwd)/$ufFileName
    #copy
    cd $SRC_HOME
-   cp ${SRC_HOME}/formate_cfg/$cfFileName $cfFilePath
-   cp ${SRC_HOME}/formate_cfg/$ufFileName $ufFilePath
+   cp ${SRC_HOME}/Formate_cfg/$cfFileName $cfFilePath
+   cp ${SRC_HOME}/Formate_cfg/$ufFileName $ufFilePath
 }
 
 #bulide Release
