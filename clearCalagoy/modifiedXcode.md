@@ -297,7 +297,7 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
 
 	   po $rdx
 	   
-最终会呈现上面完整的Dictionary或[查看完整的log](./lldb_log), 有趣的是revertStateWithDictionary 只会调用一次，，而_pullStateFromDictionary 则会调用多次，每次进入都会调用。
+最终会呈现上面完整的Dictionary或[查看完整的log](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/clearCalagoy/lldb_log), 有趣的是revertStateWithDictionary 只会调用一次，，而_pullStateFromDictionary 则会调用多次，每次进入都会调用。
 
 > -[DVTStateToken _pullStateFromDictionary:]: 这就是我们要寻找的绳命真谛啊。
 
