@@ -41,7 +41,7 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
    - ..其它方法
    
    <div align='center'>
-  ![Dtrace](./iterm.gif =500x300)
+  ![Dtrace](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/clearCalagoy/iterm.gif)
    </div>
   
 #####  2,探寻更多信息
@@ -107,7 +107,7 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
    
    让实例进入Assets.xcassets,进入断点
    <div align='center'>
-   ![xx](./setobject_br.png =600x300)
+   ![xx](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/clearCalagoy/setobject_br.png)
    </div>
    
    恶心的汇编，假如你预习过上面推荐文章，那么对于这些基础知识应该有印象
@@ -138,7 +138,7 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
  
  查看Tread1 当前主线程的调用堆栈是个可行的办法
 	 <div align='center'>
-	 ![](./stack.png =600x500)
+	 ![](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/clearCalagoy/stack.png)
 	 </div>
 	 
 往下回溯发现前三个大同小异,只不过是从父类调到子类,第四个和第五个是离 **ss** 字符串来源最近的调用，在往上。。。。。
@@ -263,29 +263,29 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
 
 大概两三回合,一路查找看看我们查找出来了什么
 	
-	{
-	... 上面好多key ..
-	    DefaultEditorStatesForURLs =     {
-	        "Xcode.IDEKit.EditorDocument.AssetCatalog" =         {
-	            "file:///Users/qyer/Documents/WorkSpace/joy-iphone/Joy/Assets.xcassets/" =               {
-	                detailController = IBICCatalogOverviewController;
-	                lastFocusedArea = sourceListArea;
-	                selectedItemIdentifiers = "{(\n)}";
-	                ...一些key
-	                "source-list-area" =                 {
-	                    expandedItemIDs = "{(\n    \".\"\n)}";
-	                   //看到没、看到没、看到没、看到没、看到没、看到没、看到没、看到没、有我在这呢。为毛没法加粗啊。。。
-	                    previousFilter = ss;
+    	{
+        	... 上面好多key ..
+         	    DefaultEditorStatesForURLs =     {
+	              "Xcode.IDEKit.EditorDocument.AssetCatalog" =         {
+	                  "file:///Users/qyer/Documents/WorkSpace/joy-iphone/Joy/Assets.xcassets/" =               {
+	                   detailController = IBICCatalogOverviewController;
+	                   lastFocusedArea = sourceListArea;
+	                   selectedItemIdentifiers = "{(\n)}";
+	                   ...一些key
+	                   "source-list-area" =                 {
+	                      expandedItemIDs = "{(\n    \".\"\n)}";
+	                      //看到没、看到没、看到没、看到没、看到没、看到没、看到没、看到没、有我在这呢。为毛没法加粗啊。。。
+	                      previousFilter = ss;
 
-	                };
-	                sourceItems = "{(\n    \"./Comment/comment_smallEmpty.imageset\"\n)}";
-	            };
-	.....下面很长很长
-	    );
-	 }
+	                     };
+	                   sourceItems = "{(\n    \"./Comment/comment_smallEmpty.imageset\"\n)}";
+	               };
+            	.....下面很长很长
+	           );
+	    }
 
-	(lldb) ptr_refs 0x600005079340
-		0x0000600000598ac8: malloc(   208) -> 0x600000598a10 + 184    IDEEditorBasicMode.IDEEditorModeViewController._lastSetPersistentRepresentation
+        	(lldb) ptr_refs 0x600005079340
+     		0x0000600000598ac8: malloc(   208) -> 0x600000598a10 + 184    IDEEditorBasicMode.IDEEditorModeViewController._lastSetPersistentRepresentation
 		
  这样一层一层的回溯发现最终到了***IDEEditorModeViewController._lastSetPersistentRepresentation*** 的私有属性。。下面查找相关API google 或者 i loo -rn xxx
 
