@@ -119,11 +119,10 @@ Automator可以做一些Services，来执行一些shell 脚本。
 
 ### 怎么用？
 
-#### 1,安装
+#### 1,安装🍻🍻
 
 	 git clone git@gitlab.dev:TangBin/QYXcodePlugIn.git
 	 cd QYXcodePlugIn/
-	 //一键安装插件🍻🍻
 	 ./setupHelper.sh
 	 
 #### 2,配置热键和其它选项
