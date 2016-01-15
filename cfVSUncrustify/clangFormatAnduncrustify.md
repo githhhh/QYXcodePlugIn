@@ -1,16 +1,16 @@
-##Clang-formate VS Uncrustify
+## Clang-formate VS Uncrustify
 ---
-###Clang-formate
+### Clang-formate
 
   [Clang-formate](http://clang.llvm.org/docs/ClangFormat.html): clang-llvm 编译器自带格式代码工具,使用前需要安装clang-format。
    
-	   brew install clang-format
+>	  brew install clang-format
 
    使用[.clang-formate](https://github.com/Lede-Inc/LDSDKManager_IOS/blob/master/.clang-format) 放在根目录来自定义全局配置，或者放在单独的项目根目录处理源代码，支持除llvm 外多种风格。
    
    或者直接在脚本中指定配置
     
-	   clang-format -style="{BasedOnStyle: llvm,AlignTrailingComments: true....}" [-line<startLoc:endLoc>] filepath
+>	   clang-format -style="{BasedOnStyle: llvm,AlignTrailingComments: true....}" [-line<startLoc:endLoc>] filepath
 		
    想了解更多clang-format配置这里有个[演示](http://clangformat.com/)不错
    
@@ -18,10 +18,10 @@
    
    但它在**多层嵌套的字典、数组、block代码中缩进效果却差强人意**。（至少我折腾半天也没fix）,所以要配合XCode 自带的自动感知缩进Re-indent (contr + i)
    <div align='center'>
-     ![Re-indent](./reindent.png)
+     ![Re-indent](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/cfVSUncrustify/reindent.png)
    </div>
    
-###Uncrustify
+### Uncrustify
    
    幸运的是找到了[Uncrustify](https://github.com/bengardner/uncrustify),支持多种语言并且跨平台，非常容易配置。及相关插件[BBUncrustifyPlugin-Xcode](https://github.com/benoitsan/BBUncrustifyPlugin-Xcode),使用[.uncrustify.cfg](https://gist.github.com/ryanmaxwell/4242629)放在根目录下作为配置文件。
    
@@ -33,16 +33,16 @@
 
 
 
-###貌似没有很完美的格式化代码工具
+### 貌似没有很完美的格式化代码工具
 
 >孟子曰: 鱼,我所欲也;熊掌,亦我所欲也;二者不可得兼。but，混在一起炖汤，大补耶。
 
 炒着吃应该也不懒😉
 
-![](./pop.gif)
+![](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/cfVSUncrustify/pop.gif)
 
 	
-	/usr/local/bin/clang-format -style="{BasedOnStyle: llvm,AlignTrailingComments: true,BreakBeforeBraces: Linux,ColumnLimit: 120,IndentWidth: 4,KeepEmptyLinesAtTheStartOfBlocks: false,MaxEmptyLinesToKeep: 2,ObjCSpaceAfterProperty: true,ObjCSpaceBeforeProtocolList: true,PointerBindsToType: false,SpacesBeforeTrailingComments: 1,TabWidth: 4,UseTab: Never,BinPackParameters: false}"  /Users/qyer/Desktop/temp.m | /usr/local/bin/uncrustify  -q -c ~/.uncrustify.cfg -l OC
+>	/usr/local/bin/clang-format -style="{BasedOnStyle: llvm,AlignTrailingComments: true,BreakBeforeBraces: Linux,ColumnLimit: 120,IndentWidth: 4,KeepEmptyLinesAtTheStartOfBlocks: false,MaxEmptyLinesToKeep: 2,ObjCSpaceAfterProperty: true,ObjCSpaceBeforeProtocolList: true,PointerBindsToType: false,SpacesBeforeTrailingComments: 1,TabWidth: 4,UseTab: Never,BinPackParameters: false}"  /Users/qyer/Desktop/temp.m | /usr/local/bin/uncrustify  -q -c ~/.uncrustify.cfg -l OC
 
 
 
@@ -209,4 +209,4 @@ clang-format + Re-Indent(**ctrol+i**)	(勉强吧。。。😐😐😐,但这里�
 **以上仅供参考**
 
 
->如果你发现可以通过配置来解决上面问题，何不fix??	
+>如果你发现可以通过配置来解决上面问题，何不fix??
