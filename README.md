@@ -20,7 +20,7 @@
  
 ### 如何实现？
 
-##### 1,Clang-Formate VS Uncrustify
+#### 1,Clang-Formate VS Uncrustify
 
 Clang-Format
 
@@ -48,7 +48,7 @@ Uncrustify
  [详细对比后](./cfVSUncrustify/clangFormatAnduncrustify.md)
    通过最终使用**Clang-format + Uncrustify**, 通过队列执行NSTask 任务来格式化拼接的代码。
 
-##### 2,PromiseKit VS ReactiveCocoa
+#### 2,PromiseKit VS ReactiveCocoa
    Wow... 让我来隆重介绍 **[PromiseKit](http://promisekit.org/)**
    <div align='center'>
    ![](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/promiseKit.png)
@@ -74,7 +74,7 @@ PromiseKit 是轻量级的，而且是一次性的，意味着它不会照成循
 本插件出于性能考虑，同样是一次性的，意味着并不占用很多内存，除2个单例外，非常契合 PromiseKit。
 > 杀鸡焉用牛刀
     
-##### 3,ShortcutRecorder
+#### 3,ShortcutRecorder
 [ShortcutRecorder](https://github.com/Kentzo/ShortcutRecorder)用于mac os x 10.6+ 下集成录制热键库。
 核心：
 
@@ -91,9 +91,9 @@ PromiseKit 是轻量级的，而且是一次性的，意味着它不会照成循
  遇到了个有意思的问题：
  [如何正确地配置构建私有OS X框架](http://jaanus.com/how-to-correcty-configure-building-private-slash-embeddable-os-x-frameworks/)
  
-##### 4,XcodeEditor
+#### 4,XcodeEditor
   参考：[XcodeEditor](https://github.com/appsquickly/XcodeEditor)
-##### 5,LLDB && Dtrace && x86 assembly knowledge && Cycript
+#### 5,LLDB && Dtrace && x86 assembly knowledge && Cycript
  - [lldb && Python-lldb](http://www.raywenderlich.com/?s=lldb) 工具
  - [Dtrace](https://www.objc.io/issues/19-debugging/dtrace/)
  - [x86 assembly knowledge](https://www.mikeash.com/pyblog/friday-qa-2011-12-16-disassembling-the-assembly-part-1.html) (汇编)
@@ -101,9 +101,11 @@ PromiseKit 是轻量级的，而且是一次性的，意味着它不会照成循
  
  用上面的技巧和工具可以让你做一些很cool的事。比如一些平时很无奈的私有API 在你面前几乎暴露无疑。。
  
- *如果你有兴趣听我分享一些思路和经验，不防移步这里看看。*[调教Xcode: 重置Asset Catalog资源列表搜索条件](./clearCalagoy/modifiedXcode.md)
+ *如果你有兴趣听我分享一些思路和经验，不防移步这里看看。
+ 
+ > [调教Xcode: 重置Asset Catalog资源列表搜索条件](./clearCalagoy/modifiedXcode.md)
 
-##### 6,Automator workFlow
+#### 6,Automator workFlow
 
 Automator可以做一些Services，来执行一些shell 脚本。
  
@@ -115,43 +117,43 @@ Automator可以做一些Services，来执行一些shell 脚本。
 
 ### 怎么用？
 
-##### 1,安装
+#### 1,安装
 
 	 git clone git@gitlab.dev:TangBin/QYXcodePlugIn.git
 	 cd QYXcodePlugIn/
 	 //一键安装插件🍻🍻
 	 ./setupHelper.sh
 	 
-##### 2,配置热键和其它选项
+#### 2,配置热键和其它选项
      
 	 Edit->QYAction->Preferences
 
  - AutoGeter 执行热键或点击对应菜单
  - RequestValidetor 在对应请求文件中执行热键或点击对应菜单
- - Setting 自定义配置getter 或 重置Calagoy 搜索条件
+ - Preferences 自定义配置getter 或 重置Calagoy 搜索条件
  
-##### 3,DIY文件模板
+#### 3,DIY文件模板
   请移步:
   [如何DIY Xcode文件模板](./fileTemplte/creatFileTemplte.md)
    
-##### 4,DIY代码片段
+#### 4,DIY代码片段
 
  > *这个还是自己玩吧, 如果共享一旦在本地片段key重复，Xcode将无法启动*
   
   **~/Library/Developer/Xcode/UserData/CodeSnippets已经镜像到了QYXcodePlugin/ CodeSnippets 文件导航目录，如果你在导航看不到，可以在show in finder 进行管理。**
   
-##### 5，小提示
+#### 5，小提示
 > 如要调试插件，QYXcodePlugIn 切到debug模式,如果编译失败找不到ShortcutRecorder/PTHotKey 相关文件，请切到这两个Scheme 分别编译一次。  
 
 ### 未来
-##### 1,ReviewCode
+#### 1,ReviewCode
 
      ReviewCode老生常谈的一个话题，真正实现也需要一些精力、时间及制度，使之常态化。
    
      QYXcodePlign 提供的文件模板可以通过Git Brance 共享和个性化定制，也许你可以思考和总结你的代码风格并整理成模板，是否可以帮助ReviewCode呢？
    
      当然，使用QYXcodePlign 文件模板不意味着永远固化的代码风格，你可以随时改变如果你认为或大家都认同那是更好的。
-##### 2,待完善
+#### 2,待完善
   
   - cocoapod 支持
   - Preferences UI 使用类Xcode  Preferences 控件支持😏😏😏
