@@ -101,9 +101,7 @@ PromiseKit 是轻量级的，而且是一次性的，意味着它不会照成循
  
  用上面的技巧和工具可以让你做一些很cool的事。比如一些平时很无奈的私有API 在你面前几乎暴露无疑。。
  
- *如果你有兴趣听我分享一些思路和经验，不防移步这里看看。*
- 
-    [调教Xcode: 重置Asset Catalog资源列表搜索条件](./clearCalagoy/modifiedXcode.md)
+ *如果你有兴趣听我分享一些思路和经验，不防移步这里看看。*[调教Xcode: 重置Asset Catalog资源列表搜索条件](./clearCalagoy/modifiedXcode.md)
 
 ##### 6,Automator workFlow
 
