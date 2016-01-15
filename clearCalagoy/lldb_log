@@ -1,0 +1,304 @@
+(lldb) malloc_info -t $rdi
+0x000000011a71edb0: malloc(   368) -> 0x11a71edb0 IBICCatalogSourceListController.IDEViewController.DVTViewController.NSViewController.NSResponder.NSObject.isa (IBICCatalogSourceListController) *addr = {
+  IDEViewController = {
+    DVTViewController = {
+      NSViewController = {
+        NSResponder = {
+          NSObject = {
+            isa = NSKVONotifying_IBICCatalogSourceListController
+          }
+          _nextResponder = 0x00006080007e5c00
+        }
+        _nibName = 0x0000608003c72700 @"IBICCatalogSourceListController"
+        _nibBundle = 0x0000600000097700 @"/Applications/Xcode.app/Contents/PlugIns/IDEInterfaceBuilderKit.ideplugin"
+        _representedObject = nil
+        _title = nil
+        view = 0x000000011a71d700
+        _topLevelObjects = 0x0000608002027fc0 @"2 objects"
+        _editors = nil
+        _autounbinder = nil
+        _designNibBundleIdentifier = nil
+        __privateData = 0x0000608000cd8330
+      }
+      _didCallViewWillUninstall = '\0'
+      _keepSelfAliveUntilCancellationRef = 0x0000000000000000
+      _isViewLoaded = '\x01'
+      _representedExtension = nil
+    }
+    _workspaceDocumentProvider = 0x0000000112dd4790
+    _workspaceTabController = 0x0000000112dd4790
+    _outputSelection = 0x000060800040d9e0
+    _stateToken = 0x0000600006069880
+  }
+  _prototypeCell = nil
+  _prototypeGroupCell = nil
+  _pendingSelectionApplicationContext = 0x0000608002255ea0
+  _mainViewControllerDrawingStrategy = 0x0000608003c72880
+  _applyingStateToOutlineView = '\0'
+  _treeObservationToken = 0x0000608000405b50
+  _outlineValidator = 0x0000608000c89420
+  _pendingStateRestorationItemIDsToExpand = 0x0000600000001e80 0 objects
+  _draggedItems = nil
+  _previousFilterText = nil
+  _filterText = 0x000000596f6f5945 @"YooY"
+  _filterComponents = nil
+  _rootOutlineItem = 0x000060800224f8d0
+  _isApplyingExpansionState = '\0'
+  _addButtonMenuBuilder = 0x00006080004055f0
+  _contextClickMenuBuilder = 0x0000608000405600
+  _documentEditor = 0x000000011a71e350
+  _selectionChannel = 0x000060800224cb40
+  _outlineView = 0x0000000117e7db10
+  _searchField = 0x0000000117e7a7a0
+  _outlineBorderedView = 0x000000011a70f6a0
+  _searchBorderedView = 0x0000000110c92300
+  _addButton = 0x0000600000962040
+  _removeButton = 0x00006000003578c0
+  _previousStateRestorationExpandedItemIDs = 0x0000600000001e80 0 objects
+}
+(lldb) ptr_refs 0x000000596f6f5945
+0x0000608001a2c0e0: malloc(    32) -> 0x608001a2c0e0
+0x000000011596e6e0: malloc(   528) -> 0x11596e500 + 480   
+0x000000011a71eea0: malloc(   368) -> 0x11a71edb0 + 240    IBICCatalogSourceListController._filterText
+(lldb) malloc_info 0x11596e500
+0x000000011596e500: malloc(   528) -> 0x11596e500
+(lldb) malloc_info 0x11596e500
+0x000000011596e500: malloc(   528) -> 0x11596e500
+(lldb) malloc_info 0x608001a2c0e0
+0x0000608001a2c0e0: malloc(    32) -> 0x608001a2c0e0
+(lldb) ptr_refs 0x608001a2c0e0
+0x0000608001c4bfc0: malloc(    48) -> 0x608001c4bfa0 + 32     __NSDictionaryM._keys
+(lldb) malloc_info -t 0x608001c4bfa0
+0x0000608001c4bfa0: malloc(    48) -> 0x608001c4bfa0 __NSDictionaryM.NSMutableDictionary.NSDictionary.NSObject.isa (__NSDictionaryM) *addr = {
+  [0] = {
+    key = 0x0000608001a2c060 @"previousFilter"
+    value = 0x000000596f6f5945 @"YooY"
+  }
+  [1] = {
+    key = 0x0000608001c4be80 @"expandedItemIDs"
+    value = 0x0000600000001e80 0 objects
+  }
+}
+(lldb) ptr_refs 0x11596e500
+0x00007fff7bdbb458: segment [0x7fff7bdbb000 - 0x7fff7bdbf000), __bss + 376, libsystem_pthread.dylib`_thread + 344
+(lldb) ptr_refs 0x0000608001a2c060
+0x0000608001a2c0a0: malloc(    32) -> 0x608001a2c0a0
+(lldb) malloc_info -t 0x608001a2c0a0
+0x0000608001a2c0a0: malloc(    32) -> 0x608001a2c0a0
+(lldb) ptr_refs 0x608001c4bfa0
+0x00006080008c1010: malloc(   112) -> 0x6080008c0fc0 + 80    
+0x00006080003bbb78: malloc(   224) -> 0x6080003bbac0 + 184    __NSDictionaryI168 bytes after __NSDictionaryI
+(lldb) malloc_info -t 0x608001c4bfa0
+0x0000608001c4bfa0: malloc(    48) -> 0x608001c4bfa0 __NSDictionaryM.NSMutableDictionary.NSDictionary.NSObject.isa (__NSDictionaryM) *addr = {
+  [0] = {
+    key = 0x0000608001a2c060 @"previousFilter"
+    value = 0x000000596f6f5945 @"YooY"
+  }
+  [1] = {
+    key = 0x0000608001c4be80 @"expandedItemIDs"
+    value = 0x0000600000001e80 0 objects
+  }
+}
+(lldb) malloc_info -t  0x6080008c0fc0
+0x00006080008c0fc0: malloc(   112) -> 0x6080008c0fc0
+(lldb) malloc_info -t  0x6080003bbac0
+0x00006080003bbac0: malloc(   224) -> 0x6080003bbac0 __NSDictionaryI.NSDictionary.NSObject.isa (__NSDictionaryI) *addr = {
+  [0] = {
+    key = 0x0000608001c4c060 @"selectedItemIdentifiers"
+    value = 0x0000608001c4fc60 0 objects
+  }
+  [1] = {
+    key = 0x30702b80d200ccb5 @"sourceItems"
+    value = 0x0000608001c4fc90 0 objects
+  }
+  [2] = {
+    key = 0x0000608001c4c000 @"detailController"
+    value = 0x0000608001c4fcc0 @"IBICCatalogOverviewController"
+  }
+  [3] = {
+    key = 0x0000608001a2c120 @"sclicing-area"
+    value = 0x0000608001c4beb0 0 key/value pairs
+  }
+  [4] = {
+    key = 0x0000608001c4c0c0 @"source-list-area"
+    value = 0x0000608001c4bfa0 2 key/value pairs
+  }
+  [5] = {
+    key = 0x0000608001c4c090 @"lastFocusedArea"
+    value = 0x0000608001a2c100 @"sourceListArea"
+  }
+  [6] = {
+    key = 0x0000608001a2c140 @"overview-area"
+    value = 0x0000608001c4c030 0 key/value pairs
+  }
+}
+(lldb) malloc_info -t 0x0000608001c4bfa0
+0x0000608001c4bfa0: malloc(    48) -> 0x608001c4bfa0 __NSDictionaryM.NSMutableDictionary.NSDictionary.NSObject.isa (__NSDictionaryM) *addr = {
+  [0] = {
+    key = 0x0000608001a2c060 @"previousFilter"
+    value = 0x000000596f6f5945 @"YooY"
+  }
+  [1] = {
+    key = 0x0000608001c4be80 @"expandedItemIDs"
+    value = 0x0000600000001e80 0 objects
+  }
+}
+(lldb) ptr_refs  0x6080003bbac0
+0x00006080020472e8: malloc(    48) -> 0x6080020472c0 + 40    
+0x00006080008c1350: malloc(   112) -> 0x6080008c1340 + 16    
+(lldb) malloc_info -t 0x6080003bbac0
+0x00006080003bbac0: malloc(   224) -> 0x6080003bbac0 __NSDictionaryI.NSDictionary.NSObject.isa (__NSDictionaryI) *addr = {
+  [0] = {
+    key = 0x0000608001c4c060 @"selectedItemIdentifiers"
+    value = 0x0000608001c4fc60 0 objects
+  }
+  [1] = {
+    key = 0x30702b80d200ccb5 @"sourceItems"
+    value = 0x0000608001c4fc90 0 objects
+  }
+  [2] = {
+    key = 0x0000608001c4c000 @"detailController"
+    value = 0x0000608001c4fcc0 @"IBICCatalogOverviewController"
+  }
+  [3] = {
+    key = 0x0000608001a2c120 @"sclicing-area"
+    value = 0x0000608001c4beb0 0 key/value pairs
+  }
+  [4] = {
+    key = 0x0000608001c4c0c0 @"source-list-area"
+    value = 0x0000608001c4bfa0 2 key/value pairs
+  }
+  [5] = {
+    key = 0x0000608001c4c090 @"lastFocusedArea"
+    value = 0x0000608001a2c100 @"sourceListArea"
+  }
+  [6] = {
+    key = 0x0000608001a2c140 @"overview-area"
+    value = 0x0000608001c4c030 0 key/value pairs
+  }
+}
+(lldb) malloc_info -t 0x6080020472c0
+0x00006080020472c0: malloc(    48) -> 0x6080020472c0
+(lldb) malloc_info -t 0x6080008c1340
+0x00006080008c1340: malloc(   112) -> 0x6080008c1340
+(lldb) ptr_refs 0x6080020472c0
+0x00006080020415f8: malloc(    48) -> 0x6080020415f0 + 8     
+(lldb) malloc_info -t 0x6080020415f0
+0x00006080020415f0: malloc(    48) -> 0x6080020415f0
+(lldb) ptr_refs 0x6080008c1340
+0x0000608001c4fe60: malloc(    48) -> 0x608001c4fe40 + 32     __NSDictionaryM._keys
+(lldb) malloc_info -t 0x608001c4fe40
+0x0000608001c4fe40: malloc(    48) -> 0x608001c4fe40 __NSDictionaryM.NSMutableDictionary.NSDictionary.NSObject.isa (__NSDictionaryM) *addr = {
+  [0] = {
+    key = 0x0000608001a2d9c0 @"FileDataType"
+    value = 0x0000608001c4fc30 @"com.apple.dt.assetcatalog"
+  }
+  [1] = {
+    key = 0x0000608001a2d9e0 @"EditorState"
+    value = 0x00006080003bbac0 7 key/value pairs
+  }
+  [2] = {
+    key = 0x0000608001c4fd80 @"ArchivableRepresentation"
+    value = 0x0000608003674580
+  }
+  [3] = {
+    key = 0x0000608001c4fdb0 @"NavigableItemName"
+    value = 0x0000608001c4f7b0 @"Assets.xcassets"
+  }
+  [4] = {
+    key = 0x0000608001c4fde0 @"DocumentNavigableItemName"
+    value = 0x0000608001c4f7b0 @"Assets.xcassets"
+  }
+  [5] = {
+    key = 0x0000608001c4fe10 @"DocumentExtensionIdentifier"
+    value = 0x0000608003674640 @"Xcode.IDEKit.EditorDocument.AssetCatalog"
+  }
+  [6] = {
+    key = 0x0000608001a2da00 @"DocumentURL"
+    value = 0x00006080006bd9a0 @"file:///Users/qyer/Documents/WorkSpace/joy-iphone/Joy/Assets.xcassets/"
+  }
+}
+(lldb) malloc_info -t 0x00006080003bbac0
+0x00006080003bbac0: malloc(   224) -> 0x6080003bbac0 __NSDictionaryI.NSDictionary.NSObject.isa (__NSDictionaryI) *addr = {
+  [0] = {
+    key = 0x0000608001c4c060 @"selectedItemIdentifiers"
+    value = 0x0000608001c4fc60 0 objects
+  }
+  [1] = {
+    key = 0x30702b80d200ccb5 @"sourceItems"
+    value = 0x0000608001c4fc90 0 objects
+  }
+  [2] = {
+    key = 0x0000608001c4c000 @"detailController"
+    value = 0x0000608001c4fcc0 @"IBICCatalogOverviewController"
+  }
+  [3] = {
+    key = 0x0000608001a2c120 @"sclicing-area"
+    value = 0x0000608001c4beb0 0 key/value pairs
+  }
+  [4] = {
+    key = 0x0000608001c4c0c0 @"source-list-area"
+    value = 0x0000608001c4bfa0 2 key/value pairs
+  }
+  [5] = {
+    key = 0x0000608001c4c090 @"lastFocusedArea"
+    value = 0x0000608001a2c100 @"sourceListArea"
+  }
+  [6] = {
+    key = 0x0000608001a2c140 @"overview-area"
+    value = 0x0000608001c4c030 0 key/value pairs
+  }
+}
+(lldb) ptr_refs 0x608001c4fe40
+0x0000608001a2da50: malloc(    32) -> 0x608001a2da40 + 16     __NSArrayI
+(lldb) malloc_info -t 0x608001a2da40
+0x0000608001a2da40: malloc(    32) -> 0x608001a2da40 __NSArrayI.NSArray.NSObject.isa (__NSArrayI) *addr = {
+  [0] = 0x0000608001c4fe40 7 key/value pairs
+}
+(lldb) ptr_refs 0x608001a2da40
+0x00006080036746d8: malloc(    64) -> 0x6080036746c0 + 24     __NSDictionaryI8 bytes after __NSDictionaryI
+(lldb) malloc_info -t 0x6080036746c0
+0x00006080036746c0: malloc(    64) -> 0x6080036746c0 __NSDictionaryI.NSDictionary.NSObject.isa (__NSDictionaryI) *addr = {
+  [0] = {
+    key = 0x0000608003674680 @"EditorLayout_StateSavingStateDictionaries"
+    value = 0x0000608001a2da40 @"1 object"
+  }
+  [1] = {
+    key = 0x0000608001c4fed0 @"EditorLayout_Selected"
+    value = 0x0000000000000037 (long)0
+  }
+  [2] = {
+    key = 0x0000608001c4ff00 @"EditorLayout_Geometry"
+    value = 0x0000608001a2da80 @"1 object"
+  }
+}
+(lldb) ptr_refs 0x6080036746c0
+0x0000600005079378: malloc(    64) -> 0x600005079340 + 56     __NSDictionaryI40 bytes after __NSDictionaryI
+0x0000608001a2db10: malloc(    32) -> 0x608001a2db00 + 16    
+(lldb) malloc_info -t 0x600005079340
+0x0000600005079340: malloc(    64) -> 0x600005079340 __NSDictionaryI.NSDictionary.NSObject.isa (__NSDictionaryI) *addr = {
+  [0] = {
+    key = 0x0000006e69614d45 @"Main"
+    value = 0x00006080036746c0 3 key/value pairs
+  }
+}
+(lldb) ptr_refs 0x600005079340
+0x0000600000598ac8: malloc(   208) -> 0x600000598a10 + 184    IDEEditorBasicMode.IDEEditorModeViewController._lastSetPersistentRepresentation
+(lldb) ptr_refs  0x600000598a10
+0x0000600002c2ba48: malloc(    32) -> 0x600002c2ba40 + 8      DVTWeakInterposer_RuntimeWeakReference.DVTWeakInterposer._hash
+0x0000600002c2ba50: malloc(    32) -> 0x600002c2ba40 + 16     DVTWeakInterposer_RuntimeWeakReference._representedObject
+0x0000600001acf8c8: malloc(   112) -> 0x600001acf880 + 72     NSKeyValueObservance._observationInfos
+0x0000600001ad4da8: malloc(   112) -> 0x600001ad4d60 + 72     NSKeyValueObservance._observationInfos
+0x0000608002048a20: malloc(    48) -> 0x608002048a00 + 32     __NSMallocBlock__16 bytes after __NSMallocBlock__
+0x0000000117e31a18: malloc(   352) -> 0x117e31a10 + 8      DVTControllerContentView.DVTLayoutView_ML.NSView.NSResponder._nextResponder
+0x0000000117e31b00: malloc(   352) -> 0x117e31a10 + 240    DVTControllerContentView
+0x0000000117e756c8: malloc(   448) -> 0x117e75520 + 424    _NSViewAuxiliary408 bytes after _NSViewAuxiliary
+0x000000011598d8c8: malloc(   368) -> 0x11598d820 + 168    IDEEditorArea._editorModeViewController
+0x0000000107977f98: malloc( 13824) -> 0x107976000 + 8088  
+(lldb) i loo -rn "\-\[IDEEditorModeViewController\ _setPersistentRepresentation"
+3 matches found in /Applications/Xcode.app/Contents/Frameworks/IDEKit.framework/Versions/A/IDEKit:
+        Address: IDEKit[0x000000000007e34d] (IDEKit.__TEXT.__text + 510013)
+        Summary: IDEKit`-[IDEEditorModeViewController _setPersistentRepresentation:]        Address: IDEKit[0x00000000004fd6b8] (IDEKit.__TEXT.__text + 5225384)
+        Summary: IDEKit`__60-[IDEEditorModeViewController _setPersistentRepresentation:]_block_invoke        Address: IDEKit[0x00000000004fd839] (IDEKit.__TEXT.__text + 5225769)
+        Summary: IDEKit`-[IDEEditorModeViewController _setPersistentRepresentation:forIdentifier:]
+(lldb) 
