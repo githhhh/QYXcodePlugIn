@@ -262,30 +262,30 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
 
 
 大概两三回合,一路查找看看我们查找出来了什么
-	
-    	{
-        	... 上面好多key ..
-         	    DefaultEditorStatesForURLs =     {
-	              "Xcode.IDEKit.EditorDocument.AssetCatalog" =         {
-	                  "file:///Users/qyer/Documents/WorkSpace/joy-iphone/Joy/Assets.xcassets/" =               {
-	                   detailController = IBICCatalogOverviewController;
-	                   lastFocusedArea = sourceListArea;
-	                   selectedItemIdentifiers = "{(\n)}";
-	                   ...一些key
-	                   "source-list-area" =                 {
-	                      expandedItemIDs = "{(\n    \".\"\n)}";
-	                      //看到没、看到没、看到没、看到没、看到没、看到没、看到没、看到没、有我在这呢。为毛没法加粗啊。。。
-	                      previousFilter = ss;
-
-	                     };
-	                   sourceItems = "{(\n    \"./Comment/comment_smallEmpty.imageset\"\n)}";
-	               };
-            	.....下面很长很长
-	           );
-	    }
-
-        	(lldb) ptr_refs 0x600005079340
-     		0x0000600000598ac8: malloc(   208) -> 0x600000598a10 + 184    IDEEditorBasicMode.IDEEditorModeViewController._lastSetPersistentRepresentation
+(为毛我markdown 显示好好的，到这变成红的拉。。。)	
+>    	{
+>        	... 上面好多key ..
+>         	    DefaultEditorStatesForURLs =     {
+>	              "Xcode.IDEKit.EditorDocument.AssetCatalog" =         {
+>	                  "file:///Users/qyer/Documents/WorkSpace/joy-iphone/Joy/Assets.xcassets/" =               {
+>	                   detailController = IBICCatalogOverviewController;
+>	                   lastFocusedArea = sourceListArea;
+>	                   selectedItemIdentifiers = "{(\n)}";
+>	                   ...一些key
+>	                   "source-list-area" =                 {
+>	                      expandedItemIDs = "{(\n    \".\"\n)}";
+>	                      //看到没、看到没、看到没、看到没、看到没、看到没、看到没、看到没、有我在这呢。为毛没法加粗啊。。。
+>	                      previousFilter = ss;
+>
+>	                     };
+>	                   sourceItems = "{(\n    \"./Comment/comment_smallEmpty.imageset\"\n)}";
+>	               };
+>            	.....下面很长很长
+>	           );
+>	    }
+>
+>        	(lldb) ptr_refs 0x600005079340
+>     		0x0000600000598ac8: malloc(   208) -> 0x600000598a10 + 184    IDEEditorBasicMode.IDEEditorModeViewController._lastSetPersistentRepresentation
 		
  这样一层一层的回溯发现最终到了***IDEEditorModeViewController._lastSetPersistentRepresentation*** 的私有属性。。下面查找相关API google 或者 i loo -rn xxx
 
