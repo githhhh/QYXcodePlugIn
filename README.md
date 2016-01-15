@@ -156,7 +156,8 @@ Automator可以做一些Services，来执行一些shell 脚本。
   - cocoapod 支持
   - Preferences UI 使用类Xcode  Preferences 控件支持😏😏😏
   - 其它待扩展
-  >如果你在工作中有什么可以提高效率或者一个很cool的想法，不防用插件实现分享给大家。
+  
+  > 如果你在工作中有什么可以提高效率或者一个很cool的想法，不防用插件实现分享给大家。
   
   
 ###  🍻🍻🍻🍻🍻  Enjoy. If it helps you  🎉🎉🎉🎉🎉
