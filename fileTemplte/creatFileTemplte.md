@@ -44,11 +44,11 @@ Options配置了所有的自定义文件模板行为，展开看看
   
 当进入上面界面时，会加载Options 里所以的配置，从上到下。
 
-#####item1 的意思： 
+##### item1 的意思： 
 
    Subclass of: 从cocoaTouchSubclass 个位标示的文件夹加载一些cocoa 类。包括values 里面你自定义的类JoyRequest
 
-#####item2 我自定义创建单例类的一些配置：
+##### item2 我自定义创建单例类的一些配置：
 
  - Identifier = Singleton
  - Name = Is Create Singleton
@@ -62,13 +62,13 @@ Options配置了所有的自定义文件模板行为，展开看看
  - Default 默认
  - NotPersisted YES
 
-#####item3 我自定义创建列表代理文件类的配置
+##### item3 我自定义创建列表代理文件类的配置
 
   - Identifier = Singleton
   - ..
   - RequiredOptions 中第二个选项为Singleton 。即一个配置的标示名，这里我让Singleton 和  Singleton 两个配置互斥。
 
-#####item4 我自定义的列表代理文件类的配置
+##### item4 我自定义的列表代理文件类的配置
 
    - Identifier = ListViewDelegate
    - ...
@@ -86,7 +86,7 @@ Delegate 是他们的中间判断。
 
 Singleton 和  Delegate 互斥，ListViewDelegate 依赖于Delegate 才显示。
 
-#####文件查找规则
+##### 文件查找规则
 
  - 从第一个item1开始，subClass of: 默认选中NSObject ，如果你选中其它的就是其它的类。。
  - subClass of:  复选框或者popup 所对应的配置（item[n]）的Identifier 从上到下一一判断是否满足。如果满足checkbox 取Identifier，如果满足popup 取选中的popup 内容。 
