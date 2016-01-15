@@ -54,7 +54,7 @@ Uncrustify
    ![](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/promiseKit.png)
    </div>
   
-  Promise模式在jQuery 1.5 版本中的应用，使其名声大噪。可以简单理解为延后执行,为异步任务的可能返回值指定相应的处理方法（承诺），使用block链式语法。
+  Promise模式在jQuery 1.5 版本中的应用，使其名声大噪。可以简单理解为延后执行,为异步任务的可能返回值指定相应的处理方法（承诺），使用链式语法。
   
   PromiseKit 框架是[Max Howell](https://twitter.com/mxcl)传说中 Mac 下著名软件 Homebrew 的作者。支持object-c 和 swift。**配合 GCD、NSOperation、Block、链式语法、异常处理，执行异步、同步切换如写面向过程代码一样简单、清晰**。
   >[This means PromiseKit can essentially eat up any async spaghetti your codebase has been serving up](https://medium.com/the-traveled-ios-developers-guide/making-promises-417f13da901f#.iu9rmti1g) 
