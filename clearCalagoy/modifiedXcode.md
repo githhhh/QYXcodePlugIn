@@ -15,10 +15,11 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
 - add Symbolic Breakpoint
 
 
-###技巧&方法
+### 技巧&方法
+
 如果你了解了上面博客的内容，下面来看看如何实现**修改Assets.xcassets搜索条件**，每次进入Assets.xcassets 都显示一个干净的资源列表。( *清空搜索条件* )
 
-##### 1,Dtrace 确定目标控件
+#### 1,Dtrace 确定目标控件
  
 	 sudo dtrace -qn 'objc$target:NSView:-hitTest?:return /arg1 != 0/ { printf("NSView: 0x%x\n", arg1);  }' -p `pgrep -xo Xcode`
 	 
@@ -44,7 +45,7 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
   ![Dtrace](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/clearCalagoy/iterm.gif)
    </div>
   
-#####  2,探寻更多信息
+####  2,探寻更多信息
  
    xcode lldb 提供了一写很cool 的python 脚本，来了解内存里的更多信息
    
@@ -78,7 +79,7 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
   或者直接google  🍻🍻🍻
   
   
-#####  3,验证猜想 
+####  3,验证猜想 
   
    上面我们了解一个内存里的所有东西，并会有些想法。
 
@@ -171,7 +172,7 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
 
 追了一路,到这线索好像全断了。。
 
-##### 4,绳命的真谛
+#### 4,绳命的真谛
 通过上面猜想的验证，我们推论**"ss"** 字符串只可能是从-[IBICCatalogSourceListController batchedReloadOutlineView:] 方法里来的。
 
 >绳命,是多么的回晃；绳命，是如此的井彩。
