@@ -1,6 +1,8 @@
 ## QYXcodePlugIn
 ---
-图图标呢
+图图图、我图标呢
+
+![logo](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/logo.png)
 
 穷游版Xcode 开发插件，更好专注业务和思路，帮助ReviewCode 。
 
