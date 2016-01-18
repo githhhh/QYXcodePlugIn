@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B05B57F1BF5A32E00F37998 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B05B57E1BF5A32E00F37998 /* Carbon.framework */; };
+		8B2BC61E1C4C867C002B4181 /* logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2BC61D1C4C867C002B4181 /* logo.pdf */; };
 		8B4C00821BF7852300A77AD9 /* PTHotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00801BF7852300A77AD9 /* PTHotKey.framework */; };
 		8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */; };
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
@@ -71,7 +72,6 @@
 		8BAE7EBE1C4798E700A505FD /* QYPreferencesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EBD1C4798E700A505FD /* QYPreferencesModel.m */; };
 		8BAE7EC31C47997C00A505FD /* PMKPromise+Until.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EBF1C47997C00A505FD /* PMKPromise+Until.m */; };
 		8BAE7EC41C47997C00A505FD /* PMKPromise+When.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EC01C47997C00A505FD /* PMKPromise+When.m */; };
-		8BBAB75C1C378EB900AAF4BA /* fail.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8BBAB75B1C378EB900AAF4BA /* fail.pdf */; };
 		8BD1B2721C21604600FA02BC /* PMKPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1B26E1C21604600FA02BC /* PMKPromise.m */; };
 		8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F6681BFDB14E00F4A4AD /* TemplateIcon.png */; };
 		8BF5F6831BFDB14E00F4A4AD /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F6691BFDB14E00F4A4AD /* TemplateIcon@2x.png */; };
@@ -86,6 +86,7 @@
 		8B02E2351C1ED580005CE6D2 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8B02E2371C1ED580005CE6D2 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
 		8B05B57E1BF5A32E00F37998 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		8B2BC61D1C4C867C002B4181 /* logo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = logo.pdf; sourceTree = "<group>"; };
 		8B4C00801BF7852300A77AD9 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/PTHotKey.framework"; sourceTree = "<group>"; };
 		8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		8B60ADA41BABB7F100672762 /* QYXcodePlugIn.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QYXcodePlugIn.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,7 +210,6 @@
 		8BAE7EC01C47997C00A505FD /* PMKPromise+When.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PMKPromise+When.m"; path = "PromiseCore/PMKPromise+When.m"; sourceTree = "<group>"; };
 		8BAE7EC11C47997C00A505FD /* Promise+Until.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Promise+Until.h"; path = "PromiseCore/Promise+Until.h"; sourceTree = "<group>"; };
 		8BAE7EC21C47997C00A505FD /* Promise+When.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Promise+When.h"; path = "PromiseCore/Promise+When.h"; sourceTree = "<group>"; };
-		8BBAB75B1C378EB900AAF4BA /* fail.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fail.pdf; sourceTree = "<group>"; };
 		8BD1B26C1C21604600FA02BC /* fwd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fwd.h; path = PromiseCore/fwd.h; sourceTree = "<group>"; };
 		8BD1B26E1C21604600FA02BC /* PMKPromise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMKPromise.m; path = PromiseCore/PMKPromise.m; sourceTree = "<group>"; };
 		8BD1B26F1C21604600FA02BC /* Promise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Promise.h; path = PromiseCore/Promise.h; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 		8B60AD9B1BABB7F100672762 = {
 			isa = PBXGroup;
 			children = (
-				8BBAB75B1C378EB900AAF4BA /* fail.pdf */,
+				8B2BC61D1C4C867C002B4181 /* logo.pdf */,
 				8B9C6BD71BB1247700242629 /* setupHelper.sh */,
 				8B9C6BC41BB1232C00242629 /* CodeSnippets */,
 				8B9C6BC31BB1231700242629 /* QYFileTemplate */,
@@ -838,9 +838,9 @@
 				8BAE7EAE1C47980200A505FD /* QYShortcutRecorderController.xib in Resources */,
 				8BAE7EAD1C47980200A505FD /* QYRequestVerifyController.xib in Resources */,
 				8BF5F6841BFDB14E00F4A4AD /* TemplateInfo.plist in Resources */,
-				8BBAB75C1C378EB900AAF4BA /* fail.pdf in Resources */,
 				8B9C6BD81BB1247700242629 /* setupHelper.sh in Resources */,
 				8BF5F6831BFDB14E00F4A4AD /* TemplateIcon@2x.png in Resources */,
+				8B2BC61E1C4C867C002B4181 /* logo.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

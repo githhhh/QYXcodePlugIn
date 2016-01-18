@@ -14,15 +14,15 @@
 
 + (void)load
 {
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-
-        [NSClassFromString(@"DVTBezelAlertPanel")
-         swizzleWithOriginalSelector:NSSelectorFromString(@"initWithIcon:message:parentWindow:duration:")
-         swizzledSelector:@selector(Rayrolling_initWithIcon:message:parentWindow:duration:)
-         isClassMethod:NO];
-    });
+//    static dispatch_once_t onceToken;
+//    
+//    dispatch_once(&onceToken, ^{
+//
+//        [NSClassFromString(@"DVTBezelAlertPanel")
+//         swizzleWithOriginalSelector:NSSelectorFromString(@"initWithIcon:message:parentWindow:duration:")
+//         swizzledSelector:@selector(Rayrolling_initWithIcon:message:parentWindow:duration:)
+//         isClassMethod:NO];
+//    });
 }
 
 
@@ -30,7 +30,7 @@
 {
     if (icon) {
         NSBundle *bundle = [NSBundle bundleWithIdentifier:@"X.Y.QYXcodePlugIn"];
-        NSImage *newImage = [bundle imageForResource:@"fail.pdf"];
+        NSImage *newImage = [bundle imageForResource:@"logo.pdf"];
         return [self Rayrolling_initWithIcon:newImage message:message parentWindow:window duration:duration];
     }
     return [self Rayrolling_initWithIcon:icon message:message parentWindow:window duration:duration];
