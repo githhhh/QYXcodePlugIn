@@ -1,13 +1,12 @@
-
 # PromiseKit VS ReactiveCocoa
 ---
 
 ## [PromiseKit](http://promisekit.org/)
 
   
-   <div align='center'>
-   ![](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/promiseKit.png)
-   </div>
+  
+ ![](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/promiseKit.png)
+   
   
   Promise模式在jQuery 1.5 版本中的应用，使其名声大噪。可以简单理解为延后执行,为异步任务的可能返回值指定相应的处理方法（承诺），使用链式语法。
   
@@ -20,7 +19,7 @@
   
 
 
-##VS   Reactive Cocoa
+## VS   Reactive Cocoa
 
   > *Reactive Cocoa is amazing, but requires a large shift in the way you program. PromiseKit is a happier compromise between the way most people program for iOS and a pure reactive paradigm. However, reactive programming is probably the future of our art.* - [PromiseKit Document](http://promisekit.org/appendix)
  
@@ -29,18 +28,7 @@ PromiseKit 是轻量级的，而且是一次性的，意味着它不会照成循
 本插件出于性能考虑，同样是一次性的，意味着并不占用很多内存，除2个单例外，非常契合 PromiseKit。
 
 
-##注意PromiseKit的错误处理：
+## 注意PromiseKit的错误处理：
     
  
 > 尽量使用return error的方式 在promise block块中返回错误，虽说使用@throw error 很方便。**后者会造成"循环引用" 造成对象不释放。**
- 
- 
-
-
- 
-
-
-
-
-  
-  
