@@ -51,7 +51,7 @@
    * Uitility 一些帮助文件或库
  
  
- 插件大量使用 [PromiseKit](./promiseKit.md)
+ 插件大量使用 [PromiseKit](./promiseKit.md)封装API、整理同异步代码。
  
  使用[ShortcutRecorder](https://github.com/Kentzo/ShortcutRecorder)轻松实现绑定热键到菜单或按钮。
  
