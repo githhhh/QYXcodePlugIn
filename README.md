@@ -31,7 +31,7 @@
 🍻🍻
 
 ## 演示
-![auto-getter](./auto-getter.gif)
+![auto-getter](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/auto-getter.gif)
 ## 如何扩展功能
 
 -ShortcutRecorder(project)
