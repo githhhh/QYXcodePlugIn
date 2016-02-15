@@ -1,4 +1,4 @@
-# 调教Xcode: 重置Asset Catalog资源列表搜索条件
+#  重置Asset Catalog资源列表搜索条件
 ---
 ## 强迫症的福音
 
@@ -81,10 +81,7 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
   
 ####  3,验证猜想 
   
-   上面我们了解一个内存里的所有东西，并会有些想法。
-
-  >如果你有些想法，不防打个断点试试
-  
+   上面我们了解一个内存里的所有东西及方法，并会有些猜想。  
    
   NSSearchField 或者 DVTSearchField 里有个三个Cell
   
@@ -177,7 +174,7 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
 
 >绳命,是多么的回晃；绳命，是如此的井彩。
 
-让我们在汪洋的内存苦海寻找 **"ss"** 字符串生命的真谛
+让我们在汪洋的内存之海寻找 **"ss"** 字符串生命的真谛
 
 搜寻IBICCatalogSourceListController 的API 发现除断点方法以外的
 
@@ -220,10 +217,9 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
  - _filterComponents = nil   搜索完成的数组
 
 我们拿到了"ss"字符串的地址 **0x0000000000737325**
+🎉🎉🎉🎉
 
-> 啊，绳命、绳命。。。编不下去了😁😁😂😂
-
-施主, **从哪里来**，欲往哪里去？
+> 施主, **从哪里来**，欲往哪里去？
 
 	(lldb) ptr_refs 0x0000000000737325
 	0x0000600002432620: malloc(    32) -> 0x600002432620
@@ -252,41 +248,40 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
 		    value = 0x0000600002c57fa0 1 object
 		  }
 		}
-卧槽，小心脏有没有鸡冻一下。原来从一个previousFilter key 的字典里解出来的。在接在励，刨根问底，重复上面步骤。因为不可能根据一个key 就能做点什么。。
+小心脏有没有鸡冻一下。原来从一个previousFilter key 的字典里解出来的。在接在励，刨根问底，重复上面步骤。因为不可能根据一个key 就能做点什么。。
 下一个步当然是查找这个字典**0x600002c58000** 从哪里来。
 ><div align='center'>
 	   刚翻过了几座山<br/>
 	   又越过了几条河<br/>
 	   崎岖坎坷其实**并不多**<br/>
-	   (白：吃俺老孙一棒)
 </div>
 
 
 大概两三回合,一路查找看看我们查找出来了什么
-(为毛我markdown 显示好好的，到这变成红的拉。。。)	
->    	{
->        	... 上面好多key ..
->         	    DefaultEditorStatesForURLs =     {
->	              "Xcode.IDEKit.EditorDocument.AssetCatalog" =         {
->	                  "file:///Users/qyer/Documents/WorkSpace/joy-iphone/Joy/Assets.xcassets/" =               {
->	                   detailController = IBICCatalogOverviewController;
->	                   lastFocusedArea = sourceListArea;
->	                   selectedItemIdentifiers = "{(\n)}";
->	                   ...一些key
->	                   "source-list-area" =                 {
->	                      expandedItemIDs = "{(\n    \".\"\n)}";
->	                      //看到没、看到没、看到没、看到没、看到没、看到没、看到没、看到没、有我在这呢。为毛没法加粗啊。。。
->	                      previousFilter = ss;
->
->	                     };
->	                   sourceItems = "{(\n    \"./Comment/comment_smallEmpty.imageset\"\n)}";
->	               };
->            	.....下面很长很长
->	           );
->	    }
->
->        	(lldb) ptr_refs 0x600005079340
->     		0x0000600000598ac8: malloc(   208) -> 0x600000598a10 + 184    IDEEditorBasicMode.IDEEditorModeViewController._lastSetPersistentRepresentation
+
+	 {
+      ... 上面好多key ..
+          DefaultEditorStatesForURLs =     {
+            "Xcode.IDEKit.EditorDocument.AssetCatalog" =         {
+                "file:///Users/qyer/Documents/WorkSpace/joy-iphone/Joy/Assets.xcassets/" =               {
+                 detailController = IBICCatalogOverviewController;
+                 lastFocusedArea = sourceListArea;
+                 selectedItemIdentifiers = "{(\n)}";
+                 ...一些key
+                 "source-list-area" =                 {
+                    expandedItemIDs = "{(\n    \".\"\n)}";
+                    //看到没、看到没、看到没、看到没、看到没、看到没、看到没、看到没、在这呢。为毛没法加粗啊。。。
+                    previousFilter = ss;
+
+                   };
+                 sourceItems = "{(\n    \"./Comment/comment_smallEmpty.imageset\"\n)}";
+             };
+          .....下面很长很长
+         );
+    }
+
+      (lldb) ptr_refs 0x600005079340
+      0x0000600000598ac8: malloc(   208) -> 0x600000598a10 + 184    IDEEditorBasicMode.IDEEditorModeViewController._lastSetPersistentRepresentation
 		
  这样一层一层的回溯发现最终到了***IDEEditorModeViewController._lastSetPersistentRepresentation*** 的私有属性。。下面查找相关API google 或者 i loo -rn xxx
 
@@ -298,7 +293,7 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
 
 	   po $rdx
 	   
-最终会呈现上面完整的Dictionary或[查看完整的log](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/clearCalagoy/lldb_log), 有趣的是revertStateWithDictionary 只会调用一次，，而_pullStateFromDictionary 则会调用多次，每次进入都会调用。
+最终会呈现上面完整的Dictionary或[查看完整的log,搜索条件是『YooY』](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/clearCalagoy/lldb_log), 有趣的是revertStateWithDictionary 只会调用一次，，而_pullStateFromDictionary 则会调用多次，每次进入都会调用。
 
 > -[DVTStateToken _pullStateFromDictionary:]: 这就是我们要寻找的绳命真谛啊。
 
