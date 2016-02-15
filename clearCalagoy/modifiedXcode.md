@@ -1,11 +1,11 @@
-## 调教Xcode: 重置Asset Catalog资源列表搜索条件
+# 调教Xcode: 重置Asset Catalog资源列表搜索条件
 ---
-### 强迫症的福音
+## 强迫症的福音
 
 Assets.xcassets 可以很方便的管理应用中图片。可以通过资源列表下的搜索框来查找对应的图片资源，**但它的搜索框会一直带上 上一次搜索的条件**。并不是所有人都适应，而Xcode 貌似也没有提供一些额外的设置来处理。。
 >自己动手，丰衣足食。
 
-### 必备知识&工具
+## 必备知识&工具
 Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlich.com/94020/creating-an-xcode-plugin-part-1) 里有丰富的很cool 知识和技巧，非常值得学习。
 正是使用了该文章里的知识和技能来实现了QYXcodePlugIn中 **修改Assets.xcassets搜索条件**的功能。
 
@@ -15,7 +15,7 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
 - add Symbolic Breakpoint
 
 
-### 技巧&方法
+## 技巧&方法
 
 如果你了解了上面博客的内容，下面来看看如何实现**修改Assets.xcassets搜索条件**，每次进入Assets.xcassets 都显示一个干净的资源列表。( *清空搜索条件* )
 

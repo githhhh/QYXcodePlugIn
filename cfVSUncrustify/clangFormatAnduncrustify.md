@@ -1,6 +1,6 @@
-## Clang-formate VS Uncrustify
+# Clang-formate VS Uncrustify
 ---
-### Clang-formate
+## Clang-formate
 
   [Clang-formate](http://clang.llvm.org/docs/ClangFormat.html): clang-llvm 编译器自带格式代码工具,使用前需要安装clang-format。
    
@@ -21,7 +21,7 @@
      ![Re-indent](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/cfVSUncrustify/reindent.png)
    </div>
    
-### Uncrustify
+## Uncrustify
    
    幸运的是找到了[Uncrustify](https://github.com/bengardner/uncrustify),支持多种语言并且跨平台，非常容易配置。及相关插件[BBUncrustifyPlugin-Xcode](https://github.com/benoitsan/BBUncrustifyPlugin-Xcode),使用[.uncrustify.cfg](https://gist.github.com/ryanmaxwell/4242629)放在根目录下作为配置文件。
    
@@ -33,7 +33,7 @@
 
 
 
-### 貌似没有很完美的格式化代码工具
+## 貌似没有很完美的格式化代码工具
 
 >孟子曰: 鱼,我所欲也;熊掌,亦我所欲也;二者不可得兼。but，混在一起炖汤，大补耶。
 

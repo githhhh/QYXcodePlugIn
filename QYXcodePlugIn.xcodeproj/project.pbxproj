@@ -332,6 +332,7 @@
 				8BAE7EBB1C4798AC00A505FD /* Model */,
 				8B746C8F1C27BF2900C4A1A4 /* Menus */,
 				8BAE7E941C47980200A505FD /* MenusAction */,
+				8BAE7EA31C47980200A505FD /* Resources */,
 				8B60ADBB1BABB81D00672762 /* Main */,
 				8BA8522D1BF7879600EE9398 /* Uitility */,
 				8B60ADAC1BABB7F100672762 /* Supporting Files */,
@@ -549,7 +550,6 @@
 				8BAE7E951C47980200A505FD /* AutoGetter */,
 				8BAE7E9B1C47980200A505FD /* Preferences */,
 				8BAE7EA01C47980200A505FD /* RequestVerify */,
-				8BAE7EA31C47980200A505FD /* Resources */,
 			);
 			path = MenusAction;
 			sourceTree = "<group>";
@@ -600,7 +600,8 @@
 				8BAE7EA51C47980200A505FD /* QYRequestVerifyController.xib */,
 				8BAE7EA61C47980200A505FD /* QYShortcutRecorderController.xib */,
 			);
-			path = Resources;
+			name = Resources;
+			path = MenusAction/Resources;
 			sourceTree = "<group>";
 		};
 		8BAE7EBB1C4798AC00A505FD /* Model */ = {
