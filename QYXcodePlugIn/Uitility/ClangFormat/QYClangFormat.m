@@ -27,7 +27,7 @@ static NSString *cfExecutablePath;
  *
  *  @return return value description
  */
-static dispatch_queue_t ClangFormateCreateQueue() {
+dispatch_queue_t ClangFormateCreateQueue() {
     if (!clangFormateQueue) {
         clangFormateQueue = dispatch_queue_create("org.clangFormate.Q", DISPATCH_QUEUE_CONCURRENT);
     }
@@ -39,7 +39,7 @@ static dispatch_queue_t ClangFormateCreateQueue() {
  *
  *  @return return value description
  */
-static NSString * launchClangFormatPath(){
+NSString * launchClangFormatPath(){
     
     if (!cfExecutablePath) {
         NSDictionary *environmentDict = [[NSProcessInfo processInfo] environment];

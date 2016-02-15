@@ -8,12 +8,12 @@
 
 #import <AppKit/AppKit.h>
 
-
-
 @interface QYXcodePlugIn : NSObject
-+ (void)pluginDidLoad:(NSBundle *)plugin;
-+ (instancetype)sharedPlugin;
 
 @property (nonatomic, strong, readonly) NSBundle* bundle;
+
++ (void)pluginDidLoad:(NSBundle *)plugin;
+
++ (instancetype)sharedPlugin;
 
 @end

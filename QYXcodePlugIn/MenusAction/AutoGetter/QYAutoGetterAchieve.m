@@ -250,6 +250,7 @@ static NSInteger const groupBaseCount = 3;
     if (isObj) {
         [methodStr appendFormat:@"-(%@)%@{if(!%@){", keyType, valueIvar, ivarNameStr];
         keyType = [keyType substringToIndex:keyType.length - 1];
+        keyType =  [keyType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         //读取配置。。。
         if (self.configDic && [[self.configDic allKeys] containsObject:keyType]) {
             NSArray *configList = self.configDic[keyType];

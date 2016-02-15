@@ -71,6 +71,9 @@
 
         self.isTestData.state                = preferencesModel.isCreatTestMethod?1:0;
 
+        self.testDataMethodName.enabled = preferencesModel.isCreatTestMethod;
+        
+        
         self.clearCalalogSearch.state        = preferencesModel.isClearCalalogSearchTitle?1:0;
         self.isReminder.state                = preferencesModel.isPromptException?1:0;
 
@@ -82,6 +85,18 @@
     
     });
 }
+
+- (IBAction)changeSelecteState:(id)sender {
+    
+    NSLog(@"=isTestData=is=%@=======",self.isTestData.state == 1?@"YES":@"NO");
+    
+    self.testDataMethodName.enabled = (self.isTestData.state == 1);
+
+    
+}
+
+
+
 #pragma mark - 录制菜单热键。。
 
 - (IBAction)shortcutRecorderAction:(id)sender
@@ -99,6 +114,10 @@
 
 - (IBAction)onLineEdit:(id)sender
 {
+    //写入剪贴板
+    [[NSPasteboard generalPasteboard] declareTypes:[NSArray arrayWithObject:NSStringPboardType] owner:nil]; //必须声明,否则无从开始工作!
+    [[NSPasteboard generalPasteboard] setString:self.setingTextView.string forType:NSStringPboardType]; //现在,就是把东西放进去了!
+    
     NSURL *url = [[NSURL alloc] initWithString:@"http://www.qqe2.com/"];
     [[NSWorkspace sharedWorkspace] openURL:url];
 }

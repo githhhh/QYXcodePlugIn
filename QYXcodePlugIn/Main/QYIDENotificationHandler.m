@@ -34,6 +34,7 @@
 
 @implementation QYIDENotificationHandler
 
+#pragma mark - Life cycle
 
 + (id)sharedHandler
 {
@@ -59,15 +60,16 @@
 }
 
 
-
 #pragma mark -  Xcode 通知
-#pragma mark -  启动
+
 - (void)didApplicationFinishLaunchingNotification:(NSNotification *)noti
 {
     //cycript
-    void *handle = dlopen("/usr/lib/libcycript.dylib", RTLD_NOW);
-    void (*listenServer)(short) = dlsym(handle, "CYListenServer");
-    (*listenServer)(54321);
+#if DEBUG
+//    void *handle = dlopen("/usr/lib/libcycript.dylib", RTLD_NOW);
+//    void (*listenServer)(short) = dlsym(handle, "CYListenServer");
+//    (*listenServer)(54321);
+#endif
     
     // removeObserver
     [[NSNotificationCenter defaultCenter] removeObserver:self
@@ -77,7 +79,7 @@
     // Create menu items, initialize UI, etc.
     // Sample Menu Item:
     
-    //添加子菜单
+    //添加子菜单er
     [self addCustomMenuOnEdit];
 }
 
@@ -90,6 +92,7 @@
     if (!editItem) {
         return;
     }
+    
     [[editItem submenu] addItem:[NSMenuItem separatorItem]];
     
     NSMenuItem *actionMenuItem = [[NSMenuItem alloc] init];
@@ -107,8 +110,6 @@
     [actionMenuItem setSubmenu:subMenus];
 }
 
-
-#pragma mark -
 #pragma mark - receiveMenuItemPromise
 
 -(void)receiveMenuItemPromise:(PMKPromise *)promise sender:(QYMenuBaseItem *)sender{
@@ -205,8 +206,6 @@
         self.preferencesWindow = nil;
     }
 }
-
-- (void)dealloc { [[NSNotificationCenter defaultCenter] removeObserver:self]; }
 
 
 @end

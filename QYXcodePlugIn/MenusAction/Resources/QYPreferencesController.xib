@@ -22,7 +22,7 @@
         <window title="设置" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="1Qn-2A-PWI">
             <windowStyleMask key="styleMask" titled="YES"/>
             <rect key="contentRect" x="768" y="530" width="1021" height="605"/>
-            <rect key="screenRect" x="-464" y="800" width="1920" height="1057"/>
+            <rect key="screenRect" x="-464" y="800" width="1920" height="1080"/>
             <view key="contentView" id="VSE-lm-Ldo">
                 <rect key="frame" x="0.0" y="0.0" width="1021" height="605"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -87,7 +87,7 @@ Gw
                                 </connections>
                             </clickGestureRecognizer>
                         </gestureRecognizers>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="在线编辑JSON" id="VPT-Dk-IIr">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="在线编辑JSON(已复制剪贴板)" id="VPT-Dk-IIr">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -110,11 +110,14 @@ Gw
                         </textFieldCell>
                     </textField>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MbT-UP-zJX">
-                        <rect key="frame" x="19" y="472" width="152" height="18"/>
+                        <rect key="frame" x="130" y="473" width="152" height="18"/>
                         <buttonCell key="cell" type="check" title="是否生成本地测试数据" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cRq-fQ-m6S">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" size="13" name="STHeitiSC-Light"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="changeSelecteState:" target="-2" id="uoJ-Q4-9r1"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Lr-tU-dJl">
                         <rect key="frame" x="19" y="440" width="108" height="17"/>
@@ -149,17 +152,17 @@ Gw
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U5M-Q5-ZfP">
-                        <rect key="frame" x="682" y="568" width="104" height="17"/>
+                        <rect key="frame" x="682" y="566" width="104" height="23"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="自定义Getter内容" id="58v-Qg-hJ2">
-                            <font key="font" metaFont="system"/>
+                            <font key="font" size="17" name=".HelveticaNeueDeskInterface-Regular"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Has-dp-gfK">
-                        <rect key="frame" x="154" y="568" width="136" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="自定义请求校验设置" id="TlZ-af-kqg">
-                            <font key="font" metaFont="system"/>
+                        <rect key="frame" x="130" y="566" width="185" height="19"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="自定义请求校验设置" id="TlZ-af-kqg">
+                            <font key="font" size="17" name=".HelveticaNeueDeskInterface-Regular"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
@@ -197,22 +200,22 @@ Gw
                         </textFieldCell>
                     </textField>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhC-q4-Rrn">
-                        <rect key="frame" x="119" y="351" width="205" height="18"/>
+                        <rect key="frame" x="133" y="260" width="185" height="18"/>
                         <buttonCell key="cell" type="check" title="始终清除Calalog 搜索条件" bezelStyle="regularSquare" imagePosition="left" inset="2" id="fyJ-ad-aFa">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" size="13" name="STHeitiSC-Light"/>
                         </buttonCell>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgP-4B-AhN">
-                        <rect key="frame" x="164" y="308" width="116" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="自定义菜单热键" id="TA2-3s-kNy">
-                            <font key="font" metaFont="system"/>
+                        <rect key="frame" x="130" y="373" width="185" height="21"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="自定义菜单热键" id="TA2-3s-kNy">
+                            <font key="font" size="17" name=".HelveticaNeueDeskInterface-Regular"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oGC-tW-JCY">
-                        <rect key="frame" x="160" y="270" width="124" height="32"/>
+                        <rect key="frame" x="126" y="335" width="193" height="32"/>
                         <buttonCell key="cell" type="push" title="Go" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v7V-N5-W6m">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -221,16 +224,32 @@ Gw
                             <action selector="shortcutRecorderAction:" target="-2" id="PXl-xx-5Pd"/>
                         </connections>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0xM-1L-M07">
+                        <rect key="frame" x="133" y="284" width="185" height="21"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Magic" id="O3V-Xb-Z8Q">
+                            <font key="font" size="17" name=".HelveticaNeueDeskInterface-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xP9-RX-XKr">
-                        <rect key="frame" x="119" y="384" width="205" height="18"/>
+                        <rect key="frame" x="133" y="166" width="188" height="18"/>
                         <buttonCell key="cell" type="check" title="提醒我异常(操作没效果？？)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="BaT-Yo-bRm">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" size="13" name="STHeitiSC-Light"/>
                         </buttonCell>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1tW-NR-DuV">
+                        <rect key="frame" x="133" y="190" width="185" height="21"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="异常提醒" id="wMb-Cw-KZc">
+                            <font key="font" size="17" name=".HelveticaNeueDeskInterface-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="59.5" y="92.5"/>
+            <point key="canvasLocation" x="-2.5" y="-105.5"/>
         </window>
     </objects>
 </document>
