@@ -16,5 +16,7 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>2.13</string>
+	<key>XCGCReady</key>
+	<true/>
 </dict>
 </plist>
