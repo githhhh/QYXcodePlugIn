@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6071F821A8C8831C3A24495E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16364214EC190002C2584301 /* libPods.a */; };
 		8B05B57F1BF5A32E00F37998 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B05B57E1BF5A32E00F37998 /* Carbon.framework */; };
 		8B2BC61E1C4C867C002B4181 /* logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2BC61D1C4C867C002B4181 /* logo.pdf */; };
 		8B4C00821BF7852300A77AD9 /* PTHotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00801BF7852300A77AD9 /* PTHotKey.framework */; };
 		8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */; };
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
 		8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA91BABB7F100672762 /* Foundation.framework */; };
-		8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 8B60ADAE1BABB7F100672762 /* QYXcodePlugIn.xcscheme */; };
 		8B60AE291BABCEBB00672762 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60AE281BABCEBB00672762 /* Cocoa.framework */; };
 		8B9C6BD81BB1247700242629 /* setupHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD71BB1247700242629 /* setupHelper.sh */; };
 		8B9C6C531BB129ED00242629 /* QYXcodePlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */; };
@@ -35,22 +35,6 @@
 		8BA852871BF7879600EE9398 /* XCTarget+XCProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852511BF7879600EE9398 /* XCTarget+XCProject.m */; };
 		8BA852881BF7879600EE9398 /* XCBuildSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852531BF7879600EE9398 /* XCBuildSettings.m */; };
 		8BA852891BF7879600EE9398 /* XCWorkspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852551BF7879600EE9398 /* XCWorkspace.m */; };
-		8BA8528A1BF7879600EE9398 /* XCAbstractDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852581BF7879600EE9398 /* XCAbstractDefinition.m */; };
-		8BA8528B1BF7879600EE9398 /* XCClassDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8525A1BF7879600EE9398 /* XCClassDefinition.m */; };
-		8BA8528C1BF7879600EE9398 /* XCFileOperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8525C1BF7879600EE9398 /* XCFileOperationQueue.m */; };
-		8BA8528D1BF7879600EE9398 /* XCFrameworkDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8525E1BF7879600EE9398 /* XCFrameworkDefinition.m */; };
-		8BA8528E1BF7879600EE9398 /* XCGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852601BF7879600EE9398 /* XCGroup.m */; };
-		8BA8528F1BF7879600EE9398 /* XCKeyBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852621BF7879600EE9398 /* XCKeyBuilder.m */; };
-		8BA852901BF7879600EE9398 /* XcodeMemberType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852661BF7879600EE9398 /* XcodeMemberType.m */; };
-		8BA852911BF7879600EE9398 /* XcodeSourceFileType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852681BF7879600EE9398 /* XcodeSourceFileType.m */; };
-		8BA852921BF7879600EE9398 /* XCProject+SubProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8526A1BF7879600EE9398 /* XCProject+SubProject.m */; };
-		8BA852931BF7879600EE9398 /* XCProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8526C1BF7879600EE9398 /* XCProject.m */; };
-		8BA852941BF7879600EE9398 /* XCProjectBuildConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8526E1BF7879600EE9398 /* XCProjectBuildConfig.m */; };
-		8BA852951BF7879600EE9398 /* XCSourceFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852701BF7879600EE9398 /* XCSourceFile.m */; };
-		8BA852961BF7879600EE9398 /* XCSourceFileDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852721BF7879600EE9398 /* XCSourceFileDefinition.m */; };
-		8BA852971BF7879600EE9398 /* XCSubProjectDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852741BF7879600EE9398 /* XCSubProjectDefinition.m */; };
-		8BA852981BF7879600EE9398 /* XCTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852761BF7879600EE9398 /* XCTarget.m */; };
-		8BA852991BF7879600EE9398 /* XCXibDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852781BF7879600EE9398 /* XCXibDefinition.m */; };
 		8BA852A01BF7886000EE9398 /* QYIDENotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8529E1BF7886000EE9398 /* QYIDENotificationHandler.m */; };
 		8BA852C21BF78A6700EE9398 /* QYClangFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852C11BF78A6700EE9398 /* QYClangFormat.m */; };
 		8BAE7E8F1C4797E300A505FD /* NSMenu+RegisterMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7E861C4797E300A505FD /* NSMenu+RegisterMenuItem.m */; };
@@ -70,15 +54,13 @@
 		8BAE7EB81C47984100A505FD /* NSObject+MagicDVTBezelAlertPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EB21C47984100A505FD /* NSObject+MagicDVTBezelAlertPanel.m */; };
 		8BAE7EBA1C47984100A505FD /* NSObject+MethodSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EB61C47984100A505FD /* NSObject+MethodSwizzler.m */; };
 		8BAE7EBE1C4798E700A505FD /* QYPreferencesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EBD1C4798E700A505FD /* QYPreferencesModel.m */; };
-		8BAE7EC31C47997C00A505FD /* PMKPromise+Until.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EBF1C47997C00A505FD /* PMKPromise+Until.m */; };
-		8BAE7EC41C47997C00A505FD /* PMKPromise+When.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EC01C47997C00A505FD /* PMKPromise+When.m */; };
-		8BD1B2721C21604600FA02BC /* PMKPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD1B26E1C21604600FA02BC /* PMKPromise.m */; };
 		8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F6681BFDB14E00F4A4AD /* TemplateIcon.png */; };
 		8BF5F6831BFDB14E00F4A4AD /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F6691BFDB14E00F4A4AD /* TemplateIcon@2x.png */; };
 		8BF5F6841BFDB14E00F4A4AD /* TemplateInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F66A1BFDB14E00F4A4AD /* TemplateInfo.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16364214EC190002C2584301 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B02E22A1C1ED4A1005CE6D2 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
 		8B02E22B1C1ED4A1005CE6D2 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8B02E22D1C1ED4A1005CE6D2 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
@@ -93,7 +75,6 @@
 		8B60ADA71BABB7F100672762 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		8B60ADA91BABB7F100672762 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8B60ADAD1BABB7F100672762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B60ADAE1BABB7F100672762 /* QYXcodePlugIn.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = QYXcodePlugIn.xcscheme; path = QYXcodePlugIn.xcodeproj/xcshareddata/xcschemes/QYXcodePlugIn.xcscheme; sourceTree = SOURCE_ROOT; };
 		8B60AE281BABCEBB00672762 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8B8D837A1BF5B9EC0016A838 /* QYXcodePlugIn.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYXcodePlugIn.pch; sourceTree = "<group>"; };
 		8B9C6BD71BB1247700242629 /* setupHelper.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = setupHelper.sh; sourceTree = "<group>"; };
@@ -136,40 +117,6 @@
 		8BA852531BF7879600EE9398 /* XCBuildSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCBuildSettings.m; sourceTree = "<group>"; };
 		8BA852541BF7879600EE9398 /* XCWorkspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCWorkspace.h; sourceTree = "<group>"; };
 		8BA852551BF7879600EE9398 /* XCWorkspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCWorkspace.m; sourceTree = "<group>"; };
-		8BA852571BF7879600EE9398 /* XCAbstractDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCAbstractDefinition.h; sourceTree = "<group>"; };
-		8BA852581BF7879600EE9398 /* XCAbstractDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCAbstractDefinition.m; sourceTree = "<group>"; };
-		8BA852591BF7879600EE9398 /* XCClassDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCClassDefinition.h; sourceTree = "<group>"; };
-		8BA8525A1BF7879600EE9398 /* XCClassDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCClassDefinition.m; sourceTree = "<group>"; };
-		8BA8525B1BF7879600EE9398 /* XCFileOperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFileOperationQueue.h; sourceTree = "<group>"; };
-		8BA8525C1BF7879600EE9398 /* XCFileOperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFileOperationQueue.m; sourceTree = "<group>"; };
-		8BA8525D1BF7879600EE9398 /* XCFrameworkDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFrameworkDefinition.h; sourceTree = "<group>"; };
-		8BA8525E1BF7879600EE9398 /* XCFrameworkDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFrameworkDefinition.m; sourceTree = "<group>"; };
-		8BA8525F1BF7879600EE9398 /* XCGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCGroup.h; sourceTree = "<group>"; };
-		8BA852601BF7879600EE9398 /* XCGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCGroup.m; sourceTree = "<group>"; };
-		8BA852611BF7879600EE9398 /* XCKeyBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCKeyBuilder.h; sourceTree = "<group>"; };
-		8BA852621BF7879600EE9398 /* XCKeyBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCKeyBuilder.m; sourceTree = "<group>"; };
-		8BA852631BF7879600EE9398 /* XcodeEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeEditor.h; sourceTree = "<group>"; };
-		8BA852641BF7879600EE9398 /* XcodeGroupMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeGroupMember.h; sourceTree = "<group>"; };
-		8BA852651BF7879600EE9398 /* XcodeMemberType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeMemberType.h; sourceTree = "<group>"; };
-		8BA852661BF7879600EE9398 /* XcodeMemberType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeMemberType.m; sourceTree = "<group>"; };
-		8BA852671BF7879600EE9398 /* XcodeSourceFileType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XcodeSourceFileType.h; sourceTree = "<group>"; };
-		8BA852681BF7879600EE9398 /* XcodeSourceFileType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XcodeSourceFileType.m; sourceTree = "<group>"; };
-		8BA852691BF7879600EE9398 /* XCProject+SubProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCProject+SubProject.h"; sourceTree = "<group>"; };
-		8BA8526A1BF7879600EE9398 /* XCProject+SubProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCProject+SubProject.m"; sourceTree = "<group>"; };
-		8BA8526B1BF7879600EE9398 /* XCProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCProject.h; sourceTree = "<group>"; };
-		8BA8526C1BF7879600EE9398 /* XCProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCProject.m; sourceTree = "<group>"; };
-		8BA8526D1BF7879600EE9398 /* XCProjectBuildConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCProjectBuildConfig.h; sourceTree = "<group>"; };
-		8BA8526E1BF7879600EE9398 /* XCProjectBuildConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCProjectBuildConfig.m; sourceTree = "<group>"; };
-		8BA8526F1BF7879600EE9398 /* XCSourceFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSourceFile.h; sourceTree = "<group>"; };
-		8BA852701BF7879600EE9398 /* XCSourceFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSourceFile.m; sourceTree = "<group>"; };
-		8BA852711BF7879600EE9398 /* XCSourceFileDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSourceFileDefinition.h; sourceTree = "<group>"; };
-		8BA852721BF7879600EE9398 /* XCSourceFileDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSourceFileDefinition.m; sourceTree = "<group>"; };
-		8BA852731BF7879600EE9398 /* XCSubProjectDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCSubProjectDefinition.h; sourceTree = "<group>"; };
-		8BA852741BF7879600EE9398 /* XCSubProjectDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCSubProjectDefinition.m; sourceTree = "<group>"; };
-		8BA852751BF7879600EE9398 /* XCTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTarget.h; sourceTree = "<group>"; };
-		8BA852761BF7879600EE9398 /* XCTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCTarget.m; sourceTree = "<group>"; };
-		8BA852771BF7879600EE9398 /* XCXibDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCXibDefinition.h; sourceTree = "<group>"; };
-		8BA852781BF7879600EE9398 /* XCXibDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCXibDefinition.m; sourceTree = "<group>"; };
 		8BA8529D1BF7886000EE9398 /* QYIDENotificationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYIDENotificationHandler.h; path = Main/QYIDENotificationHandler.h; sourceTree = "<group>"; };
 		8BA8529E1BF7886000EE9398 /* QYIDENotificationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYIDENotificationHandler.m; path = Main/QYIDENotificationHandler.m; sourceTree = "<group>"; };
 		8BA8529F1BF7886000EE9398 /* QYWindowsCloseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYWindowsCloseProtocol.h; path = Main/QYWindowsCloseProtocol.h; sourceTree = "<group>"; };
@@ -206,14 +153,6 @@
 		8BAE7EB61C47984100A505FD /* NSObject+MethodSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MethodSwizzler.m"; path = "Magic/NSObject+MethodSwizzler.m"; sourceTree = "<group>"; };
 		8BAE7EBC1C4798E700A505FD /* QYPreferencesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYPreferencesModel.h; path = Model/QYPreferencesModel.h; sourceTree = "<group>"; };
 		8BAE7EBD1C4798E700A505FD /* QYPreferencesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYPreferencesModel.m; path = Model/QYPreferencesModel.m; sourceTree = "<group>"; };
-		8BAE7EBF1C47997C00A505FD /* PMKPromise+Until.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PMKPromise+Until.m"; path = "PromiseCore/PMKPromise+Until.m"; sourceTree = "<group>"; };
-		8BAE7EC01C47997C00A505FD /* PMKPromise+When.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "PMKPromise+When.m"; path = "PromiseCore/PMKPromise+When.m"; sourceTree = "<group>"; };
-		8BAE7EC11C47997C00A505FD /* Promise+Until.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Promise+Until.h"; path = "PromiseCore/Promise+Until.h"; sourceTree = "<group>"; };
-		8BAE7EC21C47997C00A505FD /* Promise+When.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Promise+When.h"; path = "PromiseCore/Promise+When.h"; sourceTree = "<group>"; };
-		8BD1B26C1C21604600FA02BC /* fwd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fwd.h; path = PromiseCore/fwd.h; sourceTree = "<group>"; };
-		8BD1B26E1C21604600FA02BC /* PMKPromise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMKPromise.m; path = PromiseCore/PMKPromise.m; sourceTree = "<group>"; };
-		8BD1B26F1C21604600FA02BC /* Promise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Promise.h; path = PromiseCore/Promise.h; sourceTree = "<group>"; };
-		8BD1B2701C21604600FA02BC /* PromiseKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PromiseKit.h; path = PromiseCore/PromiseKit.h; sourceTree = "<group>"; };
 		8BF5F6551BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
 		8BF5F6561BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8BF5F6581BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
@@ -238,6 +177,8 @@
 		8BF5F6761BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
 		8BF5F6771BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8BF5F6791BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		940CA719D7EFF7660C6D0A34 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CB1A73215DF88DC37016DD6C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +192,7 @@
 				8B60AE291BABCEBB00672762 /* Cocoa.framework in Frameworks */,
 				8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */,
 				8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */,
+				6071F821A8C8831C3A24495E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +243,7 @@
 				8B60ADAB1BABB7F100672762 /* QYXcodePlugIn */,
 				8B60ADA61BABB7F100672762 /* Frameworks */,
 				8B60ADA51BABB7F100672762 /* Products */,
+				928C19A610157E1BAF33DBBF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -321,6 +264,7 @@
 				8B60AE281BABCEBB00672762 /* Cocoa.framework */,
 				8B60ADA71BABB7F100672762 /* AppKit.framework */,
 				8B60ADA91BABB7F100672762 /* Foundation.framework */,
+				16364214EC190002C2584301 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -332,9 +276,9 @@
 				8BAE7EBB1C4798AC00A505FD /* Model */,
 				8B746C8F1C27BF2900C4A1A4 /* Menus */,
 				8BAE7E941C47980200A505FD /* MenusAction */,
-				8BAE7EA31C47980200A505FD /* Resources */,
 				8B60ADBB1BABB81D00672762 /* Main */,
 				8BA8522D1BF7879600EE9398 /* Uitility */,
+				8BAE7EA31C47980200A505FD /* Resources */,
 				8B60ADAC1BABB7F100672762 /* Supporting Files */,
 			);
 			path = QYXcodePlugIn;
@@ -344,7 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				8B60ADAD1BABB7F100672762 /* Info.plist */,
-				8B60ADAE1BABB7F100672762 /* QYXcodePlugIn.xcscheme */,
 				8B8D837A1BF5B9EC0016A838 /* QYXcodePlugIn.pch */,
 			);
 			name = "Supporting Files";
@@ -410,11 +353,9 @@
 		8BA8522D1BF7879600EE9398 /* Uitility */ = {
 			isa = PBXGroup;
 			children = (
-				8BD1B2661C215FBB00FA02BC /* Promise */,
 				8BA852BF1BF78A6700EE9398 /* ClangFormat */,
 				8BA8522E1BF7879600EE9398 /* Categorites */,
 				8BA852451BF7879600EE9398 /* External */,
-				8BA852561BF7879600EE9398 /* XcodeEditor */,
 			);
 			path = Uitility;
 			sourceTree = "<group>";
@@ -494,47 +435,6 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		8BA852561BF7879600EE9398 /* XcodeEditor */ = {
-			isa = PBXGroup;
-			children = (
-				8BA852571BF7879600EE9398 /* XCAbstractDefinition.h */,
-				8BA852581BF7879600EE9398 /* XCAbstractDefinition.m */,
-				8BA852591BF7879600EE9398 /* XCClassDefinition.h */,
-				8BA8525A1BF7879600EE9398 /* XCClassDefinition.m */,
-				8BA8525B1BF7879600EE9398 /* XCFileOperationQueue.h */,
-				8BA8525C1BF7879600EE9398 /* XCFileOperationQueue.m */,
-				8BA8525D1BF7879600EE9398 /* XCFrameworkDefinition.h */,
-				8BA8525E1BF7879600EE9398 /* XCFrameworkDefinition.m */,
-				8BA8525F1BF7879600EE9398 /* XCGroup.h */,
-				8BA852601BF7879600EE9398 /* XCGroup.m */,
-				8BA852611BF7879600EE9398 /* XCKeyBuilder.h */,
-				8BA852621BF7879600EE9398 /* XCKeyBuilder.m */,
-				8BA852631BF7879600EE9398 /* XcodeEditor.h */,
-				8BA852641BF7879600EE9398 /* XcodeGroupMember.h */,
-				8BA852651BF7879600EE9398 /* XcodeMemberType.h */,
-				8BA852661BF7879600EE9398 /* XcodeMemberType.m */,
-				8BA852671BF7879600EE9398 /* XcodeSourceFileType.h */,
-				8BA852681BF7879600EE9398 /* XcodeSourceFileType.m */,
-				8BA852691BF7879600EE9398 /* XCProject+SubProject.h */,
-				8BA8526A1BF7879600EE9398 /* XCProject+SubProject.m */,
-				8BA8526B1BF7879600EE9398 /* XCProject.h */,
-				8BA8526C1BF7879600EE9398 /* XCProject.m */,
-				8BA8526D1BF7879600EE9398 /* XCProjectBuildConfig.h */,
-				8BA8526E1BF7879600EE9398 /* XCProjectBuildConfig.m */,
-				8BA8526F1BF7879600EE9398 /* XCSourceFile.h */,
-				8BA852701BF7879600EE9398 /* XCSourceFile.m */,
-				8BA852711BF7879600EE9398 /* XCSourceFileDefinition.h */,
-				8BA852721BF7879600EE9398 /* XCSourceFileDefinition.m */,
-				8BA852731BF7879600EE9398 /* XCSubProjectDefinition.h */,
-				8BA852741BF7879600EE9398 /* XCSubProjectDefinition.m */,
-				8BA852751BF7879600EE9398 /* XCTarget.h */,
-				8BA852761BF7879600EE9398 /* XCTarget.m */,
-				8BA852771BF7879600EE9398 /* XCXibDefinition.h */,
-				8BA852781BF7879600EE9398 /* XCXibDefinition.m */,
-			);
-			path = XcodeEditor;
-			sourceTree = "<group>";
-		};
 		8BA852BF1BF78A6700EE9398 /* ClangFormat */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,21 +511,6 @@
 				8BAE7EBD1C4798E700A505FD /* QYPreferencesModel.m */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		8BD1B2661C215FBB00FA02BC /* Promise */ = {
-			isa = PBXGroup;
-			children = (
-				8BAE7EBF1C47997C00A505FD /* PMKPromise+Until.m */,
-				8BAE7EC01C47997C00A505FD /* PMKPromise+When.m */,
-				8BAE7EC11C47997C00A505FD /* Promise+Until.h */,
-				8BAE7EC21C47997C00A505FD /* Promise+When.h */,
-				8BD1B26C1C21604600FA02BC /* fwd.h */,
-				8BD1B26E1C21604600FA02BC /* PMKPromise.m */,
-				8BD1B26F1C21604600FA02BC /* Promise.h */,
-				8BD1B2701C21604600FA02BC /* PromiseKit.h */,
-			);
-			name = Promise;
 			sourceTree = "<group>";
 		};
 		8BF5F6531BFDB14E00F4A4AD /* QYCocoaToouchClass.xctemplate */ = {
@@ -776,6 +661,15 @@
 			path = UIViewSwift;
 			sourceTree = "<group>";
 		};
+		928C19A610157E1BAF33DBBF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				940CA719D7EFF7660C6D0A34 /* Pods.debug.xcconfig */,
+				CB1A73215DF88DC37016DD6C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -783,9 +677,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B60ADB81BABB7F100672762 /* Build configuration list for PBXNativeTarget "QYXcodePlugIn" */;
 			buildPhases = (
+				436D2C54A00D17DC7EF515DA /* Check Pods Manifest.lock */,
 				8B60ADA01BABB7F100672762 /* Sources */,
 				8B60ADA11BABB7F100672762 /* Resources */,
 				8B60ADA21BABB7F100672762 /* Frameworks */,
+				750A028BF60DF925F4760EB2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -835,7 +731,6 @@
 			files = (
 				8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */,
 				8BAE7EAC1C47980200A505FD /* QYPreferencesController.xib in Resources */,
-				8B60ADAF1BABB7F100672762 /* QYXcodePlugIn.xcscheme in Resources */,
 				8BAE7EAE1C47980200A505FD /* QYShortcutRecorderController.xib in Resources */,
 				8BAE7EAD1C47980200A505FD /* QYRequestVerifyController.xib in Resources */,
 				8BF5F6841BFDB14E00F4A4AD /* TemplateInfo.plist in Resources */,
@@ -847,53 +742,70 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		436D2C54A00D17DC7EF515DA /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		750A028BF60DF925F4760EB2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8B60ADA01BABB7F100672762 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BA8528E1BF7879600EE9398 /* XCGroup.m in Sources */,
-				8BA852991BF7879600EE9398 /* XCXibDefinition.m in Sources */,
-				8BA852911BF7879600EE9398 /* XcodeSourceFileType.m in Sources */,
-				8BA8528B1BF7879600EE9398 /* XCClassDefinition.m in Sources */,
 				8BA8527C1BF7879600EE9398 /* NSMutableIndexSet+NSArray.m in Sources */,
 				8B9C6C531BB129ED00242629 /* QYXcodePlugIn.m in Sources */,
 				8BA852791BF7879600EE9398 /* DVTSourceTextStorage+Operations.m in Sources */,
 				8BA8527E1BF7879600EE9398 /* NSString+Extensions.m in Sources */,
-				8BA852961BF7879600EE9398 /* XCSourceFileDefinition.m in Sources */,
 				8BA852C21BF78A6700EE9398 /* QYClangFormat.m in Sources */,
-				8BA852981BF7879600EE9398 /* XCTarget.m in Sources */,
 				8BAE7EA91C47980200A505FD /* QYPreferencesController.m in Sources */,
 				8BA852841BF7879600EE9398 /* MHXcodeDocumentNavigator.m in Sources */,
 				8BAE7EB71C47984100A505FD /* NSObject+MagicClearCatalogFilter.m in Sources */,
 				8BA852861BF7879600EE9398 /* XCProject+Extensions.m in Sources */,
 				8BA852891BF7879600EE9398 /* XCWorkspace.m in Sources */,
-				8BA852941BF7879600EE9398 /* XCProjectBuildConfig.m in Sources */,
 				8B9ED1ED1C337D900072CCE2 /* LAFIDESourceCodeEditor.m in Sources */,
 				8BAE7EBE1C4798E700A505FD /* QYPreferencesModel.m in Sources */,
 				8BAE7EAB1C47980200A505FD /* QYRequestVerifyController.m in Sources */,
 				8BAE7E911C4797E300A505FD /* QYMenuBaseItem.m in Sources */,
-				8BA852931BF7879600EE9398 /* XCProject.m in Sources */,
-				8BA8528A1BF7879600EE9398 /* XCAbstractDefinition.m in Sources */,
 				8BAE7EA71C47980200A505FD /* QYCategoryAutoGetterSetterAchieve.m in Sources */,
 				8BAE7E8F1C4797E300A505FD /* NSMenu+RegisterMenuItem.m in Sources */,
 				8BA852821BF7879600EE9398 /* NSView+Dumping.m in Sources */,
-				8BA8528C1BF7879600EE9398 /* XCFileOperationQueue.m in Sources */,
 				8BAE7EA81C47980200A505FD /* QYAutoGetterAchieve.m in Sources */,
-				8BA852971BF7879600EE9398 /* XCSubProjectDefinition.m in Sources */,
-				8BA852921BF7879600EE9398 /* XCProject+SubProject.m in Sources */,
 				8BAE7EAA1C47980200A505FD /* QYShortcutRecorderController.m in Sources */,
 				8BA852811BF7879600EE9398 /* NSTextView+Operations.m in Sources */,
-				8BD1B2721C21604600FA02BC /* PMKPromise.m in Sources */,
 				8BA8527D1BF7879600EE9398 /* NSObject+MHLogMethods.m in Sources */,
 				8BAE7E931C4797E300A505FD /* QYRequestVerifiMenuItem.m in Sources */,
 				8BA8527A1BF7879600EE9398 /* NSArray+Operations.m in Sources */,
 				8BAE7E921C4797E300A505FD /* QYPreferencesMenuItem.m in Sources */,
-				8BAE7EC41C47997C00A505FD /* PMKPromise+When.m in Sources */,
 				8BAE7E901C4797E300A505FD /* QYAutoGetterMenuItem.m in Sources */,
 				8BA852831BF7879600EE9398 /* XCSourceFile+Path.m in Sources */,
-				8BA8528D1BF7879600EE9398 /* XCFrameworkDefinition.m in Sources */,
-				8BA852901BF7879600EE9398 /* XcodeMemberType.m in Sources */,
 				8BA8527F1BF7879600EE9398 /* NSString+Files.m in Sources */,
 				8BA852851BF7879600EE9398 /* NSString+XCAdditions.m in Sources */,
 				8BA852881BF7879600EE9398 /* XCBuildSettings.m in Sources */,
@@ -903,9 +815,6 @@
 				8BA852871BF7879600EE9398 /* XCTarget+XCProject.m in Sources */,
 				8BA852A01BF7886000EE9398 /* QYIDENotificationHandler.m in Sources */,
 				8BAE7EBA1C47984100A505FD /* NSObject+MethodSwizzler.m in Sources */,
-				8BAE7EC31C47997C00A505FD /* PMKPromise+Until.m in Sources */,
-				8BA852951BF7879600EE9398 /* XCSourceFile.m in Sources */,
-				8BA8528F1BF7879600EE9398 /* XCKeyBuilder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -991,6 +900,7 @@
 		};
 		8B60ADB91BABB7F100672762 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 940CA719D7EFF7660C6D0A34 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1011,12 +921,14 @@
 				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Debug;
 		};
 		8B60ADBA1BABB7F100672762 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB1A73215DF88DC37016DD6C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1037,6 +949,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Release;
@@ -1051,7 +964,7 @@
 				8B60ADB71BABB7F100672762 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		8B60ADB81BABB7F100672762 /* Build configuration list for PBXNativeTarget "QYXcodePlugIn" */ = {
 			isa = XCConfigurationList;
@@ -1060,7 +973,7 @@
 				8B60ADBA1BABB7F100672762 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
