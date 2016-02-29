@@ -53,11 +53,15 @@
  
  插件大量使用 [PromiseKit](./promiseKit.md)封装API、整理同异步代码。
  
+ > 使用cocoapod 管理PromiseKit,关于集成中的问题见：
+ - [直接集成报错 ld: library not found for -lxxx ？？](http://stackoverflow.com/questions/32540495/xcode-plugin-template-cocoapods)
+ - [用上面方法后,启动xcode实例调试，崩了？？？](https://github.com/XVimProject/XVim/issues/628)
+ 
  使用[ShortcutRecorder](https://github.com/Kentzo/ShortcutRecorder)轻松实现绑定热键到菜单或按钮。
  
- 该插件使用workspace 管理QYXcodePlugIn 和 ShortcutRecorder。
- >本想cocoapod 集成库却遇到了些麻烦，索性直接创建workspace文件，向插件引入第三方库。[如何正确地配置构建私有OS X框架](http://jaanus.com/how-to-correcty-configure-building-private-slash-embeddable-os-x-frameworks/)
- 
+ > 该插件使用workspace文件管理QYXcodePlugIn 和 ShortcutRecorder,不支持cocoapod。
+ - [如何正确地配置构建私有OS X框架](http://jaanus.com/how-to-correcty-configure-building-private-slash-embeddable-os-x-frameworks/)
+
  其它技能：
  
  - [lldb && Python-lldb](http://www.raywenderlich.com/?s=lldb) 工具
