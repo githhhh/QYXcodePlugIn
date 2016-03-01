@@ -65,7 +65,7 @@
  其它技能：
  
  - [lldb && Python-lldb](http://www.raywenderlich.com/?s=lldb) 工具
- - [Dtrace](https://www.objc.io/issues/19-debugging/dtrace/)
+ - [Dtrace](https://www.objc.io/issues/19-debugging/dtrace/) 大App远程有Dtrace 分支Demo,随意脑洞使用。
  - [x86 assembly knowledge](https://www.mikeash.com/pyblog/friday-qa-2011-12-16-disassembling-the-assembly-part-1.html) (汇编)
  - [Cycript](http://www.cycript.org/)支持javascript和oc 的混写
  
