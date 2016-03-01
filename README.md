@@ -48,7 +48,7 @@
    * MenusAction 菜单响应文件
    * Resources xib 文件
    * Main 启动单例类
-   * Uitility 一些帮助文件或库
+   * Uitility 一些帮助文件
  
  
  插件大量使用 [PromiseKit](./promiseKit.md)封装API、整理同异步代码。
