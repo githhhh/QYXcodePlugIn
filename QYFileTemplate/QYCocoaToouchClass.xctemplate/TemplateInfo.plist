@@ -51,7 +51,7 @@
 			<array>
 				<string>NSObject</string>
 				<string>JYTableViewBaseCell</string>
-				<string>JoyRequest</string>
+				<string>QYRequest</string>
 				<string>UIView</string>
 				<string>UIViewController</string>
 				<string>UITableViewCell</string>
@@ -60,7 +60,7 @@
 			<dict>
 				<key>NSObject</key>
 				<string></string>
-				<key>JoyRequest</key>
+				<key>QYRequest</key>
 				<string>Request</string>
 				<key>UIViewController</key>
 				<string>ViewController</string>

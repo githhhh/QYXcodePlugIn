@@ -68,6 +68,9 @@
 		8B02E2351C1ED580005CE6D2 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8B02E2371C1ED580005CE6D2 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
 		8B05B57E1BF5A32E00F37998 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		8B08157F1C8D2422003B5B18 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
+		8B0815801C8D2422003B5B18 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
+		8B0815821C8D2422003B5B18 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
 		8B2BC61D1C4C867C002B4181 /* logo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = logo.pdf; sourceTree = "<group>"; };
 		8B4C00801BF7852300A77AD9 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/PTHotKey.framework"; sourceTree = "<group>"; };
 		8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
@@ -153,9 +156,6 @@
 		8BAE7EB61C47984100A505FD /* NSObject+MethodSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MethodSwizzler.m"; path = "Magic/NSObject+MethodSwizzler.m"; sourceTree = "<group>"; };
 		8BAE7EBC1C4798E700A505FD /* QYPreferencesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYPreferencesModel.h; path = Model/QYPreferencesModel.h; sourceTree = "<group>"; };
 		8BAE7EBD1C4798E700A505FD /* QYPreferencesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYPreferencesModel.m; path = Model/QYPreferencesModel.m; sourceTree = "<group>"; };
-		8BF5F6551BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8BF5F6561BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8BF5F6581BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
 		8BF5F65A1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
 		8BF5F65B1BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8BF5F65D1BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
@@ -231,6 +231,23 @@
 				8B02E2371C1ED580005CE6D2 /* ___FILEBASENAME___.swift */,
 			);
 			path = NSObjectDelegateUICollectionViewDelegateSwift;
+			sourceTree = "<group>";
+		};
+		8B08157E1C8D2422003B5B18 /* QYRequestObjective-C */ = {
+			isa = PBXGroup;
+			children = (
+				8B08157F1C8D2422003B5B18 /* ___FILEBASENAME___.h */,
+				8B0815801C8D2422003B5B18 /* ___FILEBASENAME___.m */,
+			);
+			path = "QYRequestObjective-C";
+			sourceTree = "<group>";
+		};
+		8B0815811C8D2422003B5B18 /* QYRequestSwift */ = {
+			isa = PBXGroup;
+			children = (
+				8B0815821C8D2422003B5B18 /* ___FILEBASENAME___.swift */,
+			);
+			path = QYRequestSwift;
 			sourceTree = "<group>";
 		};
 		8B60AD9B1BABB7F100672762 = {
@@ -516,12 +533,12 @@
 		8BF5F6531BFDB14E00F4A4AD /* QYCocoaToouchClass.xctemplate */ = {
 			isa = PBXGroup;
 			children = (
+				8B08157E1C8D2422003B5B18 /* QYRequestObjective-C */,
+				8B0815811C8D2422003B5B18 /* QYRequestSwift */,
 				8B02E2331C1ED580005CE6D2 /* NSObjectDelegateUICollectionViewDelegateObjective-C */,
 				8B02E2361C1ED580005CE6D2 /* NSObjectDelegateUICollectionViewDelegateSwift */,
 				8B02E2291C1ED4A1005CE6D2 /* NSObjectDelegateUITableViewDelegateObjective-C */,
 				8B02E22C1C1ED4A1005CE6D2 /* NSObjectDelegateUITableViewDelegateSwift */,
-				8BF5F6541BFDB14E00F4A4AD /* JoyRequestObjective-C */,
-				8BF5F6571BFDB14E00F4A4AD /* JoyRequestSwift */,
 				8BF5F6591BFDB14E00F4A4AD /* JYTableViewBaseCellObjective-C */,
 				8BF5F65C1BFDB14E00F4A4AD /* JYTableViewBaseCellSwift */,
 				8BF5F65E1BFDB14E00F4A4AD /* NSObjectObjective-C */,
@@ -540,23 +557,6 @@
 			);
 			name = QYCocoaToouchClass.xctemplate;
 			path = QYFileTemplate/QYCocoaToouchClass.xctemplate;
-			sourceTree = "<group>";
-		};
-		8BF5F6541BFDB14E00F4A4AD /* JoyRequestObjective-C */ = {
-			isa = PBXGroup;
-			children = (
-				8BF5F6551BFDB14E00F4A4AD /* ___FILEBASENAME___.h */,
-				8BF5F6561BFDB14E00F4A4AD /* ___FILEBASENAME___.m */,
-			);
-			path = "JoyRequestObjective-C";
-			sourceTree = "<group>";
-		};
-		8BF5F6571BFDB14E00F4A4AD /* JoyRequestSwift */ = {
-			isa = PBXGroup;
-			children = (
-				8BF5F6581BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */,
-			);
-			path = JoyRequestSwift;
 			sourceTree = "<group>";
 		};
 		8BF5F6591BFDB14E00F4A4AD /* JYTableViewBaseCellObjective-C */ = {
