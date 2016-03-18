@@ -12,9 +12,14 @@
 		8B2BC61E1C4C867C002B4181 /* logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2BC61D1C4C867C002B4181 /* logo.pdf */; };
 		8B4C00821BF7852300A77AD9 /* PTHotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00801BF7852300A77AD9 /* PTHotKey.framework */; };
 		8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */; };
+		8B57FD011C9BDE0E00A260F5 /* ESClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B57FD001C9BDE0E00A260F5 /* ESClassInfo.m */; };
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
 		8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA91BABB7F100672762 /* Foundation.framework */; };
 		8B60AE291BABCEBB00672762 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60AE281BABCEBB00672762 /* Cocoa.framework */; };
+		8B85168A1C96B5CD00D927E5 /* ESDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8516851C96B5CD00D927E5 /* ESDialogController.m */; };
+		8B85168B1C96B5CD00D927E5 /* ESDialogController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8516861C96B5CD00D927E5 /* ESDialogController.xib */; };
+		8B85168C1C96B5CD00D927E5 /* ESInputJsonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8516881C96B5CD00D927E5 /* ESInputJsonController.m */; };
+		8B85168D1C96B5CD00D927E5 /* ESInputJsonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8516891C96B5CD00D927E5 /* ESInputJsonController.xib */; };
 		8B9C6BD81BB1247700242629 /* setupHelper.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C6BD71BB1247700242629 /* setupHelper.sh */; };
 		8B9C6C531BB129ED00242629 /* QYXcodePlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C6C521BB129ED00242629 /* QYXcodePlugIn.m */; };
 		8B9ED1ED1C337D900072CCE2 /* LAFIDESourceCodeEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9ED1EC1C337D900072CCE2 /* LAFIDESourceCodeEditor.m */; };
@@ -54,6 +59,8 @@
 		8BAE7EB81C47984100A505FD /* NSObject+MagicDVTBezelAlertPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EB21C47984100A505FD /* NSObject+MagicDVTBezelAlertPanel.m */; };
 		8BAE7EBA1C47984100A505FD /* NSObject+MethodSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EB61C47984100A505FD /* NSObject+MethodSwizzler.m */; };
 		8BAE7EBE1C4798E700A505FD /* QYPreferencesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EBD1C4798E700A505FD /* QYPreferencesModel.m */; };
+		8BB854F91C9699E30042FC02 /* QYAutoModelMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB854F81C9699E30042FC02 /* QYAutoModelMenuItem.m */; };
+		8BF346821C9C362000BD2BE4 /* QYAutoModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF346811C9C362000BD2BE4 /* QYAutoModelHelper.m */; };
 		8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F6681BFDB14E00F4A4AD /* TemplateIcon.png */; };
 		8BF5F6831BFDB14E00F4A4AD /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F6691BFDB14E00F4A4AD /* TemplateIcon@2x.png */; };
 		8BF5F6841BFDB14E00F4A4AD /* TemplateInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F66A1BFDB14E00F4A4AD /* TemplateInfo.plist */; };
@@ -74,11 +81,19 @@
 		8B2BC61D1C4C867C002B4181 /* logo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = logo.pdf; sourceTree = "<group>"; };
 		8B4C00801BF7852300A77AD9 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/PTHotKey.framework"; sourceTree = "<group>"; };
 		8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
+		8B57FCFF1C9BDE0E00A260F5 /* ESClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESClassInfo.h; sourceTree = "<group>"; };
+		8B57FD001C9BDE0E00A260F5 /* ESClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESClassInfo.m; sourceTree = "<group>"; };
 		8B60ADA41BABB7F100672762 /* QYXcodePlugIn.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QYXcodePlugIn.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B60ADA71BABB7F100672762 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		8B60ADA91BABB7F100672762 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8B60ADAD1BABB7F100672762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B60AE281BABCEBB00672762 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8B8516841C96B5CD00D927E5 /* ESDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESDialogController.h; sourceTree = "<group>"; };
+		8B8516851C96B5CD00D927E5 /* ESDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESDialogController.m; sourceTree = "<group>"; };
+		8B8516861C96B5CD00D927E5 /* ESDialogController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESDialogController.xib; sourceTree = "<group>"; };
+		8B8516871C96B5CD00D927E5 /* ESInputJsonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESInputJsonController.h; sourceTree = "<group>"; };
+		8B8516881C96B5CD00D927E5 /* ESInputJsonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESInputJsonController.m; sourceTree = "<group>"; };
+		8B8516891C96B5CD00D927E5 /* ESInputJsonController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESInputJsonController.xib; sourceTree = "<group>"; };
 		8B8D837A1BF5B9EC0016A838 /* QYXcodePlugIn.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QYXcodePlugIn.pch; sourceTree = "<group>"; };
 		8B9C6BD71BB1247700242629 /* setupHelper.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = setupHelper.sh; sourceTree = "<group>"; };
 		8B9C6C511BB129ED00242629 /* QYXcodePlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYXcodePlugIn.h; path = Main/QYXcodePlugIn.h; sourceTree = "<group>"; };
@@ -156,6 +171,10 @@
 		8BAE7EB61C47984100A505FD /* NSObject+MethodSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MethodSwizzler.m"; path = "Magic/NSObject+MethodSwizzler.m"; sourceTree = "<group>"; };
 		8BAE7EBC1C4798E700A505FD /* QYPreferencesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYPreferencesModel.h; path = Model/QYPreferencesModel.h; sourceTree = "<group>"; };
 		8BAE7EBD1C4798E700A505FD /* QYPreferencesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYPreferencesModel.m; path = Model/QYPreferencesModel.m; sourceTree = "<group>"; };
+		8BB854F71C9699E30042FC02 /* QYAutoModelMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYAutoModelMenuItem.h; sourceTree = "<group>"; };
+		8BB854F81C9699E30042FC02 /* QYAutoModelMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYAutoModelMenuItem.m; sourceTree = "<group>"; };
+		8BF346801C9C362000BD2BE4 /* QYAutoModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYAutoModelHelper.h; sourceTree = "<group>"; };
+		8BF346811C9C362000BD2BE4 /* QYAutoModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYAutoModelHelper.m; sourceTree = "<group>"; };
 		8BF5F65A1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
 		8BF5F65B1BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8BF5F65D1BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
@@ -335,8 +354,23 @@
 				8BAE7E8E1C4797E300A505FD /* QYRequestVerifiMenuItem.m */,
 				8BAE7E8B1C4797E300A505FD /* QYPreferencesMenuItem.h */,
 				8BAE7E8C1C4797E300A505FD /* QYPreferencesMenuItem.m */,
+				8BB854F71C9699E30042FC02 /* QYAutoModelMenuItem.h */,
+				8BB854F81C9699E30042FC02 /* QYAutoModelMenuItem.m */,
 			);
 			name = Menus;
+			sourceTree = "<group>";
+		};
+		8B8516831C96B5C000D927E5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B8516841C96B5CD00D927E5 /* ESDialogController.h */,
+				8B8516851C96B5CD00D927E5 /* ESDialogController.m */,
+				8B8516861C96B5CD00D927E5 /* ESDialogController.xib */,
+				8B8516871C96B5CD00D927E5 /* ESInputJsonController.h */,
+				8B8516881C96B5CD00D927E5 /* ESInputJsonController.m */,
+				8B8516891C96B5CD00D927E5 /* ESInputJsonController.xib */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		8B9C6BC31BB1231700242629 /* QYFileTemplate */ = {
@@ -464,6 +498,7 @@
 		8BAE7E941C47980200A505FD /* MenusAction */ = {
 			isa = PBXGroup;
 			children = (
+				8BB854FA1C96A1790042FC02 /* AutoModel */,
 				8BAE7E951C47980200A505FD /* AutoGetter */,
 				8BAE7E9B1C47980200A505FD /* Preferences */,
 				8BAE7EA01C47980200A505FD /* RequestVerify */,
@@ -528,6 +563,18 @@
 				8BAE7EBD1C4798E700A505FD /* QYPreferencesModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		8BB854FA1C96A1790042FC02 /* AutoModel */ = {
+			isa = PBXGroup;
+			children = (
+				8B57FCFF1C9BDE0E00A260F5 /* ESClassInfo.h */,
+				8B57FD001C9BDE0E00A260F5 /* ESClassInfo.m */,
+				8BF346801C9C362000BD2BE4 /* QYAutoModelHelper.h */,
+				8BF346811C9C362000BD2BE4 /* QYAutoModelHelper.m */,
+				8B8516831C96B5C000D927E5 /* Controller */,
+			);
+			name = AutoModel;
 			sourceTree = "<group>";
 		};
 		8BF5F6531BFDB14E00F4A4AD /* QYCocoaToouchClass.xctemplate */ = {
@@ -733,6 +780,8 @@
 				8BAE7EAC1C47980200A505FD /* QYPreferencesController.xib in Resources */,
 				8BAE7EAE1C47980200A505FD /* QYShortcutRecorderController.xib in Resources */,
 				8BAE7EAD1C47980200A505FD /* QYRequestVerifyController.xib in Resources */,
+				8B85168D1C96B5CD00D927E5 /* ESInputJsonController.xib in Resources */,
+				8B85168B1C96B5CD00D927E5 /* ESDialogController.xib in Resources */,
 				8BF5F6841BFDB14E00F4A4AD /* TemplateInfo.plist in Resources */,
 				8B9C6BD81BB1247700242629 /* setupHelper.sh in Resources */,
 				8BF5F6831BFDB14E00F4A4AD /* TemplateIcon@2x.png in Resources */,
@@ -780,7 +829,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BB854F91C9699E30042FC02 /* QYAutoModelMenuItem.m in Sources */,
 				8BA8527C1BF7879600EE9398 /* NSMutableIndexSet+NSArray.m in Sources */,
+				8B57FD011C9BDE0E00A260F5 /* ESClassInfo.m in Sources */,
 				8B9C6C531BB129ED00242629 /* QYXcodePlugIn.m in Sources */,
 				8BA852791BF7879600EE9398 /* DVTSourceTextStorage+Operations.m in Sources */,
 				8BA8527E1BF7879600EE9398 /* NSString+Extensions.m in Sources */,
@@ -795,16 +846,19 @@
 				8BAE7EAB1C47980200A505FD /* QYRequestVerifyController.m in Sources */,
 				8BAE7E911C4797E300A505FD /* QYMenuBaseItem.m in Sources */,
 				8BAE7EA71C47980200A505FD /* QYCategoryAutoGetterSetterAchieve.m in Sources */,
+				8B85168A1C96B5CD00D927E5 /* ESDialogController.m in Sources */,
 				8BAE7E8F1C4797E300A505FD /* NSMenu+RegisterMenuItem.m in Sources */,
 				8BA852821BF7879600EE9398 /* NSView+Dumping.m in Sources */,
 				8BAE7EA81C47980200A505FD /* QYAutoGetterAchieve.m in Sources */,
 				8BAE7EAA1C47980200A505FD /* QYShortcutRecorderController.m in Sources */,
+				8BF346821C9C362000BD2BE4 /* QYAutoModelHelper.m in Sources */,
 				8BA852811BF7879600EE9398 /* NSTextView+Operations.m in Sources */,
 				8BA8527D1BF7879600EE9398 /* NSObject+MHLogMethods.m in Sources */,
 				8BAE7E931C4797E300A505FD /* QYRequestVerifiMenuItem.m in Sources */,
 				8BA8527A1BF7879600EE9398 /* NSArray+Operations.m in Sources */,
 				8BAE7E921C4797E300A505FD /* QYPreferencesMenuItem.m in Sources */,
 				8BAE7E901C4797E300A505FD /* QYAutoGetterMenuItem.m in Sources */,
+				8B85168C1C96B5CD00D927E5 /* ESInputJsonController.m in Sources */,
 				8BA852831BF7879600EE9398 /* XCSourceFile+Path.m in Sources */,
 				8BA8527F1BF7879600EE9398 /* NSString+Files.m in Sources */,
 				8BA852851BF7879600EE9398 /* NSString+XCAdditions.m in Sources */,

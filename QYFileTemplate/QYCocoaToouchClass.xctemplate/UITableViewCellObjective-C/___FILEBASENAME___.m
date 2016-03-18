@@ -8,6 +8,7 @@
 //
 
 #import "___FILEBASENAME___.h"
+#import "Masonry.h"
 
 @implementation ___FILEBASENAMEASIDENTIFIER___
 
@@ -20,10 +21,9 @@
 }
 
 
-#pragma mark - bindViewModel
+#pragma mark - bindViewModel && handleEvent
 
 
-#pragma mark - handleEvent
 
 
 #pragma mark - updateConstraints
@@ -32,6 +32,7 @@
  *  tell UIKit that you are using AutoLayout
  */
 + (BOOL)requiresConstraintBasedLayout {
+    
     return YES;
 }
 
@@ -46,6 +47,5 @@
 }
 
 
-#pragma mark - Getter
 
 @end

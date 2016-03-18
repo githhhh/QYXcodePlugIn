@@ -19,6 +19,7 @@
 #define QYMenu                  @"QYPlugin"
 
 #define QYMenu_AutoGetter       @"AutoGetter"
+#define QYMenu_AutoModel        @"AutoModel"
 #define QYMenu_RequestValidator @"RequestValidator"
 #define QYMenu_Settings         @"Preferences"
 
@@ -27,6 +28,7 @@
  */
 #define  RequestVerifiMenuKeyPath @"values.requestVerifiKey"
 #define  AutoGetterMenuKeyPath    @"values.AutoGetterKey"
+#define  AutoModelMenuKeyPath @"values.AutoModelKey"
 #define  SettingsMenuKeyPath      @"values.PreferencesKey"
 
 

@@ -9,6 +9,8 @@
 #import "QYPreferencesModel.h"
 #import <dlfcn.h>
 
+#define ClangFormateContentPath  [[QYIDENotificationHandler sharedHandler] clangFormateContentPath]
+
 @interface QYIDENotificationHandler : NSObject
 
 + (id)sharedHandler;
@@ -18,4 +20,5 @@
 - (QYPreferencesModel *)preferencesModel;
 
 - (void)updatePreferencesModel:(QYPreferencesModel *)preferencesModel;
+
 @end

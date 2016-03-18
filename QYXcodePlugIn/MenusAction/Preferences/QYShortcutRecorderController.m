@@ -128,6 +128,8 @@ shouldUnconditionallyAllowModifierFlags:(NSEventModifierFlags)aModifierFlags
     
     [self.agRecorderControl bind:NSValueBinding toObject:defaults withKeyPath:AutoGetterMenuKeyPath options:nil];
     
+    [self.amRecorderControl bind:NSValueBinding toObject:defaults withKeyPath:AutoModelMenuKeyPath options:nil];
+    
     [self.rvRecorderControl bind:NSValueBinding toObject:defaults withKeyPath:RequestVerifiMenuKeyPath options:nil];
     
     [self.settingRecorderControl bind:NSValueBinding toObject:defaults withKeyPath:SettingsMenuKeyPath options:nil];

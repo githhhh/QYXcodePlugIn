@@ -20,16 +20,18 @@
 #import "QYRequestVerifiMenuItem.h"
 #import "QYPreferencesMenuItem.h"
 #import "QYWindowsCloseProtocol.h"
-
+#import "QYAutoModelMenuItem.h"
+#import "ESInputJsonController.h"
 
 @interface QYIDENotificationHandler () <QYWindowsCloseProtocol>
 //window
 @property (nonatomic, retain) QYRequestVerifyController *requestVerifyWindow;
 @property (nonatomic, retain) QYPreferencesController *preferencesWindow;
-
+@property (nonatomic, retain) ESInputJsonController *autoModelWindow;
 //
 @property (nonatomic, retain) NSString *clangFormateContentPath;
 @property (nonatomic, retain) QYPreferencesModel *preferencesModel;
+
 @end
 
 @implementation QYIDENotificationHandler
@@ -102,6 +104,8 @@
     NSMenu *subMenus = [[NSMenu alloc] init];
     //AutoGetter
     [subMenus registerMenuItem:[QYAutoGetterMenuItem class]];
+    //Auto JSONModel
+    [subMenus registerMenuItem:[QYAutoModelMenuItem class]];
     //请求校验
     [subMenus registerMenuItem:[QYRequestVerifiMenuItem class]];
     //全局设置
@@ -124,6 +128,9 @@
             [self showPreferencesWindow];
         }
     
+        if ([sender isKindOfClass:[QYAutoModelMenuItem class]]) {
+            [self showAutoModelWindow];
+        }
     }).catchOn(dispatch_get_main_queue(),^(NSError *err){
         
         NSString* errInfo = dominWithError(err);
@@ -148,8 +155,23 @@
     [self.preferencesWindow showWindow:self];
 }
 
+-(void)showAutoModelWindow{
+    self.autoModelWindow = [[ESInputJsonController alloc] initWithWindowNibName:@"ESInputJsonController"];
+    self.autoModelWindow.editorView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
+    self.autoModelWindow.currentImpleMentationPath = [QYIDENotificationHandler currentImpleMentationPath];
+    self.autoModelWindow.delegate = self;
+    [self.autoModelWindow showWindow:self];
+}
 
 #pragma mark - publice method
++ (NSString *)currentImpleMentationPath
+{
+    NSString *sourceFilePath = [MHXcodeDocumentNavigator currentFilePath];
+    //.m path
+    sourceFilePath = [sourceFilePath stringByReplacingCharactersInRange:NSMakeRange(sourceFilePath.length - 1, 1)
+                                                                 withString:@"m"];
+    return sourceFilePath;
+}
 
 - (NSString *)clangFormateContentPath{
     if (!_clangFormateContentPath) {
@@ -205,6 +227,12 @@
         self.preferencesWindow.window = nil;
         self.preferencesWindow = nil;
     }
+    
+//    if (self.autoModelWindow) {
+//        [self.autoModelWindow.window close];
+//        self.autoModelWindow.window = nil;
+//        self.autoModelWindow = nil;
+//    }
 }
 
 

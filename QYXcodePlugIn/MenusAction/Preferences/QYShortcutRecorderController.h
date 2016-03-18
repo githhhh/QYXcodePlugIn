@@ -13,7 +13,11 @@
 @interface QYShortcutRecorderController : NSWindowController<SRRecorderControlDelegate, SRValidatorDelegate>
 
 @property (weak) IBOutlet SRRecorderControl *agRecorderControl;
+
+@property (weak) IBOutlet SRRecorderControl *amRecorderControl;
+
 @property (weak) IBOutlet SRRecorderControl *rvRecorderControl;
+
 @property (weak) IBOutlet SRRecorderControl *settingRecorderControl;
 
 @end

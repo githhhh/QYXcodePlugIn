@@ -8,6 +8,7 @@
 // 
 
 #import "___FILEBASENAME___.h"
+#import "Masonry.h"
 
 @implementation ___FILEBASENAMEASIDENTIFIER___
 /*
@@ -23,9 +24,8 @@
     return self;
 }
 
-#pragma mark - bindViewModel
+#pragma mark - bindViewModel && handleEvent
 
-#pragma mark - handleEvent
 
 
 #pragma mark - updateConstraints
@@ -46,17 +46,6 @@
     
     [super updateConstraints];
 }
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
-#pragma mark - Getter
 
 
 
