@@ -27,6 +27,8 @@
     [encoder encodeBool:self.isClearCalalogSearchTitle forKey:@"ClearCalalogSearchTitle"];
     [encoder encodeBool:self.isPromptException forKey:@"PromptException"];
 
+    [encoder encodeBool:self.isPropertyIsOptional forKey:@"PropertyIsOptional"];
+
 }
 
 - (id)initWithCoder:(NSCoder *)decoder
@@ -40,6 +42,8 @@
         self.requestValidatorMethodName = [decoder decodeObjectForKey:@"RequestValidatorMethodName"];
         self.isClearCalalogSearchTitle  = [decoder decodeBoolForKey:@"ClearCalalogSearchTitle"];
         self.isPromptException          = [decoder decodeBoolForKey:@"PromptException"];
+
+        self.isPropertyIsOptional          = [decoder decodeBoolForKey:@"PropertyIsOptional"];
 
     }
     return self;

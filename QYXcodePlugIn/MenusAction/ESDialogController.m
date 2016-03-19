@@ -3,6 +3,7 @@
 //  ESJsonFormat
 //
 //  Created by 尹桥印 on 15/6/26.
+//  Modefied by 唐斌
 //  Copyright (c) 2015年 EnjoySR. All rights reserved.
 //
 
@@ -12,10 +13,9 @@
 
 @property (weak) IBOutlet NSTextField *msgLabel;
 @property (weak) IBOutlet NSTextField *classNameField;
-
-
 @property (weak) IBOutlet NSTextField *businessPrefixField;
 
+@property (weak) IBOutlet NSLayoutConstraint *configBusinessPrefixViewHeightConstraint;
 
 @end
 
@@ -31,8 +31,13 @@
     self.msgLabel.stringValue = self.msg;
     self.classNameField.stringValue = self.className;
     self.businessPrefixField.stringValue = self.prefixName;
-    
+
     [self.classNameField becomeFirstResponder];
+    
+    if (!PreferencesModel.propertyBusinessPrefixEnable) {
+        self.configBusinessPrefixViewHeightConstraint.constant = 74;
+        [self.window.contentView updateConstraints];
+    }
 }
 
 - (void)setDataWithMsg:(NSString *)msg

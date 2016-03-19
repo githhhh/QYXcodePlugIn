@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="businessPrefixField" destination="cfo-5F-hZO" id="4Lo-eU-b4y"/>
                 <outlet property="classNameField" destination="Lz0-SS-Wl7" id="9cj-r6-1Lh"/>
+                <outlet property="configBusinessPrefixViewHeightConstraint" destination="N9R-s2-kM7" id="oDL-HI-wRv"/>
                 <outlet property="msgLabel" destination="yaf-0Z-Omg" id="gS1-Ns-xHx"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -17,50 +18,80 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="350" height="151"/>
+            <rect key="contentRect" x="196" y="240" width="350" height="67"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="350" height="151"/>
+                <rect key="frame" x="0.0" y="0.0" width="350" height="67"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lz0-SS-Wl7">
-                        <rect key="frame" x="100" y="89" width="150" height="22"/>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lz0-SS-Wl7">
+                        <rect key="frame" x="100" y="10" width="150" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="OGZ-o6-2Js"/>
+                        </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" alignment="center" bezelStyle="round" id="xdf-GD-G2k">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-0Z-Omg">
-                        <rect key="frame" x="6" y="119" width="338" height="17"/>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-0Z-Omg">
+                        <rect key="frame" x="1" y="40" width="351" height="17"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Multiline LabelMultiline" id="0nu-Df-5FF">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfo-5F-hZO">
-                        <rect key="frame" x="100" y="20" width="150" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" alignment="center" bezelStyle="round" id="s2h-cn-TO9">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gwy-eI-vzt">
-                        <rect key="frame" x="6" y="50" width="338" height="17"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Default Business Prefix  is " id="BsE-V6-LF2">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="saw-Xb-X5Y">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="0.0"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gwy-eI-vzt">
+                                <rect key="frame" x="0.0" y="-30" width="350" height="17"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Default Business Prefix  is " id="BsE-V6-LF2">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cfo-5F-hZO">
+                                <rect key="frame" x="100" y="-60" width="150" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="mco-og-3PQ"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" alignment="center" bezelStyle="round" id="s2h-cn-TO9">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Gwy-eI-vzt" firstAttribute="centerX" secondItem="cfo-5F-hZO" secondAttribute="centerX" id="7Fh-ru-32O"/>
+                            <constraint firstItem="cfo-5F-hZO" firstAttribute="centerX" secondItem="saw-Xb-X5Y" secondAttribute="centerX" id="DW6-PA-p92"/>
+                            <constraint firstItem="cfo-5F-hZO" firstAttribute="top" secondItem="Gwy-eI-vzt" secondAttribute="bottom" constant="8" symbolic="YES" id="K7V-nF-e5l"/>
+                            <constraint firstAttribute="height" id="N9R-s2-kM7"/>
+                            <constraint firstItem="Gwy-eI-vzt" firstAttribute="leading" secondItem="saw-Xb-X5Y" secondAttribute="leading" constant="2" id="PJq-Fl-fdu"/>
+                            <constraint firstItem="Gwy-eI-vzt" firstAttribute="top" secondItem="saw-Xb-X5Y" secondAttribute="top" constant="13" id="Ucm-KE-vAc"/>
+                        </constraints>
+                    </customView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="saw-Xb-X5Y" firstAttribute="trailing" secondItem="yaf-0Z-Omg" secondAttribute="trailing" id="KzI-lg-ota"/>
+                    <constraint firstItem="yaf-0Z-Omg" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="3" id="M05-mH-woK"/>
+                    <constraint firstItem="Lz0-SS-Wl7" firstAttribute="centerX" secondItem="saw-Xb-X5Y" secondAttribute="centerX" id="OhQ-3p-FaP"/>
+                    <constraint firstItem="saw-Xb-X5Y" firstAttribute="top" secondItem="Lz0-SS-Wl7" secondAttribute="bottom" constant="10" id="R6B-Bl-iCG"/>
+                    <constraint firstItem="yaf-0Z-Omg" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="10" id="Rtl-9L-ZBn"/>
+                    <constraint firstItem="Lz0-SS-Wl7" firstAttribute="top" secondItem="yaf-0Z-Omg" secondAttribute="bottom" constant="8" symbolic="YES" id="VHX-On-TDl"/>
+                    <constraint firstItem="saw-Xb-X5Y" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="Znh-ar-5uB"/>
+                    <constraint firstAttribute="trailing" secondItem="saw-Xb-X5Y" secondAttribute="trailing" id="rxC-WM-771"/>
+                    <constraint firstAttribute="bottom" secondItem="saw-Xb-X5Y" secondAttribute="bottom" id="zM0-3o-POU"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="-847" y="29.5"/>
+            <point key="canvasLocation" x="-811" y="28.5"/>
         </window>
     </objects>
 </document>

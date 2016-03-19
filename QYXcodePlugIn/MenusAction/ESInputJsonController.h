@@ -3,6 +3,7 @@
 //  ESJsonFormat
 //
 //  Created by 尹桥印 on 15/6/19.
+//  Modefied by 唐斌
 //  Copyright (c) 2015年 EnjoySR. All rights reserved.
 //
 
@@ -14,6 +15,6 @@
 @property (nonatomic,strong) NSTextView *editorView;
 @property (nonatomic,copy) NSString *currentImpleMentationPath;
 
-
 @property (nonatomic,weak) id<QYWindowsCloseProtocol> delegate;
+
 @end

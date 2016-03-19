@@ -6,10 +6,12 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="QYPreferencesController">
             <connections>
+                <outlet property="businessPrefixButton" destination="Npq-kt-kzM" id="sxe-SE-U1U"/>
                 <outlet property="clearCalalogSearch" destination="xhC-q4-Rrn" id="R8h-HH-o8Q"/>
                 <outlet property="isReminder" destination="xP9-RX-XKr" id="uUC-5i-zyH"/>
                 <outlet property="isTestData" destination="MbT-UP-zJX" id="pZ6-fC-SWm"/>
                 <outlet property="msgLable" destination="TJ3-5O-G0x" id="p4f-ex-Tif"/>
+                <outlet property="propertyIsOptionalButton" destination="pK0-0Q-DD2" id="h0K-RF-7bV"/>
                 <outlet property="requestBaseName" destination="9yL-bn-kZM" id="90q-LG-3q8"/>
                 <outlet property="setingTextView" destination="aXT-xD-2lh" id="Dts-MN-oo8"/>
                 <outlet property="testDataMethodName" destination="cMI-p7-e0J" id="8vb-Ol-Yst"/>
@@ -22,7 +24,7 @@
         <window title="设置" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="1Qn-2A-PWI">
             <windowStyleMask key="styleMask" titled="YES"/>
             <rect key="contentRect" x="768" y="530" width="1021" height="605"/>
-            <rect key="screenRect" x="-464" y="800" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="VSE-lm-Ldo">
                 <rect key="frame" x="0.0" y="0.0" width="1021" height="605"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -247,9 +249,31 @@ Gw
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4kU-1G-8oX">
+                        <rect key="frame" x="130" y="102" width="185" height="19"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="AutoModel" id="c4n-EY-6Uo">
+                            <font key="font" size="17" name=".HelveticaNeueDeskInterface-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pK0-0Q-DD2">
+                        <rect key="frame" x="133" y="77" width="132" height="18"/>
+                        <buttonCell key="cell" type="check" title="忽略大小写" bezelStyle="regularSquare" imagePosition="left" inset="2" id="yi7-Ih-mv4">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" size="13" name="STHeitiSC-Light"/>
+                        </buttonCell>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Npq-kt-kzM">
+                        <rect key="frame" x="133" y="46" width="132" height="18"/>
+                        <buttonCell key="cell" type="check" title="使用业务前缀" bezelStyle="regularSquare" imagePosition="left" inset="2" id="UJt-E8-9BB">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" size="13" name="STHeitiSC-Light"/>
+                        </buttonCell>
+                    </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="-2.5" y="-105.5"/>
+            <point key="canvasLocation" x="19.5" y="-149.5"/>
         </window>
     </objects>
 </document>

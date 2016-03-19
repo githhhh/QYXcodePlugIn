@@ -338,12 +338,11 @@ static NSInteger const groupBaseCount = 3;
 - (NSDictionary *)configDic
 {
     if (!_configDic) {
-        QYPreferencesModel *preferencesModel = [[QYIDENotificationHandler sharedHandler] preferencesModel];
         
-        if (!preferencesModel.getterJSON || preferencesModel.getterJSON.length == 0) {
+        if (!PreferencesModel.getterJSON || PreferencesModel.getterJSON.length == 0) {
             return nil;
         }
-        NSData *jsonData = [preferencesModel.getterJSON dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *jsonData = [PreferencesModel.getterJSON dataUsingEncoding:NSUTF8StringEncoding];
         NSError *err;
         NSDictionary *dic =
         [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];

@@ -25,9 +25,8 @@
 }
 
 -(void)sw__pullStateFromDictionary:(id)arg{
-    QYPreferencesModel *preferencesModel =  [[QYIDENotificationHandler sharedHandler] preferencesModel];
     
-    if (preferencesModel.isClearCalalogSearchTitle && [arg count]==2 ) {
+    if (PreferencesModel.isClearCalalogSearchTitle && [arg count]==2 ) {
         if ([[arg allKeys] containsObject:@"previousFilter"]) {
             [arg setObject:@"" forKey:@"previousFilter"];
         }

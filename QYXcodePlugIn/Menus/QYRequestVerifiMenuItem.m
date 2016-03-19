@@ -43,7 +43,7 @@
         NSString *soureString = [NSString stringWithContentsOfFile:currentFilePath encoding:NSUTF8StringEncoding error:nil];
     
         //读取配置
-        NSString *requstBName = [[QYIDENotificationHandler sharedHandler] preferencesModel].requestClassBaseName;
+        NSString *requstBName = PreferencesModel.requestClassBaseName;
         
         // 验证当前.h 文件的父类是否是制定类
         NSError *matchError;

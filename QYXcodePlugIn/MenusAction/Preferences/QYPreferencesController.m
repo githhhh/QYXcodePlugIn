@@ -40,11 +40,25 @@
  *  录制热键
  */
 @property (nonatomic, retain) QYShortcutRecorderController *shortcutRC;
-
-
+/**
+ *  清除CalalogSearch
+ */
 @property (weak) IBOutlet NSButton *clearCalalogSearch;
-
+/**
+ *  提醒异常
+ */
 @property (weak) IBOutlet NSButton *isReminder;
+
+
+
+/**
+ *  是否忽略大小写
+ */
+@property (weak) IBOutlet NSButton *propertyIsOptionalButton;
+/**
+ *  业务前缀
+ */
+@property (weak) IBOutlet NSButton *businessPrefixButton;
 
 @end
 
@@ -62,27 +76,32 @@
 
     dispatch_promise_on(dispatch_get_main_queue(),^(){
         
-        QYPreferencesModel *preferencesModel = [[QYIDENotificationHandler sharedHandler] preferencesModel];
 
         self.msgLable.hidden                 = NO;
         self.msgLable.textColor              = [NSColor redColor];
 
-        self.requestBaseName.stringValue     = !IsEmpty(preferencesModel.requestClassBaseName ) ?preferencesModel.requestClassBaseName : @"QYRequest";
+        self.requestBaseName.stringValue     = !IsEmpty(PreferencesModel.requestClassBaseName ) ?PreferencesModel.requestClassBaseName : @"QYRequest";
 
-        self.isTestData.state                = preferencesModel.isCreatTestMethod?1:0;
+        self.isTestData.state                = PreferencesModel.isCreatTestMethod?1:0;
 
-        self.testDataMethodName.enabled = preferencesModel.isCreatTestMethod;
+        self.testDataMethodName.enabled = PreferencesModel.isCreatTestMethod;
         
         
-        self.clearCalalogSearch.state        = preferencesModel.isClearCalalogSearchTitle?1:0;
-        self.isReminder.state                = preferencesModel.isPromptException?1:0;
+        self.clearCalalogSearch.state        = PreferencesModel.isClearCalalogSearchTitle?1:0;
+        self.isReminder.state                = PreferencesModel.isPromptException?1:0;
 
-        self.testDataMethodName.stringValue  = !IsEmpty(preferencesModel.testMethodName) ?preferencesModel.testMethodName: @"testData";
+        self.testDataMethodName.stringValue  = !IsEmpty(PreferencesModel.testMethodName) ?PreferencesModel.testMethodName: @"testData";
 
-        self.validatorMethodName.stringValue = !IsEmpty(preferencesModel.requestValidatorMethodName)  ?preferencesModel.requestValidatorMethodName: @"validatorResult";
+        self.validatorMethodName.stringValue = !IsEmpty(PreferencesModel.requestValidatorMethodName)  ?PreferencesModel.requestValidatorMethodName: @"validatorResult";
 
-        self.setingTextView.string           = !IsEmpty(preferencesModel.getterJSON) ? preferencesModel.getterJSON : @"{\n\"UIView\":[\n   \"%@ = [[UIView alloc] init];\",\n   \"%@.backgroundColor = [UIColor clearColor];\"\n  ]\n}\n";
-    
+        self.setingTextView.string           = !IsEmpty(PreferencesModel.getterJSON) ? PreferencesModel.getterJSON : @"{\n\"UIView\":[\n   \"%@ = [[UIView alloc] init];\",\n   \"%@.backgroundColor = [UIColor clearColor];\"\n  ]\n}\n";
+        /**
+         *  这里因为默认启用,所以这么设置
+         */
+        self.propertyIsOptionalButton.state = PreferencesModel.isPropertyIsOptional?0:1;
+        self.businessPrefixButton.state = PreferencesModel.propertyBusinessPrefixEnable?0:1;
+
+        
     });
 }
 
@@ -92,10 +111,7 @@
     
     self.testDataMethodName.enabled = (self.isTestData.state == 1);
 
-    
 }
-
-
 
 #pragma mark - 录制菜单热键。。
 
@@ -179,6 +195,12 @@
     preferencesModel.testMethodName             = self.testDataMethodName.stringValue;
     preferencesModel.requestValidatorMethodName = self.validatorMethodName.stringValue;
     preferencesModel.isPromptException          = self.isReminder.state == 1?YES:NO;
+    
+    /**
+     *  这里因为默认为启用,所以这么设置
+     */
+    preferencesModel.isPropertyIsOptional       = self.propertyIsOptionalButton.state == 1?NO:YES;
+    preferencesModel.propertyBusinessPrefixEnable = self.businessPrefixButton.state == 1?NO:YES;
     
     [[QYIDENotificationHandler sharedHandler] updatePreferencesModel:preferencesModel];
 }

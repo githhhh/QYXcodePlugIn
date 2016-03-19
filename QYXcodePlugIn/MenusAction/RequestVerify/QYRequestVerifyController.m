@@ -135,7 +135,7 @@ static NSString *NumberClass = @"[NSNumber class]";
 - (NSString *)getValidatorMethodStrWithJsonData:(id)data
 {
     NSString *validatorStr = [self getJsonString:data withValidator:YES];
-    NSString *vMethodName = [[QYIDENotificationHandler sharedHandler] preferencesModel].requestValidatorMethodName;
+    NSString *vMethodName = PreferencesModel.requestValidatorMethodName;
     
     NSMutableString *validatorMStr = [NSMutableString stringWithCapacity:0];
     [validatorMStr appendString:[NSString stringWithFormat:@"\n- (id)%@ {\n", vMethodName ?: @"validatorResult"]];
@@ -150,10 +150,10 @@ static NSString *NumberClass = @"[NSNumber class]";
     /**
      *  本地测试数据
      */
-    if (![[QYIDENotificationHandler sharedHandler] preferencesModel].isCreatTestMethod) {
+    if (!PreferencesModel.isCreatTestMethod) {
         return nil;
     }
-    NSString *tdMdName = [[QYIDENotificationHandler sharedHandler] preferencesModel].testMethodName;
+    NSString *tdMdName = PreferencesModel.testMethodName;
     NSString *testDataStr = [self getJsonString:data withValidator:NO];
     NSMutableString *testDataMethodStr = [NSMutableString stringWithCapacity:0];
     [testDataMethodStr

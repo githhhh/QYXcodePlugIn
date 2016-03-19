@@ -9,6 +9,9 @@
 
 #import "QYAutoModelMenuItem.h"
 #import "Promise.h"
+#import "MHXcodeDocumentNavigator.h"
+#import "NSString+Files.h"
+#import "NSString+Extensions.h"
 
 @implementation QYAutoModelMenuItem
 -(instancetype)init{
@@ -25,10 +28,27 @@
     [super menuItemAction:sender];
     
     //action
-    
     self.windowDelegate = [QYIDENotificationHandler sharedHandler];
     
-    PMKPromise *promise = [PMKPromise promiseWithValue:@1];
+    PMKPromise *promise = dispatch_promise_on(dispatch_get_main_queue(), ^id(){
+    
+        NSString *currentFilePath = [MHXcodeDocumentNavigator currentFilePath];
+        BOOL isHeaderFile = [currentFilePath isHeaderFilePath];
+    
+        if (!isHeaderFile)
+            return error(@"要在头文件调用该功能哦！！", 0, nil);
+        
+        //读取配置
+        NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
+        // 验证当前.h 文件的父类是否是制定类
+        NSError *matchError;
+        NSArray *contents =
+        [textView.string matcheGroupWith:[NSString stringWithFormat:@"@\\w+\\s*(\\w+)\\s*\\:\\s+%@\\s", @"JSONModel"] error:&matchError];
+        if (matchError||!contents||[contents count] == 0)
+            return error(@"目前只支持JSONModel的子类哦！马上就可以支持NSObject的子类~\(≧▽≦)/~啦啦啦", 0, nil);
+        
+        return @(1);
+    });
     
     if (self.windowDelegate && [self.windowDelegate respondsToSelector:@selector(receiveMenuItemPromise:sender:)]) [self.windowDelegate receiveMenuItemPromise:promise sender:self];
 }

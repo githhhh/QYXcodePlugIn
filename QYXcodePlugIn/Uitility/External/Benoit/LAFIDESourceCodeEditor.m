@@ -72,7 +72,7 @@ NSString * const LAFAddImportOperationImportRegexPattern = @"^#.*(import|include
 }
 
 + (void)showAboveCaret:(NSString *)text color:(NSColor *)color {
-    if (![[QYIDENotificationHandler sharedHandler] preferencesModel].isPromptException) {
+    if (!PreferencesModel.isPromptException) {
         return;
     }
     
@@ -104,7 +104,7 @@ NSString * const LAFAddImportOperationImportRegexPattern = @"^#.*(import|include
 }
 
 + (void)showAboveCaretOnCenter:(NSString *)text color:(NSColor *)color {
-    if (![[QYIDENotificationHandler sharedHandler] preferencesModel].isPromptException) {
+    if (!PreferencesModel.isPromptException) {
         return;
     }
     

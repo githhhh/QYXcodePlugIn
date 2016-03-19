@@ -11,6 +11,9 @@
 
 #define ClangFormateContentPath  [[QYIDENotificationHandler sharedHandler] clangFormateContentPath]
 
+#define PreferencesModel  [[QYIDENotificationHandler sharedHandler] preferencesModel]
+
+
 @interface QYIDENotificationHandler : NSObject
 
 + (id)sharedHandler;

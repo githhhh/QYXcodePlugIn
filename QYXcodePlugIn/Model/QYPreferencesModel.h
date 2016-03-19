@@ -18,4 +18,16 @@
 @property (nonatomic, assign) BOOL     isClearCalalogSearchTitle;
 @property (nonatomic, assign) BOOL     isPromptException;
 
+/**
+ *  AutoModel
+ */
+/**
+ *  忽略大小写,默认启用
+ */
+@property (nonatomic,assign) BOOL isPropertyIsOptional;
+/**
+ *  属性业务前缀,默认启用
+ */
+@property (nonatomic,assign) BOOL propertyBusinessPrefixEnable;
+
 @end

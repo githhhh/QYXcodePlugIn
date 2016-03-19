@@ -228,11 +228,11 @@
         self.preferencesWindow = nil;
     }
     
-//    if (self.autoModelWindow) {
-//        [self.autoModelWindow.window close];
-//        self.autoModelWindow.window = nil;
-//        self.autoModelWindow = nil;
-//    }
+    if (self.autoModelWindow) {
+        [self.autoModelWindow.window close];
+        self.autoModelWindow.window = nil;
+        self.autoModelWindow = nil;
+    }
 }
 
 

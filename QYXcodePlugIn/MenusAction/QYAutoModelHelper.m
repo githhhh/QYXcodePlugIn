@@ -95,19 +95,53 @@
     if (classInfo.classDic.count==0) {
         return @"";
     }
-    NSMutableString *result = [NSMutableString stringWithString:@"\n+ (BOOL)propertyIsOptional:(NSString *)propertyName {\n    return YES;\n}\n\n+ (JSONKeyMapper*)keyMapper\n{\n    return [[JSONKeyMapper alloc] initWithDictionary:@{\n"];
+    
+    NSMutableString *result = [NSMutableString string];
+    if (!PreferencesModel.isPropertyIsOptional) {
+        [result appendString:@"\n+ (BOOL)propertyIsOptional:(NSString *)propertyName {\n    return YES;\n}\n"];
+    }
+    
+    [result appendString:@"\n+ (JSONKeyMapper*)keyMapper\n{\n    return [[JSONKeyMapper alloc] initWithDictionary:@{\n"];
 
     __block NSInteger idx = 0;
-    [classInfo.mapDic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull businessKey, BOOL * _Nonnull stop) {
+    
+    if (!PreferencesModel.propertyBusinessPrefixEnable) {
         
-        NSString *mapStr = [NSString stringWithFormat:@"@\"%@\" : @\"%@\" ,",key,businessKey];
+        [classInfo.mapDic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull businessKey, BOOL * _Nonnull stop) {
+            
+            NSString *mapStr = [NSString stringWithFormat:@"@\"%@\" : @\"%@\" ,",key,businessKey];
+            
+            idx ++;
+            
+            if (idx == [classInfo.mapDic count]) {
+                
+                mapStr = [mapStr substringToIndex:mapStr.length -2];
+                
+            }
+            
+            [result appendString:mapStr];
+            
+        }];
         
-        idx ++;
-        if (idx == [classInfo.mapDic count]) {
-            mapStr = [mapStr substringToIndex:mapStr.length -2];
-        }
-        [result appendString:mapStr];
-    }];
+    }else{
+        
+        [classInfo.classDic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+           
+            NSString *mapStr = [NSString stringWithFormat:@"@\"%@\" : @\"%@\" ,",key,key];
+            
+            idx ++;
+            
+            if (idx == [classInfo.mapDic count]) {
+                
+                mapStr = [mapStr substringToIndex:mapStr.length -2];
+                
+            }
+            
+            [result appendString:mapStr];
+
+        }];
+        
+    }
     
     [result appendString:@"\n}];\n}\n"];
     
@@ -212,74 +246,82 @@
  *
  *  @return
  */
-+ (NSString *)formatObjcWithKey:(NSString *)key value:(NSObject *)value classInfo:(ESClassInfo *)classInfo{
++ (NSString *)formatObjcWithKey:(NSString *)key value:(NSObject *)value classInfo:(ESClassInfo *)classInfo {
     NSString *qualifierStr = @"copy";
     NSString *typeStr = @"NSString";
     //转换key 为业务属性名
     NSString *businessKey = key;
-    if (classInfo.mapDic && [classInfo.mapDic count]>0) {
-        businessKey = classInfo.mapDic[key];
+
+    if (!PreferencesModel.propertyBusinessPrefixEnable) {
+        if (classInfo.mapDic && [classInfo.mapDic count] > 0) {
+            businessKey = classInfo.mapDic[key];
+        }
     }
-    //判断大小写
-    
-    
+
     if ([value isKindOfClass:[NSString class]]) {
-        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,businessKey];
-    }else if([value isKindOfClass:[@(YES) class]]){
-        //the 'NSCFBoolean' is private subclass of 'NSNumber'
+        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;", qualifierStr, typeStr, businessKey];
+    } else if ([value isKindOfClass:[@(YES)class]]) {
+        // the 'NSCFBoolean' is private subclass of 'NSNumber'
         qualifierStr = @"assign";
         typeStr = @"BOOL";
-        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ %@;",qualifierStr,typeStr,businessKey];
-    }else if([value isKindOfClass:[NSNumber class]]){
+        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ %@;", qualifierStr, typeStr, businessKey];
+    } else if ([value isKindOfClass:[NSNumber class]]) {
         qualifierStr = @"assign";
-        NSString *valueStr = [NSString stringWithFormat:@"%@",value];
-        if ([valueStr rangeOfString:@"."].location!=NSNotFound){
+        NSString *valueStr = [NSString stringWithFormat:@"%@", value];
+
+        if ([valueStr rangeOfString:@"."].location != NSNotFound) {
             typeStr = @"CGFloat";
-        }else{
+        } else {
             NSNumber *valueNumber = (NSNumber *)value;
-            if ([valueNumber longValue]<2147483648) {
+
+            if ([valueNumber longValue] < 2147483648) {
                 typeStr = @"NSInteger";
-            }else{
+            } else {
                 typeStr = @"long long";
             }
         }
-        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ %@;",qualifierStr,typeStr,businessKey];
-    }else if([value isKindOfClass:[NSArray class]]){
+
+        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ %@;", qualifierStr, typeStr, businessKey];
+    } else if ([value isKindOfClass:[NSArray class]]) {
         NSArray *array = (NSArray *)value;
-        
-        //May be 'NSString'，will crash
+
+        // May be 'NSString'，will crash
         NSString *genericTypeStr = @"";
         NSObject *firstObj = [array firstObject];
+
         if ([firstObj isKindOfClass:[NSDictionary class]]) {
             ESClassInfo *childInfo = classInfo.propertyArrayDic[key];
-            genericTypeStr = [NSString stringWithFormat:@"<%@ *>",childInfo.className];
-        }else if ([firstObj isKindOfClass:[NSString class]]){
+            genericTypeStr = [NSString stringWithFormat:@"<%@ *>", childInfo.className];
+        } else if ([firstObj isKindOfClass:[NSString class]]) {
             genericTypeStr = @"<NSString *>";
-        }else if ([firstObj isKindOfClass:[NSNumber class]]){
+        } else if ([firstObj isKindOfClass:[NSNumber class]]) {
             genericTypeStr = @"<NSNumber *>";
         }
-        
+
         qualifierStr = @"strong";
         typeStr = @"NSArray";
-        
+
         /**
          *  判断版本号
          */
-//        if ([ESJsonFormatSetting defaultSetting].useGeneric && [ESUtils isXcode7AndLater]) {
-        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@%@ *%@;",qualifierStr,typeStr,genericTypeStr,businessKey];
-//        }
-//        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
-        
-    }else if ([value isKindOfClass:[NSDictionary class]]){
+        //        if ([ESJsonFormatSetting defaultSetting].useGeneric && [ESUtils isXcode7AndLater]) {
+        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@%@ *%@;", qualifierStr, typeStr, genericTypeStr,
+                businessKey];
+        //        }
+        //        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,key];
+    } else if ([value isKindOfClass:[NSDictionary class]]) {
         qualifierStr = @"strong";
         ESClassInfo *childInfo = classInfo.propertyClassDic[key];
         typeStr = childInfo.className;
+
         if (!typeStr) {
             typeStr = [key capitalizedString];
         }
-        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,businessKey];
+
+        return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;", qualifierStr, typeStr, businessKey];
     }
-    return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;",qualifierStr,typeStr,businessKey];
+
+    return [NSString stringWithFormat:@"@property (nonatomic, %@) %@ *%@;", qualifierStr, typeStr, businessKey];
 }
 
 @end

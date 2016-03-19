@@ -3,6 +3,7 @@
 //  ESJsonFormat
 //
 //  Created by 尹桥印 on 15/6/19.
+//  Modefied by 唐斌
 //  Copyright (c) 2015年 EnjoySR. All rights reserved.
 //
 
@@ -15,10 +16,10 @@
 #import "NSString+Extensions.h"
 #import "QYIDENotificationHandler.h"
 #import "QYClangFormat.h"
+#import "NSString+Files.h"
 
-#define ESRootClassName @"ESRootClass"
 
-@interface ESInputJsonController ()<NSTextViewDelegate,NSWindowDelegate>
+@interface ESInputJsonController ()<NSTextViewDelegate,NSWindowDelegate,NSTextFieldDelegate>
 
 @property (unsafe_unretained) IBOutlet NSTextView *inputTextView;
 
@@ -28,6 +29,12 @@
 
 @property (weak) IBOutlet NSScrollView *scrollView;
 
+@property (weak) IBOutlet NSTextField *propertyPrefixField;
+
+@property (weak) IBOutlet NSLayoutConstraint *configPrefixViewTopConstraint;
+
+@property (weak) IBOutlet NSLayoutConstraint *scrollViewTopConstraint;
+
 @property (nonatomic,retain) ESClassInfo  *classInfo;
 
 @end
@@ -36,27 +43,51 @@
 
 #pragma mark - Window Life cycle
 
-- (void)windowDidLoad {
-    [super windowDidLoad];
-    self.inputTextView.delegate = self;
-    self.window.delegate = self;
+-(void)dealloc{
+    _inputTextView.delegate = nil;
+    _inputTextView = nil;
+    
+    _propertyPrefixField.delegate = nil;
+    _propertyPrefixField = nil;
+    
+    NSLog(@"====ESInputJsonController=====dealloc=");
 }
 
-/**
- *  window Notification
- */
--(void)windowWillClose:(NSNotification *)notification{
-    if ([self.delegate respondsToSelector:@selector(windowDidClose)]) {
-        [self.delegate windowDidClose];
+- (void)windowDidLoad {
+    [super windowDidLoad];
+    
+    self.inputTextView.delegate = self;
+    self.propertyPrefixField.delegate = self;
+    self.window.delegate = self;
+    
+    
+    if (!PreferencesModel.propertyBusinessPrefixEnable) {
+        NSString *rootClassName = [self.currentImpleMentationPath currentClassName];
+        self.propertyPrefixField.stringValue = [rootClassName lowercaseString];
+        [self.propertyPrefixField becomeFirstResponder];
+        
+        self.configPrefixViewTopConstraint.constant = 0;
+        self.scrollViewTopConstraint.constant = 52;
+        [self.window.contentView updateConstraints];
     }
+    
 }
+
+///**
+// *  window Notification
+// */
+//-(void)windowWillClose:(NSNotification *)notification{
+//    if ([self.delegate respondsToSelector:@selector(windowDidClose)]) {
+//        [self.delegate windowDidClose];
+//    }
+//}
 
 
 
 #pragma mark - xib Action
 
 - (IBAction)cancelButtonClick:(NSButton *)sender {
-    [super close];
+    [self closeWindown];
 }
 
 - (IBAction)enterButtonClick:(NSButton *)sender {
@@ -71,7 +102,14 @@
             return error(@"Error：Json is invalid", 0, nil);
         }
         
-        self.classInfo = [[ESClassInfo alloc] initWithClassNameKey:@"rt" ClassName:ESRootClassName classDic:result];
+        NSString *rootClassName = [self.currentImpleMentationPath currentClassName];
+        
+        if (!PreferencesModel.propertyBusinessPrefixEnable) {
+            self.classInfo = [[ESClassInfo alloc] initWithClassNameKey:self.propertyPrefixField.stringValue ClassName:rootClassName classDic:result];
+        }else {
+            self.classInfo = [[ESClassInfo alloc] initWithClassNameKey:[rootClassName lowercaseString] ClassName:rootClassName classDic:result];
+        }
+        
         [self dealPropertyNameWithClassInfo:self.classInfo];
 
         return  self.editorView.string;
@@ -165,8 +203,7 @@
         [LAFIDESourceCodeEditor showAboveCaret:dominStr color:[NSColor yellowColor]];
         
     }).finallyOn(dispatch_get_main_queue(),^{
-        
-        [super close];
+        [self closeWindown];
     });
     
 }
@@ -174,6 +211,14 @@
 
 
 #pragma mark - Private Methode
+
+-(void)closeWindown{
+    [super close];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(windowDidClose)]) {
+        [self.delegate windowDidClose];
+    }
+}
+
 
 /**
  *  检查是否是一个有效的JSON
@@ -280,6 +325,13 @@
     return classInfo;
 }
 
+#pragma mark - nstextfiled delegate
+
+-(void)controlTextDidEndEditing:(NSNotification *)notification{
+    if ( [[[notification userInfo] objectForKey:@"NSTextMovement"] intValue] == NSReturnTextMovement){
+        [self enterButtonClick:self.enterButton];
+    }
+}
 
 #pragma mark - NSTextViewDelegate
 
