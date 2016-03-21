@@ -33,7 +33,7 @@
 ## 演示
 ![auto-getter](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/auto-getter.gif)
 
-####AutoMode
+#### AutoMode
 一键生成JSOMMode 子类,包含map方法。
 解析JSON:
 		
