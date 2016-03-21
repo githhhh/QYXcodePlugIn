@@ -33,6 +33,36 @@
 ## 演示
 ![auto-getter](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/auto-getter.gif)
 
+####AutoMode
+一键生成JSOMMode 子类,包含map方法。
+解析JSON:
+		
+		 {
+		    "name": "王五",
+		    "gender": "man",
+		    "age": 15,
+		    "height": "140cm",
+		    "addr": {
+		        "province": "fujian",
+		        "city": "quanzhou",
+		        "code": "300000"
+		    },
+		    "hobby": [
+		        {
+		            "name": "billiards",
+		            "code": "1"
+		        },
+		        {
+		            "name": "computerGame",
+		            "code": "2"
+		        }
+		    ]
+		}
+太简单？？？去试试复杂的[大App 折扣首页数据接口](https://github.com/qyer-inc/qyer_doc/wiki/QYER-API-DISCOUNT-ZK-DISCOUNT-INDEX)
+同样可以完美支持。
+
+修改自[ESJsonFormat](https://github.com/EnjoySR/ESJsonFormat-Xcode),并完善了一些逻辑。
+		
 ![auto-model](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/auto-model.gif)
 ## 如何扩展功能
 
