@@ -32,6 +32,8 @@
 
 ## 演示
 ![auto-getter](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/auto-getter.gif)
+
+![auto-model](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/auto-model.gif)
 ## 如何扩展功能
 
 -ShortcutRecorder(project)
