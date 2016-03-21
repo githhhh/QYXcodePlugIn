@@ -26,7 +26,7 @@ static QYXcodePlugIn *sharedPlugin;
 //    GetEventParameter(anEvent, kEventParamDirectObject, typeEventHotKeyID, NULL, sizeof(lafRef), NULL, &lafRef);
 //    switch (lafRef.id) {
 //        case 2: {
-//            NSLog(@"============");
+//            LOG(@"============");
 //        } break;
 //    }
 //    return noErr;

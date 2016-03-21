@@ -29,7 +29,7 @@
     
     // 3
     if (!originalMethod) {
-        NSLog(@"Error: originalMethod is nil, did you spell it incorrectly? %@", originalMethod);
+        LOG(@"Error: originalMethod is nil, did you spell it incorrectly? %@", originalMethod);
         return;
     }
     

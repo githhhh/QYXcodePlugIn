@@ -190,7 +190,7 @@ NSString * launchClangFormatPath(){
                           @"-c" ,
                           [NSString stringWithFormat:@"%@", commandToRun],
                           nil];
-//    NSLog(@"run command:%@", commandToRun);
+//    LOG(@"run command:%@", commandToRun);
     [task setArguments:arguments];
     
     NSPipe *pipe = [NSPipe pipe];

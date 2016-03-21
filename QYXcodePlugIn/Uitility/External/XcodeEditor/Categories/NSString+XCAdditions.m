@@ -58,7 +58,7 @@
 @implementation NSString (ParseXCSettings)
 - (NSDictionary*)xcSettingsDictionary {
     NSArray *settingsArray = [self componentsSeparatedByString:@"\n"];
-//    NSLog(@"%@", settingsArray);
+//    LOG(@"%@", settingsArray);
     NSCharacterSet *whitespaceSet = [NSCharacterSet whitespaceCharacterSet];
     NSMutableDictionary *settingsDictionary = [NSMutableDictionary dictionary];
     [settingsArray enumerateObjectsUsingBlock:^(NSString *keyValuePair, NSUInteger idx, BOOL *stop) {

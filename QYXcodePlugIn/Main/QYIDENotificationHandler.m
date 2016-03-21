@@ -104,10 +104,14 @@
     NSMenu *subMenus = [[NSMenu alloc] init];
     //AutoGetter
     [subMenus registerMenuItem:[QYAutoGetterMenuItem class]];
+
     //Auto JSONModel
     [subMenus registerMenuItem:[QYAutoModelMenuItem class]];
+
     //请求校验
     [subMenus registerMenuItem:[QYRequestVerifiMenuItem class]];
+    [subMenus insertItem:[NSMenuItem separatorItem] atIndex:3];
+
     //全局设置
     [subMenus registerMenuItem:[QYPreferencesMenuItem class]];
     

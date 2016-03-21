@@ -44,12 +44,17 @@ static NSString *NumberClass = @"[NSNumber class]";
     
     self.inputTextView.delegate = self;
     self.window.delegate = self;
+    
+    /**
+     *  将window置顶
+     */
+    [[self window] setLevel: kCGStatusWindowLevel];
 }
 - (void)dealloc
 {
     self.sourceTextView = nil;
     self.delegate = nil;
-    NSLog(@"=====QYInputJsonController======dealloc===");
+    LOG(@"=====QYInputJsonController======dealloc===");
 }
 
 #pragma mark - Action Method
@@ -63,7 +68,6 @@ static NSString *NumberClass = @"[NSNumber class]";
 
 - (IBAction)confirmAction:(id)sender
 {
-    [self.window setBackgroundColor:[NSColor whiteColor]];
 
     dispatch_promise_on(dispatch_get_global_queue(0, 0),^id(){
         
@@ -87,11 +91,24 @@ static NSString *NumberClass = @"[NSNumber class]";
         
         NSString *errStr = dominWithError(err);
         self.window.title = errStr;
-        [self.window setBackgroundColor:[NSColor redColor]];
-        
     });
 }
 
+#pragma mark - NSTextViewDelegate
+
+-(void)textDidChange:(NSNotification *)notification{
+    NSTextView *textView = notification.object;
+    self.currJsonStr = textView.textStorage.string;
+
+    //验证JSON
+    id resulte =  [self dictionaryWithJsonStr:self.currJsonStr];
+    if (!resulte||[resulte isKindOfClass:[NSError class]]){
+        self.window.title = @"JSON格式错误...";
+    }else{
+        self.window.title = @"Good Job...";
+    }
+    
+}
 
 
 #pragma mark -  private Methode
@@ -101,13 +118,6 @@ static NSString *NumberClass = @"[NSNumber class]";
         [self.delegate windowDidClose];
     }
 }
-
-- (void)textDidChange:(NSNotification *)notification
-{
-    NSTextView *textView = (NSTextView *)[notification object];
-    self.currJsonStr = textView.textStorage.string;
-}
-
 
 - (NSString *)getMethodStrWithJson:(id)resulte
 {

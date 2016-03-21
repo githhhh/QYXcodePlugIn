@@ -16,7 +16,7 @@
     SRValidator *_validator;
 }
 
-- (void)dealloc { NSLog(@"======QYShortcutRecorderController========"); }
+- (void)dealloc { LOG(@"======QYShortcutRecorderController========"); }
 
 
 #pragma mark - sheet

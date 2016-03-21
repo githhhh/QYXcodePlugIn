@@ -18,6 +18,7 @@
 #import "QYClangFormat.h"
 #import "NSString+Files.h"
 
+#define validatorErrorCode 110
 
 @interface ESInputJsonController ()<NSTextViewDelegate,NSWindowDelegate,NSTextFieldDelegate>
 
@@ -37,6 +38,7 @@
 
 @property (nonatomic,retain) ESClassInfo  *classInfo;
 
+@property (nonatomic,assign) BOOL isCatchedError;
 @end
 
 @implementation ESInputJsonController
@@ -50,7 +52,7 @@
     _propertyPrefixField.delegate = nil;
     _propertyPrefixField = nil;
     
-    NSLog(@"====ESInputJsonController=====dealloc=");
+    LOG(@"====ESInputJsonController=====dealloc=");
 }
 
 - (void)windowDidLoad {
@@ -64,13 +66,15 @@
     if (!PreferencesModel.propertyBusinessPrefixEnable) {
         NSString *rootClassName = [self.currentImpleMentationPath currentClassName];
         self.propertyPrefixField.stringValue = [rootClassName lowercaseString];
-        [self.propertyPrefixField becomeFirstResponder];
         
         self.configPrefixViewTopConstraint.constant = 0;
         self.scrollViewTopConstraint.constant = 52;
         [self.window.contentView updateConstraints];
     }
-    
+    /**
+     *  将window置顶
+     */
+    [[self window] setLevel: kCGStatusWindowLevel];
 }
 
 #pragma mark - xib Action
@@ -80,13 +84,9 @@
 }
 
 - (IBAction)enterButtonClick:(NSButton *)sender {
-    NSString *jsonStr = self.inputTextView.string;
-    dispatch_promise_on(dispatch_get_main_queue(), ^id{
-        
-        id result = [self dictionaryWithJsonStr:jsonStr];
-        if ([result isKindOfClass:[NSError class]])
-            return result;
-        
+    self.isCatchedError = NO;
+
+    [self dictionaryWithJsonStr:self.inputTextView.string].thenOn(dispatch_get_main_queue(), ^id(id result){
         
         NSString *rootClassName = [self.currentImpleMentationPath currentClassName];
         
@@ -183,13 +183,28 @@
         return nil;
         
     }).catchOn(dispatch_get_main_queue(),^(NSError *err){
-        
        //报告错误
         NSString *dominStr = dominWithError(err);
-        [LAFIDESourceCodeEditor showAboveCaret:dominStr color:[NSColor yellowColor]];
+
+        if (err.code == validatorErrorCode) {
+            /**
+             *  验证错误
+             */
+            self.isCatchedError = YES;
+            self.window.title = dominStr;
+            return ;
+        }
+        /**
+         *  其它逻辑内部错误
+         */
+        [self closeWindown];
+        [LAFIDESourceCodeEditor showAboveCaretOnCenter:dominStr color:[NSColor yellowColor]];
         
     }).finallyOn(dispatch_get_main_queue(),^{
-        [self closeWindown];
+        
+        if (!self.isCatchedError)
+            [self closeWindown];
+        
     });
     
 }
@@ -209,39 +224,45 @@
 /**
  *  检查是否是一个有效的JSON
  */
--(id)dictionaryWithJsonStr:(NSString *)jsonString{
-    jsonString = [[jsonString stringByReplacingOccurrencesOfString:@" " withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSLog(@"jsonString=%@",jsonString);
-    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *err;
-    id dicOrArray = [NSJSONSerialization JSONObjectWithData:jsonData
+-(PMKPromise *)dictionaryWithJsonStr:(NSString *)jsonString{
+    __block NSString *jsonStr = [jsonString copy];
+   PMKPromise *validatorPromise =  dispatch_promise_on(dispatch_get_global_queue(0, 0), ^id{
+    
+        jsonStr = [[jsonStr stringByReplacingOccurrencesOfString:@" " withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+        LOG(@"jsonString=%@",jsonStr);
+        NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *err;
+        id dicOrArray = [NSJSONSerialization JSONObjectWithData:jsonData
                                                         options:NSJSONReadingMutableContainers
                                                           error:&err];
-    if (err)
-        return err;
-   //默认为解析所有JSON
-    if (!PreferencesModel.isDefaultAllJSON)
-        return dicOrArray;
-    
-    if ([dicOrArray isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *allJsonDic = dicOrArray;
-        if ([[allJsonDic allKeys] containsObject:PreferencesModel.contentJSONKey]) {
-            id jsonContent = allJsonDic[PreferencesModel.contentJSONKey];
-            if ([jsonContent isKindOfClass:[NSArray class]]) {
-               
-                NSArray *classArr = jsonContent;
-                if ([[classArr firstObject] isKindOfClass:[NSDictionary class]]) {
-                    return [classArr firstObject];
-                }else{
-                    NSString *errorInfo = [NSString stringWithFormat:@"无法解析指定Key 的JSON内容---%@",jsonContent];
-                    return error(errorInfo, 0, nil);
+        if (err)
+            return error(@"输入JSON 格式不对哦。。。", validatorErrorCode, nil);
+        //默认为解析所有JSON
+        if (!PreferencesModel.isDefaultAllJSON)
+            return dicOrArray;
+        
+        if ([dicOrArray isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *allJsonDic = dicOrArray;
+            if ([[allJsonDic allKeys] containsObject:PreferencesModel.contentJSONKey]) {
+                id jsonContent = allJsonDic[PreferencesModel.contentJSONKey];
+                if ([jsonContent isKindOfClass:[NSArray class]]) {
+                    
+                    NSArray *classArr = jsonContent;
+                    if ([[classArr firstObject] isKindOfClass:[NSDictionary class]]) {
+                        return [classArr firstObject];
+                    }else{
+                        NSString *errorInfo = [NSString stringWithFormat:@"无法解析指定Key 的JSON内容---%@",jsonContent];
+                        return error(errorInfo, validatorErrorCode, nil);
+                    }
                 }
+                return jsonContent;
             }
-            return jsonContent;
         }
-    }
-    NSString *errorInfo = [NSString stringWithFormat:@"无法再JSON 一级结构中找到指定需要解析的JSON key(%@)..",PreferencesModel.contentJSONKey];
-    return error(errorInfo, 0, nil);
+        NSString *errorInfo = [NSString stringWithFormat:@"AutoModel无法再JSON 一级结构中找到指定需要解析的JSON key(%@)..去设置里修改一下呗。。",PreferencesModel.contentJSONKey];
+        return error(errorInfo, validatorErrorCode, nil);
+    });
+    
+    return validatorPromise;
 }
 
 
@@ -330,7 +351,7 @@
     return classInfo;
 }
 
-#pragma mark - nstextfiled delegate
+#pragma mark - NSTextfiledDelegate
 
 -(void)controlTextDidEndEditing:(NSNotification *)notification{
     if ( [[[notification userInfo] objectForKey:@"NSTextMovement"] intValue] == NSReturnTextMovement){
@@ -342,15 +363,21 @@
 
 -(void)textDidChange:(NSNotification *)notification{
     NSTextView *textView = notification.object;
-    id result = [self dictionaryWithJsonStr:textView.string];
-    if ([result isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *dic = result;
-        [dic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            if ([obj isKindOfClass:[NSArray class]]) {
-                *stop = YES;
-            }
-        }];
-    }
+    
+    [self dictionaryWithJsonStr:textView.string].thenOn(dispatch_get_main_queue(), ^{
+    
+        //如果通过验证,属性业务前缀textField 获得焦点
+        if (!PreferencesModel.propertyBusinessPrefixEnable) {
+            [self.propertyPrefixField becomeFirstResponder];
+        }
+        
+        self.window.title = @"Good Job...";
+
+    }).catchOn(dispatch_get_main_queue(),^(NSError *er){
+        //报告错误
+        NSString *dominStr = dominWithError(er);
+        self.window.title = dominStr;
+    });
 }
 
 

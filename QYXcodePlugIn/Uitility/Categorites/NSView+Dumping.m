@@ -27,7 +27,7 @@
 	if (tooltip != nil && [tooltip length] > 0)
 		info = [info stringByAppendingFormat:@" tooltip=%@", tooltip];
     
-	NSLog(@"%@%@%@", indent, clazz, info);
+	LOG(@"%@%@%@", indent, clazz, info);
     
 	if ([[self subviews] count] > 0) {
 		NSString *subIndent = [NSString stringWithFormat:@"%@%@", indent, ([indent length]/2)%2==0 ? @"| " : @": "];

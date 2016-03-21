@@ -17,6 +17,6 @@
     for(int i = 0; i < methodCount; i++) {
         [methods appendFormat:@"%s\n", sel_getName(method_getName(methodList[i]))];
     }
-    NSLog(@"%@", methods);
+    LOG(@"%@", methods);
 }
 @end

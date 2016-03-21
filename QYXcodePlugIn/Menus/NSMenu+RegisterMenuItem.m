@@ -16,7 +16,6 @@
     }
     QYMenuBaseItem *menuItem = [[menuItemClass  alloc] init];
     [self addItem:menuItem];
-    [self insertItem:[NSMenuItem separatorItem] atIndex:1];
     [menuItem bindDynamicHoteKey];
 }
 

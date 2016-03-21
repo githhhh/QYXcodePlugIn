@@ -232,10 +232,10 @@ static NSString * const MHXCUserStatePathFormat = @"xcuserdata/%@.xcuserdatad/Us
     NSArray *projects = [[self currentWorkspace] projects];
     for (XCProject *project in projects) {
         XCTarget *target = [project targetWithName:targetName];
-        NSLog(@"%@", target);
+        LOG(@"%@", target);
         if (target) return target;
     }
-    NSLog(@"Can't find current target.");
+    LOG(@"Can't find current target.");
     return nil;
 }
 

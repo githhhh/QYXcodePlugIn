@@ -32,7 +32,7 @@ static NSInteger const groupBaseCount = 3;
 
 @implementation QYAutoGetterAchieve
 
-- (void)dealloc { NSLog(@"===AutoGetterAchieve=======dealloc="); }
+- (void)dealloc { LOG(@"===AutoGetterAchieve=======dealloc="); }
 
 
 - (void)getterAction
@@ -347,7 +347,7 @@ static NSInteger const groupBaseCount = 3;
         NSDictionary *dic =
         [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
         if (err) {
-            NSLog(@"json解析失败：%@", err);
+            LOG(@"json解析失败：%@", err);
             return nil;
         }
         _configDic = dic;

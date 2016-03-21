@@ -70,9 +70,7 @@
 
 @implementation QYPreferencesController
 
-- (void)dealloc { NSLog(@"===QYPluginSetingController===dealloc="); }
-
-
+- (void)dealloc { LOG(@"===QYPluginSetingController===dealloc="); }
 
 
 - (void)windowDidLoad
@@ -119,7 +117,7 @@
 
 - (IBAction)changeSelecteState:(id)sender {
     
-//    NSLog(@"=isTestData=is=%@=======",self.isTestData.state == 1?@"YES":@"NO");
+//    LOG(@"=isTestData=is=%@=======",self.isTestData.state == 1?@"YES":@"NO");
     self.testDataMethodName.enabled = (self.isTestData.state == 1);
 }
 

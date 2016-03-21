@@ -43,7 +43,7 @@
         }
     }
     else {
-        NSLog(@"%@ %@", path, [error localizedDescription]);
+        LOG(@"%@ %@", path, [error localizedDescription]);
     }
     
     return [files copy];
