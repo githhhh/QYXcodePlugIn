@@ -28,6 +28,8 @@
     [encoder encodeBool:self.isPromptException forKey:@"PromptException"];
 
     [encoder encodeBool:self.isPropertyIsOptional forKey:@"PropertyIsOptional"];
+    [encoder encodeObject:self.contentJSONKey forKey:@"ContentJSONKey"];
+    [encoder encodeBool:self.isDefaultAllJSON forKey:@"DefaultAllJSON"];
 
 }
 
@@ -43,7 +45,9 @@
         self.isClearCalalogSearchTitle  = [decoder decodeBoolForKey:@"ClearCalalogSearchTitle"];
         self.isPromptException          = [decoder decodeBoolForKey:@"PromptException"];
 
-        self.isPropertyIsOptional          = [decoder decodeBoolForKey:@"PropertyIsOptional"];
+        self.isPropertyIsOptional       = [decoder decodeBoolForKey:@"PropertyIsOptional"];
+        self.contentJSONKey             = [decoder decodeObjectForKey:@"ContentJSONKey"];
+        self.isDefaultAllJSON           = [decoder decodeBoolForKey:@"DefaultAllJSON"];
 
     }
     return self;

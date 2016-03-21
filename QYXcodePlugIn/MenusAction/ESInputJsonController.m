@@ -73,17 +73,6 @@
     
 }
 
-///**
-// *  window Notification
-// */
-//-(void)windowWillClose:(NSNotification *)notification{
-//    if ([self.delegate respondsToSelector:@selector(windowDidClose)]) {
-//        [self.delegate windowDidClose];
-//    }
-//}
-
-
-
 #pragma mark - xib Action
 
 - (IBAction)cancelButtonClick:(NSButton *)sender {
@@ -95,12 +84,9 @@
     dispatch_promise_on(dispatch_get_main_queue(), ^id{
         
         id result = [self dictionaryWithJsonStr:jsonStr];
-        if ([result isKindOfClass:[NSError class]]) {
-            NSError *error = result;
-            NSAlert *alert = [NSAlert alertWithError:error];
-            [alert runModal];
-            return error(@"Error：Json is invalid", 0, nil);
-        }
+        if ([result isKindOfClass:[NSError class]])
+            return result;
+        
         
         NSString *rootClassName = [self.currentImpleMentationPath currentClassName];
         
@@ -109,9 +95,9 @@
         }else {
             self.classInfo = [[ESClassInfo alloc] initWithClassNameKey:[rootClassName lowercaseString] ClassName:rootClassName classDic:result];
         }
-        
+        //递归
         [self dealPropertyNameWithClassInfo:self.classInfo];
-
+        
         return  self.editorView.string;
         
     }).thenOn(dispatch_get_global_queue(0, 0),^id(NSString *hContent){
@@ -231,12 +217,31 @@
     id dicOrArray = [NSJSONSerialization JSONObjectWithData:jsonData
                                                         options:NSJSONReadingMutableContainers
                                                           error:&err];
-    if (err) {
+    if (err)
         return err;
-    }else{
+   //默认为解析所有JSON
+    if (!PreferencesModel.isDefaultAllJSON)
         return dicOrArray;
-    }
     
+    if ([dicOrArray isKindOfClass:[NSDictionary class]]) {
+        NSDictionary *allJsonDic = dicOrArray;
+        if ([[allJsonDic allKeys] containsObject:PreferencesModel.contentJSONKey]) {
+            id jsonContent = allJsonDic[PreferencesModel.contentJSONKey];
+            if ([jsonContent isKindOfClass:[NSArray class]]) {
+               
+                NSArray *classArr = jsonContent;
+                if ([[classArr firstObject] isKindOfClass:[NSDictionary class]]) {
+                    return [classArr firstObject];
+                }else{
+                    NSString *errorInfo = [NSString stringWithFormat:@"无法解析指定Key 的JSON内容---%@",jsonContent];
+                    return error(errorInfo, 0, nil);
+                }
+            }
+            return jsonContent;
+        }
+    }
+    NSString *errorInfo = [NSString stringWithFormat:@"无法再JSON 一级结构中找到指定需要解析的JSON key(%@)..",PreferencesModel.contentJSONKey];
+    return error(errorInfo, 0, nil);
 }
 
 
@@ -248,8 +253,8 @@
  *  @return 处理完毕的ClassInfo
  */
 - (ESClassInfo *)dealPropertyNameWithClassInfo:(ESClassInfo *)classInfo{
-    
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:classInfo.classDic];
+    
     //获取当前classInfo 的 mapDic
     NSMutableDictionary *currentMapDic = [NSMutableDictionary dictionaryWithCapacity:0];
     for (NSString *key in dic) {

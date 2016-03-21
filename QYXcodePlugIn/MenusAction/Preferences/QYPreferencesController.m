@@ -49,7 +49,7 @@
  */
 @property (weak) IBOutlet NSButton *isReminder;
 
-
+#pragma mark - AutoModel
 
 /**
  *  是否忽略大小写
@@ -59,6 +59,12 @@
  *  业务前缀
  */
 @property (weak) IBOutlet NSButton *businessPrefixButton;
+
+@property (weak) IBOutlet NSButton *defaultAllJSONBtn;
+
+@property (weak) IBOutlet NSButton *conentJSONKeyBtn;
+
+@property (weak) IBOutlet NSTextField *contentJSONKeyTextFiled;
 
 @end
 
@@ -101,17 +107,36 @@
         self.propertyIsOptionalButton.state = PreferencesModel.isPropertyIsOptional?0:1;
         self.businessPrefixButton.state = PreferencesModel.propertyBusinessPrefixEnable?0:1;
 
+        self.defaultAllJSONBtn.state = PreferencesModel.isDefaultAllJSON?0:1;
+        self.conentJSONKeyBtn.state = PreferencesModel.isDefaultAllJSON?1:0;
+        self.contentJSONKeyTextFiled.enabled = PreferencesModel.isDefaultAllJSON?YES:NO;
+        self.contentJSONKeyTextFiled.stringValue = IsEmpty(PreferencesModel.contentJSONKey)?@"":PreferencesModel.contentJSONKey;
         
     });
 }
 
+
+
 - (IBAction)changeSelecteState:(id)sender {
     
-    NSLog(@"=isTestData=is=%@=======",self.isTestData.state == 1?@"YES":@"NO");
-    
+//    NSLog(@"=isTestData=is=%@=======",self.isTestData.state == 1?@"YES":@"NO");
     self.testDataMethodName.enabled = (self.isTestData.state == 1);
-
 }
+
+#pragma mark - 是否配置AutoModel解析指定特定key 的JSON内容
+
+- (IBAction)defaultAllJSONBtnChangeState:(id)sender {
+    
+    self.conentJSONKeyBtn.state = (self.defaultAllJSONBtn.state == 1)?0:1;
+    self.contentJSONKeyTextFiled.enabled = (self.defaultAllJSONBtn.state == 1)?NO:YES;
+}
+
+- (IBAction)contentJSONBtnChangeState:(id)sender {
+    
+    self.defaultAllJSONBtn.state = (self.conentJSONKeyBtn.state == 1)?0:1;
+    self.contentJSONKeyTextFiled.enabled = (self.conentJSONKeyBtn.state == 1)?YES:NO;
+}
+
 
 #pragma mark - 录制菜单热键。。
 
@@ -163,6 +188,9 @@
         if (IsEmpty(self.testDataMethodName.stringValue) && self.isTestData.state == 1 )
             return error(@"测试数据方法名不能为空", 0, nil);
         
+        if ((self.defaultAllJSONBtn.state == 0) && IsEmpty(self.contentJSONKeyTextFiled.stringValue))
+            return error(@"AutoModel必须要指定JSON key 哦。。", 0, nil);
+        
         isSave = YES;
         [self close];
         
@@ -187,22 +215,23 @@
         return;
     }
     
-    QYPreferencesModel *preferencesModel        = [[QYPreferencesModel alloc] init];
-    preferencesModel.getterJSON                 = self.setingTextView.string;
-    preferencesModel.requestClassBaseName       = self.requestBaseName.stringValue;
-    preferencesModel.isCreatTestMethod          = self.isTestData.state == 1?YES:NO;
-    preferencesModel.isClearCalalogSearchTitle  = self.clearCalalogSearch.state == 1?YES:NO;
-    preferencesModel.testMethodName             = self.testDataMethodName.stringValue;
-    preferencesModel.requestValidatorMethodName = self.validatorMethodName.stringValue;
-    preferencesModel.isPromptException          = self.isReminder.state == 1?YES:NO;
+    QYPreferencesModel *newPreferencesModel        = [[QYPreferencesModel alloc] init];
+    newPreferencesModel.getterJSON                 = self.setingTextView.string;
+    newPreferencesModel.requestClassBaseName       = self.requestBaseName.stringValue;
+    newPreferencesModel.isCreatTestMethod          = self.isTestData.state == 1?YES:NO;
+    newPreferencesModel.isClearCalalogSearchTitle  = self.clearCalalogSearch.state == 1?YES:NO;
+    newPreferencesModel.testMethodName             = self.testDataMethodName.stringValue;
+    newPreferencesModel.requestValidatorMethodName = self.validatorMethodName.stringValue;
+    newPreferencesModel.isPromptException          = self.isReminder.state == 1?YES:NO;
     
     /**
      *  这里因为默认为启用,所以这么设置
      */
-    preferencesModel.isPropertyIsOptional       = self.propertyIsOptionalButton.state == 1?NO:YES;
-    preferencesModel.propertyBusinessPrefixEnable = self.businessPrefixButton.state == 1?NO:YES;
-    
-    [[QYIDENotificationHandler sharedHandler] updatePreferencesModel:preferencesModel];
+    newPreferencesModel.isPropertyIsOptional       = self.propertyIsOptionalButton.state == 1?NO:YES;
+    newPreferencesModel.propertyBusinessPrefixEnable = self.businessPrefixButton.state == 1?NO:YES;
+    newPreferencesModel.isDefaultAllJSON = self.defaultAllJSONBtn.state == 1?NO:YES;
+    newPreferencesModel.contentJSONKey = self.contentJSONKeyTextFiled.stringValue;
+    [[QYIDENotificationHandler sharedHandler] updatePreferencesModel:newPreferencesModel];
 }
 
 
