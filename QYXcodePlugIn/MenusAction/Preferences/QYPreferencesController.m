@@ -77,7 +77,11 @@
 {
     [super windowDidLoad];
     self.window.delegate = self;
-
+    /**
+     *  将window置顶
+     */
+    [[self window] setLevel: kCGStatusWindowLevel];
+    
     dispatch_promise_on(dispatch_get_main_queue(),^(){
         
 
