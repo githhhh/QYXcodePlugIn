@@ -38,6 +38,48 @@
     [resultStr appendString:@";"];
     return resultStr;
 }
+/**
+ *  获取所有除主类外的协议定义
+ *
+ *  @param classInfo classInfo description
+ *
+ *  @return return value description
+ */
++(NSString *)protocolsClassContent:(ESClassInfo *)classInfo{
+
+    NSArray *atClassArray = [self atClassArray:classInfo];
+    if (atClassArray.count==0) {
+        return @"";
+    }
+    
+    NSMutableString *resultStr = [NSMutableString string];
+    
+    [atClassArray enumerateObjectsUsingBlock:^(ESClassInfo* obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    
+        [resultStr appendString:[self protocolDefineContent:obj]];
+        
+    }];
+    
+    return resultStr;
+}
+
+/**
+ *  获取protocolDefine
+ *
+ *  @param classInfo classInfo description
+ *
+ *  @return return value description
+ */
++ (NSString *)protocolDefineContent:(ESClassInfo *)classInfo{
+    
+    if (IsEmpty(classInfo.className)) {
+        return @"";
+    }
+    
+    return [NSString stringWithFormat:@"\n@protocol %@ <NSObject>\n\n@end\n",classInfo.className];
+}
+
+
 
 
 /**
@@ -291,7 +333,7 @@
 
         if ([firstObj isKindOfClass:[NSDictionary class]]) {
             ESClassInfo *childInfo = classInfo.propertyArrayDic[key];
-            genericTypeStr = [NSString stringWithFormat:@"<%@ *>", childInfo.className];
+            genericTypeStr = [NSString stringWithFormat:@"<%@>", childInfo.className];
         } else if ([firstObj isKindOfClass:[NSString class]]) {
             genericTypeStr = @"<NSString *>";
         } else if ([firstObj isKindOfClass:[NSNumber class]]) {

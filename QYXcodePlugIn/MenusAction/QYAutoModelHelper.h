@@ -21,7 +21,14 @@
  *  @return 除主类外所有类名
  */
 + (NSString *)atClassContent:(ESClassInfo *)classInfo;
-
+/**
+ *  获取所有除主类外的协议定义
+ *
+ *  @param classInfo classInfo description
+ *
+ *  @return return value description
+ */
++(NSString *)protocolsClassContent:(ESClassInfo *)classInfo;
 /**
  *  获取类的所有属性定义
  *
