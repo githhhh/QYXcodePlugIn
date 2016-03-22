@@ -105,7 +105,7 @@
         // 拼接 属性
         NSString *atClassContent = [QYAutoModelHelper atClassContent:self.classInfo];
         NSString *protocolContent = [QYAutoModelHelper protocolsClassContent:self.classInfo];
-        NSString *classOrProtocolDefineContent = [NSString stringWithFormat:@"%@ \n %@",protocolContent,atClassContent];
+        NSString *classOrProtocolDefineContent = [NSString stringWithFormat:@"%@\n\n%@",protocolContent,atClassContent];
         
         NSString *propertyContent = [QYAutoModelHelper parsePropertyContentWithClassInfo:self.classInfo];
         propertyContent = [propertyContent stringByAppendingString:@"\n@end\n\n"];
