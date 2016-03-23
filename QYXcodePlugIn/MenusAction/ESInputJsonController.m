@@ -282,7 +282,10 @@
     NSMutableDictionary *currentMapDic = [NSMutableDictionary dictionaryWithCapacity:0];
     for (NSString *key in dic) {
         //获取业务key
-        NSString *businessKey = [[classInfo.businessPrefix lowercaseString] stringByAppendingString:[key capitalizedString]];
+        NSString *businessKey = key;
+        if (!IsEmpty(classInfo.businessPrefix)) {
+            businessKey =  [[classInfo.businessPrefix lowercaseString] stringByAppendingString:[key capitalizedString]];
+        }
         [currentMapDic setObject:businessKey forKey:key];
         
         //取出的可能是NSDictionary或者NSArray
@@ -311,6 +314,9 @@
         } prefixBlock:^(NSString *prefixName) {
             
             childPreFixName = prefixName;
+            
+        } breakBlock:^{
+            
         }];
         
         [[NSApp mainWindow] beginSheet:[dialog window] completionHandler:nil];
@@ -320,7 +326,8 @@
         //如果当前obj是 NSDictionary 或者 NSArray，继续向下遍历
         if ([obj isKindOfClass:[NSDictionary class]]) {
             ESClassInfo *childClassInfo = [[ESClassInfo alloc] initWithClassNameKey:key ClassName:childClassName classDic:obj];
-            childClassInfo.businessPrefix = IsEmpty(childPreFixName)?childClassName:childPreFixName;
+            //允许业务前缀为空
+            childClassInfo.businessPrefix = IsEmpty(childPreFixName)?@"":childPreFixName;
             
             [self dealPropertyNameWithClassInfo:childClassInfo];
             
@@ -337,7 +344,8 @@
             }
             
             ESClassInfo *childClassInfo = [[ESClassInfo alloc] initWithClassNameKey:key ClassName:childClassName classDic:[array firstObject]];
-            childClassInfo.businessPrefix = IsEmpty(childPreFixName)?childClassName:childPreFixName;
+            //允许业务前缀为空
+            childClassInfo.businessPrefix = IsEmpty(childPreFixName)?@"":childPreFixName;
             
             [self dealPropertyNameWithClassInfo:childClassInfo];
             //设置classInfo里面属性类型为 NSArray 情况下，NSArray 内部元素类型的对应的class

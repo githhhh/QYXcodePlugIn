@@ -12,6 +12,8 @@
 		8B2BC61E1C4C867C002B4181 /* logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2BC61D1C4C867C002B4181 /* logo.pdf */; };
 		8B4C00821BF7852300A77AD9 /* PTHotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00801BF7852300A77AD9 /* PTHotKey.framework */; };
 		8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */; };
+		8B54D17E1CA263CB00B67A5F /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B54D17D1CA263CB00B67A5F /* images.xcassets */; };
+		8B54D1811CA272DE00B67A5F /* QYTapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B54D1801CA272DE00B67A5F /* QYTapImageView.m */; };
 		8B57FD011C9BDE0E00A260F5 /* ESClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B57FD001C9BDE0E00A260F5 /* ESClassInfo.m */; };
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
 		8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA91BABB7F100672762 /* Foundation.framework */; };
@@ -81,6 +83,9 @@
 		8B2BC61D1C4C867C002B4181 /* logo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = logo.pdf; sourceTree = "<group>"; };
 		8B4C00801BF7852300A77AD9 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/PTHotKey.framework"; sourceTree = "<group>"; };
 		8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
+		8B54D17D1CA263CB00B67A5F /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
+		8B54D17F1CA272DE00B67A5F /* QYTapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYTapImageView.h; sourceTree = "<group>"; };
+		8B54D1801CA272DE00B67A5F /* QYTapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYTapImageView.m; sourceTree = "<group>"; };
 		8B57FCFF1C9BDE0E00A260F5 /* ESClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESClassInfo.h; sourceTree = "<group>"; };
 		8B57FD001C9BDE0E00A260F5 /* ESClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESClassInfo.m; sourceTree = "<group>"; };
 		8B60ADA41BABB7F100672762 /* QYXcodePlugIn.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QYXcodePlugIn.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +374,8 @@
 				8B8516871C96B5CD00D927E5 /* ESInputJsonController.h */,
 				8B8516881C96B5CD00D927E5 /* ESInputJsonController.m */,
 				8B8516891C96B5CD00D927E5 /* ESInputJsonController.xib */,
+				8B54D17F1CA272DE00B67A5F /* QYTapImageView.h */,
+				8B54D1801CA272DE00B67A5F /* QYTapImageView.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -551,6 +558,7 @@
 				8BAE7EA41C47980200A505FD /* QYPreferencesController.xib */,
 				8BAE7EA51C47980200A505FD /* QYRequestVerifyController.xib */,
 				8BAE7EA61C47980200A505FD /* QYShortcutRecorderController.xib */,
+				8B54D17D1CA263CB00B67A5F /* images.xcassets */,
 			);
 			name = Resources;
 			path = MenusAction/Resources;
@@ -783,6 +791,7 @@
 				8B85168D1C96B5CD00D927E5 /* ESInputJsonController.xib in Resources */,
 				8B85168B1C96B5CD00D927E5 /* ESDialogController.xib in Resources */,
 				8BF5F6841BFDB14E00F4A4AD /* TemplateInfo.plist in Resources */,
+				8B54D17E1CA263CB00B67A5F /* images.xcassets in Resources */,
 				8B9C6BD81BB1247700242629 /* setupHelper.sh in Resources */,
 				8BF5F6831BFDB14E00F4A4AD /* TemplateIcon@2x.png in Resources */,
 				8B2BC61E1C4C867C002B4181 /* logo.pdf in Resources */,
@@ -839,6 +848,7 @@
 				8BAE7EA91C47980200A505FD /* QYPreferencesController.m in Sources */,
 				8BA852841BF7879600EE9398 /* MHXcodeDocumentNavigator.m in Sources */,
 				8BAE7EB71C47984100A505FD /* NSObject+MagicClearCatalogFilter.m in Sources */,
+				8B54D1811CA272DE00B67A5F /* QYTapImageView.m in Sources */,
 				8BA852861BF7879600EE9398 /* XCProject+Extensions.m in Sources */,
 				8BA852891BF7879600EE9398 /* XCWorkspace.m in Sources */,
 				8B9ED1ED1C337D900072CCE2 /* LAFIDESourceCodeEditor.m in Sources */,

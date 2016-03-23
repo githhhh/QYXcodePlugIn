@@ -22,7 +22,7 @@
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="350" height="67"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lz0-SS-Wl7">
                         <rect key="frame" x="100" y="10" width="150" height="22"/>
@@ -37,7 +37,7 @@
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaf-0Z-Omg">
                         <rect key="frame" x="1" y="40" width="351" height="17"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Multiline LabelMultiline" id="0nu-Df-5FF">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Multiline Label" id="0nu-Df-5FF">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -75,10 +75,23 @@
                             <constraint firstItem="Gwy-eI-vzt" firstAttribute="top" secondItem="saw-Xb-X5Y" secondAttribute="top" constant="13" id="Ucm-KE-vAc"/>
                         </constraints>
                     </customView>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jvd-bY-BkC" customClass="QYTapImageView">
+                        <rect key="frame" x="20" y="11" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="QWd-FT-vhr"/>
+                            <constraint firstAttribute="height" constant="45" id="nAg-f9-r46"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="bomb_close" id="bre-hE-lBP"/>
+                        <connections>
+                            <action selector="bombClick:" target="-2" id="X0W-TD-iR6"/>
+                        </connections>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="saw-Xb-X5Y" firstAttribute="trailing" secondItem="yaf-0Z-Omg" secondAttribute="trailing" id="KzI-lg-ota"/>
                     <constraint firstItem="yaf-0Z-Omg" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="3" id="M05-mH-woK"/>
+                    <constraint firstItem="jvd-bY-BkC" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" symbolic="YES" id="NG8-OJ-bS5"/>
+                    <constraint firstItem="jvd-bY-BkC" firstAttribute="centerY" secondItem="se5-gp-TjO" secondAttribute="centerY" id="NYy-R9-NGF"/>
                     <constraint firstItem="Lz0-SS-Wl7" firstAttribute="centerX" secondItem="saw-Xb-X5Y" secondAttribute="centerX" id="OhQ-3p-FaP"/>
                     <constraint firstItem="saw-Xb-X5Y" firstAttribute="top" secondItem="Lz0-SS-Wl7" secondAttribute="bottom" constant="10" id="R6B-Bl-iCG"/>
                     <constraint firstItem="yaf-0Z-Omg" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="10" id="Rtl-9L-ZBn"/>
@@ -94,4 +107,7 @@
             <point key="canvasLocation" x="-811" y="28.5"/>
         </window>
     </objects>
+    <resources>
+        <image name="bomb_close" width="72" height="72"/>
+    </resources>
 </document>

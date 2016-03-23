@@ -11,7 +11,6 @@
 
 typedef void(^CallBackBlock)(NSString *name);
 
-
 @interface ESDialogController : NSWindowController
 
 @property (nonatomic, copy) NSString *msg;
@@ -19,16 +18,11 @@ typedef void(^CallBackBlock)(NSString *name);
 @property (nonatomic, copy) NSString *prefixName;
 
 
-//@property (nonatomic, assign) BOOL objIsKindOfArray;
-
-
-@property (nonatomic, copy) CallBackBlock confirmClassNameBlock;
-@property (nonatomic, copy) CallBackBlock confirmPrefixBlock;
-
-
 - (void)setDataWithMsg:(NSString *)msg
       defaultClassName:(NSString *)className
         classNameBlock:(CallBackBlock)confirmClassNameBlock
-           prefixBlock:(CallBackBlock)confirmPrefixBlock;
+           prefixBlock:(CallBackBlock)confirmPrefixBlock
+            breakBlock:(void(^)(void))breakBlock;
+
 
 @end
