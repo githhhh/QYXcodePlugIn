@@ -39,6 +39,8 @@
 @property (nonatomic,retain) ESClassInfo  *classInfo;
 
 @property (nonatomic,assign) BOOL isCatchedError;
+
+@property (nonatomic,assign) BOOL exitParse;
 @end
 
 @implementation ESInputJsonController
@@ -97,7 +99,9 @@
         }
         //递归
         [self dealPropertyNameWithClassInfo:self.classInfo];
-        
+        if (self.exitParse) {
+            return error(@"终止解析JSON...", 0, nil);
+        }
         return  self.editorView.string;
         
     }).thenOn(dispatch_get_global_queue(0, 0),^id(NSString *hContent){
@@ -276,11 +280,17 @@
  *  @return 处理完毕的ClassInfo
  */
 - (ESClassInfo *)dealPropertyNameWithClassInfo:(ESClassInfo *)classInfo{
+    if (self.exitParse) {
+        return nil;
+    }
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:classInfo.classDic];
     
     //获取当前classInfo 的 mapDic
     NSMutableDictionary *currentMapDic = [NSMutableDictionary dictionaryWithCapacity:0];
     for (NSString *key in dic) {
+        if (self.exitParse) {
+            break;
+        }
         //获取业务key
         NSString *businessKey = key;
         if (!IsEmpty(classInfo.businessPrefix)) {
@@ -307,6 +317,7 @@
         }
         __block NSString *childClassName;//Record the current class name
         __block NSString *childPreFixName ;//Record the current preFix name
+        
         [dialog setDataWithMsg:msg defaultClassName:[key capitalizedString] classNameBlock:^(NSString *className) {
             
             childClassName = className;
@@ -317,6 +328,7 @@
             
         } breakBlock:^{
             
+            self.exitParse = YES;
         }];
         
         [[NSApp mainWindow] beginSheet:[dialog window] completionHandler:nil];

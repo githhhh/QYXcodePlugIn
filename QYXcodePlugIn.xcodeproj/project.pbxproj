@@ -14,6 +14,7 @@
 		8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */; };
 		8B54D17E1CA263CB00B67A5F /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B54D17D1CA263CB00B67A5F /* images.xcassets */; };
 		8B54D1811CA272DE00B67A5F /* QYTapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B54D1801CA272DE00B67A5F /* QYTapImageView.m */; };
+		8B54D1861CA2C51D00B67A5F /* flash_bang.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B54D1851CA2C51D00B67A5F /* flash_bang.png */; };
 		8B57FD011C9BDE0E00A260F5 /* ESClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B57FD001C9BDE0E00A260F5 /* ESClassInfo.m */; };
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
 		8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA91BABB7F100672762 /* Foundation.framework */; };
@@ -86,6 +87,7 @@
 		8B54D17D1CA263CB00B67A5F /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		8B54D17F1CA272DE00B67A5F /* QYTapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYTapImageView.h; sourceTree = "<group>"; };
 		8B54D1801CA272DE00B67A5F /* QYTapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYTapImageView.m; sourceTree = "<group>"; };
+		8B54D1851CA2C51D00B67A5F /* flash_bang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flash_bang.png; sourceTree = "<group>"; };
 		8B57FCFF1C9BDE0E00A260F5 /* ESClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESClassInfo.h; sourceTree = "<group>"; };
 		8B57FD001C9BDE0E00A260F5 /* ESClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESClassInfo.m; sourceTree = "<group>"; };
 		8B60ADA41BABB7F100672762 /* QYXcodePlugIn.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QYXcodePlugIn.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -555,6 +557,7 @@
 		8BAE7EA31C47980200A505FD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8B54D1851CA2C51D00B67A5F /* flash_bang.png */,
 				8BAE7EA41C47980200A505FD /* QYPreferencesController.xib */,
 				8BAE7EA51C47980200A505FD /* QYRequestVerifyController.xib */,
 				8BAE7EA61C47980200A505FD /* QYShortcutRecorderController.xib */,
@@ -790,6 +793,7 @@
 				8BAE7EAD1C47980200A505FD /* QYRequestVerifyController.xib in Resources */,
 				8B85168D1C96B5CD00D927E5 /* ESInputJsonController.xib in Resources */,
 				8B85168B1C96B5CD00D927E5 /* ESDialogController.xib in Resources */,
+				8B54D1861CA2C51D00B67A5F /* flash_bang.png in Resources */,
 				8BF5F6841BFDB14E00F4A4AD /* TemplateInfo.plist in Resources */,
 				8B54D17E1CA263CB00B67A5F /* images.xcassets in Resources */,
 				8B9C6BD81BB1247700242629 /* setupHelper.sh in Resources */,

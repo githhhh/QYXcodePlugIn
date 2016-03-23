@@ -9,6 +9,7 @@
                 <outlet property="businessPrefixField" destination="cfo-5F-hZO" id="4Lo-eU-b4y"/>
                 <outlet property="classNameField" destination="Lz0-SS-Wl7" id="9cj-r6-1Lh"/>
                 <outlet property="configBusinessPrefixViewHeightConstraint" destination="N9R-s2-kM7" id="oDL-HI-wRv"/>
+                <outlet property="imgView" destination="jvd-bY-BkC" id="IH7-5R-9nD"/>
                 <outlet property="msgLabel" destination="yaf-0Z-Omg" id="gS1-Ns-xHx"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>

@@ -8,6 +8,7 @@
 //
 
 #import "ESDialogController.h"
+#import "QYTapImageView.h"
 
 @interface ESDialogController ()<NSWindowDelegate,NSTextFieldDelegate>
 
@@ -20,6 +21,7 @@
 @property (weak) IBOutlet NSTextField *businessPrefixField;
 
 @property (weak) IBOutlet NSLayoutConstraint *configBusinessPrefixViewHeightConstraint;
+@property (weak) IBOutlet QYTapImageView *imgView;
 
 @end
 
@@ -57,12 +59,20 @@
 #pragma mark - xib Action
 
 - (IBAction)bombClick:(NSImageView *)sender {
-    [sender becomeFirstResponder];
-    NSLog(@"====bomb====!!!====");
+    [self.businessPrefixField resignFirstResponder];
+    [self.classNameField resignFirstResponder];
+   
+    NSBundle *bundle = [NSBundle bundleWithIdentifier:@"X.Y.QYXcodePlugIn"];
+    NSImage *bangImg = [bundle imageForResource:@"flash_bang.png"];
+
+    [self.imgView setImage:bangImg];
+    
+    [self close];
     if (self.breakBlock) {
         self.breakBlock();
     }
 }
+
 
 #pragma mark - Private Methode
 
