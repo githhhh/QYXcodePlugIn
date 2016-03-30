@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6071F821A8C8831C3A24495E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16364214EC190002C2584301 /* libPods.a */; };
 		8B05B57F1BF5A32E00F37998 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B05B57E1BF5A32E00F37998 /* Carbon.framework */; };
-		8B2BC61E1C4C867C002B4181 /* logo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 8B2BC61D1C4C867C002B4181 /* logo.pdf */; };
 		8B4C00821BF7852300A77AD9 /* PTHotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00801BF7852300A77AD9 /* PTHotKey.framework */; };
 		8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */; };
 		8B54D17E1CA263CB00B67A5F /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B54D17D1CA263CB00B67A5F /* images.xcassets */; };
@@ -81,7 +80,6 @@
 		8B08157F1C8D2422003B5B18 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
 		8B0815801C8D2422003B5B18 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8B0815821C8D2422003B5B18 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
-		8B2BC61D1C4C867C002B4181 /* logo.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = logo.pdf; sourceTree = "<group>"; };
 		8B4C00801BF7852300A77AD9 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/PTHotKey.framework"; sourceTree = "<group>"; };
 		8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		8B54D17D1CA263CB00B67A5F /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 		8B60AD9B1BABB7F100672762 = {
 			isa = PBXGroup;
 			children = (
-				8B2BC61D1C4C867C002B4181 /* logo.pdf */,
 				8B9C6BD71BB1247700242629 /* setupHelper.sh */,
 				8B9C6BC41BB1232C00242629 /* CodeSnippets */,
 				8B9C6BC31BB1231700242629 /* QYFileTemplate */,
@@ -798,7 +795,6 @@
 				8B54D17E1CA263CB00B67A5F /* images.xcassets in Resources */,
 				8B9C6BD81BB1247700242629 /* setupHelper.sh in Resources */,
 				8BF5F6831BFDB14E00F4A4AD /* TemplateIcon@2x.png in Resources */,
-				8B2BC61E1C4C867C002B4181 /* logo.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
