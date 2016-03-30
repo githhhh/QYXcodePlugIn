@@ -6,7 +6,7 @@
 
 ## 能干点啥
 * Auto Getter-Setter   (*包括Category文件*)
-
+* Auto Model ("一键"生成Model：解析接口JSON文档,生成model 属性字段。支持JSONModel 子类自动生成Map对应关系)
 * 生成 Request file 校验方法和本地测试数据方法  (*使用[YTKNetwork](https://github.com/yuantiku/YTKNetwork)封装单个请求*)
 
 * [DIY 文件模板](./fileTemplte/creatFileTemplte.md)  (*直接在Xcode 中修改，无需重启*)
@@ -62,7 +62,9 @@
 同样可以完美支持。
 
 修改自[ESJsonFormat](https://github.com/EnjoySR/ESJsonFormat-Xcode),并完善了一些逻辑。
-		
+> 为毛复杂粘贴Chrome 接口返回JSON 串到AutoModel 窗口，校验不通过？？
+点击右上角的 ![autoModel_Chrome](./autoModel_Chrome.png) 把那一坨一坨的东东粘贴进入AutoModel窗口。--Good Job.
+	
 ![auto-model](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/auto-model.gif)
 ## 如何扩展功能
 
