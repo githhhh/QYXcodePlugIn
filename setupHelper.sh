@@ -75,11 +75,13 @@ codeTemplateFun
 #安装插件
 bulide_Release
 
-
+#fix 升级xcode 没有用
+find ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins -name Info.plist -maxdepth 3 | xargs -I{} defaults write {} DVTPlugInCompatibilityUUIDs -array-add `defaults read /Applications/Xcode.app/Contents/Info.plist DVTPlugInCompatibilityUUID`
 
 #重启xcode
 pkill -9 -x Xcode
-sleep 0.2
+#fix LSOpenURLsWithRole() failed with error on OSX Yosemite
+sleep 0.5
 open /Applications/Xcode.app
 
 echo " 🎉  🎉  🎉  😉  😉  😉   Enjoy.Go!   🚀  🚀  🚀  🍻  🍻  🍻  "
