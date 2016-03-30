@@ -12,7 +12,10 @@
 
 @interface ESInputJsonController : NSWindowController
 
+@property (nonatomic,assign) BOOL isJsonModel;
+
 @property (nonatomic,strong) NSTextView *editorView;
+
 @property (nonatomic,copy) NSString *currentImpleMentationPath;
 
 @property (nonatomic,weak) id<QYWindowsCloseProtocol> delegate;

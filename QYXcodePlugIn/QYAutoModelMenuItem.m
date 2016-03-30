@@ -40,14 +40,21 @@
         
         //读取配置
         NSTextView *textView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
+        NSString *rootClassName = [currentFilePath currentClassName];
         // 验证当前.h 文件的父类是否是制定类
         NSError *matchError;
         NSArray *contents =
-        [textView.string matcheGroupWith:[NSString stringWithFormat:@"@\\w+\\s*(\\w+)\\s*\\:\\s+%@\\s", @"JSONModel"] error:&matchError];
+        [textView.string matcheGroupWith:[NSString stringWithFormat:@"@\\w+\\s*(%@)\\s*\\:\\s+(\\w+)\\s",rootClassName] error:&matchError];
+       
         if (matchError||!contents||[contents count] == 0)
-            return error(@"目前只支持JSONModel的子类哦！马上就可以支持NSObject的子类~\(≧▽≦)/~啦啦啦", 0, nil);
-        
-        return @(1);
+            return error(@"为什么没有匹配到头文件声明呢。。~\(≧▽≦)/~", 0, nil);
+        if ([contents[2] isEqualToString:@"JSONModel"]) {
+            return @(1);
+        }else if ([contents[2] isEqualToString:@"NSObject"]){
+            return @(0);
+        }else{
+            return error(@"AutoModel 暂只识别NSObject、JSONModel哦！", 0, nil);
+        }
     });
     
     if (self.windowDelegate && [self.windowDelegate respondsToSelector:@selector(receiveMenuItemPromise:sender:)]) [self.windowDelegate receiveMenuItemPromise:promise sender:self];

@@ -127,13 +127,17 @@
         if ([sender isKindOfClass:[QYRequestVerifiMenuItem class]] && [obj isKindOfClass:[NSValue class]]) {
             [self showRequestVerifiWindow];
             self.requestVerifyWindow.insertRangeValue = obj;
+            return ;
         }
         if ([sender isKindOfClass:[QYPreferencesMenuItem class]]) {
             [self showPreferencesWindow];
+            return ;
         }
     
         if ([sender isKindOfClass:[QYAutoModelMenuItem class]]) {
-            [self showAutoModelWindow];
+            //父类名称
+            [self showAutoModelWindow:[obj boolValue]];
+            return ;
         }
     }).catchOn(dispatch_get_main_queue(),^(NSError *err){
         
@@ -159,11 +163,12 @@
     [self.preferencesWindow showWindow:self];
 }
 
--(void)showAutoModelWindow{
+-(void)showAutoModelWindow:(BOOL)isJSONModel{
     self.autoModelWindow = [[ESInputJsonController alloc] initWithWindowNibName:@"ESInputJsonController"];
     self.autoModelWindow.editorView = [MHXcodeDocumentNavigator currentSourceCodeTextView];
     self.autoModelWindow.currentImpleMentationPath = [QYIDENotificationHandler currentImpleMentationPath];
     self.autoModelWindow.delegate = self;
+    self.autoModelWindow.isJsonModel = isJSONModel;
     [self.autoModelWindow showWindow:self];
 }
 

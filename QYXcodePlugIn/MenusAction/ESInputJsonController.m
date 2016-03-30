@@ -109,14 +109,13 @@
         // 拼接 属性
         NSString *atClassContent = [QYAutoModelHelper atClassContent:self.classInfo];
         NSString *protocolContent = [QYAutoModelHelper protocolsClassContent:self.classInfo];
-        NSString *classOrProtocolDefineContent = [NSString stringWithFormat:@"\n%@\n%@\n",atClassContent,protocolContent];
         
         NSString *propertyContent = [QYAutoModelHelper parsePropertyContentWithClassInfo:self.classInfo];
         propertyContent = [propertyContent stringByAppendingString:@"\n@end\n\n"];
         
         NSString *subClassContent = [QYAutoModelHelper subClassContentForH:self.classInfo];
         
-        // 拼接 .m 内容
+        // 拼接 .h 内容
         NSString *contentAppend = [propertyContent stringByAppendingString:subClassContent];
         /**
          *  匹配@end,获取@end 位置
@@ -139,8 +138,12 @@
         hContent = [hContent stringByReplacingCharactersInRange:endRange withString:contentAppend];
         
         //替换@interface
-        hContent = [hContent stringByReplacingCharactersInRange:NSMakeRange(atInsertRange.location, 0) withString:[NSString stringWithFormat:@"%@",classOrProtocolDefineContent]];
-        
+        if (!IsEmpty(atClassContent) && !IsEmpty(protocolContent)) {
+            
+            NSString *classOrProtocolDefineContent = [NSString stringWithFormat:@"\n%@\n%@\n",atClassContent,protocolContent];
+            
+            hContent = [hContent stringByReplacingCharactersInRange:NSMakeRange(atInsertRange.location, 0) withString:[NSString stringWithFormat:@"%@",classOrProtocolDefineContent]];
+        }
 
         return  hContent;
     }).thenOn(dispatch_get_main_queue(),^(NSString *hContent){
@@ -149,6 +152,10 @@
         [self.editorView insertText:hContent replacementRange:NSMakeRange(0, self.editorView.string.length)];
         
     }).thenOn(dispatch_get_global_queue(0, 0),^id{
+        if (!self.isJsonModel) {
+            return nil;
+        }
+        
         NSError *readError;
         NSString *mContent = [NSString stringWithContentsOfFile:self.currentImpleMentationPath encoding:NSUTF8StringEncoding error:&readError];
         if (readError)
@@ -177,7 +184,10 @@
         return [QYClangFormat promiseClangFormatSourceCode:mContent];
         
     }).thenOn(dispatch_get_main_queue(),^id(NSString *mContent){
-    
+        if (!self.isJsonModel) {
+            return nil;
+        }
+
         //写入.m文件
         NSError *writeError;
         
