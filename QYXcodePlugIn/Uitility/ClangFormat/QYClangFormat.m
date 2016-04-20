@@ -8,7 +8,7 @@
 
 #import "QYClangFormat.h"
 #import "MHXcodeDocumentNavigator.h"
-#import "QYIDENotificationHandler.h"
+#import "QYXcodePlugIn.h"
 /**
  *  定义clang-form style
  *
@@ -89,7 +89,7 @@ NSString * launchClangFormatPath(){
         if (!clangFpath||clangFpath.length == 0)
             return error(@"没有找到Clang-Formate", 100, nil);
 
-        NSString *cfContentPath = [[QYIDENotificationHandler sharedHandler] clangFormateContentPath];
+        NSString *cfContentPath = [[[QYXcodePlugIn sharedPlugin] notificationHandler] clangFormateContentPath];
         if (!cfContentPath)
             return error(@"获取临时文件路径出错。。。", 0, nil);
         
@@ -205,10 +205,5 @@ NSString * launchClangFormatPath(){
     NSString *output = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     return output;
 }
-
-
-
-
-
 
 @end

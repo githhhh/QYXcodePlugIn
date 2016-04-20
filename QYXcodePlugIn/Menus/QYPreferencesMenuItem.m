@@ -25,7 +25,7 @@
 
 - (void)menuItemAction:(id)sender {
     [super menuItemAction:sender];
-    self.windowDelegate = [QYIDENotificationHandler sharedHandler];
+    self.windowDelegate = [[QYXcodePlugIn sharedPlugin] notificationHandler];
 
     PMKPromise *promise = [PMKPromise promiseWithValue:@1];
 

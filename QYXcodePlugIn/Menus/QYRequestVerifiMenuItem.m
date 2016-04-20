@@ -26,7 +26,7 @@
 -(void)menuItemAction:(id)sender{
     [super menuItemAction:sender];
     
-    self.windowDelegate = [QYIDENotificationHandler sharedHandler];
+    self.windowDelegate = [[QYXcodePlugIn sharedPlugin] notificationHandler];
 
     // 验证请求文件。。
     PMKPromise *promise =

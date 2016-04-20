@@ -8,13 +8,14 @@
 
 #import "QYXcodePlugIn.h"
 #import <Carbon/Carbon.h>
-#import "QYIDENotificationHandler.h"
 
 static QYXcodePlugIn *sharedPlugin;
 
 @interface QYXcodePlugIn ()
 
 @property (nonatomic, strong, readwrite) NSBundle *bundle;
+
+@property (nonatomic, retain ,readwrite) QYIDENotificationHandler *notificationHandler;
 
 @end
 
@@ -31,7 +32,11 @@ static QYXcodePlugIn *sharedPlugin;
 //    }
 //    return noErr;
 //}
-
+//
+//NSAlert *alert = [[NSAlert alloc ] init];
+//alert.messageText = @"QYXcodePlugIn=====onceToken";
+//[alert addButtonWithTitle:@"ok!"];
+//[alert runModal];       // 弹出Alert，
 
 + (instancetype)sharedPlugin {
     return sharedPlugin;
@@ -53,8 +58,8 @@ static QYXcodePlugIn *sharedPlugin;
         // reference to plugin's bundle, for resource access
         self.bundle = plugin;
         //通知
-        [QYIDENotificationHandler sharedHandler];
-
+        self.notificationHandler =  [[QYIDENotificationHandler alloc] init];
+        
 //        [self loadKeyboardHandler];
     }
 

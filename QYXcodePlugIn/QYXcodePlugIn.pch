@@ -22,6 +22,8 @@
 #define QYMenu_AutoModel        @"AutoModel"
 #define QYMenu_RequestValidator @"RequestValidator"
 #define QYMenu_Settings         @"Preferences"
+#define QYMenu_UpdatePlugin     @"UpdatePlugin"
+
 
 /**
  *  热键key
@@ -30,6 +32,7 @@
 #define  AutoGetterMenuKeyPath    @"values.AutoGetterKey"
 #define  AutoModelMenuKeyPath @"values.AutoModelKey"
 #define  SettingsMenuKeyPath      @"values.PreferencesKey"
+#define  UpdatePluginMenuKeyPath      @"values.UpdatePluginKey"
 
 
 
@@ -74,14 +77,21 @@
 #define LOG_METHOD;
 #endif
 
+/**
+ *  weak/strong self
+ */
+
+#define weakify(instance) __weak __typeof(instance) weakSelf = instance
+
+#define strongify(instance)   __strong __typeof(instance) strongSelf = weakSelf
 
 
 #ifdef __OBJC__
-#import "QYIDENotificationHandler.h"
 #import "XcodeEditor.h"
 #import "XCTarget+XCProject.h"
 #import "XCFXcodePrivate.h"
 #import "LAFIDESourceCodeEditor.h"
+#import "QYXcodePlugIn.h"
 //要引入的类
 #endif
 

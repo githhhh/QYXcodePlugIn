@@ -12,6 +12,7 @@
 #import "MHXcodeDocumentNavigator.h"
 #import "NSString+Files.h"
 #import "NSString+Extensions.h"
+#import "QYXcodePlugIn.h"
 
 @implementation QYAutoModelMenuItem
 -(instancetype)init{
@@ -28,7 +29,7 @@
     [super menuItemAction:sender];
     
     //action
-    self.windowDelegate = [QYIDENotificationHandler sharedHandler];
+    self.windowDelegate = [[QYXcodePlugIn sharedPlugin] notificationHandler];
     
     PMKPromise *promise = dispatch_promise_on(dispatch_get_main_queue(), ^id(){
     

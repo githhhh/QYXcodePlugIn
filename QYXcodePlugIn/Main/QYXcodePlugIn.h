@@ -7,10 +7,13 @@
 //
 
 #import <AppKit/AppKit.h>
+#import "QYIDENotificationHandler.h"
 
 @interface QYXcodePlugIn : NSObject
 
 @property (nonatomic, strong, readonly) NSBundle* bundle;
+
+@property (nonatomic, retain ,readonly) QYIDENotificationHandler *notificationHandler;
 
 + (void)pluginDidLoad:(NSBundle *)plugin;
 

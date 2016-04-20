@@ -23,7 +23,7 @@
 
 -(void)menuItemAction:(id)sender{
     //TODO
-    [[QYIDENotificationHandler  sharedHandler] clangFormateContentPath];
+    [[[QYXcodePlugIn sharedPlugin] notificationHandler] clangFormateContentPath];
     
 }
 

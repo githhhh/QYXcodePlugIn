@@ -9,14 +9,12 @@
 #import "QYPreferencesModel.h"
 #import <dlfcn.h>
 
-#define ClangFormateContentPath  [[QYIDENotificationHandler sharedHandler] clangFormateContentPath]
+#define ClangFormateContentPath  [[[QYXcodePlugIn sharedPlugin] notificationHandler] clangFormateContentPath]
 
-#define PreferencesModel  [[QYIDENotificationHandler sharedHandler] preferencesModel]
+#define PreferencesModel  [[[QYXcodePlugIn sharedPlugin] notificationHandler] preferencesModel]
 
 
 @interface QYIDENotificationHandler : NSObject
-
-+ (id)sharedHandler;
 
 - (NSString *)clangFormateContentPath;
 

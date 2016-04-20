@@ -206,6 +206,7 @@
     });
 }
 
+
 #pragma mark - windowClose Notifi
 
 - (void)windowWillClose:(NSNotification *)notification
@@ -233,7 +234,7 @@
     newPreferencesModel.propertyBusinessPrefixEnable = self.businessPrefixButton.state == 1?NO:YES;
     newPreferencesModel.isDefaultAllJSON = self.defaultAllJSONBtn.state == 1?NO:YES;
     newPreferencesModel.contentJSONKey = self.contentJSONKeyTextFiled.stringValue;
-    [[QYIDENotificationHandler sharedHandler] updatePreferencesModel:newPreferencesModel];
+    [[[QYXcodePlugIn sharedPlugin] notificationHandler] updatePreferencesModel:newPreferencesModel];
 }
 
 

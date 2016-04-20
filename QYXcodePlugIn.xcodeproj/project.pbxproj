@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6071F821A8C8831C3A24495E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16364214EC190002C2584301 /* libPods.a */; };
 		8B05B57F1BF5A32E00F37998 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B05B57E1BF5A32E00F37998 /* Carbon.framework */; };
+		8B0F54811CBB763D00F8C3D0 /* QYUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0F54801CBB763D00F8C3D0 /* QYUpdateModel.m */; };
+		8B4829371CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B4829361CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist */; };
 		8B4C00821BF7852300A77AD9 /* PTHotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00801BF7852300A77AD9 /* PTHotKey.framework */; };
 		8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */; };
 		8B54D17E1CA263CB00B67A5F /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B54D17D1CA263CB00B67A5F /* images.xcassets */; };
@@ -18,6 +20,7 @@
 		8B60ADA81BABB7F100672762 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA71BABB7F100672762 /* AppKit.framework */; };
 		8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA91BABB7F100672762 /* Foundation.framework */; };
 		8B60AE291BABCEBB00672762 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60AE281BABCEBB00672762 /* Cocoa.framework */; };
+		8B63E78E1CC4FA07009E4DC1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B63E78D1CC4FA07009E4DC1 /* logo.png */; };
 		8B85168A1C96B5CD00D927E5 /* ESDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8516851C96B5CD00D927E5 /* ESDialogController.m */; };
 		8B85168B1C96B5CD00D927E5 /* ESDialogController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8516861C96B5CD00D927E5 /* ESDialogController.xib */; };
 		8B85168C1C96B5CD00D927E5 /* ESInputJsonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8516881C96B5CD00D927E5 /* ESInputJsonController.m */; };
@@ -44,6 +47,8 @@
 		8BA852891BF7879600EE9398 /* XCWorkspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852551BF7879600EE9398 /* XCWorkspace.m */; };
 		8BA852A01BF7886000EE9398 /* QYIDENotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA8529E1BF7886000EE9398 /* QYIDENotificationHandler.m */; };
 		8BA852C21BF78A6700EE9398 /* QYClangFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA852C11BF78A6700EE9398 /* QYClangFormat.m */; };
+		8BAD45DB1CC5C4A9002DB990 /* QYUpdateAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAD45D91CC5C4A9002DB990 /* QYUpdateAlert.m */; };
+		8BAD45DC1CC5C4A9002DB990 /* QYUpdateAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BAD45DA1CC5C4A9002DB990 /* QYUpdateAlert.xib */; };
 		8BAE7E8F1C4797E300A505FD /* NSMenu+RegisterMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7E861C4797E300A505FD /* NSMenu+RegisterMenuItem.m */; };
 		8BAE7E901C4797E300A505FD /* QYAutoGetterMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7E881C4797E300A505FD /* QYAutoGetterMenuItem.m */; };
 		8BAE7E911C4797E300A505FD /* QYMenuBaseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7E8A1C4797E300A505FD /* QYMenuBaseItem.m */; };
@@ -62,6 +67,7 @@
 		8BAE7EBA1C47984100A505FD /* NSObject+MethodSwizzler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EB61C47984100A505FD /* NSObject+MethodSwizzler.m */; };
 		8BAE7EBE1C4798E700A505FD /* QYPreferencesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAE7EBD1C4798E700A505FD /* QYPreferencesModel.m */; };
 		8BB854F91C9699E30042FC02 /* QYAutoModelMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB854F81C9699E30042FC02 /* QYAutoModelMenuItem.m */; };
+		8BC14CCD1CC76E15009FF572 /* QYUpdateMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC14CCC1CC76E15009FF572 /* QYUpdateMenuItem.m */; };
 		8BF346821C9C362000BD2BE4 /* QYAutoModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF346811C9C362000BD2BE4 /* QYAutoModelHelper.m */; };
 		8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F6681BFDB14E00F4A4AD /* TemplateIcon.png */; };
 		8BF5F6831BFDB14E00F4A4AD /* TemplateIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F6691BFDB14E00F4A4AD /* TemplateIcon@2x.png */; };
@@ -80,6 +86,9 @@
 		8B08157F1C8D2422003B5B18 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
 		8B0815801C8D2422003B5B18 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8B0815821C8D2422003B5B18 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8B0F547F1CBB763D00F8C3D0 /* QYUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYUpdateModel.h; sourceTree = "<group>"; };
+		8B0F54801CBB763D00F8C3D0 /* QYUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYUpdateModel.m; sourceTree = "<group>"; };
+		8B4829361CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QYXcodePlugIn-Info.plist"; sourceTree = "<group>"; };
 		8B4C00801BF7852300A77AD9 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/PTHotKey.framework"; sourceTree = "<group>"; };
 		8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		8B54D17D1CA263CB00B67A5F /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
@@ -91,8 +100,8 @@
 		8B60ADA41BABB7F100672762 /* QYXcodePlugIn.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QYXcodePlugIn.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B60ADA71BABB7F100672762 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		8B60ADA91BABB7F100672762 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		8B60ADAD1BABB7F100672762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B60AE281BABCEBB00672762 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8B63E78D1CC4FA07009E4DC1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		8B8516841C96B5CD00D927E5 /* ESDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESDialogController.h; sourceTree = "<group>"; };
 		8B8516851C96B5CD00D927E5 /* ESDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESDialogController.m; sourceTree = "<group>"; };
 		8B8516861C96B5CD00D927E5 /* ESDialogController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESDialogController.xib; sourceTree = "<group>"; };
@@ -145,6 +154,9 @@
 		8BA8529F1BF7886000EE9398 /* QYWindowsCloseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYWindowsCloseProtocol.h; path = Main/QYWindowsCloseProtocol.h; sourceTree = "<group>"; };
 		8BA852C01BF78A6700EE9398 /* QYClangFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYClangFormat.h; sourceTree = "<group>"; };
 		8BA852C11BF78A6700EE9398 /* QYClangFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYClangFormat.m; sourceTree = "<group>"; };
+		8BAD45D81CC5C4A9002DB990 /* QYUpdateAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYUpdateAlert.h; sourceTree = "<group>"; };
+		8BAD45D91CC5C4A9002DB990 /* QYUpdateAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYUpdateAlert.m; sourceTree = "<group>"; };
+		8BAD45DA1CC5C4A9002DB990 /* QYUpdateAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QYUpdateAlert.xib; sourceTree = "<group>"; };
 		8BAE7E851C4797E300A505FD /* NSMenu+RegisterMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMenu+RegisterMenuItem.h"; path = "Menus/NSMenu+RegisterMenuItem.h"; sourceTree = "<group>"; };
 		8BAE7E861C4797E300A505FD /* NSMenu+RegisterMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMenu+RegisterMenuItem.m"; path = "Menus/NSMenu+RegisterMenuItem.m"; sourceTree = "<group>"; };
 		8BAE7E871C4797E300A505FD /* QYAutoGetterMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QYAutoGetterMenuItem.h; path = Menus/QYAutoGetterMenuItem.h; sourceTree = "<group>"; };
@@ -178,6 +190,8 @@
 		8BAE7EBD1C4798E700A505FD /* QYPreferencesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QYPreferencesModel.m; path = Model/QYPreferencesModel.m; sourceTree = "<group>"; };
 		8BB854F71C9699E30042FC02 /* QYAutoModelMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYAutoModelMenuItem.h; sourceTree = "<group>"; };
 		8BB854F81C9699E30042FC02 /* QYAutoModelMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYAutoModelMenuItem.m; sourceTree = "<group>"; };
+		8BC14CCB1CC76E15009FF572 /* QYUpdateMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYUpdateMenuItem.h; sourceTree = "<group>"; };
+		8BC14CCC1CC76E15009FF572 /* QYUpdateMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYUpdateMenuItem.m; sourceTree = "<group>"; };
 		8BF346801C9C362000BD2BE4 /* QYAutoModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYAutoModelHelper.h; sourceTree = "<group>"; };
 		8BF346811C9C362000BD2BE4 /* QYAutoModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYAutoModelHelper.m; sourceTree = "<group>"; };
 		8BF5F65A1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
@@ -274,9 +288,19 @@
 			path = QYRequestSwift;
 			sourceTree = "<group>";
 		};
+		8B0F547E1CBB762000F8C3D0 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				8B0F547F1CBB763D00F8C3D0 /* QYUpdateModel.h */,
+				8B0F54801CBB763D00F8C3D0 /* QYUpdateModel.m */,
+			);
+			name = Update;
+			sourceTree = "<group>";
+		};
 		8B60AD9B1BABB7F100672762 = {
 			isa = PBXGroup;
 			children = (
+				8B63E78D1CC4FA07009E4DC1 /* logo.png */,
 				8B9C6BD71BB1247700242629 /* setupHelper.sh */,
 				8B9C6BC41BB1232C00242629 /* CodeSnippets */,
 				8B9C6BC31BB1231700242629 /* QYFileTemplate */,
@@ -312,6 +336,8 @@
 		8B60ADAB1BABB7F100672762 /* QYXcodePlugIn */ = {
 			isa = PBXGroup;
 			children = (
+				8BAD45CF1CC5C3B5002DB990 /* Alert */,
+				8B0F547E1CBB762000F8C3D0 /* Update */,
 				8B9ED1EE1C33E72A0072CCE2 /* Magic */,
 				8BAE7EBB1C4798AC00A505FD /* Model */,
 				8B746C8F1C27BF2900C4A1A4 /* Menus */,
@@ -327,7 +353,7 @@
 		8B60ADAC1BABB7F100672762 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8B60ADAD1BABB7F100672762 /* Info.plist */,
+				8B4829361CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist */,
 				8B8D837A1BF5B9EC0016A838 /* QYXcodePlugIn.pch */,
 			);
 			name = "Supporting Files";
@@ -360,6 +386,8 @@
 				8BAE7E8C1C4797E300A505FD /* QYPreferencesMenuItem.m */,
 				8BB854F71C9699E30042FC02 /* QYAutoModelMenuItem.h */,
 				8BB854F81C9699E30042FC02 /* QYAutoModelMenuItem.m */,
+				8BC14CCB1CC76E15009FF572 /* QYUpdateMenuItem.h */,
+				8BC14CCC1CC76E15009FF572 /* QYUpdateMenuItem.m */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -499,6 +527,16 @@
 				8BA852C11BF78A6700EE9398 /* QYClangFormat.m */,
 			);
 			path = ClangFormat;
+			sourceTree = "<group>";
+		};
+		8BAD45CF1CC5C3B5002DB990 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				8BAD45D81CC5C4A9002DB990 /* QYUpdateAlert.h */,
+				8BAD45D91CC5C4A9002DB990 /* QYUpdateAlert.m */,
+				8BAD45DA1CC5C4A9002DB990 /* QYUpdateAlert.xib */,
+			);
+			name = Alert;
 			sourceTree = "<group>";
 		};
 		8BAE7E941C47980200A505FD /* MenusAction */ = {
@@ -784,9 +822,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B63E78E1CC4FA07009E4DC1 /* logo.png in Resources */,
 				8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */,
 				8BAE7EAC1C47980200A505FD /* QYPreferencesController.xib in Resources */,
 				8BAE7EAE1C47980200A505FD /* QYShortcutRecorderController.xib in Resources */,
+				8B4829371CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist in Resources */,
+				8BAD45DC1CC5C4A9002DB990 /* QYUpdateAlert.xib in Resources */,
 				8BAE7EAD1C47980200A505FD /* QYRequestVerifyController.xib in Resources */,
 				8B85168D1C96B5CD00D927E5 /* ESInputJsonController.xib in Resources */,
 				8B85168B1C96B5CD00D927E5 /* ESDialogController.xib in Resources */,
@@ -840,6 +881,7 @@
 			files = (
 				8BB854F91C9699E30042FC02 /* QYAutoModelMenuItem.m in Sources */,
 				8BA8527C1BF7879600EE9398 /* NSMutableIndexSet+NSArray.m in Sources */,
+				8BC14CCD1CC76E15009FF572 /* QYUpdateMenuItem.m in Sources */,
 				8B57FD011C9BDE0E00A260F5 /* ESClassInfo.m in Sources */,
 				8B9C6C531BB129ED00242629 /* QYXcodePlugIn.m in Sources */,
 				8BA852791BF7879600EE9398 /* DVTSourceTextStorage+Operations.m in Sources */,
@@ -848,6 +890,7 @@
 				8BAE7EA91C47980200A505FD /* QYPreferencesController.m in Sources */,
 				8BA852841BF7879600EE9398 /* MHXcodeDocumentNavigator.m in Sources */,
 				8BAE7EB71C47984100A505FD /* NSObject+MagicClearCatalogFilter.m in Sources */,
+				8B0F54811CBB763D00F8C3D0 /* QYUpdateModel.m in Sources */,
 				8B54D1811CA272DE00B67A5F /* QYTapImageView.m in Sources */,
 				8BA852861BF7879600EE9398 /* XCProject+Extensions.m in Sources */,
 				8BA852891BF7879600EE9398 /* XCWorkspace.m in Sources */,
@@ -871,6 +914,7 @@
 				8B85168C1C96B5CD00D927E5 /* ESInputJsonController.m in Sources */,
 				8BA852831BF7879600EE9398 /* XCSourceFile+Path.m in Sources */,
 				8BA8527F1BF7879600EE9398 /* NSString+Files.m in Sources */,
+				8BAD45DB1CC5C4A9002DB990 /* QYUpdateAlert.m in Sources */,
 				8BA852851BF7879600EE9398 /* NSString+XCAdditions.m in Sources */,
 				8BA852881BF7879600EE9398 /* XCBuildSettings.m in Sources */,
 				8BA8527B1BF7879600EE9398 /* NSFileManager+Headers.m in Sources */,
@@ -921,7 +965,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "QYXcodePlugIn/QYXcodePlugIn-Info.plist";
+				INFOPLIST_OUTPUT_FORMAT = "same-as-input";
 				LD_RUNPATH_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 			};
@@ -957,7 +1004,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "QYXcodePlugIn/QYXcodePlugIn-Info.plist";
+				INFOPLIST_OUTPUT_FORMAT = "same-as-input";
 				LD_RUNPATH_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				MTL_ENABLE_DEBUG_INFO = NO;
 			};
 			name = Release;
@@ -979,7 +1029,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QYXcodePlugIn/QYXcodePlugIn.pch";
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = QYXcodePlugIn/Info.plist;
+				INFOPLIST_FILE = "QYXcodePlugIn/QYXcodePlugIn-Info.plist";
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
@@ -1007,7 +1057,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QYXcodePlugIn/QYXcodePlugIn.pch";
 				HEADER_SEARCH_PATHS = "";
-				INFOPLIST_FILE = QYXcodePlugIn/Info.plist;
+				INFOPLIST_FILE = "QYXcodePlugIn/QYXcodePlugIn-Info.plist";
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = "";

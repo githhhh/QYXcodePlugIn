@@ -22,6 +22,7 @@
 #import "QYWindowsCloseProtocol.h"
 #import "QYAutoModelMenuItem.h"
 #import "ESInputJsonController.h"
+#import "QYUpdateMenuItem.h"
 
 @interface QYIDENotificationHandler () <QYWindowsCloseProtocol>
 //window
@@ -38,17 +39,6 @@
 
 #pragma mark - Life cycle
 
-+ (id)sharedHandler
-{
-    static QYIDENotificationHandler *_sharedInstance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedInstance = [[self alloc] init];
-    });
-    return _sharedInstance;
-}
-
-
 - (id)init
 {
     self = [super init];
@@ -57,6 +47,13 @@
                                                  selector:@selector(didApplicationFinishLaunchingNotification:)
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
+        
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(projectDidOpenNotification:)
+                                                     name:@"PBXProjectDidOpenNotification"
+                                                   object:nil];
+
     }
     return self;
 }
@@ -78,12 +75,21 @@
                                                     name:NSApplicationDidFinishLaunchingNotification
                                                   object:nil];
     
+
+    
     // Create menu items, initialize UI, etc.
     // Sample Menu Item:
     
     //添加子菜单er
     [self addCustomMenuOnEdit];
 }
+
+-(void)projectDidOpenNotification:(NSNotification *)noti{
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"PBXProjectDidOpenNotification" object:nil];
+
+}
+
 
 /**
  *  添加子菜单
@@ -114,6 +120,8 @@
 
     //全局设置
     [subMenus registerMenuItem:[QYPreferencesMenuItem class]];
+    //更新
+    [subMenus registerMenuItem:[QYUpdateMenuItem class]];
     
     [actionMenuItem setSubmenu:subMenus];
 }
@@ -243,6 +251,5 @@
         self.autoModelWindow = nil;
     }
 }
-
 
 @end

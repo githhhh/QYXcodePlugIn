@@ -1,5 +1,7 @@
 #! /bin/bash
 SRC_HOME=`pwd`
+#外部传入参数
+paramterFromOut=$1
 
 #镜像代码片段
 function codeSnippetFun(){
@@ -52,6 +54,39 @@ function install_Format(){
    cp ${SRC_HOME}/Formate_cfg/$ufFileName $ufFilePath
 }
 
+#updatePlist
+function updatePlist(){
+    cd $SRC_HOME
+
+    #plist name
+    plist="QYXcodePlugIn-Info.plist"
+
+    #finde plist file path
+    for plistPath in `find ${SRC_HOME} -name "$plist" -print`
+    do
+        plist=${plistPath}
+        break
+    done
+
+    #读取
+    plugInGitPath=`/usr/libexec/PlistBuddy -c "Print :QYXcodePlugInGitPath" "$plist"`
+
+    #是否存在
+    if [ -z "$plugInGitPath" ];
+    then
+
+        #不存在
+        plugInGitPath=${SRC_HOME}
+        /usr/libexec/PlistBuddy -c "Add :QYXcodePlugInGitPath string $plugInGitPath@@$plist" "$plist"
+
+    else
+        #存在
+        /usr/libexec/PlistBuddy -c "Delete :QYXcodePlugInGitPath" "$plist"
+
+    fi
+
+}
+
 #bulide Release
 function bulide_Release(){
    cd $SRC_HOME
@@ -61,27 +96,44 @@ function bulide_Release(){
    xcodebuild  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme PTHotKey.framework || exit
 
    xcodebuild  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme QYXcodePlugIn || exit
+
 }
 
 
-#call function
+#call Function
 
 #安装format
 install_Format
-#安装代码片段
+##安装代码片段
 codeSnippetFun
-#安装代码模板
+##安装代码模板
 codeTemplateFun
+#写入工程路径
+updatePlist
 #安装插件
 bulide_Release
 
-#fix 升级xcode 没有用
+#fix 升级XCode 没有用
 find ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins -name Info.plist -maxdepth 3 | xargs -I{} defaults write {} DVTPlugInCompatibilityUUIDs -array-add `defaults read /Applications/Xcode.app/Contents/Info.plist DVTPlugInCompatibilityUUID`
 
-#重启xcode
-pkill -9 -x Xcode
-#fix LSOpenURLsWithRole() failed with error on OSX Yosemite
-sleep 0.5
-open /Applications/Xcode.app
+#判断是否传入外部参数（是否更新）
+if [ -z "$paramterFromOut" ];
+then
+    #重启XCode
+    pkill -9 -x Xcode
+    #fix LSOpenURLsWithRole() failed with error on OSX Yosemite
+    sleep 0.5
+    open /Applications/Xcode.app
+else
+    #存在
+    if [ "$paramterFromOut" == "up" ]
+    then
+        sleep 0.5
+    fi
+fi
+
+#编译成功,清理plist
+updatePlist
 
 echo " 🎉  🎉  🎉  😉  😉  😉   Enjoy.Go!   🚀  🚀  🚀  🍻  🍻  🍻  "
+
