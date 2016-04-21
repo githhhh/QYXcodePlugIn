@@ -22,4 +22,6 @@
 
 - (void)updatePreferencesModel:(QYPreferencesModel *)preferencesModel;
 
+- (void)didApplicationFinishLaunchingNotification:(NSNotification *)noti;
+
 @end

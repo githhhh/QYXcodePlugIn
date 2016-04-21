@@ -189,8 +189,11 @@
             if (strongSelf.confirmBlock) {
                 strongSelf.confirmBlock();
             }
-        
-            [strongSelf asyncReloadQYPlugIn];
+            
+            /**
+             *  重新加载QYXcodePlugIn
+             */
+            [[[QYXcodePlugIn sharedPlugin] notificationHandler] didApplicationFinishLaunchingNotification:nil];
         };
         
     }).catchOn(dispatch_get_main_queue(),^(NSError *err){
@@ -215,23 +218,6 @@
                 strongSelf.confirmBlock();
             }
         };
-
-    });
-    
-}
-
-
-/**
- *  重新异步加载pluginDidLoad
- */
--(void)asyncReloadQYPlugIn{
-    
-    dispatch_promise_on(dispatch_get_global_queue(0,0), ^(){
-        
-        NSBundle* bundle = [QYXcodePlugIn sharedPlugin].bundle;
-        QYXcodePlugIn *shared = [QYXcodePlugIn sharedPlugin];
-        shared = nil;
-        [QYXcodePlugIn pluginDidLoad:bundle];
 
     });
     

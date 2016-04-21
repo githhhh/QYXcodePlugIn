@@ -33,22 +33,19 @@ static QYXcodePlugIn *sharedPlugin;
 //    return noErr;
 //}
 //
-//NSAlert *alert = [[NSAlert alloc ] init];
-//alert.messageText = @"QYXcodePlugIn=====onceToken";
-//[alert addButtonWithTitle:@"ok!"];
-//[alert runModal];       // 弹出Alert，
 
 + (instancetype)sharedPlugin {
     return sharedPlugin;
 }
 
 + (void)pluginDidLoad:(NSBundle *)plugin {
+    
     static dispatch_once_t onceToken;
-    NSString *currentApplicationName = [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
 
-    if ([currentApplicationName isEqual:@"Xcode"]) {
+    if ([[[NSBundle mainBundle] infoDictionary][@"CFBundleName"] isEqual:@"Xcode"]) {
+        
         dispatch_once(&onceToken, ^{
-            sharedPlugin = [[QYXcodePlugIn alloc] initWithBundle:plugin];
+            sharedPlugin = [[self alloc] initWithBundle:plugin];
         });
     }
 }
@@ -65,6 +62,10 @@ static QYXcodePlugIn *sharedPlugin;
 
     return self;
 }
+
+
+
+
 
 //#pragma mark -  直接注册热键 事件
 //- (void)loadKeyboardHandler

@@ -70,10 +70,18 @@
 //    (*listenServer)(54321);
 #endif
     
-    // removeObserver
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:NSApplicationDidFinishLaunchingNotification
-                                                  object:nil];
+    NSMenu *productMenu = [[[NSApp mainMenu] itemWithTitle:@"Product"] submenu];
+    if ( !productMenu ) {
+        [self performSelector:@selector(didApplicationFinishLaunchingNotification:) withObject:noti afterDelay:1.0];
+        return;
+    }
+
+    if (noti) {
+        // removeObserver
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:NSApplicationDidFinishLaunchingNotification
+                                                    object:nil];
+    }
     
 
     
@@ -90,6 +98,7 @@
 
 }
 
+#pragma mark - CreatMenu
 
 /**
  *  添加子菜单
@@ -180,7 +189,8 @@
     [self.autoModelWindow showWindow:self];
 }
 
-#pragma mark - publice method
+#pragma mark - Publice method
+
 + (NSString *)currentImpleMentationPath
 {
     NSString *sourceFilePath = [MHXcodeDocumentNavigator currentFilePath];
@@ -225,8 +235,6 @@
     [userdf setObject:customData forKey:@"preferencesModel"];
     [userdf synchronize];
 }
-
-
 
 
 #pragma mark - close window
