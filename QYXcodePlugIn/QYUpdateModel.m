@@ -71,7 +71,7 @@
 
     }).thenOn(dispatch_get_main_queue(),^(NSString *version,NSString *lastVersion,NSString *outStr){
 
-        if ([lastVersion floatValue] == [version floatValue]) {
+        if ([lastVersion floatValue] > [version floatValue]) {
             
             self.alert.title = @"QYXcodePlugIn插件有新的可用更新~！";
             self.alert.cancelTitle = @"瘪来烦我！";
