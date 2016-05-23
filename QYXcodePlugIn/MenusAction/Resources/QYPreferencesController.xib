@@ -164,14 +164,6 @@ Gw
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Has-dp-gfK">
-                        <rect key="frame" x="130" y="566" width="185" height="19"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="自定义请求校验设置" id="TlZ-af-kqg">
-                            <font key="font" size="17" name=".HelveticaNeueDeskInterface-Regular"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TJ3-5O-G0x">
                         <rect key="frame" x="18" y="586" width="985" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" id="e8u-ZY-FcI">
@@ -302,9 +294,17 @@ Gw
                             <action selector="defaultAllJSONBtnChangeState:" target="-2" id="qkp-eg-2NP"/>
                         </connections>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Has-dp-gfK">
+                        <rect key="frame" x="85" y="559" width="332" height="30"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="自定义请求校验设置+哈哈哈" id="TlZ-af-kqg">
+                            <font key="font" size="17" name="PingFangSC-Regular"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="-94.5" y="-244.5"/>
+            <point key="canvasLocation" x="-175.5" y="-278.5"/>
         </window>
     </objects>
 </document>
