@@ -61,7 +61,7 @@ static NSString *NumberClass = @"[NSNumber class]";
 
 - (IBAction)cancelAction:(id)sender
 {
-    [super close];
+    [self close];
     [self closeWindown];
 }
 

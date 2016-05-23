@@ -30,9 +30,9 @@
  */
 #define  RequestVerifiMenuKeyPath @"values.requestVerifiKey"
 #define  AutoGetterMenuKeyPath    @"values.AutoGetterKey"
-#define  AutoModelMenuKeyPath @"values.AutoModelKey"
+#define  AutoModelMenuKeyPath     @"values.AutoModelKey"
 #define  SettingsMenuKeyPath      @"values.PreferencesKey"
-#define  UpdatePluginMenuKeyPath      @"values.UpdatePluginKey"
+#define  UpdatePluginMenuKeyPath  @"values.UpdatePluginKey"
 
 
 

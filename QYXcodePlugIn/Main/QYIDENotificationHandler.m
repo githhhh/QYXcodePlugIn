@@ -242,20 +242,14 @@
 - (void)windowDidClose
 {
     if (self.requestVerifyWindow) {
-        [self.requestVerifyWindow.window close];
-        self.requestVerifyWindow.window = nil;
         self.requestVerifyWindow = nil;
     }
     
     if (self.preferencesWindow) {
-        [self.preferencesWindow.window close];
-        self.preferencesWindow.window = nil;
         self.preferencesWindow = nil;
     }
     
     if (self.autoModelWindow) {
-        [self.autoModelWindow.window close];
-        self.autoModelWindow.window = nil;
         self.autoModelWindow = nil;
     }
 }

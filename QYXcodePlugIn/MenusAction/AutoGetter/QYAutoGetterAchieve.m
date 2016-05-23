@@ -46,25 +46,37 @@ static NSInteger const groupBaseCount = 3;
     
     //AutoGeter
     PMKPromise *cfGetterPromise = [self promiseClangFormateGetterStr];
-    PMKPromise *cfSelectePromise = [QYClangFormat promiseClangFormatSourceCode:self.editor.selectedText];
+    
     PMKPromise *insertLocPromise = [QYAutoGetterAchieve promiseInsertLoction];
+    
     NSDictionary *promiseDic = @{
-                                     @"cfGp":cfGetterPromise,
-                                     @"cfSp":cfSelectePromise,
-                                     @"insertLoc":insertLocPromise
+                                 @"cfGp":cfGetterPromise,
+                                 @"insertLoc":insertLocPromise
                                  };
     
     [PMKPromise when:promiseDic].thenOn(dispatch_get_main_queue(),^(NSDictionary *resulte){
         //插入allGetterStr
         NSValue  * rangValue = resulte[@"insertLoc"];
-        NSRange replaceRang = [rangValue rangeValue];
-        [self.editor.view insertText:resulte[@"cfGp"] replacementRange:replaceRang];
         
+        NSString * getterStr = resulte[@"cfGp"];
+        
+        [self.editor.view insertText:getterStr replacementRange:[rangValue rangeValue]];
+        
+        return [QYClangFormat promiseClangFormatSourceCode:self.editor.selectedText];
+        
+    }).thenOn(dispatch_get_main_queue(),^id(NSString *seletedText){
+        if (IsEmpty(self.editor.selectedText)) {
+            return error(@"选中内容为空，无法格式化", 0, nil);
+        }
         //替换选择内容
-        [self.editor insertOnCaret:resulte[@"cfSp"]];
+        [self.editor insertOnCaret:seletedText];
+        
+        return nil;
     }).catch(^(NSError *err){
+        
         NSString *dominStr = dominWithError(err);
         [LAFIDESourceCodeEditor showAboveCaret:dominStr color:[NSColor yellowColor]];
+        
     });
     
 }

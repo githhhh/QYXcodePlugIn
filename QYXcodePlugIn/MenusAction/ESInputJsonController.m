@@ -230,7 +230,7 @@
 #pragma mark - Private Methode
 
 -(void)closeWindown{
-    [super close];
+    [self close];
     if (self.delegate && [self.delegate respondsToSelector:@selector(windowDidClose)]) {
         [self.delegate windowDidClose];
     }
