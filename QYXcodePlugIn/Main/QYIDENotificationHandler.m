@@ -70,8 +70,8 @@
 //    (*listenServer)(54321);
 #endif
     
-    NSMenu *productMenu = [[[NSApp mainMenu] itemWithTitle:@"Product"] submenu];
-    if ( !productMenu ) {
+    NSMenu *productMenu = [[[NSApp mainMenu] itemWithTitle:SuperMenu] submenu];
+    if (!productMenu) {
         [self performSelector:@selector(didApplicationFinishLaunchingNotification:) withObject:noti afterDelay:1.0];
         return;
     }
@@ -110,11 +110,17 @@
         return;
     }
     
+    NSMenuItem *qyMenuItem = [[editItem submenu] itemWithTitle:QYMenu];
+    //移除已经存在的menu
+    if (qyMenuItem) {
+        [[editItem submenu] removeItem:qyMenuItem];
+    }
+    
     [[editItem submenu] addItem:[NSMenuItem separatorItem]];
     
-    NSMenuItem *actionMenuItem = [[NSMenuItem alloc] init];
-    [actionMenuItem setTitle:QYMenu];
-    [[editItem submenu] addItem:actionMenuItem];
+    qyMenuItem  = [[NSMenuItem alloc] init];
+    [qyMenuItem setTitle:QYMenu];
+    [[editItem submenu] addItem:qyMenuItem];
     
     NSMenu *subMenus = [[NSMenu alloc] init];
     //AutoGetter
@@ -132,7 +138,7 @@
     //更新
     [subMenus registerMenuItem:[QYUpdateMenuItem class]];
     
-    [actionMenuItem setSubmenu:subMenus];
+    [qyMenuItem setSubmenu:subMenus];
 }
 
 #pragma mark - receiveMenuItemPromise
