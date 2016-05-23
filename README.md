@@ -24,7 +24,7 @@
 
 ## 安装
 
-    > git clone git@gitlab.dev:TangBin/QYXcodePlugIn.git
+    > git clone git@gitlab.dev:qyer/QYXcodePlugIn.git
 	> cd QYXcodePlugIn/
 	> ./setupHelper.sh
 	
