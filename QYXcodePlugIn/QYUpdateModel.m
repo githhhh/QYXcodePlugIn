@@ -16,7 +16,7 @@
 
 #define mergeCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit commit -a -m \"update_plugin\"\ngit pull --rebase\ngit push origin master\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
 
-#define updateCommand(gitPath) [NSString stringWithFormat:@"\ncd \'%@\'\n\n./setupHelper.sh up\n",gitPath]
+#define updateCommand(gitPath) [NSString stringWithFormat:@"\ncd \'%@\'\n\n./setupHelper.sh\n",gitPath]
 
 @interface QYUpdateModel ()
 
