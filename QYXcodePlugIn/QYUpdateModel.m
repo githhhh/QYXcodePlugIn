@@ -14,8 +14,6 @@
 #import "QYUpdateAlert.h"
 #import "QYXcodePlugIn.h"
 
-#define checkVersionCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit pull --rebase\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
-
 #define mergeCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit commit -a -m \"update_plugin\"\ngit pull --rebase\ngit push origin master\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
 
 #define updateCommand(gitPath) [NSString stringWithFormat:@"\ncd \'%@\'\n\n./setupHelper.sh up\n",gitPath]
@@ -54,9 +52,9 @@
         
         NSString *version = [QYUpdateModel currentVersion];
 
-//        self.pathArr = [paths componentsSeparatedByString:@"@@"];
-        
-        self.pathArr = @[@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn",@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn/QYXcodePlugIn/QYXcodePlugIn-Info.plist"];
+        self.pathArr = [paths componentsSeparatedByString:@"@@"];
+//
+//        self.pathArr = @[@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn",@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn/QYXcodePlugIn/QYXcodePlugIn-Info.plist"];
         
         //异步获取最新代码
         NSString *outStr = [QYClangFormat runCommand:mergeCommand(self.pathArr[0],self.pathArr[1])];
@@ -66,12 +64,6 @@
         }
         NSString *lastVersion = nil;
         outStr = [outStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        
-//        NSRange errorRange = [outStr rangeOfString:@"Cannot pull with rebase: You have unstaged changes."];
-//        
-//        if (errorRange.location!=NSNotFound && errorRange.length>0) {
-//            outStr = [QYClangFormat runCommand:checkVersionCommand(self.pathArr[0],self.pathArr[1])];
-//        }
         
         if ( [outStr hasPrefix:@"versionStr="] ) {
             return error(@"ssh: connect to host gitlab.dev port xx: Network is unreachable\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.", 0, nil);
