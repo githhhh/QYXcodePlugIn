@@ -265,10 +265,10 @@
 
 - (void)reloadPluginBundleWithoutWarnings{
     Class principalClass = [self.pluginBundle principalClass];
-    if ([principalClass respondsToSelector:NSSelectorFromString(@"pluginDidLoad:")]) {
+    if ([principalClass respondsToSelector:NSSelectorFromString(@"reloadPlugin:")]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [principalClass performSelector:NSSelectorFromString(@"pluginDidLoad:") withObject:self.pluginBundle];
+        [principalClass performSelector:NSSelectorFromString(@"reloadPlugin:") withObject:self.pluginBundle];
 #pragma clang diagnostic pop
         
     } else {
