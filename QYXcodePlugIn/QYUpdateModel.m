@@ -260,18 +260,19 @@
     if (!loaded)
         NSLog(@"[%@] Plugin load error: %@",[self.pluginBundle.bundlePath currentFileName] ,loadError);
 
+    [self reloadPluginBundleWithoutWarnings];
 }
 
-- (void)reloadPluginBundleWithoutWarnings:(NSBundle *)pluginBundle{
-    Class principalClass = [pluginBundle principalClass];
+- (void)reloadPluginBundleWithoutWarnings{
+    Class principalClass = [self.pluginBundle principalClass];
     if ([principalClass respondsToSelector:NSSelectorFromString(@"pluginDidLoad:")]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [principalClass performSelector:NSSelectorFromString(@"pluginDidLoad:") withObject:pluginBundle];
+        [principalClass performSelector:NSSelectorFromString(@"pluginDidLoad:") withObject:self.pluginBundle];
 #pragma clang diagnostic pop
         
     } else {
-        NSLog(@"%@",[NSString stringWithFormat:@"%@ does not implement the pluginDidLoad: method.", [[QYXcodePlugIn sharedPlugin].bundle.bundlePath currentFileName]]);
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ does not implement the pluginDidLoad: method.", [self.pluginBundle.bundlePath currentFileName]]);
     }
 }
 

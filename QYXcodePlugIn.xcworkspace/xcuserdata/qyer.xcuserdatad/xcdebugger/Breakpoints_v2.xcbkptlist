@@ -86,12 +86,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QYXcodePlugIn/QYUpdateModel.m"
-            timestampString = "485762463.377636"
+            timestampString = "485763255.131433"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "-reloadXcodePlugin:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QYXcodePlugIn/QYUpdateModel.m"
+            timestampString = "485763358.277166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "268"
             endingLineNumber = "268"
-            landmarkName = "-reloadPluginBundleWithoutWarnings:"
+            landmarkName = "-reloadPluginBundleWithoutWarnings"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QYXcodePlugIn/QYUpdateModel.m"
+            timestampString = "485763360.419272"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "-reloadPluginBundleWithoutWarnings"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
