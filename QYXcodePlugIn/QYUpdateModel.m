@@ -28,6 +28,8 @@
  */
 @property (nonatomic, retain) NSArray *pathArr;
 
+@property (nonatomic, retain) NSBundle *pluginBundle;
+
 @end
 
 @implementation QYUpdateModel
@@ -48,9 +50,9 @@
 
     dispatch_promise_on(dispatch_get_global_queue(0, 0), ^id{
     
-        NSBundle *bundle = [NSBundle bundleWithIdentifier:@"X.Y.QYXcodePlugIn"];
+        self.pluginBundle = [NSBundle bundleWithIdentifier:@"X.Y.QYXcodePlugIn"];
         
-        NSString *paths = [[bundle infoDictionary] objectForKey:@"QYXcodePlugInGitPath"];
+        NSString *paths = [[self.pluginBundle infoDictionary] objectForKey:@"QYXcodePlugInGitPath"];
         
         NSString *version = [QYUpdateModel currentVersion];
 
@@ -248,18 +250,15 @@
 
 - (void)reloadXcodePlugin:(void (^)(NSError *))completion{
     
-    NSBundle *pluginBundle = [NSBundle bundleWithPath:[QYXcodePlugIn sharedPlugin].bundle.bundlePath];
-    NSLog(@"Trying to reload plugin: %@ with bundle: %@", [[QYXcodePlugIn sharedPlugin].bundle.bundlePath currentFileName], [QYXcodePlugIn sharedPlugin].bundle.bundlePath);
-
-    if (!pluginBundle) {
+    if (!self.pluginBundle) {
         completion([NSError errorWithDomain:@"Bundle was not found" code:669 userInfo:nil]);
         return;
     }
     
     NSError *loadError = nil;
-    BOOL loaded = [pluginBundle loadAndReturnError:&loadError];
+    BOOL loaded = [self.pluginBundle loadAndReturnError:&loadError];
     if (!loaded)
-        NSLog(@"[%@] Plugin load error: %@",[[QYXcodePlugIn sharedPlugin].bundle.bundlePath currentFileName] ,loadError);
+        NSLog(@"[%@] Plugin load error: %@",[self.pluginBundle.bundlePath currentFileName] ,loadError);
 
 }
 
