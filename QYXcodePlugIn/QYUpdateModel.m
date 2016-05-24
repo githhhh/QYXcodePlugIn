@@ -13,6 +13,7 @@
 #import "QYClangFormat.h"
 #import "QYUpdateAlert.h"
 #import "QYXcodePlugIn.h"
+#import "NSString+Files.h"
 
 #define mergeCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit commit -a -m \"update_plugin\"\ngit pull --rebase\ngit push origin master\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
 
@@ -48,13 +49,14 @@
     dispatch_promise_on(dispatch_get_global_queue(0, 0), ^id{
     
         NSBundle *bundle = [NSBundle bundleWithIdentifier:@"X.Y.QYXcodePlugIn"];
+        
         NSString *paths = [[bundle infoDictionary] objectForKey:@"QYXcodePlugInGitPath"];
         
         NSString *version = [QYUpdateModel currentVersion];
 
-        self.pathArr = [paths componentsSeparatedByString:@"@@"];
+//        self.pathArr = [paths componentsSeparatedByString:@"@@"];
 //
-//        self.pathArr = @[@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn",@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn/QYXcodePlugIn/QYXcodePlugIn-Info.plist"];
+        self.pathArr = @[@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn",@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn/QYXcodePlugIn/QYXcodePlugIn-Info.plist"];
         
         //异步获取最新代码
         NSString *outStr = [QYClangFormat runCommand:mergeCommand(self.pathArr[0],self.pathArr[1])];
@@ -206,7 +208,14 @@
             /**
              *  重新加载QYXcodePlugIn
              */
-            [[[QYXcodePlugIn sharedPlugin] notificationHandler] didApplicationFinishLaunchingNotification:nil];
+//            [[[QYXcodePlugIn sharedPlugin] notificationHandler] didApplicationFinishLaunchingNotification:nil];
+            
+            [strongSelf reloadXcodePlugin:^(NSError *err) {
+                
+                NSLog(@"err======%@",err);
+                
+            }];
+            
         };
         
     }).catchOn(dispatch_get_main_queue(),^(NSError *err){
@@ -235,6 +244,41 @@
     });
     
 }
+
+
+- (void)reloadXcodePlugin:(void (^)(NSError *))completion{
+    
+    NSBundle *pluginBundle = [NSBundle bundleWithPath:[QYXcodePlugIn sharedPlugin].bundle.bundlePath];
+    NSLog(@"Trying to reload plugin: %@ with bundle: %@", [[QYXcodePlugIn sharedPlugin].bundle.bundlePath currentFileName], [QYXcodePlugIn sharedPlugin].bundle.bundlePath);
+
+    if (!pluginBundle) {
+        completion([NSError errorWithDomain:@"Bundle was not found" code:669 userInfo:nil]);
+        return;
+    }else if ([pluginBundle isLoaded]) {
+        completion(nil);
+        return;
+    }
+    
+    NSError *loadError = nil;
+    BOOL loaded = [pluginBundle loadAndReturnError:&loadError];
+    if (!loaded)
+        NSLog(@"[%@] Plugin load error: %@",[[QYXcodePlugIn sharedPlugin].bundle.bundlePath currentFileName] ,loadError);
+
+}
+
+- (void)reloadPluginBundleWithoutWarnings:(NSBundle *)pluginBundle{
+    Class principalClass = [pluginBundle principalClass];
+    if ([principalClass respondsToSelector:NSSelectorFromString(@"pluginDidLoad:")]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [principalClass performSelector:NSSelectorFromString(@"pluginDidLoad:") withObject:pluginBundle];
+#pragma clang diagnostic pop
+        
+    } else {
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ does not implement the pluginDidLoad: method.", [[QYXcodePlugIn sharedPlugin].bundle.bundlePath currentFileName]]);
+    }
+}
+
 
 
 #pragma mark -  AutoGetter
