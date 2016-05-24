@@ -16,7 +16,7 @@
 
 #define mergeCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit commit -a -m \"update_plugin\"\ngit pull --rebase\ngit push origin master\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
 
-#define updateCommand(gitPath) [NSString stringWithFormat:@"\ncd \'%@\'\n\n./setupHelper.sh\n",gitPath]
+#define updateCommand(gitPath) [NSString stringWithFormat:@"\ncd \'%@\'\n\n./setupHelper.sh up\n",gitPath]
 
 @interface QYUpdateModel ()
 
@@ -207,6 +207,9 @@
              *  重新加载QYXcodePlugIn
              */
 //            [[[QYXcodePlugIn sharedPlugin] notificationHandler] didApplicationFinishLaunchingNotification:nil];
+            
+            [QYClangFormat runCommand:@"#重启XCode\npkill -9 -x Xcode\n#fix LSOpenURLsWithRole() failed with error on OSX Yosemite\nsleep 0.5\nopen /Applications/Xcode.app\n"];
+
         };
         
     }).catchOn(dispatch_get_main_queue(),^(NSError *err){
