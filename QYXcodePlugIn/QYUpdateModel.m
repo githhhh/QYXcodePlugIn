@@ -254,9 +254,6 @@
     if (!pluginBundle) {
         completion([NSError errorWithDomain:@"Bundle was not found" code:669 userInfo:nil]);
         return;
-    }else if ([pluginBundle isLoaded]) {
-        completion(nil);
-        return;
     }
     
     NSError *loadError = nil;
