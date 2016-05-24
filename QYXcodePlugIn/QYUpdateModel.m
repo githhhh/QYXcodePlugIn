@@ -71,54 +71,62 @@
 
     }).thenOn(dispatch_get_main_queue(),^(NSString *version,NSString *lastVersion,NSString *outStr){
 
-        if ([lastVersion floatValue] > [version floatValue]) {
-            
-            self.alert.title = @"QYXcodePlugIn插件有新的可用更新~！";
-            self.alert.cancelTitle = @"瘪来烦我！";
-            self.alert.confirmTitle = @"立即更新!";
-            self.alert.msg = outStr;
-            
-            weakify(self);
-            self.alert.confirmBlock = ^(NSInteger idex){
-                strongify(self);
+        self.alert.title = [NSString stringWithFormat:@"当前版本：%@  最新版本：%@",version,lastVersion];
+        self.alert.cancelTitle = @"取消";
+        self.alert.confirmTitle = @"确定";
+        self.alert.msg = outStr;
+        
+        [self.alert showWindow:self];
 
-                if (idex == 0) {
-                    //更新 alert
-                    strongSelf.alert.alertTitle.stringValue = @"正在更新...";
-                    strongSelf.alert.alertMessage.string = @"等待执行结果...";
-                    strongSelf.alert.cancelBtn.hidden = true;
-                    [strongSelf.alert.confirmBtn setTitle:@"更新中..."];
-                    strongSelf.alert.confirmBtn.enabled = false;
-                    
-                    [strongSelf updateNow];
-                    
-                    return ;
-                }else if (idex == 1){
-                    //不更新
-                    NSUserDefaults *userDf = [NSUserDefaults standardUserDefaults];
-                    
-                    [userDf setValue:@"1" forKey:IsCheckUpdate];
-                    
-                    [userDf synchronize];
-                    /**
-                     *  释放window
-                     */
-                    if (strongSelf.alert) {
-                        [strongSelf.alert.window close];
-                        strongSelf.alert.window = nil;
-                        strongSelf.alert = nil;
-                    }
-                    if (strongSelf.confirmBlock) {
-                        strongSelf.confirmBlock();
-                    }
-
-                }
-               
-            };
-            
-            [self.alert showWindow:self];
-            
-        }
+        
+//        if ([lastVersion floatValue] > [version floatValue]) {
+//            
+//            self.alert.title = @"QYXcodePlugIn插件有新的可用更新~！";
+//            self.alert.cancelTitle = @"瘪来烦我！";
+//            self.alert.confirmTitle = @"立即更新!";
+//            self.alert.msg = outStr;
+//            
+//            weakify(self);
+//            self.alert.confirmBlock = ^(NSInteger idex){
+//                strongify(self);
+//
+//                if (idex == 0) {
+//                    //更新 alert
+//                    strongSelf.alert.alertTitle.stringValue = @"正在更新...";
+//                    strongSelf.alert.alertMessage.string = @"等待执行结果...";
+//                    strongSelf.alert.cancelBtn.hidden = true;
+//                    [strongSelf.alert.confirmBtn setTitle:@"更新中..."];
+//                    strongSelf.alert.confirmBtn.enabled = false;
+//                    
+//                    [strongSelf updateNow];
+//                    
+//                    return ;
+//                }else if (idex == 1){
+//                    //不更新
+//                    NSUserDefaults *userDf = [NSUserDefaults standardUserDefaults];
+//                    
+//                    [userDf setValue:@"1" forKey:IsCheckUpdate];
+//                    
+//                    [userDf synchronize];
+//                    /**
+//                     *  释放window
+//                     */
+//                    if (strongSelf.alert) {
+//                        [strongSelf.alert.window close];
+//                        strongSelf.alert.window = nil;
+//                        strongSelf.alert = nil;
+//                    }
+//                    if (strongSelf.confirmBlock) {
+//                        strongSelf.confirmBlock();
+//                    }
+//
+//                }
+//               
+//            };
+//            
+//            [self.alert showWindow:self];
+//            
+//        }
 
     }).catchOn(dispatch_get_main_queue(),^(NSError *err){
 
