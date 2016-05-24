@@ -17,6 +17,8 @@
 
 + (void)pluginDidLoad:(NSBundle *)plugin;
 
++ (void)reloadPlugin:(NSBundle *)plugin;
+
 + (instancetype)sharedPlugin;
 
 @end

@@ -13,6 +13,8 @@
 @property (nonatomic,copy)void(^confirmBlock)(void);
 
 
--(void)updateVersion;
++ (NSString *)currentVersion;
+
+- (void)updateVersion;
 
 @end

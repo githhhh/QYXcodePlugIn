@@ -11,6 +11,7 @@
 #import "QYPreferencesModel.h"
 #import "Promise.h"
 #import "QYIDENotificationHandler.h"
+#import "QYUpdateModel.h"
 
 @interface QYPreferencesController () <NSWindowDelegate> {
     BOOL isSave;
@@ -66,6 +67,10 @@
 
 @property (weak) IBOutlet NSTextField *contentJSONKeyTextFiled;
 
+//当前版本
+@property (weak) IBOutlet NSTextField *currentVersonStr;
+
+
 @end
 
 @implementation QYPreferencesController
@@ -114,6 +119,7 @@
         self.contentJSONKeyTextFiled.enabled = PreferencesModel.isDefaultAllJSON?YES:NO;
         self.contentJSONKeyTextFiled.stringValue = IsEmpty(PreferencesModel.contentJSONKey)?@"":PreferencesModel.contentJSONKey;
         
+        self.currentVersonStr.stringValue = [NSString stringWithFormat:@"version:%@", [QYUpdateModel currentVersion]];
     });
 }
 

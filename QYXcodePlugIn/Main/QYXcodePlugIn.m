@@ -50,6 +50,17 @@ static QYXcodePlugIn *sharedPlugin;
     }
 }
 
+
++ (void)reloadPlugin:(NSBundle *)plugin{
+    
+    if ([[[NSBundle mainBundle] infoDictionary][@"CFBundleName"] isEqual:@"Xcode"]) {
+
+        sharedPlugin = [[self alloc] initWithBundle:plugin];
+        
+        [[[QYXcodePlugIn sharedPlugin] notificationHandler] didApplicationFinishLaunchingNotification:nil];
+    }
+}
+
 - (id)initWithBundle:(NSBundle *)plugin {
     if (self = [super init]) {
         // reference to plugin's bundle, for resource access
