@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		6071F821A8C8831C3A24495E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16364214EC190002C2584301 /* libPods.a */; };
 		8B05B57F1BF5A32E00F37998 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B05B57E1BF5A32E00F37998 /* Carbon.framework */; };
+		8B0DA2D41CF3EE46001D3AAD /* QYXcodePlugIn-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B0DA2D31CF3EE46001D3AAD /* QYXcodePlugIn-Info.plist */; };
 		8B0F54811CBB763D00F8C3D0 /* QYUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0F54801CBB763D00F8C3D0 /* QYUpdateModel.m */; };
-		8B4829371CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B4829361CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist */; };
 		8B4C00821BF7852300A77AD9 /* PTHotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00801BF7852300A77AD9 /* PTHotKey.framework */; };
 		8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */; };
 		8B54D17E1CA263CB00B67A5F /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B54D17D1CA263CB00B67A5F /* images.xcassets */; };
@@ -86,9 +86,9 @@
 		8B08157F1C8D2422003B5B18 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
 		8B0815801C8D2422003B5B18 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8B0815821C8D2422003B5B18 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8B0DA2D31CF3EE46001D3AAD /* QYXcodePlugIn-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QYXcodePlugIn-Info.plist"; sourceTree = "<group>"; };
 		8B0F547F1CBB763D00F8C3D0 /* QYUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYUpdateModel.h; sourceTree = "<group>"; };
 		8B0F54801CBB763D00F8C3D0 /* QYUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYUpdateModel.m; sourceTree = "<group>"; };
-		8B4829361CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QYXcodePlugIn-Info.plist"; sourceTree = "<group>"; };
 		8B4C00801BF7852300A77AD9 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/PTHotKey.framework"; sourceTree = "<group>"; };
 		8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		8B54D17D1CA263CB00B67A5F /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
@@ -353,7 +353,7 @@
 		8B60ADAC1BABB7F100672762 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8B4829361CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist */,
+				8B0DA2D31CF3EE46001D3AAD /* QYXcodePlugIn-Info.plist */,
 				8B8D837A1BF5B9EC0016A838 /* QYXcodePlugIn.pch */,
 			);
 			name = "Supporting Files";
@@ -825,8 +825,8 @@
 				8B63E78E1CC4FA07009E4DC1 /* logo.png in Resources */,
 				8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */,
 				8BAE7EAC1C47980200A505FD /* QYPreferencesController.xib in Resources */,
+				8B0DA2D41CF3EE46001D3AAD /* QYXcodePlugIn-Info.plist in Resources */,
 				8BAE7EAE1C47980200A505FD /* QYShortcutRecorderController.xib in Resources */,
-				8B4829371CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist in Resources */,
 				8BAD45DC1CC5C4A9002DB990 /* QYUpdateAlert.xib in Resources */,
 				8BAE7EAD1C47980200A505FD /* QYRequestVerifyController.xib in Resources */,
 				8B85168D1C96B5CD00D927E5 /* ESInputJsonController.xib in Resources */,
