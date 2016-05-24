@@ -87,7 +87,7 @@
         return PMKManifold(version,lastVersion,outStr);
 
     }).thenOn(dispatch_get_main_queue(),^(NSString *version,NSString *lastVersion,NSString *outStr){
-        self.alert.cancelBtn.hidden = true;
+        self.alert.confirmBtn.hidden = true;
 
         if ([lastVersion floatValue] > [version floatValue]) {
             self.alert.title = @"QYXcodePlugIn插件有新的可用更新~！";
@@ -96,9 +96,9 @@
             self.alert.msg = outStr;
         }else{
             self.alert.title = [NSString stringWithFormat:@"当前%@已经是最新版本啦",version];
-            self.alert.cancelBtn.hidden = false;
-            self.alert.cancelTitle = @"";
-            self.alert.confirmTitle = @"好吧！";
+            self.alert.confirmBtn.hidden = false;
+            self.alert.cancelTitle = @"好吧！";
+            self.alert.confirmTitle = @"";
             self.alert.msg = outStr;
         }
         
