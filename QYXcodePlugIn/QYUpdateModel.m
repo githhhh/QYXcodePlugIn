@@ -14,7 +14,7 @@
 #import "QYUpdateAlert.h"
 #import "QYXcodePlugIn.h"
 
-#define checkVersionCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit pull origin master \nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
+#define checkVersionCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit pull --rebase\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
 
 #define updateCommand(gitPath) [NSString stringWithFormat:@"\ncd \'%@\'\n\n./setupHelper.sh up\n",gitPath]
 
