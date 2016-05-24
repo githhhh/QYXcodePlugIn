@@ -44,7 +44,9 @@
         NSString *version = [[bundle infoDictionary] objectForKey:@"CFBundleShortVersionString"];
         NSString *paths = [[bundle infoDictionary] objectForKey:@"QYXcodePlugInGitPath"];
         
-        self.pathArr = [paths componentsSeparatedByString:@"@@"];
+//        self.pathArr = [paths componentsSeparatedByString:@"@@"];
+        
+        self.pathArr = @[@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn",@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn/QYXcodePlugIn/QYXcodePlugIn-Info.plist"];
         
         //异步获取最新代码
         NSString *outStr = [QYClangFormat runCommand:checkVersionCommand(self.pathArr[0],self.pathArr[1])];
