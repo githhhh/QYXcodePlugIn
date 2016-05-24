@@ -16,7 +16,7 @@
 
 #define checkVersionCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit pull --rebase\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
 
-#define mergeCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit commit -a -m \"update_plugin\"\ngit pull --rebase\ng\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
+#define mergeCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit commit -a -m \"update_plugin\"\ngit pull --rebase\ngit push origin master\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
 
 #define updateCommand(gitPath) [NSString stringWithFormat:@"\ncd \'%@\'\n\n./setupHelper.sh up\n",gitPath]
 
@@ -66,10 +66,10 @@
         outStr = [outStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
         if ([outStr containsString:@"You have unstaged changes"]) {
-            
-            
-            
-        }else if ( [outStr hasPrefix:@"versionStr="] ) {
+            outStr = [QYClangFormat runCommand:checkVersionCommand(self.pathArr[0],self.pathArr[1])];
+        }
+        
+        if ( [outStr hasPrefix:@"versionStr="] ) {
             return error(@"ssh: connect to host gitlab.dev port xx: Network is unreachable\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.", 0, nil);
         }else{
             NSRange lastVersionStrRange = [outStr rangeOfString:@"versionStr="];
