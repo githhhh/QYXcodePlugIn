@@ -23,6 +23,9 @@
 #import "QYAutoModelMenuItem.h"
 #import "ESInputJsonController.h"
 #import "QYUpdateMenuItem.h"
+#import "CCNPreferencesWindowController.h"
+#import "PreferencesGeneralViewController.h"
+#import "PreferencesNetworkViewController.h"
 
 @interface QYIDENotificationHandler () <QYWindowsCloseProtocol>
 //window
@@ -32,6 +35,8 @@
 //
 @property (nonatomic, retain) NSString *clangFormateContentPath;
 @property (nonatomic, retain) QYPreferencesModel *preferencesModel;
+
+@property (nonatomic, retain) CCNPreferencesWindowController *preferences;
 
 @end
 
@@ -181,9 +186,21 @@
 }
 
 -(void)showPreferencesWindow{
-    self.preferencesWindow = [[QYPreferencesController alloc] initWithWindowNibName:@"QYPreferencesController"];
-    self.preferencesWindow.pgDelegate = self;
-    [self.preferencesWindow showWindow:self];
+//    self.preferencesWindow = [[QYPreferencesController alloc] initWithWindowNibName:@"QYPreferencesController"];
+//    self.preferencesWindow.pgDelegate = self;
+//    [self.preferencesWindow showWindow:self];
+    
+    
+    self.preferences = [CCNPreferencesWindowController new];
+    self.preferences.centerToolbarItems = YES;  // or NO
+    
+    // setup all preference view controllers
+    [self.preferences setPreferencesViewControllers:@[
+                                                      [PreferencesGeneralViewController new],
+                                                      [PreferencesNetworkViewController new]
+                                                      ]];
+
+    [self.preferences showPreferencesWindow];
 }
 
 -(void)showAutoModelWindow:(BOOL)isJSONModel{
