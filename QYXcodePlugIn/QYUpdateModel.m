@@ -40,8 +40,7 @@
 }
 
 + (NSString *)currentVersion{
-    NSBundle *bundle = [NSBundle bundleWithIdentifier:@"X.Y.QYXcodePlugIn"];
-    NSString *version = [[bundle infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString *version = [[[QYXcodePlugIn sharedPlugin].bundle infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     version = [version stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     return version;
 }
@@ -50,7 +49,7 @@
 
     dispatch_promise_on(dispatch_get_global_queue(0, 0), ^id{
     
-        self.pluginBundle = [NSBundle bundleWithIdentifier:@"X.Y.QYXcodePlugIn"];
+        self.pluginBundle = [QYXcodePlugIn sharedPlugin].bundle;
         
         NSString *paths = [[self.pluginBundle infoDictionary] objectForKey:@"QYXcodePlugInGitPath"];
         

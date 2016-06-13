@@ -25,7 +25,10 @@
 #import "QYUpdateMenuItem.h"
 #import "CCNPreferencesWindowController.h"
 #import "PreferencesGeneralViewController.h"
-#import "PreferencesNetworkViewController.h"
+#import "PreferencesJSONHandleViewController.h"
+#import "PreferencesGetterViewController.h"
+#import "PreferencesFormateCodeViewController.h"
+#import "PreferencesAboutPluginViewController.h"
 
 @interface QYIDENotificationHandler () <QYWindowsCloseProtocol>
 //window
@@ -95,6 +98,8 @@
     
     //添加子菜单er
     [self addCustomMenuOnEdit];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleWindowWillCloseNotification:) name:NSWindowWillCloseNotification object:nil];
 }
 
 -(void)projectDidOpenNotification:(NSNotification *)noti{
@@ -192,12 +197,16 @@
     
     
     self.preferences = [CCNPreferencesWindowController new];
-    self.preferences.centerToolbarItems = YES;  // or NO
+    self.preferences.centerToolbarItems = NO;  // or NO
     
     // setup all preference view controllers
     [self.preferences setPreferencesViewControllers:@[
                                                       [PreferencesGeneralViewController new],
-                                                      [PreferencesNetworkViewController new]
+                                                      [PreferencesJSONHandleViewController new],
+                                                      [PreferencesGetterViewController new],
+                                                      [PreferencesFormateCodeViewController new],
+                                                      [PreferencesAboutPluginViewController new]
+
                                                       ]];
 
     [self.preferences showPreferencesWindow];
@@ -257,6 +266,24 @@
     NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
     [userdf setObject:customData forKey:@"preferencesModel"];
     [userdf synchronize];
+}
+
+
+
+#pragma mark - NSWindowDelegate Notifications
+
+- (void)handleWindowWillCloseNotification:(NSNotification *)note {
+    if ([note.object isEqual:self.preferences.window]) {
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        self.centerToolbarIcons.enabled = ![defaults boolForKey:kPresentSegmentedControlInToolbar];
+//        self.toolbarOrSegment.enabled = YES;
+        
+        
+        [[[QYXcodePlugIn sharedPlugin] notificationHandler] updatePreferencesModel:PreferencesModel];
+
+        
+        LOG(@"设置关闭。。。。");
+    }
 }
 
 
