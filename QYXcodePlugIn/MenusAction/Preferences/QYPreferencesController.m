@@ -228,9 +228,10 @@
     newPreferencesModel.getterJSON                 = self.setingTextView.string;
     newPreferencesModel.requestClassBaseName       = self.requestBaseName.stringValue;
     newPreferencesModel.isCreatTestMethod          = self.isTestData.state == 1?YES:NO;
-    newPreferencesModel.isClearCalalogSearchTitle  = self.clearCalalogSearch.state == 1?YES:NO;
     newPreferencesModel.testMethodName             = self.testDataMethodName.stringValue;
     newPreferencesModel.requestValidatorMethodName = self.validatorMethodName.stringValue;
+
+    newPreferencesModel.isClearCalalogSearchTitle  = self.clearCalalogSearch.state == 1?YES:NO;
     newPreferencesModel.isPromptException          = self.isReminder.state == 1?YES:NO;
     
     /**

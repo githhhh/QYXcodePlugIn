@@ -1,5 +1,5 @@
 //
-//  PreferencesGeneralViewController.h
+//  PreferencesNetworkViewController.h
 //  QYXcodePlugIn
 //
 //  Created by 唐斌 on 16/6/13.
@@ -10,6 +10,6 @@
 #import "CCNPreferencesWindowControllerProtocol.h"
 #import "PreferencesProtocol.h"
 
-@interface PreferencesGeneralViewController : NSViewController<CCNPreferencesWindowControllerProtocol,PreferencesProtocol>
+@interface PreferencesJSONHandleViewController : NSViewController<CCNPreferencesWindowControllerProtocol,PreferencesProtocol>
 
 @end

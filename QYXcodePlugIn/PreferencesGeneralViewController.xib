@@ -6,25 +6,73 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesGeneralViewController">
             <connections>
+                <outlet property="isReminder" destination="Ntw-RX-fVW" id="azi-4p-CpR"/>
+                <outlet property="magicCalalogSearch" destination="pbj-BD-fL7" id="kmM-fP-wHX"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="379" height="263"/>
+            <rect key="frame" x="0.0" y="0.0" width="582" height="314"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cuv-rf-07f">
-                    <rect key="frame" x="108" y="123" width="163" height="17"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="General" id="05M-fc-hmu">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ysU-z8-KVF">
+                    <rect key="frame" x="157" y="147" width="100" height="21"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="快捷键：" id="fP8-tA-u9c">
+                        <font key="font" size="14" name=".AppleSystemUIFont"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jLL-cA-AZy">
+                    <rect key="frame" x="257" y="140" width="132" height="32"/>
+                    <buttonCell key="cell" type="push" title="戳我" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AZV-P7-2pR">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="shortcutRecorderAction:" target="-2" id="3eL-De-lev"/>
+                    </connections>
+                </button>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbj-BD-fL7">
+                    <rect key="frame" x="252" y="202" width="185" height="18"/>
+                    <buttonCell key="cell" type="check" title="始终清除Calalog 搜索条件" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Zps-XO-gmh">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" size="13" name="STHeitiSC-Light"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="magicChange:" target="-2" id="ykp-bC-T77"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHn-19-k01">
+                    <rect key="frame" x="148" y="199" width="100" height="21"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="黑魔法：" id="nF5-8J-YCn">
+                        <font key="font" size="14" name=".AppleSystemUIFont"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ntw-RX-fVW">
+                    <rect key="frame" x="273" y="97" width="188" height="18"/>
+                    <buttonCell key="cell" type="check" title="操作没效果？？" bezelStyle="regularSquare" imagePosition="left" inset="2" id="6qw-70-NF9">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" size="13" name="STHeitiSC-Light"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="reminderChange:" target="-2" id="Sdj-A2-DUW"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDW-TF-N7H">
+                    <rect key="frame" x="169" y="95" width="100" height="21"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="异常提醒：" id="ynM-LS-lUT">
+                        <font key="font" size="14" name=".AppleSystemUIFont"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
-            <point key="canvasLocation" x="382.5" y="410.5"/>
+            <point key="canvasLocation" x="77" y="530"/>
         </customView>
     </objects>
 </document>

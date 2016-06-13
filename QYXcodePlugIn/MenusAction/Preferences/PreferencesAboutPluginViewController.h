@@ -1,5 +1,5 @@
 //
-//  PreferencesGeneralViewController.h
+//  PreferencesAboutPluginViewController.h
 //  QYXcodePlugIn
 //
 //  Created by 唐斌 on 16/6/13.
@@ -8,8 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "CCNPreferencesWindowControllerProtocol.h"
-#import "PreferencesProtocol.h"
 
-@interface PreferencesGeneralViewController : NSViewController<CCNPreferencesWindowControllerProtocol,PreferencesProtocol>
+@interface PreferencesAboutPluginViewController : NSViewController<CCNPreferencesWindowControllerProtocol>
 
 @end

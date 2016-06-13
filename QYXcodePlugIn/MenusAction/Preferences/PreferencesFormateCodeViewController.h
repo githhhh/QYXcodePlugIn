@@ -1,5 +1,5 @@
 //
-//  PreferencesNetworkViewController.h
+//  PreferencesFormateCodeViewController.h
 //  QYXcodePlugIn
 //
 //  Created by 唐斌 on 16/6/13.
@@ -9,6 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import "CCNPreferencesWindowControllerProtocol.h"
 
-@interface PreferencesNetworkViewController : NSViewController<CCNPreferencesWindowControllerProtocol>
+@interface PreferencesFormateCodeViewController : NSViewController<CCNPreferencesWindowControllerProtocol>
 
 @end
