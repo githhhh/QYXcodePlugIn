@@ -21,6 +21,10 @@
 		8B60ADAA1BABB7F100672762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60ADA91BABB7F100672762 /* Foundation.framework */; };
 		8B60AE291BABCEBB00672762 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B60AE281BABCEBB00672762 /* Cocoa.framework */; };
 		8B63E78E1CC4FA07009E4DC1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B63E78D1CC4FA07009E4DC1 /* logo.png */; };
+		8B760F3D1D0E848E00762EF6 /* PreferencesGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B760F3B1D0E848E00762EF6 /* PreferencesGeneralViewController.m */; };
+		8B760F3E1D0E848E00762EF6 /* PreferencesGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B760F3C1D0E848E00762EF6 /* PreferencesGeneralViewController.xib */; };
+		8B760F421D0E849D00762EF6 /* PreferencesNetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B760F401D0E849D00762EF6 /* PreferencesNetworkViewController.m */; };
+		8B760F431D0E849D00762EF6 /* PreferencesNetworkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B760F411D0E849D00762EF6 /* PreferencesNetworkViewController.xib */; };
 		8B85168A1C96B5CD00D927E5 /* ESDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8516851C96B5CD00D927E5 /* ESDialogController.m */; };
 		8B85168B1C96B5CD00D927E5 /* ESDialogController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8516861C96B5CD00D927E5 /* ESDialogController.xib */; };
 		8B85168C1C96B5CD00D927E5 /* ESInputJsonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B8516881C96B5CD00D927E5 /* ESInputJsonController.m */; };
@@ -102,6 +106,12 @@
 		8B60ADA91BABB7F100672762 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8B60AE281BABCEBB00672762 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8B63E78D1CC4FA07009E4DC1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		8B760F3A1D0E848E00762EF6 /* PreferencesGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesGeneralViewController.h; sourceTree = "<group>"; };
+		8B760F3B1D0E848E00762EF6 /* PreferencesGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesGeneralViewController.m; sourceTree = "<group>"; };
+		8B760F3C1D0E848E00762EF6 /* PreferencesGeneralViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesGeneralViewController.xib; sourceTree = "<group>"; };
+		8B760F3F1D0E849D00762EF6 /* PreferencesNetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesNetworkViewController.h; sourceTree = "<group>"; };
+		8B760F401D0E849D00762EF6 /* PreferencesNetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesNetworkViewController.m; sourceTree = "<group>"; };
+		8B760F411D0E849D00762EF6 /* PreferencesNetworkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesNetworkViewController.xib; sourceTree = "<group>"; };
 		8B8516841C96B5CD00D927E5 /* ESDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESDialogController.h; sourceTree = "<group>"; };
 		8B8516851C96B5CD00D927E5 /* ESDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESDialogController.m; sourceTree = "<group>"; };
 		8B8516861C96B5CD00D927E5 /* ESDialogController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESDialogController.xib; sourceTree = "<group>"; };
@@ -346,6 +356,12 @@
 				8BA8522D1BF7879600EE9398 /* Uitility */,
 				8BAE7EA31C47980200A505FD /* Resources */,
 				8B60ADAC1BABB7F100672762 /* Supporting Files */,
+				8B760F3A1D0E848E00762EF6 /* PreferencesGeneralViewController.h */,
+				8B760F3B1D0E848E00762EF6 /* PreferencesGeneralViewController.m */,
+				8B760F3C1D0E848E00762EF6 /* PreferencesGeneralViewController.xib */,
+				8B760F3F1D0E849D00762EF6 /* PreferencesNetworkViewController.h */,
+				8B760F401D0E849D00762EF6 /* PreferencesNetworkViewController.m */,
+				8B760F411D0E849D00762EF6 /* PreferencesNetworkViewController.xib */,
 			);
 			path = QYXcodePlugIn;
 			sourceTree = "<group>";
@@ -822,6 +838,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B760F431D0E849D00762EF6 /* PreferencesNetworkViewController.xib in Resources */,
 				8B63E78E1CC4FA07009E4DC1 /* logo.png in Resources */,
 				8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */,
 				8BAE7EAC1C47980200A505FD /* QYPreferencesController.xib in Resources */,
@@ -829,6 +846,7 @@
 				8B4829371CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist in Resources */,
 				8BAD45DC1CC5C4A9002DB990 /* QYUpdateAlert.xib in Resources */,
 				8BAE7EAD1C47980200A505FD /* QYRequestVerifyController.xib in Resources */,
+				8B760F3E1D0E848E00762EF6 /* PreferencesGeneralViewController.xib in Resources */,
 				8B85168D1C96B5CD00D927E5 /* ESInputJsonController.xib in Resources */,
 				8B85168B1C96B5CD00D927E5 /* ESDialogController.xib in Resources */,
 				8B54D1861CA2C51D00B67A5F /* flash_bang.png in Resources */,
@@ -896,6 +914,7 @@
 				8BA852891BF7879600EE9398 /* XCWorkspace.m in Sources */,
 				8B9ED1ED1C337D900072CCE2 /* LAFIDESourceCodeEditor.m in Sources */,
 				8BAE7EBE1C4798E700A505FD /* QYPreferencesModel.m in Sources */,
+				8B760F3D1D0E848E00762EF6 /* PreferencesGeneralViewController.m in Sources */,
 				8BAE7EAB1C47980200A505FD /* QYRequestVerifyController.m in Sources */,
 				8BAE7E911C4797E300A505FD /* QYMenuBaseItem.m in Sources */,
 				8BAE7EA71C47980200A505FD /* QYCategoryAutoGetterSetterAchieve.m in Sources */,
@@ -920,6 +939,7 @@
 				8BA8527B1BF7879600EE9398 /* NSFileManager+Headers.m in Sources */,
 				8BAE7EB81C47984100A505FD /* NSObject+MagicDVTBezelAlertPanel.m in Sources */,
 				8BA852801BF7879600EE9398 /* NSString+MHNSRange.m in Sources */,
+				8B760F421D0E849D00762EF6 /* PreferencesNetworkViewController.m in Sources */,
 				8BA852871BF7879600EE9398 /* XCTarget+XCProject.m in Sources */,
 				8BA852A01BF7886000EE9398 /* QYIDENotificationHandler.m in Sources */,
 				8BAE7EBA1C47984100A505FD /* NSObject+MethodSwizzler.m in Sources */,

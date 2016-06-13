@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 $(inherited) PMK_CALAYER=1 $(inherited) PMK_NSNOTIFICATIONCENTER=1 $(inherited) PMK_NSURLCONNECTION=1 $(inherited) PMK_PAUSE=1 $(inherited) PMK_UNTIL=1 $(inherited) PMK_WHEN=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/OMGHTTPURLRQ" "${PODS_ROOT}/Headers/Public/PromiseKit" "${PODS_ROOT}/Headers/Public/XcodeEditor"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/OMGHTTPURLRQ" -isystem "${PODS_ROOT}/Headers/Public/PromiseKit" -isystem "${PODS_ROOT}/Headers/Public/XcodeEditor"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"OMGHTTPURLRQ" -l"PromiseKit" -l"XcodeEditor" -framework "Foundation" -framework "QuartzCore"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CCNPreferencesWindowController" "${PODS_ROOT}/Headers/Public/OMGHTTPURLRQ" "${PODS_ROOT}/Headers/Public/PromiseKit" "${PODS_ROOT}/Headers/Public/XcodeEditor"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/CCNPreferencesWindowController" -isystem "${PODS_ROOT}/Headers/Public/OMGHTTPURLRQ" -isystem "${PODS_ROOT}/Headers/Public/PromiseKit" -isystem "${PODS_ROOT}/Headers/Public/XcodeEditor"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"CCNPreferencesWindowController" -l"OMGHTTPURLRQ" -l"PromiseKit" -l"XcodeEditor" -framework "Foundation" -framework "QuartzCore"
 PODS_ROOT = ${SRCROOT}/Pods

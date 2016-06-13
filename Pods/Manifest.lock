@@ -1,4 +1,5 @@
 PODS:
+  - CCNPreferencesWindowController (1.2.2)
   - OMGHTTPURLRQ (2.1.3):
     - OMGHTTPURLRQ/RQ (= 2.1.3)
   - OMGHTTPURLRQ/FormURLEncode (2.1.3)
@@ -43,10 +44,12 @@ PODS:
   - XcodeEditor (1.6.2)
 
 DEPENDENCIES:
+  - CCNPreferencesWindowController
   - PromiseKit (~> 1.6.0)
   - XcodeEditor
 
 SPEC CHECKSUMS:
+  CCNPreferencesWindowController: 2162438b1328d1d15ce5ee50289a57c7b3857c7a
   OMGHTTPURLRQ: c4268dea4295b585d711055dbcd87bfa82badd5f
   PromiseKit: 6be651503d4af22830b5313be993c5a0ef77bf77
   XcodeEditor: 0d21967dd71a16262c7121c7723179f6ae2b11c3
