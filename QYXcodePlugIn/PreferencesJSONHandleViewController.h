@@ -8,8 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "CCNPreferencesWindowControllerProtocol.h"
-#import "PreferencesProtocol.h"
 
-@interface PreferencesJSONHandleViewController : NSViewController<CCNPreferencesWindowControllerProtocol,PreferencesProtocol>
+@interface PreferencesJSONHandleViewController : NSViewController<CCNPreferencesWindowControllerProtocol>
 
 @end

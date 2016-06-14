@@ -8,8 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "CCNPreferencesWindowControllerProtocol.h"
-#import "PreferencesProtocol.h"
 
-@interface PreferencesGetterViewController : NSViewController<CCNPreferencesWindowControllerProtocol,PreferencesProtocol>
+@interface PreferencesGetterViewController : NSViewController<CCNPreferencesWindowControllerProtocol>
 
 @end

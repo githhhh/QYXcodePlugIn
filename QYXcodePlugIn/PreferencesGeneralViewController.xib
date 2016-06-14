@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ysU-z8-KVF">
-                    <rect key="frame" x="157" y="147" width="100" height="21"/>
+                    <rect key="frame" x="88" y="124" width="100" height="21"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="快捷键：" id="fP8-tA-u9c">
                         <font key="font" size="14" name=".AppleSystemUIFont"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -26,8 +26,8 @@
                     </textFieldCell>
                 </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jLL-cA-AZy">
-                    <rect key="frame" x="257" y="140" width="132" height="32"/>
-                    <buttonCell key="cell" type="push" title="戳我" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AZV-P7-2pR">
+                    <rect key="frame" x="197" y="117" width="118" height="32"/>
+                    <buttonCell key="cell" type="push" title="去配置" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AZV-P7-2pR">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -36,43 +36,56 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbj-BD-fL7">
-                    <rect key="frame" x="252" y="202" width="185" height="18"/>
-                    <buttonCell key="cell" type="check" title="始终清除Calalog 搜索条件" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Zps-XO-gmh">
+                    <rect key="frame" x="201" y="213" width="294" height="18"/>
+                    <buttonCell key="cell" type="check" title="不保留 images.xcassets 上一次的搜索关键字" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Zps-XO-gmh">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" size="13" name="STHeitiSC-Light"/>
+                        <font key="font" size="12" name="STHeitiSC-Light"/>
                     </buttonCell>
-                    <connections>
-                        <action selector="magicChange:" target="-2" id="ykp-bC-T77"/>
-                    </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHn-19-k01">
-                    <rect key="frame" x="148" y="199" width="100" height="21"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="黑魔法：" id="nF5-8J-YCn">
+                    <rect key="frame" x="88" y="211" width="100" height="21"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Magic：" id="nF5-8J-YCn">
                         <font key="font" size="14" name=".AppleSystemUIFont"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ntw-RX-fVW">
-                    <rect key="frame" x="273" y="97" width="188" height="18"/>
-                    <buttonCell key="cell" type="check" title="操作没效果？？" bezelStyle="regularSquare" imagePosition="left" inset="2" id="6qw-70-NF9">
+                    <rect key="frame" x="201" y="169" width="188" height="18"/>
+                    <buttonCell key="cell" type="check" title="给我提示" bezelStyle="regularSquare" imagePosition="left" inset="2" id="6qw-70-NF9">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" size="13" name="STHeitiSC-Light"/>
                     </buttonCell>
-                    <connections>
-                        <action selector="reminderChange:" target="-2" id="Sdj-A2-DUW"/>
-                    </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDW-TF-N7H">
-                    <rect key="frame" x="169" y="95" width="100" height="21"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="异常提醒：" id="ynM-LS-lUT">
+                    <rect key="frame" x="88" y="167" width="100" height="21"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="异常：" id="ynM-LS-lUT">
+                        <font key="font" size="14" name=".AppleSystemUIFont"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TMt-37-HBB">
+                    <rect key="frame" x="197" y="76" width="118" height="32"/>
+                    <buttonCell key="cell" type="push" title="现在检查" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="2LH-Zw-CiW">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="checkUpdate:" target="-2" id="Ru0-08-Cwh"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t8J-oy-aya">
+                    <rect key="frame" x="88" y="83" width="100" height="21"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="更新：" id="mtb-Rm-cI7">
                         <font key="font" size="14" name=".AppleSystemUIFont"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
-            <point key="canvasLocation" x="77" y="530"/>
+            <point key="canvasLocation" x="91" y="461"/>
         </customView>
+        <userDefaultsController representsSharedInstance="YES" id="qJn-7E-eYK"/>
     </objects>
 </document>

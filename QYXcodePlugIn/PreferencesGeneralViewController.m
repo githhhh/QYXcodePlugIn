@@ -8,6 +8,7 @@
 
 #import "PreferencesGeneralViewController.h"
 #import "QYShortcutRecorderController.h"
+#import "QYUpdateModel.h"
 
 @interface PreferencesGeneralViewController ()
 
@@ -20,11 +21,12 @@
 
 @property (weak) IBOutlet NSButton *isReminder;
 
-
+@property (nonatomic, retain) QYUpdateModel *updateModel;
 
 @end
 
 @implementation PreferencesGeneralViewController
+
 
 - (void)dealloc { LOG(@"===PreferencesGeneralViewController===dealloc="); }
 
@@ -40,36 +42,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do view setup here.
-    
     self.view.layer.backgroundColor = [NSColor colorWithRed:236/255.0 green:236/255.0 blue:236/255.0 alpha:1].CGColor;
     [self.view setNeedsDisplay:YES];
-    
-    
-    self.magicCalalogSearch.state   = PreferencesModel.isClearCalalogSearchTitle?1:0;
-    self.isReminder.state           = PreferencesModel.isPromptException?1:0;
+ 
+    [self bindUI];
 }
 
+#pragma mark - Bind
 
+-(void)bindUI{
+    //绑定
+    [self.magicCalalogSearch bind:@"value" toObject:PreferencesModel withKeyPath:@"isClearCalalogSearchTitle" options:nil];
+    
+    [self.isReminder bind:@"value" toObject:PreferencesModel withKeyPath:@"isPromptException" options:nil];
+}
 
+#pragma mark - Action
+//去录制热键
 - (IBAction)shortcutRecorderAction:(id)sender {
     
     if (!self.shortcutRC) {
         self.shortcutRC = [[QYShortcutRecorderController alloc] initWithWindowNibName:@"QYShortcutRecorderController"];
     }
     
-    [self.view.window beginSheet:self.shortcutRC.window completionHandler:^(NSModalResponse returnCode) {
-        
-    }];
+    [self.view.window beginSheet:self.shortcutRC.window completionHandler:nil];
 }
 
-#pragma mark - PreferencesProtocol
-
-- (IBAction)magicChange:(id)sender {
-    PreferencesModel.isClearCalalogSearchTitle  = self.magicCalalogSearch.state == 1?YES:NO;
-}
-
-- (IBAction)reminderChange:(id)sender {
-    PreferencesModel.isPromptException          = self.isReminder.state == 1?YES:NO;
+- (IBAction)checkUpdate:(id)sender {
+    [self.updateModel updateVersion];
 }
 
 #pragma mark - CCNPreferencesWindowControllerDelegate
@@ -79,6 +79,14 @@
 - (NSImage *)preferenceIcon { return [NSImage imageNamed:NSImageNamePreferencesGeneral]; }
 
 
+#pragma mark -  AutoGetter
 
+- (QYUpdateModel *)updateModel {
+    if (!_updateModel) {
+        _updateModel = [[QYUpdateModel alloc] init];
+    }
+    
+    return _updateModel;
+}
 
 @end

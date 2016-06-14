@@ -22,7 +22,6 @@
 #define QYMenu_AutoModel        @"AutoModel"
 #define QYMenu_RequestValidator @"RequestValidator"
 #define QYMenu_Settings         @"Preferences"
-#define QYMenu_UpdatePlugin     @"UpdatePlugin"
 
 
 /**
@@ -81,9 +80,9 @@
  *  weak/strong self
  */
 
-#define weakify(instance) __weak __typeof(instance) weakSelf = instance
-
-#define strongify(instance)   __strong __typeof(instance) strongSelf = weakSelf
+//#define weakify(instance) __weak __typeof(instance) weakSelf = instance
+//
+//#define strongify(instance)   __strong __typeof(instance) strongSelf = weakSelf
 
 
 #ifdef __OBJC__
@@ -92,6 +91,7 @@
 #import "XCFXcodePrivate.h"
 #import "LAFIDESourceCodeEditor.h"
 #import "QYXcodePlugIn.h"
+#import "ReactiveCocoa.h"
 //要引入的类
 #endif
 

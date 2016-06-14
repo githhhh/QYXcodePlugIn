@@ -102,11 +102,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QYXcodePlugIn/Main/QYIDENotificationHandler.m"
-            timestampString = "487505270.304694"
+            timestampString = "487587613.308593"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
             landmarkName = "-windowDidClose"
             landmarkType = "5">
          </BreakpointContent>

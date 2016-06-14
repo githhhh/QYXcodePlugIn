@@ -13,7 +13,6 @@
 #import "NSString+Extensions.h"
 #import "QYClangFormat.h"
 #import "QYIDENotificationHandler.h"
-#import "QYPreferencesController.h"
 #import <AppKit/AppKit.h>
 
 
