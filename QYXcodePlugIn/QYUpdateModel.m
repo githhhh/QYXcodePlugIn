@@ -22,6 +22,7 @@
 @interface QYUpdateModel ()
 
 @property (nonatomic, retain) QYUpdateAlert *alert;
+@property (nonatomic,assign) BOOL isUpdating;
 
 /**
  *  项目目录 和plist 目录
@@ -33,6 +34,14 @@
 @end
 
 @implementation QYUpdateModel
+
+-(id)init{
+    self = [super init];
+    if (self) {
+        _isUpdating  = NO;
+    }
+    return self;
+}
 
 -(void)dealloc{
     
@@ -46,9 +55,13 @@
 }
 
 -(void)updateVersion{
-
-    dispatch_promise_on(dispatch_get_global_queue(0, 0), ^id{
+    if (self.isUpdating) {
+        return;
+    }
     
+    dispatch_promise_on(dispatch_get_global_queue(0, 0), ^id{
+        self.isUpdating = YES;
+        
         self.pluginBundle = [QYXcodePlugIn sharedPlugin].bundle;
         
         NSString *paths = [[self.pluginBundle infoDictionary] objectForKey:@"QYXcodePlugInGitPath"];
@@ -97,19 +110,19 @@
             self.alert.msg = outStr;
         }
         
-        weakify(self);
+        @weakify(self);
         self.alert.confirmBlock = ^(NSInteger idex){
-            strongify(self);
+            @strongify(self);
             
             if (idex == 0) {
                 //更新 alert
-                strongSelf.alert.alertTitle.stringValue = @"正在更新...";
-                strongSelf.alert.alertMessage.string = @"等待执行结果...";
-                strongSelf.alert.cancelBtn.hidden = true;
-                [strongSelf.alert.confirmBtn setTitle:@"更新中..."];
-                strongSelf.alert.confirmBtn.enabled = false;
+                self.alert.alertTitle.stringValue = @"正在更新...";
+                self.alert.alertMessage.string = @"等待执行结果...";
+                self.alert.cancelBtn.hidden = true;
+                [self.alert.confirmBtn setTitle:@"更新中..."];
+                self.alert.confirmBtn.enabled = false;
                 
-                [strongSelf updateNow];
+                [self updateNow];
                 
                 return ;
             }else if (idex == 1){
@@ -122,13 +135,15 @@
                 /**
                  *  释放window
                  */
-                if (strongSelf.alert) {
-                    [strongSelf.alert.window close];
-                    strongSelf.alert.window = nil;
-                    strongSelf.alert = nil;
+                if (self.alert) {
+                    [self.alert.window close];
+                    self.alert.window = nil;
+                    self.alert = nil;
                 }
-                if (strongSelf.confirmBlock) {
-                    strongSelf.confirmBlock();
+                self.isUpdating = NO;
+
+                if (self.confirmBlock) {
+                    self.confirmBlock();
                 }
             }
             
@@ -145,20 +160,22 @@
         self.alert.msg = dominWithError(err);
         
         
-        weakify(self);
+        @weakify(self);
         self.alert.confirmBlock = ^(NSInteger idex){
-            strongify(self);
+            @strongify(self);
             
             /**
              *  释放window
              */
-            if (strongSelf.alert) {
-                [strongSelf.alert.window close];
-                strongSelf.alert.window = nil;
-                strongSelf.alert = nil;
+            if (self.alert) {
+                [self.alert.window close];
+                self.alert.window = nil;
+                self.alert = nil;
             }
-            if (strongSelf.confirmBlock) {
-                strongSelf.confirmBlock();
+            self.isUpdating = NO;
+
+            if (self.confirmBlock) {
+                self.confirmBlock();
             }
             
         };
@@ -189,21 +206,23 @@
         self.alert.confirmBtn.enabled = true;
         self.alert.alertMessage.string = @"** BUILD SUCCEEDED **\n 🎉  😉  Enjoy.Go!  🚀   🍻";
         self.alert.alertTitle.stringValue = @"执行成功！";
-        [self.alert.confirmBtn setTitle:@"ok"];
+        [self.alert.confirmBtn setTitle:@"重启生效"];
 
-        weakify(self);
+        @weakify(self);
         self.alert.confirmBlock = ^(NSInteger idex){
-            strongify(self);
+            @strongify(self);
             /**
              *  释放window
              */
-            if (strongSelf.alert) {
-                [strongSelf.alert.window close];
-                strongSelf.alert.window = nil;
-                strongSelf.alert = nil;
+            if (self.alert) {
+                [self.alert.window close];
+                self.alert.window = nil;
+                self.alert = nil;
             }
-            if (strongSelf.confirmBlock) {
-                strongSelf.confirmBlock();
+            self.isUpdating = NO;
+
+            if (self.confirmBlock) {
+                self.confirmBlock();
             }
             
             /**
@@ -211,7 +230,7 @@
              */
 //            [[[QYXcodePlugIn sharedPlugin] notificationHandler] didApplicationFinishLaunchingNotification:nil];
             
-            [strongSelf reloadXcodePlugin:^(NSError *err) {
+            [self reloadXcodePlugin:^(NSError *err) {
                 
                 NSLog(@"err======%@",err);
                 
@@ -226,19 +245,21 @@
         self.alert.alertTitle.stringValue = @"更新失败啦...";
         [self.alert.confirmBtn setTitle:@"稍后再试吧！"];
 
-        weakify(self);
+        @weakify(self);
         self.alert.confirmBlock = ^(NSInteger idex){
-            strongify(self);
+            @strongify(self);
             /**
              *  释放window
              */
-            if (strongSelf.alert) {
-                [strongSelf.alert.window close];
-                strongSelf.alert.window = nil;
-                strongSelf.alert = nil;
+            if (self.alert) {
+                [self.alert.window close];
+                self.alert.window = nil;
+                self.alert = nil;
             }
-            if (strongSelf.confirmBlock) {
-                strongSelf.confirmBlock();
+            self.isUpdating = NO;
+
+            if (self.confirmBlock) {
+                self.confirmBlock();
             }
         };
 

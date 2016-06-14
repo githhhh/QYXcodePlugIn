@@ -11,7 +11,6 @@
 #import "QYClangFormat.h"
 #import "QYIDENotificationHandler.h"
 #import "QYRequestVerifyController.h"
-#import "QYPreferencesController.h"
 
 static NSString *StringClass = @"[NSString class]";
 static NSString *NumberClass = @"[NSNumber class]";

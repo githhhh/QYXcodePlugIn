@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ReactiveCocoa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>XcodeEditor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>12B9A9B3D068D63AB298D58D00942994</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>18DDE2707CA213F238A1FAAB2F335E07</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1C89C570C4CFAEDC11A8B1F3D1342E88</key>
+		<key>46AA39C74ECFA6A6CD1344096F3A1A28</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6321A5C8F7646897DE6BC5BA9DFE7271</key>
+		<key>57CADF8CF3C08007AB36297BC186F41D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CD8C5738FB8DFD0A7B9319F909F3201F</key>
+		<key>D98DC5F471996343AB3B26CB86362B87</key>
 		<dict>
 			<key>primary</key>
 			<true/>

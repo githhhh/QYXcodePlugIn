@@ -16,24 +16,20 @@
 #import "QYAutoGetterMenuItem.h"
 #import "QYIDENotificationHandler.h"
 #import "QYRequestVerifyController.h"
-#import "QYPreferencesController.h"
 #import "QYRequestVerifiMenuItem.h"
 #import "QYPreferencesMenuItem.h"
 #import "QYWindowsCloseProtocol.h"
 #import "QYAutoModelMenuItem.h"
 #import "ESInputJsonController.h"
-#import "QYUpdateMenuItem.h"
 #import "CCNPreferencesWindowController.h"
 #import "PreferencesGeneralViewController.h"
 #import "PreferencesJSONHandleViewController.h"
 #import "PreferencesGetterViewController.h"
 #import "PreferencesFormateCodeViewController.h"
-#import "PreferencesAboutPluginViewController.h"
 
 @interface QYIDENotificationHandler () <QYWindowsCloseProtocol>
 //window
 @property (nonatomic, retain) QYRequestVerifyController *requestVerifyWindow;
-@property (nonatomic, retain) QYPreferencesController *preferencesWindow;
 @property (nonatomic, retain) ESInputJsonController *autoModelWindow;
 //
 @property (nonatomic, retain) NSString *clangFormateContentPath;
@@ -145,8 +141,6 @@
 
     //全局设置
     [subMenus registerMenuItem:[QYPreferencesMenuItem class]];
-    //更新
-    [subMenus registerMenuItem:[QYUpdateMenuItem class]];
     
     [qyMenuItem setSubmenu:subMenus];
 }
@@ -191,23 +185,19 @@
 }
 
 -(void)showPreferencesWindow{
-//    self.preferencesWindow = [[QYPreferencesController alloc] initWithWindowNibName:@"QYPreferencesController"];
-//    self.preferencesWindow.pgDelegate = self;
-//    [self.preferencesWindow showWindow:self];
     
-    
-    self.preferences = [CCNPreferencesWindowController new];
-    self.preferences.centerToolbarItems = NO;  // or NO
-    
-    // setup all preference view controllers
-    [self.preferences setPreferencesViewControllers:@[
-                                                      [PreferencesGeneralViewController new],
-                                                      [PreferencesJSONHandleViewController new],
-                                                      [PreferencesGetterViewController new],
-                                                      [PreferencesFormateCodeViewController new],
-                                                      [PreferencesAboutPluginViewController new]
-
-                                                      ]];
+    if (!self.preferences) {
+        self.preferences = [CCNPreferencesWindowController new];
+        self.preferences.centerToolbarItems = NO;  // or NO
+        // setup all preference view controllers
+        [self.preferences setPreferencesViewControllers:@[
+                                                          [PreferencesGeneralViewController new],
+                                                          [PreferencesJSONHandleViewController new],
+                                                          [PreferencesGetterViewController new],
+                                                          [PreferencesFormateCodeViewController new]
+                                                          
+                                                          ]];
+    }
 
     [self.preferences showPreferencesWindow];
 }
@@ -274,14 +264,9 @@
 
 - (void)handleWindowWillCloseNotification:(NSNotification *)note {
     if ([note.object isEqual:self.preferences.window]) {
-//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//        self.centerToolbarIcons.enabled = ![defaults boolForKey:kPresentSegmentedControlInToolbar];
-//        self.toolbarOrSegment.enabled = YES;
-        
-        
         [[[QYXcodePlugIn sharedPlugin] notificationHandler] updatePreferencesModel:PreferencesModel];
 
-        
+        self.preferences = nil;
         LOG(@"设置关闭。。。。");
     }
 }
@@ -293,10 +278,6 @@
 {
     if (self.requestVerifyWindow) {
         self.requestVerifyWindow = nil;
-    }
-    
-    if (self.preferencesWindow) {
-        self.preferencesWindow = nil;
     }
     
     if (self.autoModelWindow) {

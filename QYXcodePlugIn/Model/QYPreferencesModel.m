@@ -30,6 +30,7 @@
     [encoder encodeBool:self.isPropertyIsOptional forKey:@"PropertyIsOptional"];
     [encoder encodeObject:self.contentJSONKey forKey:@"ContentJSONKey"];
     [encoder encodeBool:self.isDefaultAllJSON forKey:@"DefaultAllJSON"];
+    [encoder encodeBool:self.propertyBusinessPrefixEnable forKey:@"PropertyBusinessPrefixEnable"];
 
 }
 
@@ -48,6 +49,7 @@
         self.isPropertyIsOptional       = [decoder decodeBoolForKey:@"PropertyIsOptional"];
         self.contentJSONKey             = [decoder decodeObjectForKey:@"ContentJSONKey"];
         self.isDefaultAllJSON           = [decoder decodeBoolForKey:@"DefaultAllJSON"];
+        self.propertyBusinessPrefixEnable   = [decoder decodeBoolForKey:@"PropertyBusinessPrefixEnable"];
 
     }
     return self;

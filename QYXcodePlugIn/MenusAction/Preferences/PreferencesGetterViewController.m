@@ -32,14 +32,9 @@
 
     self.msgLable.hidden = YES;
     self.getterPreTextView.delegate = self;
-    self.getterPreTextView.string           = !IsEmpty(PreferencesModel.getterJSON) ? PreferencesModel.getterJSON : @"{\n\"UIView\":[\n   \"%@ = [[UIView alloc] init];\",\n   \"%@.backgroundColor = [UIColor clearColor];\"\n  ]\n}\n";
+    
+    self.getterPreTextView.string   = !IsEmpty(PreferencesModel.getterJSON) ? PreferencesModel.getterJSON : @"{\n\"UIView\":[\n   \"%@ = [[UIView alloc] init];\",\n   \"%@.backgroundColor = [UIColor clearColor];\"\n  ]\n}\n";
 }
-
--(void)viewDidDisappear{
-    [super viewDidDisappear];
-    [self collectChangeData];
-}
-
 
 - (IBAction)action:(id)sender {
     //写入剪贴板
@@ -81,21 +76,17 @@
     return validatorPromise;
 }
 
-
-
-#pragma mark - PreferencesProtocol
-
--(void)collectChangeData{
-    
-    PreferencesModel.getterJSON  = self.getterPreTextView.string;
-}
-
-
 #pragma mark - CCNPreferencesWindowControllerDelegate
 
 - (NSString *)preferenceIdentifier { return @"GetterPreferencesIdentifier"; }
 - (NSString *)preferenceTitle { return @"Getter"; }
-- (NSImage *)preferenceIcon { return [NSImage imageNamed:NSImageNameNetwork]; }
+- (NSImage *)preferenceIcon {
+    NSBundle *bundle = [NSBundle bundleWithIdentifier:@"X.Y.QYXcodePlugIn"];
+
+    NSImage *bangImg = [bundle imageForResource:@"Settings-getter.png"];
+
+    return bangImg;
+}
 
 
 #pragma mark - NSTextViewDelegate
@@ -104,7 +95,8 @@
     NSTextView *textView = notification.object;
     
     [self promiseValidatorJsonStr:textView.string].thenOn(dispatch_get_main_queue(),^(){
-    
+        
+        PreferencesModel.getterJSON  = textView.string;
         self.msgLable.hidden = NO;
         self.msgLable.stringValue = @"good job!";
         self.msgLable.backgroundColor   = [NSColor clearColor];
@@ -113,7 +105,6 @@
     }).catchOn(dispatch_get_main_queue(),^(NSError *err){
         self.msgLable.hidden = NO;
         self.msgLable.textColor              = [NSColor redColor];
-
         self.msgLable.stringValue = dominWithError(err);
     });
 }
