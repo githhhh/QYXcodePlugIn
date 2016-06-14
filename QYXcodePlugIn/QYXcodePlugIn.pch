@@ -80,9 +80,9 @@
  *  weak/strong self
  */
 
-//#define weakify(instance) __weak __typeof(instance) weakSelf = instance
+#define weakify(instance) __weak __typeof(instance) weakSelf = instance
 //
-//#define strongify(instance)   __strong __typeof(instance) strongSelf = weakSelf
+#define strongify(instance)   __strong __typeof(instance) strongSelf = weakSelf
 
 
 #ifdef __OBJC__
@@ -91,7 +91,6 @@
 #import "XCFXcodePrivate.h"
 #import "LAFIDESourceCodeEditor.h"
 #import "QYXcodePlugIn.h"
-#import "ReactiveCocoa.h"
 //要引入的类
 #endif
 
