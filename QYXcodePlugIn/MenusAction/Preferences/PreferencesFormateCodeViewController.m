@@ -53,10 +53,12 @@
     
     [QYClangFormat promiseClangFormatSourceCode:textView.string].thenOn(dispatch_get_main_queue(),^(NSString *niceCodeStr){
     
-//        self.niceCode.attributedString = self.sourceCode.attributedString;
-        
-        
+//        NSAttributedString * att = textView.textStorage;
+
+//        NSData * aaa = [att dataFromRange:NSMakeRange(0, att.length) documentAttributes:@{NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType} error:&err];
+
         self.niceCode.string = niceCodeStr;
+        self.niceCode.font = self.sourceCode.font;
 
     }).catchOn(dispatch_get_main_queue(),^(NSError *erro){
         

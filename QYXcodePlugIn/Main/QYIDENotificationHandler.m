@@ -188,6 +188,7 @@
     
     if (!self.preferences) {
         self.preferences = [CCNPreferencesWindowController new];
+        
         self.preferences.centerToolbarItems = NO;  // or NO
         // setup all preference view controllers
         [self.preferences setPreferencesViewControllers:@[

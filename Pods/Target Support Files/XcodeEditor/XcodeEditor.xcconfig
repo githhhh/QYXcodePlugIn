@@ -1,4 +1,4 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/XcodeEditor" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CCNPreferencesWindowController" "${PODS_ROOT}/Headers/Public/OMGHTTPURLRQ" "${PODS_ROOT}/Headers/Public/PromiseKit" "${PODS_ROOT}/Headers/Public/ReactiveCocoa" "${PODS_ROOT}/Headers/Public/XcodeEditor"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/XcodeEditor" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CCNPreferencesWindowController" "${PODS_ROOT}/Headers/Public/OMGHTTPURLRQ" "${PODS_ROOT}/Headers/Public/PromiseKit" "${PODS_ROOT}/Headers/Public/XcodeEditor"
 PODS_ROOT = ${SRCROOT}
 SKIP_INSTALL = YES

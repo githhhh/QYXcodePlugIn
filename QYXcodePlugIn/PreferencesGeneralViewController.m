@@ -23,6 +23,7 @@
 
 @property (nonatomic, retain) QYUpdateModel *updateModel;
 
+@property (weak) IBOutlet NSTextField *versionLable;
 @end
 
 @implementation PreferencesGeneralViewController
@@ -55,6 +56,8 @@
     [self.magicCalalogSearch bind:@"value" toObject:PreferencesModel withKeyPath:@"isClearCalalogSearchTitle" options:nil];
     
     [self.isReminder bind:@"value" toObject:PreferencesModel withKeyPath:@"isPromptException" options:nil];
+    
+    self.versionLable.stringValue = [NSString stringWithFormat:@"当前版本:%@",[QYUpdateModel currentVersion]];
 }
 
 #pragma mark - Action
