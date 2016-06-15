@@ -54,11 +54,26 @@
     [QYClangFormat promiseClangFormatSourceCode:textView.string].thenOn(dispatch_get_main_queue(),^(NSString *niceCodeStr){
     
 //        NSAttributedString * att = textView.textStorage;
+//
+//        NSMutableAttributedString * mAttr = [[NSMutableAttributedString alloc] initWithString:niceCodeStr];
+//        
+//        [att enumerateAttributesInRange:NSMakeRange(0, textView.string.length) options:NSAttributedStringEnumerationReverse usingBlock:^(NSDictionary<NSString *,id> * _Nonnull attrs, NSRange range, BOOL * _Nonnull stop) {
+//            
+//            NSString *subString = [textView.string substringWithRange:range];
+//            
+////            if (subString.length >0) {
+//            
+//                NSRange niceSubStrRange = [niceCodeStr rangeOfString:subString];
+//                
+//                LOG(@"=======text=:=%@",[textView.string substringWithRange:range]);
+//                
+//                [mAttr setAttributes:attrs range:niceSubStrRange];
+////            }
+//        }];
+        
 
-//        NSData * aaa = [att dataFromRange:NSMakeRange(0, att.length) documentAttributes:@{NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType} error:&err];
-
+//        [self.niceCode.textStorage appendAttributedString:mAttr];
         self.niceCode.string = niceCodeStr;
-        self.niceCode.font = self.sourceCode.font;
 
     }).catchOn(dispatch_get_main_queue(),^(NSError *erro){
         
