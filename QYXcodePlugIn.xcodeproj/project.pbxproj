@@ -854,8 +854,6 @@
 				8B63E78E1CC4FA07009E4DC1 /* logo.png in Resources */,
 				8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */,
 				8B760F481D0E927000762EF6 /* PreferencesGetterViewController.xib in Resources */,
-				8BAE7EAC1C47980200A505FD /* QYPreferencesController.xib in Resources */,
-				8B0DA2D41CF3EE46001D3AAD /* QYXcodePlugIn-Info.plist in Resources */,
 				8BAE7EAE1C47980200A505FD /* QYShortcutRecorderController.xib in Resources */,
 				8BAD45DC1CC5C4A9002DB990 /* QYUpdateAlert.xib in Resources */,
 				8BAE7EAD1C47980200A505FD /* QYRequestVerifyController.xib in Resources */,
