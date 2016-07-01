@@ -39,6 +39,12 @@ function codeTemplateFun(){
 
 #安装依赖工具包
 function install_Depend(){
+   #是否安装Homebrew
+   which -s brew
+   if [[ $? != 0 ]] ; then
+    # Install Homebrew
+     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || exit
+   fi
 
    brew install clang-format || exit
    brew install uncrustify || exit
@@ -109,9 +115,9 @@ function bulide_Release(){
 
 #安装依赖
 install_Depend
-##安装代码片段
+#安装代码片段
 codeSnippetFun
-##安装代码模板
+#安装代码模板
 codeTemplateFun
 #写入工程路径
 updatePlist
@@ -140,5 +146,5 @@ fi
 #编译成功,清理plist
 updatePlist
 
-echo " 🎉  🎉  🎉  😉  😉  😉   Enjoy.Go!   🚀  🚀  🚀  🍻  🍻  🍻  "
+echo " 🎉  🎉  🎉  🚀  🚀  🚀   Enjoy.Go!   🍻  🍻  🍻  "
 
