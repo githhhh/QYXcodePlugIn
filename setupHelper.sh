@@ -37,10 +37,12 @@ function codeTemplateFun(){
     ln -sf ${SRC_HOME}/QYFileTemplate $curTemplatePath
 }
 
-#安装格式化组件
-function install_Format(){
+#安装依赖工具包
+function install_Depend(){
+
    brew install clang-format || exit
    brew install uncrustify || exit
+   brew install xctool || exit
 
    cfFileName='.clang-format'
    ufFileName='.uncrustify.cfg'
@@ -91,19 +93,22 @@ function updatePlist(){
 function bulide_Release(){
    cd $SRC_HOME
 
-   xcodebuild  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme ShortcutRecorder.framework || exit
+   #先更新下依赖的第三方库
+   pod install --verbose --no-repo-update
 
-   xcodebuild  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme PTHotKey.framework || exit
+   xctool  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme ShortcutRecorder.framework || exit
 
-   xcodebuild  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme QYXcodePlugIn || exit
+   xctool  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme PTHotKey.framework || exit
+
+   xctool  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme QYXcodePlugIn || exit
 
 }
 
 
 #call Function
 
-#安装format
-install_Format
+#安装依赖
+install_Depend
 ##安装代码片段
 codeSnippetFun
 ##安装代码模板
