@@ -239,10 +239,24 @@
     if (!_preferencesModel) {
         NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
         NSData *data = [userdf objectForKey:@"preferencesModel"];
-        
+        if (!data) {
+            //返回默认model
+            QYPreferencesModel *model = [QYPreferencesModel new];
+            model.getterJSON =  @"{\n\"UIView\":[\n   \"%@ = [[UIView alloc] init];\",\n   \"%@.backgroundColor = [UIColor clearColor];\"\n  ]\n}\n";
+            
+            model.requestClassBaseName = @"QYRequest";
+            model.isCreatTestMethod = YES;
+            model.testMethodName = @"testData";
+            model.requestValidatorMethodName = @"validatorResult";
+            model.isClearCalalogSearchTitle = YES;
+            model.isPromptException = YES;
+            model.isPropertyIsOptional = YES;
+            model.propertyBusinessPrefixEnable = YES;
+            return model;
+        }
         id setMode = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         
-        if (!setMode||![setMode isKindOfClass:[QYPreferencesModel class]]) {
+        if (![setMode isKindOfClass:[QYPreferencesModel class]]) {
             return nil;
         }
         _preferencesModel = setMode;
