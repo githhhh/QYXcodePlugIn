@@ -136,11 +136,30 @@ then
     sleep 0.5
     open /Applications/Xcode.app
 else
-    #存在
-    if [ "$paramterFromOut" == "up" ]
-    then
-        sleep 0.5
-    fi
+#applescript restart Xcode
+    osascript <<EOD
+        set xcodeAppName to "Xcode"
+        on XcodeRunning()
+            set isRunning to false
+            tell application "System Events"
+                set xcodeList to (application processes whose name is "Xcode")
+                set isRunning to ((count of xcodeList) > 0)
+            end tell
+        end XcodeRunning
+        if (XcodeRunning() is true) then
+            using terms from application "Xcode"
+                tell application xcodeAppName
+                    set openProjectPaths to path of project documents
+                    quit
+                end tell
+            end using terms from
+        end if
+        delay 0.1
+        tell application "Xcode"
+            open "$paramterFromOut"
+        end tell
+    EOD
+
 fi
 
 #编译成功,清理plist
