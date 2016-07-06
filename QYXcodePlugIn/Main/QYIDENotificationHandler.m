@@ -252,14 +252,15 @@
             model.isPromptException = YES;
             model.isPropertyIsOptional = YES;
             model.propertyBusinessPrefixEnable = YES;
-            return model;
+            model.isDefaultAllJSON = YES;
+            _preferencesModel =  model;
+        }else{
+            id setMode = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            
+            if ([setMode isKindOfClass:[QYPreferencesModel class]]) {
+                _preferencesModel = setMode;
+            }
         }
-        id setMode = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        
-        if (![setMode isKindOfClass:[QYPreferencesModel class]]) {
-            return nil;
-        }
-        _preferencesModel = setMode;
     }
     
     return _preferencesModel;
