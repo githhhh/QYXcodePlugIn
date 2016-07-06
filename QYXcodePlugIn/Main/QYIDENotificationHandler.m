@@ -249,7 +249,7 @@
     if (!_preferencesModel) {
         NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
         NSData *data = [userdf objectForKey:@"preferencesModel"];
-        if (!data) {
+        if (data == nil || !data) {
             //返回默认model
             QYPreferencesModel *model = [QYPreferencesModel new];
             model.getterJSON =  @"{\n\"UIView\":[\n   \"%@ = [[UIView alloc] init];\",\n   \"%@.backgroundColor = [UIColor clearColor];\"\n  ]\n}\n";
