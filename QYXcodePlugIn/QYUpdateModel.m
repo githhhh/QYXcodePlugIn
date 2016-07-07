@@ -116,7 +116,7 @@
             
             if (idex == 0) {
                 //更新 alert
-                strongSelf.alert.alertTitle.stringValue = @"正在更新...";
+                strongSelf.alert.alertTitle.stringValue = @"正在获取更新...";
                 strongSelf.alert.alertMessage.string = @"等待执行结果...";
                 strongSelf.alert.cancelBtn.hidden = true;
                 [strongSelf.alert.confirmBtn setTitle:@"更新中..."];
