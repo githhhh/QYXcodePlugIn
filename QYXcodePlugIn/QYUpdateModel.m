@@ -225,18 +225,8 @@
             if (strongSelf.confirmBlock) {
                 strongSelf.confirmBlock();
             }
-            
-            /**
-             *  重新加载QYXcodePlugIn
-             */
-//            [[[QYXcodePlugIn sharedPlugin] notificationHandler] didApplicationFinishLaunchingNotification:nil];
-            
-            [strongSelf reloadXcodePlugin:^(NSError *err) {
-                
-                NSLog(@"err======%@",err);
-                
-            }];
-            
+            //执行脚本重启xcode
+            [QYClangFormat runCommand:[NSString stringWithFormat:@"cd \'%@\'\n\npython rtXcode.py",strongSelf.pathArr[0]]];
         };
         
     }).catchOn(dispatch_get_main_queue(),^(NSError *err){
@@ -269,33 +259,33 @@
 }
 
 
-- (void)reloadXcodePlugin:(void (^)(NSError *))completion{
-    
-    if (!self.pluginBundle) {
-        completion([NSError errorWithDomain:@"Bundle was not found" code:669 userInfo:nil]);
-        return;
-    }
-    
-    NSError *loadError = nil;
-    BOOL loaded = [self.pluginBundle loadAndReturnError:&loadError];
-    if (!loaded)
-        NSLog(@"[%@] Plugin load error: %@",[self.pluginBundle.bundlePath currentFileName] ,loadError);
-
-    [self reloadPluginBundleWithoutWarnings];
-}
-
-- (void)reloadPluginBundleWithoutWarnings{
-    Class principalClass = [self.pluginBundle principalClass];
-    if ([principalClass respondsToSelector:NSSelectorFromString(@"reloadPlugin:")]) {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [principalClass performSelector:NSSelectorFromString(@"reloadPlugin:") withObject:self.pluginBundle];
-#pragma clang diagnostic pop
-        
-    } else {
-        NSLog(@"%@",[NSString stringWithFormat:@"%@ does not implement the pluginDidLoad: method.", [self.pluginBundle.bundlePath currentFileName]]);
-    }
-}
+//- (void)reloadXcodePlugin:(void (^)(NSError *))completion{
+//    
+//    if (!self.pluginBundle) {
+//        completion([NSError errorWithDomain:@"Bundle was not found" code:669 userInfo:nil]);
+//        return;
+//    }
+//    
+//    NSError *loadError = nil;
+//    BOOL loaded = [self.pluginBundle loadAndReturnError:&loadError];
+//    if (!loaded)
+//        NSLog(@"[%@] Plugin load error: %@",[self.pluginBundle.bundlePath currentFileName] ,loadError);
+//
+//    [self reloadPluginBundleWithoutWarnings];
+//}
+//
+//- (void)reloadPluginBundleWithoutWarnings{
+//    Class principalClass = [self.pluginBundle principalClass];
+//    if ([principalClass respondsToSelector:NSSelectorFromString(@"reloadPlugin:")]) {
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+//        [principalClass performSelector:NSSelectorFromString(@"reloadPlugin:") withObject:self.pluginBundle];
+//#pragma clang diagnostic pop
+//        
+//    } else {
+//        NSLog(@"%@",[NSString stringWithFormat:@"%@ does not implement the pluginDidLoad: method.", [self.pluginBundle.bundlePath currentFileName]]);
+//    }
+//}
 
 
 

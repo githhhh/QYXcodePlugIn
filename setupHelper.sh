@@ -135,9 +135,9 @@ then
     #fix LSOpenURLsWithRole() failed with error on OSX Yosemite
     sleep 0.5
     open /Applications/Xcode.app
-else
+#else
     #用python启动进程,并执行shell。避免在xcode 进程中执行shell,kill xocode后无法再执行后续命令
-    python rtXcode.py
+#    python rtXcode.py
 fi
 
 #编译成功,清理plist

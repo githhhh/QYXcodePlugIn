@@ -41,8 +41,6 @@
 	<string>Copyright © 2015年 QYER. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string>QYXcodePlugIn</string>
-	<key>QYXcodePlugInGitPath</key>
-	<string>/Users/qyer/Documents/WorkSpace/QYXcodePlugIn@@/Users/qyer/Documents/WorkSpace/QYXcodePlugIn/QYXcodePlugIn/QYXcodePlugIn-Info.plist</string>
 	<key>XC4Compatible</key>
 	<true/>
 	<key>XC5Compatible</key>
