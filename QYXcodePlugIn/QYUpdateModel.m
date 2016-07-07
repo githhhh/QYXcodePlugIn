@@ -195,11 +195,6 @@
         if (!self.pathArr) {
             return nil;
         }
-//        NSString *currentWorkspacePath = [MHXcodeDocumentNavigator currentWorkspacePath];
-//        if (!IsEmpty(currentWorkspacePath) && [currentWorkspacePath hasPrefix:@"/"]) {
-//            currentWorkspacePath = [currentWorkspacePath substringFromIndex:1];
-//            currentWorkspacePath = [currentWorkspacePath stringByReplacingOccurrencesOfString:@"/" withString:@":"];
-//        }
         
         NSString *outStr = [QYClangFormat runCommand:updateCommand(self.pathArr[0])];
 

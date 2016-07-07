@@ -158,15 +158,6 @@
             return ;
         }
         if ([sender isKindOfClass:[QYPreferencesMenuItem class]]) {
-            
-//            NSString *currentWorkspacePath = [MHXcodeDocumentNavigator currentWorkspacePath];
-//            if (!IsEmpty(currentWorkspacePath) && [currentWorkspacePath hasPrefix:@"/"]) {
-//                currentWorkspacePath = [currentWorkspacePath substringFromIndex:1];
-//                currentWorkspacePath = [currentWorkspacePath stringByReplacingOccurrencesOfString:@"/" withString:@":"];
-//            }
-//            
-//            [QYClangFormat runCommand:[NSString stringWithFormat:@"\ncd \'%@\'\n\n./setupHelper.sh %@\n",@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn",currentWorkspacePath]];
-            
             [self showPreferencesWindow];
             return ;
         }
