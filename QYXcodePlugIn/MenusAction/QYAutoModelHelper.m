@@ -139,7 +139,7 @@
     }
     
     NSMutableString *result = [NSMutableString string];
-    if (!PreferencesModel.isPropertyIsOptional) {
+    if (PreferencesModel.isPropertyIsOptional) {
         [result appendString:@"\n+ (BOOL)propertyIsOptional:(NSString *)propertyName {\n    return YES;\n}\n"];
     }
     
@@ -147,7 +147,7 @@
 
     __block NSInteger idx = 0;
     
-    if (!PreferencesModel.propertyBusinessPrefixEnable) {
+    if (PreferencesModel.propertyBusinessPrefixEnable) {
         
         [classInfo.mapDic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull businessKey, BOOL * _Nonnull stop) {
             
@@ -294,7 +294,7 @@
     //转换key 为业务属性名
     NSString *businessKey = key;
 
-    if (!PreferencesModel.propertyBusinessPrefixEnable) {
+    if (PreferencesModel.propertyBusinessPrefixEnable) {
         if (classInfo.mapDic && [classInfo.mapDic count] > 0) {
             businessKey = classInfo.mapDic[key];
         }

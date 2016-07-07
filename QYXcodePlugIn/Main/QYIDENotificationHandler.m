@@ -253,7 +253,8 @@
             model.isPromptException = YES;
             model.isPropertyIsOptional = YES;
             model.propertyBusinessPrefixEnable = YES;
-            model.isDefaultAllJSON = YES;
+            model.isDefaultAllJSON = NO;
+            model.contentJSONKey = @"data";
             _preferencesModel =  model;
         }else{
             id setMode = [NSKeyedUnarchiver unarchiveObjectWithData:data];
