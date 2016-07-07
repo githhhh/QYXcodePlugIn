@@ -41,6 +41,7 @@
 @property (nonatomic,assign) BOOL isCatchedError;
 
 @property (nonatomic,assign) BOOL exitParse;
+
 @end
 
 @implementation ESInputJsonController
@@ -62,10 +63,11 @@
     
     self.inputTextView.delegate = self;
     self.propertyPrefixField.delegate = self;
+    self.propertyPrefixField.enabled = YES;
     self.window.delegate = self;
     
     
-    if (!PreferencesModel.propertyBusinessPrefixEnable) {
+    if (PreferencesModel.propertyBusinessPrefixEnable) {
         NSString *rootClassName = [self.currentImpleMentationPath currentClassName];
         self.propertyPrefixField.stringValue = [rootClassName lowercaseString];
         
@@ -89,10 +91,10 @@
     self.isCatchedError = NO;
 
     [self dictionaryWithJsonStr:self.inputTextView.string].thenOn(dispatch_get_main_queue(), ^id(id result){
-        
+
         NSString *rootClassName = [self.currentImpleMentationPath currentClassName];
         
-        if (!PreferencesModel.propertyBusinessPrefixEnable) {
+        if (PreferencesModel.propertyBusinessPrefixEnable) {
             self.classInfo = [[ESClassInfo alloc] initWithClassNameKey:self.propertyPrefixField.stringValue ClassName:rootClassName classDic:result];
         }else {
             self.classInfo = [[ESClassInfo alloc] initWithClassNameKey:[rootClassName lowercaseString] ClassName:rootClassName classDic:result];
@@ -254,7 +256,7 @@
         if (err)
             return error(@"输入JSON 格式不对哦。。。", validatorErrorCode, nil);
         //默认为解析所有JSON
-        if (!PreferencesModel.isDefaultAllJSON)
+        if (PreferencesModel.isDefaultAllJSON)
             return dicOrArray;
         
         if ([dicOrArray isKindOfClass:[NSDictionary class]]) {
@@ -313,7 +315,9 @@
         if (![obj isKindOfClass:[NSArray class]] && ![obj isKindOfClass:[NSDictionary class]]) {
             continue;
         }
-        
+        //防止该界面第二次 捕获事件
+        self.propertyPrefixField.enabled = NO;
+
         ESDialogController *dialog = [[ESDialogController alloc] initWithWindowNibName:@"ESDialogController"];
         dialog.prefixName =  key;
         
@@ -386,7 +390,7 @@
 #pragma mark - NSTextfiledDelegate
 
 -(void)controlTextDidEndEditing:(NSNotification *)notification{
-    if ( [[[notification userInfo] objectForKey:@"NSTextMovement"] intValue] == NSReturnTextMovement){
+    if ( [[[notification userInfo] objectForKey:@"NSTextMovement"] intValue] == NSReturnTextMovement ){
         [self enterButtonClick:self.enterButton];
     }
 }
@@ -399,7 +403,7 @@
     [self dictionaryWithJsonStr:textView.string].thenOn(dispatch_get_main_queue(), ^{
     
         //如果通过验证,属性业务前缀textField 获得焦点
-        if (!PreferencesModel.propertyBusinessPrefixEnable) {
+        if (PreferencesModel.propertyBusinessPrefixEnable) {
             [self.propertyPrefixField becomeFirstResponder];
         }
         

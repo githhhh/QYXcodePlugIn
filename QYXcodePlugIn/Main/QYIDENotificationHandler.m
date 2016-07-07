@@ -26,6 +26,7 @@
 #import "PreferencesJSONHandleViewController.h"
 #import "PreferencesGetterViewController.h"
 #import "PreferencesFormateCodeViewController.h"
+#import "QYClangFormat.h"
 
 @interface QYIDENotificationHandler () <QYWindowsCloseProtocol>
 //window
@@ -239,7 +240,7 @@
     if (!_preferencesModel) {
         NSUserDefaults *userdf = [NSUserDefaults standardUserDefaults];
         NSData *data = [userdf objectForKey:@"preferencesModel"];
-        if (!data) {
+        if (data == nil || !data) {
             //返回默认model
             QYPreferencesModel *model = [QYPreferencesModel new];
             model.getterJSON =  @"{\n\"UIView\":[\n   \"%@ = [[UIView alloc] init];\",\n   \"%@.backgroundColor = [UIColor clearColor];\"\n  ]\n}\n";
@@ -252,7 +253,8 @@
             model.isPromptException = YES;
             model.isPropertyIsOptional = YES;
             model.propertyBusinessPrefixEnable = YES;
-            model.isDefaultAllJSON = YES;
+            model.isDefaultAllJSON = NO;
+            model.contentJSONKey = @"data";
             _preferencesModel =  model;
         }else{
             id setMode = [NSKeyedUnarchiver unarchiveObjectWithData:data];

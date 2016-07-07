@@ -42,7 +42,7 @@
 
     [self.classNameField becomeFirstResponder];
     
-    if (!PreferencesModel.propertyBusinessPrefixEnable) {
+    if (PreferencesModel.propertyBusinessPrefixEnable) {
         self.configBusinessPrefixViewHeightConstraint.constant = 74;
         [self.window.contentView updateConstraints];
     }
@@ -101,10 +101,12 @@
 - (void)enterBtnClick:(NSButton *)sender {
     if (self.confirmClassNameBlock) {
         self.confirmClassNameBlock(self.classNameField.stringValue);
+        self.confirmClassNameBlock = nil;
     }
     
     if (self.confirmPrefixBlock) {
         self.confirmPrefixBlock(self.businessPrefixField.stringValue);
+        self.confirmPrefixBlock = nil;
     }
     
     [self close];

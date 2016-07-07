@@ -11,6 +11,8 @@
 		8B05B57F1BF5A32E00F37998 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B05B57E1BF5A32E00F37998 /* Carbon.framework */; };
 		8B0DA2D41CF3EE46001D3AAD /* QYXcodePlugIn-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B0DA2D31CF3EE46001D3AAD /* QYXcodePlugIn-Info.plist */; };
 		8B0F54811CBB763D00F8C3D0 /* QYUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0F54801CBB763D00F8C3D0 /* QYUpdateModel.m */; };
+		8B15B9A11D2DFB87001B5194 /* rtXcode.py in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B9A01D2DFB87001B5194 /* rtXcode.py */; };
+		8B4829371CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B4829361CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist */; };
 		8B4C00821BF7852300A77AD9 /* PTHotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00801BF7852300A77AD9 /* PTHotKey.framework */; };
 		8B4C00831BF7852300A77AD9 /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */; };
 		8B54D17E1CA263CB00B67A5F /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B54D17D1CA263CB00B67A5F /* images.xcassets */; };
@@ -97,6 +99,8 @@
 		8B0DA2D31CF3EE46001D3AAD /* QYXcodePlugIn-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QYXcodePlugIn-Info.plist"; sourceTree = "<group>"; };
 		8B0F547F1CBB763D00F8C3D0 /* QYUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYUpdateModel.h; sourceTree = "<group>"; };
 		8B0F54801CBB763D00F8C3D0 /* QYUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYUpdateModel.m; sourceTree = "<group>"; };
+		8B15B9A01D2DFB87001B5194 /* rtXcode.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = rtXcode.py; sourceTree = "<group>"; };
+		8B4829361CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QYXcodePlugIn-Info.plist"; sourceTree = "<group>"; };
 		8B4C00801BF7852300A77AD9 /* PTHotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTHotKey.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/PTHotKey.framework"; sourceTree = "<group>"; };
 		8B4C00811BF7852300A77AD9 /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShortcutRecorder.framework; path = "../../../Library/Developer/Xcode/DerivedData/QYXcodePlugIn-hjbnfeaqaloqdidevqlvfdkprpws/Build/Products/Release/ShortcutRecorder.framework"; sourceTree = "<group>"; };
 		8B54D17D1CA263CB00B67A5F /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
@@ -318,6 +322,7 @@
 		8B60AD9B1BABB7F100672762 = {
 			isa = PBXGroup;
 			children = (
+				8B15B9A01D2DFB87001B5194 /* rtXcode.py */,
 				8B63E78D1CC4FA07009E4DC1 /* logo.png */,
 				8B9C6BD71BB1247700242629 /* setupHelper.sh */,
 				8B9C6BC41BB1232C00242629 /* CodeSnippets */,
@@ -855,6 +860,8 @@
 				8BF5F6821BFDB14E00F4A4AD /* TemplateIcon.png in Resources */,
 				8B760F481D0E927000762EF6 /* PreferencesGetterViewController.xib in Resources */,
 				8BAE7EAE1C47980200A505FD /* QYShortcutRecorderController.xib in Resources */,
+				8B15B9A11D2DFB87001B5194 /* rtXcode.py in Resources */,
+				8B4829371CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist in Resources */,
 				8BAD45DC1CC5C4A9002DB990 /* QYUpdateAlert.xib in Resources */,
 				8BAE7EAD1C47980200A505FD /* QYRequestVerifyController.xib in Resources */,
 				8BE7E3671D0FFC790042E4F5 /* formate-code-icon.png in Resources */,
