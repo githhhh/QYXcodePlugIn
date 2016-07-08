@@ -12,6 +12,10 @@ Icon
 build/
 DerivedData/
 xcuserdata
+CodeSnippets/
+Pods/
+QYFileTemplate/
+workflow/
 
 *.pbxuser
 !default.pbxuser
