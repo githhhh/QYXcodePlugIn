@@ -1,6 +1,6 @@
 # QYXcodePlugIn
 
-![logo](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/logo.png)
+![logo](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/logo.png)
 
 穷游iOS开发团队专属 Xcode plugin ,旨在更好专注业务逻辑 , 统一代码风格 ,帮助Code Review。
 
@@ -31,7 +31,7 @@
 🍻🍻
 
 ## 演示
-![auto-getter](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/auto-getter.gif)
+![auto-getter](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/auto-getter.gif)
 
 #### AutoMode
 一键生成JSOMMode 子类,包含map方法。
@@ -65,7 +65,7 @@
 > 为毛复杂粘贴Chrome 接口返回JSON 串到AutoModel 窗口，校验不通过？？
 点击右上角的 ![autoModel_Chrome](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/autoModel_Chrome.png) 把那一坨一坨的东东粘贴进入AutoModel窗口。--Good Job.
 	
-![auto-model](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/auto-model.gif)
+![auto-model](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/auto-model.gif)
 ## 如何扩展功能
 
 -ShortcutRecorder(project)
