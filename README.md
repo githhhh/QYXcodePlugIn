@@ -11,13 +11,13 @@
 
 * [DIY 文件模板](http://git.2b6.me/iOS/QYXcodePlugIn/blob/master/fileTemplte/creatFileTemplte.md)  (*直接在Xcode 中修改，无需重启*)
 
-* [重置 Asset Catalog 资源列表搜索条件](./clearCalagoy/modifiedXcode.md) (*A cool feature*)
+* [重置 Asset Catalog 资源列表搜索条件](http://git.2b6.me/iOS/QYXcodePlugIn/blob/master/clearCalagoy/modifiedXcode.md) (*A cool feature*)
 
 * 该插件配置功能  (*JSON 格式配置Getter内容、绑定菜单热键、异常提醒、其它配置*)
 
 * 一些Automator workFlow服务 (*项目目录workflow 下，点击安装*)
 
-* 封装API: 格式化代码并输出   (*[使用Clang-Formate + Uncrustify中和各自优缺点](./cfVSUncrustify/clangFormatAnduncrustify.md)*)
+* 封装API: 格式化代码并输出   (*[使用Clang-Formate + Uncrustify中和各自优缺点](http://git.2b6.me/iOS/QYXcodePlugIn/blob/master/cfVSUncrustify/clangFormatAnduncrustify.md)*)
 
 * 更多功能待扩展...
 
@@ -63,7 +63,7 @@
 
 修改自[ESJsonFormat](https://github.com/EnjoySR/ESJsonFormat-Xcode),并完善了一些逻辑。
 > 为毛复杂粘贴Chrome 接口返回JSON 串到AutoModel 窗口，校验不通过？？
-点击右上角的 ![autoModel_Chrome](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/autoModel_Chrome.png) 把那一坨一坨的东东粘贴进入AutoModel窗口。--Good Job.
+点击右上角的 ![autoModel_Chrome](http://git.2b6.me/iOS/QYXcodePlugIn/blob/master/autoModel_Chrome.png) 把那一坨一坨的东东粘贴进入AutoModel窗口。--Good Job.
 	
 ![auto-model](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/auto-model.gif)
 ## 如何扩展功能
@@ -85,7 +85,7 @@
    * Uitility 一些帮助文件
  
  
- 插件大量使用 [PromiseKit](./promiseKit.md)封装API、整理同异步代码。
+ 插件大量使用 [PromiseKit](http://git.2b6.me/iOS/QYXcodePlugIn/blob/master/promiseKit.md)封装API、整理同异步代码。
  
  > 使用cocoapod 管理PromiseKit,关于集成中的问题见：
  - [直接集成报错 ld: library not found for -lxxx ？？](http://stackoverflow.com/questions/32540495/xcode-plugin-template-cocoapods)
