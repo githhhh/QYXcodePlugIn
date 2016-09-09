@@ -109,4 +109,4 @@ Singleton 和  Delegate 互斥，ListViewDelegate 依赖于Delegate 才显示。
   
  ---
   
-![](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/fileTemplte/templtPlist3.png)
+![](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/fileTemplte/templtPlist3.png)
