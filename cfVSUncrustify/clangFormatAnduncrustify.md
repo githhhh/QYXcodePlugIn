@@ -18,7 +18,7 @@
    
    但它在**多层嵌套的字典、数组、block代码中缩进效果却差强人意**。（至少我折腾半天也没fix）,所以要配合XCode 自带的自动感知缩进Re-indent (contr + i)
    <div align='center'>
-     ![Re-indent](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/cfVSUncrustify/reindent.png)
+     ![Re-indent](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/cfVSUncrustify/reindent.png)
    </div>
    
 ## Uncrustify
@@ -39,7 +39,7 @@
 
 炒着吃应该也不懒😉
 
-![](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/cfVSUncrustify/pop.gif)
+![](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/cfVSUncrustify/pop.gif)
 
 	
 >	/usr/local/bin/clang-format -style="{BasedOnStyle: llvm,AlignTrailingComments: true,BreakBeforeBraces: Linux,ColumnLimit: 120,IndentWidth: 4,KeepEmptyLinesAtTheStartOfBlocks: false,MaxEmptyLinesToKeep: 2,ObjCSpaceAfterProperty: true,ObjCSpaceBeforeProtocolList: true,PointerBindsToType: false,SpacesBeforeTrailingComments: 1,TabWidth: 4,UseTab: Never,BinPackParameters: false}"  /Users/qyer/Desktop/temp.m | /usr/local/bin/uncrustify  -q -c ~/.uncrustify.cfg -l OC
