@@ -63,7 +63,7 @@
 
 修改自[ESJsonFormat](https://github.com/EnjoySR/ESJsonFormat-Xcode),并完善了一些逻辑。
 > 为毛复杂粘贴Chrome 接口返回JSON 串到AutoModel 窗口，校验不通过？？
-点击右上角的 ![autoModel_Chrome](http://git.2b6.me/iOS/QYXcodePlugIn/blob/master/autoModel_Chrome.png) 把那一坨一坨的东东粘贴进入AutoModel窗口。--Good Job.
+点击右上角的 ![autoModel_Chrome](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/autoModel_Chrome.png) 把那一坨一坨的东东粘贴进入AutoModel窗口。--Good Job.
 	
 ![auto-model](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/auto-model.gif)
 ## 如何扩展功能
