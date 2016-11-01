@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6071F821A8C8831C3A24495E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16364214EC190002C2584301 /* libPods.a */; };
 		8B05B57F1BF5A32E00F37998 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B05B57E1BF5A32E00F37998 /* Carbon.framework */; };
-		8B0DA2D41CF3EE46001D3AAD /* QYXcodePlugIn-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B0DA2D31CF3EE46001D3AAD /* QYXcodePlugIn-Info.plist */; };
 		8B0F54811CBB763D00F8C3D0 /* QYUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0F54801CBB763D00F8C3D0 /* QYUpdateModel.m */; };
 		8B15B9A11D2DFB87001B5194 /* rtXcode.py in Resources */ = {isa = PBXBuildFile; fileRef = 8B15B9A01D2DFB87001B5194 /* rtXcode.py */; };
 		8B4829371CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B4829361CC24DBD00DEB1C8 /* QYXcodePlugIn-Info.plist */; };
@@ -216,9 +215,6 @@
 		8BE7E3681D0FFD840042E4F5 /* JSON-Code-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JSON-Code-icon.png"; sourceTree = "<group>"; };
 		8BF346801C9C362000BD2BE4 /* QYAutoModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYAutoModelHelper.h; sourceTree = "<group>"; };
 		8BF346811C9C362000BD2BE4 /* QYAutoModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYAutoModelHelper.m; sourceTree = "<group>"; };
-		8BF5F65A1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8BF5F65B1BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8BF5F65D1BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
 		8BF5F65F1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
 		8BF5F6601BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
 		8BF5F6621BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
@@ -293,20 +289,22 @@
 			path = NSObjectDelegateUICollectionViewDelegateSwift;
 			sourceTree = "<group>";
 		};
-		8B08157E1C8D2422003B5B18 /* QYRequestObjective-C */ = {
+		8B08157E1C8D2422003B5B18 /* QyRequestObjective-C */ = {
 			isa = PBXGroup;
 			children = (
 				8B08157F1C8D2422003B5B18 /* ___FILEBASENAME___.h */,
 				8B0815801C8D2422003B5B18 /* ___FILEBASENAME___.m */,
 			);
+			name = "QyRequestObjective-C";
 			path = "QYRequestObjective-C";
 			sourceTree = "<group>";
 		};
-		8B0815811C8D2422003B5B18 /* QYRequestSwift */ = {
+		8B0815811C8D2422003B5B18 /* QyRequestSwift */ = {
 			isa = PBXGroup;
 			children = (
 				8B0815821C8D2422003B5B18 /* ___FILEBASENAME___.swift */,
 			);
+			name = QyRequestSwift;
 			path = QYRequestSwift;
 			sourceTree = "<group>";
 		};
@@ -659,14 +657,12 @@
 		8BF5F6531BFDB14E00F4A4AD /* QYCocoaToouchClass.xctemplate */ = {
 			isa = PBXGroup;
 			children = (
-				8B08157E1C8D2422003B5B18 /* QYRequestObjective-C */,
-				8B0815811C8D2422003B5B18 /* QYRequestSwift */,
+				8B08157E1C8D2422003B5B18 /* QyRequestObjective-C */,
+				8B0815811C8D2422003B5B18 /* QyRequestSwift */,
 				8B02E2331C1ED580005CE6D2 /* NSObjectDelegateUICollectionViewDelegateObjective-C */,
 				8B02E2361C1ED580005CE6D2 /* NSObjectDelegateUICollectionViewDelegateSwift */,
 				8B02E2291C1ED4A1005CE6D2 /* NSObjectDelegateUITableViewDelegateObjective-C */,
 				8B02E22C1C1ED4A1005CE6D2 /* NSObjectDelegateUITableViewDelegateSwift */,
-				8BF5F6591BFDB14E00F4A4AD /* JYTableViewBaseCellObjective-C */,
-				8BF5F65C1BFDB14E00F4A4AD /* JYTableViewBaseCellSwift */,
 				8BF5F65E1BFDB14E00F4A4AD /* NSObjectObjective-C */,
 				8BF5F6611BFDB14E00F4A4AD /* NSObjectSingletonObjective-C */,
 				8BF5F6641BFDB14E00F4A4AD /* NSObjectSingletonSwift */,
@@ -683,23 +679,6 @@
 			);
 			name = QYCocoaToouchClass.xctemplate;
 			path = QYFileTemplate/QYCocoaToouchClass.xctemplate;
-			sourceTree = "<group>";
-		};
-		8BF5F6591BFDB14E00F4A4AD /* JYTableViewBaseCellObjective-C */ = {
-			isa = PBXGroup;
-			children = (
-				8BF5F65A1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */,
-				8BF5F65B1BFDB14E00F4A4AD /* ___FILEBASENAME___.m */,
-			);
-			path = "JYTableViewBaseCellObjective-C";
-			sourceTree = "<group>";
-		};
-		8BF5F65C1BFDB14E00F4A4AD /* JYTableViewBaseCellSwift */ = {
-			isa = PBXGroup;
-			children = (
-				8BF5F65D1BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */,
-			);
-			path = JYTableViewBaseCellSwift;
 			sourceTree = "<group>";
 		};
 		8BF5F65E1BFDB14E00F4A4AD /* NSObjectObjective-C */ = {
