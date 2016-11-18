@@ -8,13 +8,14 @@
 #import <Foundation/Foundation.h>
 #import "QYPreferencesModel.h"
 #import <dlfcn.h>
+#import "QYMenuBaseItem.h"
 
 #define ClangFormateContentPath  [[[QYXcodePlugIn sharedPlugin] notificationHandler] clangFormateContentPath]
 
 #define PreferencesModel  [[[QYXcodePlugIn sharedPlugin] notificationHandler] preferencesModel]
 
 
-@interface QYIDENotificationHandler : NSObject
+@interface QYIDENotificationHandler : NSObject<MenuItemPromiseDelegate>
 
 - (NSString *)clangFormateContentPath;
 
