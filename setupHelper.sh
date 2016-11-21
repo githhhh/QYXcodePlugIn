@@ -48,7 +48,8 @@ function install_Depend(){
 
    brew install clang-format || exit
    brew install uncrustify || exit
-   brew install xctool || exit
+#   xctool 在 xcode8 下暂不可用，等待官方解决
+#   brew install xctool || exit
 
    cfFileName='.clang-format'
    ufFileName='.uncrustify.cfg'
@@ -102,11 +103,18 @@ function bulide_Release(){
    #先更新下依赖的第三方库
    pod install --verbose --no-repo-update
 
-   xctool  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme ShortcutRecorder.framework || exit
+   xcodebuild  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme ShortcutRecorder.framework || exit
 
-   xctool  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme PTHotKey.framework || exit
+   xcodebuild  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme PTHotKey.framework || exit
 
-   xctool  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme QYXcodePlugIn || exit
+   xcodebuild  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme QYXcodePlugIn || exit
+
+#   xctool 在 xcode8 下暂不可用，等待官方解决
+#   xctool  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme ShortcutRecorder.framework || exit
+#
+#   xctool  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme PTHotKey.framework || exit
+#
+#   xctool  -configuration Release  -workspace QYXcodePlugIn.xcworkspace -scheme QYXcodePlugIn || exit
 
 }
 

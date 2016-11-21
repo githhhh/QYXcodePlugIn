@@ -17,6 +17,7 @@
 #import "QYIDENotificationHandler.h"
 #import "QYClangFormat.h"
 #import "NSString+Files.h"
+#import "LAFIDESourceCodeEditor.h"
 
 #define validatorErrorCode 110
 

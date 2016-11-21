@@ -1019,6 +1019,7 @@
 				INFOPLIST_FILE = Library/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LD_DYLIB_INSTALL_NAME = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = ShortcutRecorder;
 				PROVISIONING_PROFILE = "";
 			};
@@ -1040,6 +1041,7 @@
 				INFOPLIST_FILE = Library/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LD_DYLIB_INSTALL_NAME = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = ShortcutRecorder;
 				PROVISIONING_PROFILE = "";
 			};
@@ -1107,7 +1109,7 @@
 				INFOPLIST_FILE = PTHotKey/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LD_DYLIB_INSTALL_NAME = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1134,7 +1136,7 @@
 				INFOPLIST_FILE = PTHotKey/Info.plist;
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				LD_DYLIB_INSTALL_NAME = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,

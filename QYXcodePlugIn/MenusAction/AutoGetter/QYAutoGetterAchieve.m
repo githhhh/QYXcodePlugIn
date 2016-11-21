@@ -14,7 +14,7 @@
 #import "QYClangFormat.h"
 #import "QYIDENotificationHandler.h"
 #import <AppKit/AppKit.h>
-
+#import "LAFIDESourceCodeEditor.h"
 
 //@"@property\\s*\\(.+?\\)\\s*(\\w+)?\\s*\\*{1}\\s*(\\w+)\\s*;{1}";
 static NSInteger const groupBaseCount = 3;

@@ -12,6 +12,7 @@
 #import "NSString+Extensions.h"
 #import "Promise.h"
 #import "QYClangFormat.h"
+#import "LAFIDESourceCodeEditor.h"
 
 static const NSString * machsStr = @"static\\s+char\\s+const\\s+\\*\\s*const\\s+(\\w+)\\s*=\\s*\"\\w*\";{1}";
 

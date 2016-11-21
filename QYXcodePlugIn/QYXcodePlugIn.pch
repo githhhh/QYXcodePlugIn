@@ -86,10 +86,10 @@
 
 
 #ifdef __OBJC__
-#import "XcodeEditor.h"
-#import "XCTarget+XCProject.h"
-#import "XCFXcodePrivate.h"
-#import "LAFIDESourceCodeEditor.h"
+//#import "XcodeEditor.h"
+//#import "XCTarget+XCProject.h"
+//#import "XCFXcodePrivate.h"
+//#import "LAFIDESourceCodeEditor.h"
 #import "QYXcodePlugIn.h"
 //要引入的类
 #endif

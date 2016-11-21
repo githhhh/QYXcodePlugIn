@@ -27,6 +27,7 @@
 #import "PreferencesGetterViewController.h"
 #import "PreferencesFormateCodeViewController.h"
 #import "QYClangFormat.h"
+#import "LAFIDESourceCodeEditor.h"
 
 @interface QYIDENotificationHandler () <QYWindowsCloseProtocol>
 //window
@@ -184,20 +185,20 @@
     self.requestVerifyWindow.delegate = self;
     [self.requestVerifyWindow showWindow:self];
 }
-
+static NSString *const kCenterPreferenceWindowToolbarIcons = @"CenterPreferenceWindowToolbarIcons";
+static NSString *const kPresentSegmentedControlInToolbar = @"PresentSegmentedControlInToolbar";
 -(void)showPreferencesWindow{
     
     if (!self.preferences) {
-        self.preferences = [CCNPreferencesWindowController new];
-        
+        self.preferences = [[CCNPreferencesWindowController alloc] init];
+        self.preferences.titlebarAppearsTransparent = NO;
         self.preferences.centerToolbarItems = NO;  // or NO
         // setup all preference view controllers
         [self.preferences setPreferencesViewControllers:@[
-                                                          [PreferencesGeneralViewController new],
-                                                          [PreferencesJSONHandleViewController new],
-                                                          [PreferencesGetterViewController new],
-                                                          [PreferencesFormateCodeViewController new]
-                                                          
+                                                          [[PreferencesGeneralViewController alloc] init],
+                                                          [[PreferencesJSONHandleViewController alloc] init],
+                                                          [[PreferencesGetterViewController alloc] init],
+                                                          [[PreferencesFormateCodeViewController alloc] init]
                                                           ]];
     }
 
