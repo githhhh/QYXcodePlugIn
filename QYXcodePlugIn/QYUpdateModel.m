@@ -78,12 +78,15 @@
         if (IsEmpty(outStr)) {
             return error(@"更新未知错误。。。。。", 0, nil);
         }
-        NSString *lastVersion = nil;
+        outStr = [outStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        outStr = [outStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+
         //换行分割
         NSArray*outLines = [outStr componentsSeparatedByString:@"\n"];
         if (!outLines) {
             return error(@"更新未知错误。。。。。", 0, nil);
         }
+        
         NSString *versionOutLine = [outLines lastObject];
         versionOutLine = [versionOutLine stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         versionOutLine = [versionOutLine stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -94,10 +97,9 @@
             return error(@"ssh: connect to host gitlab.dev port xx: Network is unreachable\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.", 0, nil);
         }else{
             NSArray *versionSplitArr = [versionOutLine componentsSeparatedByString:@":"];
-            lastVersion = [versionSplitArr lastObject];
+            NSString *lastVersion = [versionSplitArr lastObject];
+            return PMKManifold(version,lastVersion,outStr);
         }
-        
-        return PMKManifold(version,lastVersion,outStr);
 
     }).thenOn(dispatch_get_main_queue(),^(NSString *version,NSString *lastVersion,NSString *outStr){
         self.alert.confirmBtn.hidden = true;

@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QYXcodePlugIn/QYUpdateModel.m"
-            timestampString = "504772413.994586"
+            timestampString = "504772662.031288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-updateVersion"
             landmarkType = "7">
          </BreakpointContent>
