@@ -100,7 +100,7 @@
     }).thenOn(dispatch_get_main_queue(),^(NSString *version,NSString *lastVersion,NSString *outStr){
         self.alert.confirmBtn.hidden = true;
 
-        if ([lastVersion floatValue] > [version floatValue]) {
+        if ([version compare:lastVersion] == NSOrderedAscending) {
             self.alert.title = @"QYXcodePlugIn插件有新的可用更新~！";
             self.alert.cancelTitle = @"瘪来烦我！";
             self.alert.confirmTitle = @"立即更新!";
