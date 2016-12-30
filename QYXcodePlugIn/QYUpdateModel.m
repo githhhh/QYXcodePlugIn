@@ -78,29 +78,24 @@
         if (IsEmpty(outStr)) {
             return error(@"更新未知错误。。。。。", 0, nil);
         }
-        outStr = [outStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        outStr = [outStr stringByReplacingOccurrencesOfString:@" " withString:@""];
-        outStr = [outStr stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+        if ( ![outStr containsString:@"remote_version:"] ) {
+            return error(@"ssh: connect to host gitlab.dev port xx: Network is unreachable\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.", 0, nil);
+        }
+        NSArray *splitArr = [outStr componentsSeparatedByString:@"remote_version:"];
+        NSString*lastVersion = [splitArr lastObject];
+        NSString*originOutMsg = [splitArr firstObject];
+
+        lastVersion = [lastVersion stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        lastVersion = [lastVersion stringByReplacingOccurrencesOfString:@" " withString:@""];
+        lastVersion = [lastVersion stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+        lastVersion = [lastVersion stringByReplacingOccurrencesOfString:@"\n" withString:@""];
 
         //换行分割
-        NSArray*outLines = [outStr componentsSeparatedByString:@"\n"];
-        if (!outLines) {
-            return error(@"更新未知错误。。。。。", 0, nil);
+        if (IsEmpty(lastVersion)) {
+            return error(@"获取最新版本失败。。。。。", 0, nil);
         }
         
-        NSString *versionOutLine = [outLines lastObject];
-        versionOutLine = [versionOutLine stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        versionOutLine = [versionOutLine stringByReplacingOccurrencesOfString:@" " withString:@""];
-        versionOutLine = [versionOutLine stringByReplacingOccurrencesOfString:@"\r" withString:@""];
-        versionOutLine = [versionOutLine stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-
-        if ( [versionOutLine hasPrefix:@"remote_version:"] ) {
-            return error(@"ssh: connect to host gitlab.dev port xx: Network is unreachable\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.", 0, nil);
-        }else{
-            NSArray *versionSplitArr = [versionOutLine componentsSeparatedByString:@":"];
-            NSString *lastVersion = [versionSplitArr lastObject];
-            return PMKManifold(version,lastVersion,outStr);
-        }
+        return PMKManifold(version,lastVersion,originOutMsg);
 
     }).thenOn(dispatch_get_main_queue(),^(NSString *version,NSString *lastVersion,NSString *outStr){
         self.alert.confirmBtn.hidden = true;
