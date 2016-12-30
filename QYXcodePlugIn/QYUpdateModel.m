@@ -15,7 +15,7 @@
 #import "QYXcodePlugIn.h"
 #import "NSString+Files.h"
 
-#define mergeCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit commit -a -m \"update_plugin\"\ngit pull --rebase\ngit push origin master\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
+#define mergeCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit add .\ngit commit -a -m \"update_plugin\"\ngit pull --rebase\ngit push origin master\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
 
 #define updateCommand(gitPath) [NSString stringWithFormat:@"\ncd \'%@\'\n\n./setupHelper.sh up\n",gitPath]
 
@@ -70,7 +70,7 @@
 
         self.pathArr = [paths componentsSeparatedByString:@"@@"];
 //
-//        self.pathArr = @[@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn",@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn/QYXcodePlugIn/QYXcodePlugIn-Info.plist"];
+        self.pathArr = @[@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn",@"/Users/qyer/Documents/WorkSpace/QYXcodePlugIn/QYXcodePlugIn/QYXcodePlugIn-Info.plist"];
         
         //异步获取最新代码
         NSString *outStr = [QYClangFormat runCommand:mergeCommand(self.pathArr[0],self.pathArr[1])];
