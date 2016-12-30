@@ -15,7 +15,7 @@
 #import "QYXcodePlugIn.h"
 #import "NSString+Files.h"
 
-#define mergeCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit add .\ngit commit -a -m \"update_plugin\"\ngit pull --rebase\ngit push origin master\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"versionStr=$version\"",gitPath,infoPath]
+#define mergeCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit add .\ngit commit -a -m \"update_plugin\"\ngit pull --rebase\ngit push origin master\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"remote_version:$version\"",gitPath,infoPath]
 
 #define updateCommand(gitPath) [NSString stringWithFormat:@"\ncd \'%@\'\n\n./setupHelper.sh up\n",gitPath]
 
@@ -81,16 +81,18 @@
         NSString *lastVersion = nil;
         outStr = [outStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
-        if ( [outStr hasPrefix:@"versionStr="] ) {
+        if ( [outStr hasPrefix:@"remote_version:"] ) {
             return error(@"ssh: connect to host gitlab.dev port xx: Network is unreachable\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.", 0, nil);
         }else{
-            NSRange lastVersionStrRange = [outStr rangeOfString:@"versionStr="];
+            NSRange lastVersionStrRange = [outStr rangeOfString:@"remote_version:"];
             lastVersion = [outStr substringFromIndex:(lastVersionStrRange.location+lastVersionStrRange.length)];
         }
         
         
         lastVersion = [lastVersion stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        
+        lastVersion = [lastVersion stringByReplacingOccurrencesOfString:@" " withString:@""];
+        lastVersion = [lastVersion stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+        lastVersion = [lastVersion stringByReplacingOccurrencesOfString:@"\n" withString:@""];
 
         return PMKManifold(version,lastVersion,outStr);
 
