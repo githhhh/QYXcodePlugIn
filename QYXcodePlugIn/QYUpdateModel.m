@@ -15,7 +15,7 @@
 #import "QYXcodePlugIn.h"
 #import "NSString+Files.h"
 
-#define mergeCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit add .\ngit commit -a -m \"update_plugin\"\ngit pull --rebase\ngit push origin master\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"`\necho \"remote_version:$version\"",gitPath,infoPath]
+#define mergeCommand(gitPath,infoPath) [NSString stringWithFormat:@"cd \'%@\'\ngit add .  || exit\ngit commit -a -m \"update_plugin\"  || exit\ngit pull --rebase || exit\ngit push origin master || exit\nversion=`/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" \"%@\"` \\\necho \"remote_version:$version\"",gitPath,infoPath]
 
 #define updateCommand(gitPath) [NSString stringWithFormat:@"\ncd \'%@\'\n\n./setupHelper.sh up\n",gitPath]
 
