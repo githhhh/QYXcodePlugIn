@@ -80,6 +80,7 @@
         }
         outStr = [outStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         outStr = [outStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+        outStr = [outStr stringByReplacingOccurrencesOfString:@"\r" withString:@""];
 
         //换行分割
         NSArray*outLines = [outStr componentsSeparatedByString:@"\n"];
