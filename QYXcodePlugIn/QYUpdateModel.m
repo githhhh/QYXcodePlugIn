@@ -79,21 +79,24 @@
             return error(@"更新未知错误。。。。。", 0, nil);
         }
         NSString *lastVersion = nil;
-        outStr = [outStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        
-        if ( [outStr hasPrefix:@"remote_version:"] ) {
+        //换行分割
+        NSArray*outLines = [outStr componentsSeparatedByString:@"\n"];
+        if (!outLines) {
+            return error(@"更新未知错误。。。。。", 0, nil);
+        }
+        NSString *versionOutLine = [outLines lastObject];
+        versionOutLine = [versionOutLine stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        versionOutLine = [versionOutLine stringByReplacingOccurrencesOfString:@" " withString:@""];
+        versionOutLine = [versionOutLine stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+        versionOutLine = [versionOutLine stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+
+        if ( [versionOutLine hasPrefix:@"remote_version:"] ) {
             return error(@"ssh: connect to host gitlab.dev port xx: Network is unreachable\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.", 0, nil);
         }else{
-            NSRange lastVersionStrRange = [outStr rangeOfString:@"remote_version:"];
-            lastVersion = [outStr substringFromIndex:(lastVersionStrRange.location+lastVersionStrRange.length)];
+            NSArray *versionSplitArr = [versionOutLine componentsSeparatedByString:@":"];
+            lastVersion = [versionSplitArr lastObject];
         }
         
-        
-        lastVersion = [lastVersion stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        lastVersion = [lastVersion stringByReplacingOccurrencesOfString:@" " withString:@""];
-        lastVersion = [lastVersion stringByReplacingOccurrencesOfString:@"\r" withString:@""];
-        lastVersion = [lastVersion stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-
         return PMKManifold(version,lastVersion,outStr);
 
     }).thenOn(dispatch_get_main_queue(),^(NSString *version,NSString *lastVersion,NSString *outStr){
