@@ -22,14 +22,14 @@
         <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="552" height="200"/>
+            <rect key="contentRect" x="196" y="240" width="541" height="171"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="552" height="200"/>
+                <rect key="frame" x="0.0" y="0.0" width="541" height="171"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0nj-aq-Mvy">
-                        <rect key="frame" x="25" y="102" width="70" height="70"/>
+                        <rect key="frame" x="25" y="73" width="70" height="70"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="uBU-fW-HNK"/>
                             <constraint firstAttribute="width" constant="70" id="uRa-x8-bSJ"/>
@@ -37,7 +37,7 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo" id="5Pz-cu-6Du"/>
                     </imageView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ASd-CI-b2E">
-                        <rect key="frame" x="423" y="13" width="109" height="32"/>
+                        <rect key="frame" x="412" y="13" width="109" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="97" id="9f5-Sq-PRv"/>
                         </constraints>
@@ -53,7 +53,7 @@ Gw
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Psl-T5-c3l">
-                        <rect key="frame" x="119" y="151" width="415" height="21"/>
+                        <rect key="frame" x="119" y="122" width="404" height="21"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="有新的可用更新~！" id="kxj-Ah-Nyw">
                             <font key="font" size="14" name=".HelveticaNeueDeskInterface-Regular"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -61,16 +61,16 @@ Gw
                         </textFieldCell>
                     </textField>
                     <scrollView focusRingType="none" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bV-nD-a33">
-                        <rect key="frame" x="121" y="53" width="411" height="94"/>
+                        <rect key="frame" x="121" y="53" width="400" height="65"/>
                         <clipView key="contentView" id="APe-YN-hkK">
-                            <rect key="frame" x="0.0" y="0.0" width="411" height="94"/>
+                            <rect key="frame" x="0.0" y="0.0" width="400" height="65"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="iXA-bI-RPZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="411" height="94"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="65"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" name="secondarySelectedControlColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="411" height="94"/>
+                                    <size key="minSize" width="400" height="65"/>
                                     <size key="maxSize" width="535" height="10000000"/>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 </textView>
@@ -87,7 +87,7 @@ Gw
                         </scroller>
                     </scrollView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="67W-Qa-hDe">
-                        <rect key="frame" x="296" y="13" width="106" height="32"/>
+                        <rect key="frame" x="285" y="13" width="106" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="94" id="u6r-bf-kS8"/>
                         </constraints>
@@ -124,7 +124,7 @@ Gw
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="126" y="197"/>
+            <point key="canvasLocation" x="124.5" y="184.5"/>
         </window>
     </objects>
     <resources>
