@@ -79,7 +79,7 @@
             return error(@"更新未知错误。。。。。", 0, nil);
         }
         if ( ![outStr containsString:@"remote_version:"] ) {
-            return error(@"ssh: connect to host gitlab.dev port xx: Network is unreachable\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.", 0, nil);
+            return error(@"ssh: Could not resolve hostname git.2b6.me: nodename nor servname provided, or not known\r\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.\nssh: Could not resolve hostname git.2b6.me: nodename nor servname provided, or not known\r\nfatal: Could not read from remote repository.\n\nPlease make sure you have the correct access rights\nand the repository exists.", 0, nil);
         }
         NSArray *splitArr = [outStr componentsSeparatedByString:@"remote_version:"];
         NSString*lastVersion = [splitArr lastObject];
