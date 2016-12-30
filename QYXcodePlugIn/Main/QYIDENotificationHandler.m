@@ -191,8 +191,9 @@ static NSString *const kPresentSegmentedControlInToolbar = @"PresentSegmentedCon
     
     if (!self.preferences) {
         self.preferences = [[CCNPreferencesWindowController alloc] init];
-        self.preferences.titlebarAppearsTransparent = NO;
+        self.preferences.titlebarAppearsTransparent = YES;
         self.preferences.centerToolbarItems = NO;  // or NO
+        self.preferences.allowsVibrancy = YES;
         // setup all preference view controllers
         [self.preferences setPreferencesViewControllers:@[
                                                           [[PreferencesGeneralViewController alloc] init],
