@@ -85,16 +85,16 @@
 /* Begin PBXFileReference section */
 		0D0C90F13B8DCA121E8095DE /* Pods-QYXcodePlugIn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QYXcodePlugIn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QYXcodePlugIn/Pods-QYXcodePlugIn.debug.xcconfig"; sourceTree = "<group>"; };
 		5A146CDC269CA8E0E02879E1 /* Pods-QYXcodePlugIn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QYXcodePlugIn.release.xcconfig"; path = "Pods/Target Support Files/Pods-QYXcodePlugIn/Pods-QYXcodePlugIn.release.xcconfig"; sourceTree = "<group>"; };
-		8B02E22A1C1ED4A1005CE6D2 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8B02E22B1C1ED4A1005CE6D2 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8B02E22D1C1ED4A1005CE6D2 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
-		8B02E2341C1ED580005CE6D2 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8B02E2351C1ED580005CE6D2 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8B02E2371C1ED580005CE6D2 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8B02E22A1C1ED4A1005CE6D2 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ___FILEBASENAME___.h; sourceTree = "<group>"; };
+		8B02E22B1C1ED4A1005CE6D2 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ___FILEBASENAME___.m; sourceTree = "<group>"; };
+		8B02E22D1C1ED4A1005CE6D2 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ___FILEBASENAME___.swift; sourceTree = "<group>"; };
+		8B02E2341C1ED580005CE6D2 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ___FILEBASENAME___.h; sourceTree = "<group>"; };
+		8B02E2351C1ED580005CE6D2 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ___FILEBASENAME___.m; sourceTree = "<group>"; };
+		8B02E2371C1ED580005CE6D2 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ___FILEBASENAME___.swift; sourceTree = "<group>"; };
 		8B05B57E1BF5A32E00F37998 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		8B08157F1C8D2422003B5B18 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8B0815801C8D2422003B5B18 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8B0815821C8D2422003B5B18 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8B08157F1C8D2422003B5B18 /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ___FILEBASENAME___.h; sourceTree = "<group>"; };
+		8B0815801C8D2422003B5B18 /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ___FILEBASENAME___.m; sourceTree = "<group>"; };
+		8B0815821C8D2422003B5B18 /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ___FILEBASENAME___.swift; sourceTree = "<group>"; };
 		8B0DA2D31CF3EE46001D3AAD /* QYXcodePlugIn-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QYXcodePlugIn-Info.plist"; sourceTree = "<group>"; };
 		8B0F547F1CBB763D00F8C3D0 /* QYUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYUpdateModel.h; sourceTree = "<group>"; };
 		8B0F54801CBB763D00F8C3D0 /* QYUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYUpdateModel.m; sourceTree = "<group>"; };
@@ -214,24 +214,24 @@
 		8BE7E3681D0FFD840042E4F5 /* JSON-Code-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JSON-Code-icon.png"; sourceTree = "<group>"; };
 		8BF346801C9C362000BD2BE4 /* QYAutoModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYAutoModelHelper.h; sourceTree = "<group>"; };
 		8BF346811C9C362000BD2BE4 /* QYAutoModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYAutoModelHelper.m; sourceTree = "<group>"; };
-		8BF5F65F1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8BF5F6601BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8BF5F6621BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8BF5F6631BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8BF5F6651BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
-		8BF5F6671BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8BF5F65F1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ___FILEBASENAME___.h; sourceTree = "<group>"; };
+		8BF5F6601BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ___FILEBASENAME___.m; sourceTree = "<group>"; };
+		8BF5F6621BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ___FILEBASENAME___.h; sourceTree = "<group>"; };
+		8BF5F6631BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ___FILEBASENAME___.m; sourceTree = "<group>"; };
+		8BF5F6651BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ___FILEBASENAME___.swift; sourceTree = "<group>"; };
+		8BF5F6671BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ___FILEBASENAME___.swift; sourceTree = "<group>"; };
 		8BF5F6681BFDB14E00F4A4AD /* TemplateIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon.png; sourceTree = "<group>"; };
 		8BF5F6691BFDB14E00F4A4AD /* TemplateIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TemplateIcon@2x.png"; sourceTree = "<group>"; };
 		8BF5F66A1BFDB14E00F4A4AD /* TemplateInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TemplateInfo.plist; sourceTree = "<group>"; };
-		8BF5F66C1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8BF5F66D1BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8BF5F66F1BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
-		8BF5F6711BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8BF5F6721BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8BF5F6741BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
-		8BF5F6761BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "___FILEBASENAME___.h"; sourceTree = "<group>"; };
-		8BF5F6771BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "___FILEBASENAME___.m"; sourceTree = "<group>"; };
-		8BF5F6791BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "___FILEBASENAME___.swift"; sourceTree = "<group>"; };
+		8BF5F66C1BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ___FILEBASENAME___.h; sourceTree = "<group>"; };
+		8BF5F66D1BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ___FILEBASENAME___.m; sourceTree = "<group>"; };
+		8BF5F66F1BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ___FILEBASENAME___.swift; sourceTree = "<group>"; };
+		8BF5F6711BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ___FILEBASENAME___.h; sourceTree = "<group>"; };
+		8BF5F6721BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ___FILEBASENAME___.m; sourceTree = "<group>"; };
+		8BF5F6741BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ___FILEBASENAME___.swift; sourceTree = "<group>"; };
+		8BF5F6761BFDB14E00F4A4AD /* ___FILEBASENAME___.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ___FILEBASENAME___.h; sourceTree = "<group>"; };
+		8BF5F6771BFDB14E00F4A4AD /* ___FILEBASENAME___.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ___FILEBASENAME___.m; sourceTree = "<group>"; };
+		8BF5F6791BFDB14E00F4A4AD /* ___FILEBASENAME___.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ___FILEBASENAME___.swift; sourceTree = "<group>"; };
 		E8F3D624D5AD5A44F6364E58 /* libPods-QYXcodePlugIn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QYXcodePlugIn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -870,7 +870,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D5F8E0F38AE91B8C8F3D49C5 /* [CP] Copy Pods Resources */ = {
