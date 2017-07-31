@@ -2,36 +2,30 @@
 
 ![logo](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/logo.png)
 
-穷游iOS开发团队专属 Xcode plugin ,旨在更好专注业务逻辑 , 统一代码风格 ,帮助Code Review。
+一个好用的 Xcode plugin , 统一代码风格 ,帮助Code Review。
 
-## 能干点啥
+## 功能点
 * Auto Getter-Setter   (*包括Category文件*)
 * Auto Model ("一键"生成Model：解析接口JSON文档,生成model 属性字段。支持JSONModel 子类自动生成Map对应关系)
 * 生成 Request file 校验方法和本地测试数据方法  (*使用[YTKNetwork](https://github.com/yuantiku/YTKNetwork)封装单个请求*)
 
-* [DIY 文件模板](http://git.2b6.me/iOS/QYXcodePlugIn/blob/master/fileTemplte/creatFileTemplte.md)  (*直接在Xcode 中修改，无需重启*)
+* 镜像Xcode文件模板 (*直接在Xcode 中修改，无需重启*)
 
-* [重置 Asset Catalog 资源列表搜索条件](http://git.2b6.me/iOS/QYXcodePlugIn/blob/master/clearCalagoy/modifiedXcode.md) (*A cool feature*)
+* 阻止Asset Catalog图片管理器使用历史搜索
 
 * 该插件配置功能  (*JSON 格式配置Getter内容、绑定菜单热键、异常提醒、其它配置*)
 
 * 一些Automator workFlow服务 (*项目目录workflow 下，点击安装*)
 
-* 封装API: 格式化代码并输出   (*[使用Clang-Formate + Uncrustify中和各自优缺点](http://git.2b6.me/iOS/QYXcodePlugIn/blob/master/cfVSUncrustify/clangFormatAnduncrustify.md)*)
-
-* 更多功能待扩展...
+* 封装API: 格式化代码并输出   (Clang-Formate + Uncrustify）
 
 
 ## 安装
 
-    > git clone git@gitlab.dev:qyer/QYXcodePlugIn.git
 	> cd QYXcodePlugIn/
 	> ./setupHelper.sh
 	
 🍻🍻
-
-## 演示
-![auto-getter](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/auto-getter.gif)
 
 #### AutoMode
 一键生成JSOMMode 子类,包含map方法。
@@ -58,14 +52,9 @@
 		        }
 		    ]
 		}
-太简单？？？去试试复杂的[大App 折扣首页数据接口](https://github.com/qyer-inc/qyer_doc/wiki/QYER-API-DISCOUNT-ZK-DISCOUNT-INDEX)
-同样可以完美支持。
 
 修改自[ESJsonFormat](https://github.com/EnjoySR/ESJsonFormat-Xcode),并完善了一些逻辑。
-> 为毛复杂粘贴Chrome 接口返回JSON 串到AutoModel 窗口，校验不通过？？
-点击右上角的 ![autoModel_Chrome](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/autoModel_Chrome.png) 把那一坨一坨的东东粘贴进入AutoModel窗口。--Good Job.
-	
-![auto-model](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/auto-model.gif)
+
 ## 如何扩展功能
 
 -ShortcutRecorder(project)
@@ -108,3 +97,5 @@
  > 需要把所有Scheme 都切换到Debug模式,Demo除外,每个重新编译一下。 
  
 ###  🍻🍻🍻🍻🍻  Enjoy. If it helps you  🎉🎉🎉🎉🎉
+
+
