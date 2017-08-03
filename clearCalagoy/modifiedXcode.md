@@ -2,25 +2,18 @@
 
 Assets.xcassets 图片资源管理器, 搜索框会一直带上历史搜索条件。
 
-## 必备知识&工具
-
-[关于如何制作很cool的Xcode插件](http://www.raywenderlich.com/94020/creating-an-xcode-plugin-part-1) 里有很cool 知识和技巧，非常值得学习。
+[关于如何制作Xcode插件](http://www.raywenderlich.com/94020/creating-an-xcode-plugin-part-1) 里有很cool 知识和技巧，非常值得学习。
 
 - LLDB 及 Xcode 中附带的一些很有用的的Python 脚本:  lldb.macosx.heap
 - [Dtrace](https://www.objc.io/issues/19-debugging/dtrace/)
 - [汇编 x86 assembly knowledge](https://www.mikeash.com/pyblog/friday-qa-2011-12-16-disassembling-the-assembly-part-1.html)
 - add Symbolic Breakpoint
 
+##  Dtrace 确定目标控件
 
-## 实现
-
-#### 1,Dtrace 确定目标控件
- 
 	 sudo dtrace -qn 'objc$target:NSView:-hitTest?:return /arg1 != 0/ { printf("NSView: 0x%x\n", arg1);  }' -p `pgrep -xo Xcode`
 	 
-  Terminal或iTerm 执行上面dtrace 命令
-  
-  Dtrace 通过响应链-hitTest  返回鼠标点击的控件地址。粘贴最后一个地址，可以进入lldb 
+   Dtrace 通过响应链-hitTest  返回鼠标点击的控件地址。粘贴最后一个地址，可以进入lldb 
   
         lldb
           //进入当前Xcode 实例
@@ -38,11 +31,11 @@ Assets.xcassets 图片资源管理器, 搜索框会一直带上历史搜索条�
    
   ![Dtrace](iterm.gif)
   
-####  2,探寻更多信息
+####  lldb 调试
  
    xcode lldb 提供了一写很cool 的python 脚本，来了解内存里的更多信息
    
-		 (lldb) command script import lldb.macosx.heap
+       (lldb) command script import lldb.macosx.heap
   
    上面发现搜索控件是 DVTSearchField * 0x7f8e05d50ba0
    
@@ -62,6 +55,7 @@ Assets.xcassets 图片资源管理器, 搜索框会一直带上历史搜索条�
 	   image lookup -rn "\-\[DVTSearchField.*" 
 	   或
 	   i  loo -rn "\-\[DVTSearchField.*" 
+	   
   image lookup -rn 正则表达式 可以让我们搜索所有当前实例使用的框架、自定义类中搜索指定的方法定义。
   
   现在我们知道了私有API DVTSearchField * 0x7f8e05d50ba0 的所以信息，实例包含的变量、实例方法定义、类方法定义。
@@ -71,7 +65,7 @@ Assets.xcassets 图片资源管理器, 搜索框会一直带上历史搜索条�
   可以这里下载[Xcode-RuntimeHeaders](https://github.com/luisobo/Xcode-RuntimeHeaders)
   
  
-####  3,断点 
+####  3, 设置断点 
      
   NSSearchField 或者 DVTSearchField 里有个三个Cell
   
@@ -159,9 +153,9 @@ google 或i loo -rn .. 看看IBICCatalogSourceListController 都有什么API和�
 
 追了一路,到这线索好像全断了。。
 
-#### 4,生命的真谛
+#### 寻本溯源
 
-**"ss"** 字符串只可能是从-[IBICCatalogSourceListController batchedReloadOutlineView:] 方法里来的。
+"ss" 字符串只可能是从-[IBICCatalogSourceListController batchedReloadOutlineView:] 方法里来的。
 
 搜寻IBICCatalogSourceListController 的API 发现除断点方法以外的
 
