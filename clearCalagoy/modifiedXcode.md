@@ -42,7 +42,7 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
    - ..其它方法
    
    <div align='center'>
-  ![Dtrace](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/clearCalagoy/iterm.gif)
+  ![Dtrace](iterm.gif)
    </div>
   
 ####  2,探寻更多信息
@@ -105,10 +105,10 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
    
    让实例进入Assets.xcassets,进入断点
    <div align='center'>
-   ![xx](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/clearCalagoy/setobject_br.png)
+   ![xx](setobject_br.png)
    </div>
    
-   恶心的汇编，假如你预习过上面推荐文章，那么对于这些基础知识应该有印象
+   假如你预习过上面推荐文章，那么对于这些基础知识应该有印象
    
 	   aClass *aClassInstance = [[aClass alloc] init];
 	   [aClassInstance aMethodWithMessage:@"Hello World"];
@@ -128,7 +128,7 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
 	  po $rdx
   在你的实例启动的过程中一直会进入断点，让我们一直跳过断点，直到我们实例显示出界面但还没有显示完成Assets.xcassets （这里我的实例一启动就默认选中Assets.xcassets,即上一次关闭Xcode 时的界面）。
   
-  哈，终于逮到往搜索框里赋值的字符串。
+  最终会找到搜索框里赋值的字符串。
   
 	 (lldb) po $rdx
 	  ss
@@ -136,7 +136,7 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
  
  查看Tread1 当前主线程的调用堆栈是个可行的办法
 	 <div align='center'>
-	 ![](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/clearCalagoy/stack.png)
+	 ![](stack.png)
 	 </div>
 	 
 往下回溯发现前三个大同小异,只不过是从父类调到子类,第四个和第五个是离 **ss** 字符串来源最近的调用，在往上。。。。。
@@ -161,20 +161,15 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
 	
 	(lldb) malloc_info -t 0x117a4f4b0    
 	
-😉😉😉 xcode lldb 中有提示,再也不用担心输错啦🎉🎉🎉
-
 	  _nibName = 0x0000600004a70380 @"IBICCatalogSourceListController"
-      _nibBundle = 0x0000608000099aa0 @"/Applications/Xcode.app/Contents/PlugIns/IDEInterfaceBuilderKit.ideplugin"
-这货是Xcode 私有插件里面的API。。意味你不可能指望 向IBICCatalogSourceListController 里面注入代码做些偷偷摸摸的勾当。
+      _nibBundle = 0x0000608000099aa0 @"/Applications/Xcode.app/Contents/PlugIns/IDEInterfaceBuilderKit.ideplugin"
+可以发现这个是Xcode 私有插件里面的API。。意味你不可能指望 向IBICCatalogSourceListController 里面注入代码做些偷偷摸摸的勾当。
 
 追了一路,到这线索好像全断了。。
 
-#### 4,绳命的真谛
+#### 4,生命的真谛
+
 通过上面猜想的验证，我们推论**"ss"** 字符串只可能是从-[IBICCatalogSourceListController batchedReloadOutlineView:] 方法里来的。
-
->绳命,是多么的回晃；绳命，是如此的井彩。
-
-让我们在汪洋的内存之海寻找 **"ss"** 字符串生命的真谛
 
 搜寻IBICCatalogSourceListController 的API 发现除断点方法以外的
 
@@ -184,8 +179,8 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
 很明显我们需要viewDidInstall 设置断点，有以下推论： 当 Assets.xcassets 的资源列表IBICCatalogSourceListController 打开的流程如下：
 
 	-[DVTDelayedInvocation runBlock:]
-    -[IBICCatalogSourceListController batchedReloadOutlineView:]
-    -[IBICCatalogSourceListController viewDidInstall]
+        -[IBICCatalogSourceListController batchedReloadOutlineView:]
+        -[IBICCatalogSourceListController viewDidInstall]
 
 断点调试发现:实际上batchedReloadOutlineView 在viewDidInstall前后都会调用，除此之外我们还需要了解IBICCatalogSourceListController 更多信息。
 
@@ -219,8 +214,6 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
 我们拿到了"ss"字符串的地址 **0x0000000000737325**
 🎉🎉🎉🎉
 
-> 施主, **从哪里来**，欲往哪里去？
-
 	(lldb) ptr_refs 0x0000000000737325
 	0x0000600002432620: malloc(    32) -> 0x600002432620
 	0x0000000117a4f5a0: malloc(   368) -> 0x117a4f4b0 + 240 IBICCatalogSourceListController._filterText
@@ -248,16 +241,10 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
 		    value = 0x0000600002c57fa0 1 object
 		  }
 		}
-小心脏有没有鸡冻一下。原来从一个previousFilter key 的字典里解出来的。在接在励，刨根问底，重复上面步骤。因为不可能根据一个key 就能做点什么。。
+刨根问底，重复上面步骤。
 下一个步当然是查找这个字典**0x600002c58000** 从哪里来。
-><div align='center'>
-	   刚翻过了几座山<br/>
-	   又越过了几条河<br/>
-	   崎岖坎坷其实**并不多**<br/>
-</div>
 
-
-大概两三回合,一路查找看看我们查找出来了什么
+一路查找看看我们查找出来了什么
 
 	 {
       ... 上面好多key ..
@@ -287,17 +274,15 @@ DVTDelayedInvocation 调用一个block 多次，进入batchedReloadOutlineView�
 
      
      -[IDEEditorModeViewController revertStateWithDictionary:]
-	 -[DVTStateToken _pullStateFromDictionary:]:
+     -[DVTStateToken _pullStateFromDictionary:]:
 	 
 调试这两个断点，并打印对应参数
 
 	   po $rdx
 	   
-最终会呈现上面完整的Dictionary或[查看完整的log,搜索条件是『YooY』](http://gitlab.dev/TangBin/QYXcodePlugIn/raw/master/clearCalagoy/lldb_log), 有趣的是revertStateWithDictionary 只会调用一次，，而_pullStateFromDictionary 则会调用多次，每次进入都会调用。
+最终会呈现上面完整的Dictionary或[查看完整的log,搜索条件是『YooY』](lldb_log), 有趣的是revertStateWithDictionary 只会调用一次，，而_pullStateFromDictionary 则会调用多次，每次进入都会调用。
 
-> -[DVTStateToken _pullStateFromDictionary:]: 这就是我们要寻找的绳命真谛啊。
-
-还等什么，直接代码注入**MethodSwizzler**调教。🍻🍻🍻🍻🎉🎉🎉🎉
+下一步直接代码注入**MethodSwizzler**。🍻🍻🍻🍻🎉🎉🎉🎉
 
 ---
 
