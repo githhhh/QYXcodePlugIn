@@ -5,17 +5,25 @@
 一个好用的 Xcode plugin , 统一代码风格 ,帮助Code Review。
 
 ## 功能点
-* Auto Getter-Setter   (*包括Category文件*)
-* Auto Model ("一键"生成Model：解析接口JSON文档,生成model 属性字段。支持JSONModel 子类自动生成Map对应关系)
-* 根据父类生成子类模板 比如：生成 Request file 校验方法和本地测试数据方法  (*使用[YTKNetwork](https://github.com/yuantiku/YTKNetwork)封装单个请求*)
 
-* 镜像Xcode文件模板 (*直接在Xcode 中修改，无需重启*)
+* Auto Getter-Setter [包括Category文件]
+* Auto Model   
+
+      "一键"生成Model：解析接口JSON文档,生成model 属性字段。支持JSONModel 子类自动生成Map对应关系
+	 
+* 根据父类生成子类模板 比如：生成 Request file 校验方法和本地测试数据方法
+
+      使用[YTKNetwork](https://github.com/yuantiku/YTKNetwork)封装单个请求)
+
+* 镜像了Xcode文件模板 ,直接在工程内修改，立即生效
 
 * 阻止Asset Catalog图片管理器使用历史搜索
 
-* 该插件配置功能  (*JSON 格式配置Getter内容、绑定菜单热键、异常提醒、其它配置*)
+* 插件配置面板
+	
+      JSON 格式配置Getter内容、绑定菜单热键、异常提醒、其它配置
 
-* 一些Automator workFlow服务 (*项目目录workflow 下，点击安装*)
+* 一些Automator workFlow服务 目录workflow 下，直接点击安装。
 
 * 封装API: 格式化代码并输出   (Clang-Formate + Uncrustify）
 
@@ -31,7 +39,7 @@ Xcode8 以上参照
 	
 🍻🍻
 
-#### AutoMode
+## AutoMode
 一键生成JSOMMode 子类,包含map方法。
 解析JSON:
 		
