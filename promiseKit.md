@@ -3,9 +3,7 @@
 
 ## [PromiseKit](http://promisekit.org/)
 
-  
-  
- ![](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/promiseKit.png)
+ ![](promiseKit.png)
    
   
   Promise模式在jQuery 1.5 版本中的应用，使其名声大噪。可以简单理解为延后执行,为异步任务的可能返回值指定相应的处理方法（承诺），使用链式语法。
