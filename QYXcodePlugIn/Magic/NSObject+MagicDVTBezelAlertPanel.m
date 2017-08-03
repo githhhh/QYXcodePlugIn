@@ -30,7 +30,7 @@
 {
     if (icon) {
         NSBundle *bundle = [NSBundle bundleWithIdentifier:@"X.Y.QYXcodePlugIn"];
-        NSImage *newImage = [bundle imageForResource:@"logo.pdf"];
+        NSImage *newImage = [bundle imageForResource:@"logo.png"];
         return [self Rayrolling_initWithIcon:newImage message:message parentWindow:window duration:duration];
     }
     return [self Rayrolling_initWithIcon:icon message:message parentWindow:window duration:duration];
