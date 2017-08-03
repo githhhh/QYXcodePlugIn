@@ -1,6 +1,6 @@
 # QYXcodePlugIn
 
-![logo](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/logo.png)
+![](logo.png)
 
 一个好用的 Xcode plugin , 统一代码风格 ,帮助Code Review。
 
