@@ -41,9 +41,7 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
    - setHidden:
    - ..其它方法
    
-   <div align='center'>
   ![Dtrace](iterm.gif)
-   </div>
   
 ####  2,探寻更多信息
  
@@ -104,9 +102,8 @@ Derek Selander [关于如何制作很cool的Xcode插件](http://www.raywenderlic
    - -[DVTSearchFieldCell initTextCell:]
    
    让实例进入Assets.xcassets,进入断点
-   <div align='center'>
+   
    ![xx](setobject_br.png)
-   </div>
    
    假如你预习过上面推荐文章，那么对于这些基础知识应该有印象
    
