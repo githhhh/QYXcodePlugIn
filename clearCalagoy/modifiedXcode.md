@@ -1,8 +1,6 @@
 ##  重置Asset Catalog资源列表搜索条件
----
+
 Assets.xcassets 图片资源管理器, 搜索框会一直带上历史搜索条件。
-比如 搜索了包含 "ss"的图片，下次再进入Assets.xcassets，搜索框默认带上了"ss" 显示上一次的结果。
-本例实现修改 Asset Catalog 的这一行为。
 
 ## 必备知识&工具
 
@@ -24,8 +22,8 @@ Assets.xcassets 图片资源管理器, 搜索框会一直带上历史搜索条�
   
   Dtrace 通过响应链-hitTest  返回鼠标点击的控件地址。粘贴最后一个地址，可以进入lldb 
   
-      lldb
-      //进入当前Xcode 实例
+        lldb
+          //进入当前Xcode 实例
 	  pro at -n Xcode
 	  ...
 	  //推出lldb
@@ -44,7 +42,7 @@ Assets.xcassets 图片资源管理器, 搜索框会一直带上历史搜索条�
  
    xcode lldb 提供了一写很cool 的python 脚本，来了解内存里的更多信息
    
-	  (lldb) command script import lldb.macosx.heap
+		 (lldb) command script import lldb.macosx.heap
   
    上面发现搜索控件是 DVTSearchField * 0x7f8e05d50ba0
    
@@ -73,10 +71,8 @@ Assets.xcassets 图片资源管理器, 搜索框会一直带上历史搜索条�
   可以这里下载[Xcode-RuntimeHeaders](https://github.com/luisobo/Xcode-RuntimeHeaders)
   
  
-####  3,验证猜想 
-  
-   上面我们了解一个内存里的所有东西及方法，并会有些猜想。  
-   
+####  3,断点 
+     
   NSSearchField 或者 DVTSearchField 里有个三个Cell
   
 	  @property(readonly) DVTSearchFieldCell *cell;
@@ -240,46 +236,43 @@ google 或i loo -rn .. 看看IBICCatalogSourceListController 都有什么API和�
 
 一路查找看看我们查找出来了什么
 
-	 {
-      ... 上面好多key ..
-          DefaultEditorStatesForURLs =     {
-            "Xcode.IDEKit.EditorDocument.AssetCatalog" =         {
-                "file:///Users/xx/Documents/xx/xxy/Assets.xcassets/" =               {
-                 detailController = IBICCatalogOverviewController;
-                 lastFocusedArea = sourceListArea;
-                 selectedItemIdentifiers = "{(\n)}";
-                 ...一些key
-                 "source-list-area" =                 {
-                    expandedItemIDs = "{(\n    \".\"\n)}";
-                    //看到没、看到没、看到没、看到没、看到没、看到没、看到没、看到没、在这呢。为毛没法加粗啊。。。
-                    previousFilter = ss;
+     {
+	      ... 上面好多key ..
+		  DefaultEditorStatesForURLs =     {
+		    "Xcode.IDEKit.EditorDocument.AssetCatalog" =         {
+			 ...
+			 detailController = IBICCatalogOverviewController;
+			 lastFocusedArea = sourceListArea;
+			 selectedItemIdentifiers = "{(\n)}";
+			 ...一些key
+			 "source-list-area" =                 {
+			    expandedItemIDs = "{(\n    \".\"\n)}";
+			    //看到没、看到没、看到没、看到没、看到没、看到没、看到没、看到没、在这呢。为毛没法加粗啊。。。
+			    previousFilter = ss;
 
-                   };
-                 sourceItems = "{(\n    \"./Comment/comment_smallEmpty.imageset\"\n)}";
-             };
-          .....下面很长很长
-         );
-    }
+			   };
+			 sourceItems = "{(\n    \"./Comment/comment_smallEmpty.imageset\"\n)}";
+		     };
+		  .....下面很长很长
+		 );
+	    }
 
       (lldb) ptr_refs 0x600005079340
       0x0000600000598ac8: malloc(   208) -> 0x600000598a10 + 184    IDEEditorBasicMode.IDEEditorModeViewController._lastSetPersistentRepresentation
 		
- 这样一层一层的回溯发现最终到了***IDEEditorModeViewController._lastSetPersistentRepresentation*** 的私有属性。。下面查找相关API google 或者 i loo -rn xxx
+ 这样一层一层的回溯发现最终到了一个私有属性
+ 
+     IDEEditorModeViewController._lastSetPersistentRepresentation。。
+		 
+下面查找相关API google 或者 i loo -rn xxx
  
      -[IDEEditorModeViewController revertStateWithDictionary:]
      -[DVTStateToken _pullStateFromDictionary:]:
 	 
 调试这两个断点，并打印对应参数
 
-	   po $rdx
+     po $rdx
 	   
-最终会呈现上面完整的Dictionary或[查看完整的log,搜索条件是『YooY』](lldb_log), 有趣的是revertStateWithDictionary 只会调用一次，，而_pullStateFromDictionary 则会调用多次，每次进入都会调用。
+有趣的是revertStateWithDictionary 只会调用一次，，而_pullStateFromDictionary 则会调用多次，每次进入都会调用。
 
 有了以上信息 做MethodSwizzler应该很简单了
-
-	这里当IBICCatalogSourceList#Controller显示完成之前_pullStateFromDictionary最后一次调用传递的参数是
-	{
-	    expandedItemIDs = "{(\n)}";
-	    previousFilter = ss;
-	}
-	所有出于性能考虑，在加入自定义判断条件时，先判断count == 2
