@@ -9,7 +9,7 @@ Assets.xcassets 图片资源管理器, 搜索框会一直带上历史搜索条�
 - [汇编 x86 assembly knowledge](https://www.mikeash.com/pyblog/friday-qa-2011-12-16-disassembling-the-assembly-part-1.html)
 - add Symbolic Breakpoint
 
-##  Dtrace 确定目标控件
+####  Dtrace 确定目标控件
 
 	 sudo dtrace -qn 'objc$target:NSView:-hitTest?:return /arg1 != 0/ { printf("NSView: 0x%x\n", arg1);  }' -p `pgrep -xo Xcode`
 	 
@@ -65,7 +65,7 @@ Assets.xcassets 图片资源管理器, 搜索框会一直带上历史搜索条�
   可以这里下载[Xcode-RuntimeHeaders](https://github.com/luisobo/Xcode-RuntimeHeaders)
   
  
-####  3, 设置断点 
+####  设置断点 
      
   NSSearchField 或者 DVTSearchField 里有个三个Cell
   
@@ -145,9 +145,8 @@ google 或i loo -rn .. 看看IBICCatalogSourceListController 都有什么API和�
 	"malloc_info", "ptr_refs", "cstr_refs", and "objc_refs" commands have been installed, use the "--help" options on these commands for detailed help.
 	
 	(lldb) malloc_info -t 0x117a4f4b0    
-	
-	  _nibName = 0x0000600004a70380 @"IBICCatalogSourceListController"
-          _nibBundle = 0x0000608000099aa0 @"/Applications/Xcode.app/Contents/PlugIns/IDEInterfaceBuilderKit.ideplugin"
+		_nibName = 0x0000600004a70380 @"IBICCatalogSourceListController"
+		_nibBundle = 0x0000608000099aa0 @"/Applications/Xcode.app/Contents/PlugIns/IDEInterfaceBuilderKit.ideplugin"
 	  
 可以发现这个是Xcode 私有插件里面的API。。意味你不可能指望 向IBICCatalogSourceListController 里面注入代码。
 
