@@ -21,8 +21,10 @@
 
 
 ## 安装
-xcode8 以上参照 https://github.com/XVimProject/XVim/blob/master/INSTALL_Xcode8.md 
-使用自定义签名覆盖xcode签名，然后进行下面操作。自动重启xcode后可用
+
+Xcode8 以上参照  
+
+[使用自定义签名覆盖Xcode签名](https://github.com/XVimProject/XVim/blob/master/INSTALL_Xcode8.md)，然后进行下面操作。自动重启Xcode后可用
 
 	> cd QYXcodePlugIn/
 	> ./setupHelper.sh
