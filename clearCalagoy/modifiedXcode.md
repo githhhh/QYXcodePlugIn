@@ -91,8 +91,8 @@ Assets.xcassets 图片资源管理器, 搜索框会一直带上历史搜索条�
    
    ![xx](setobject_br.png)
    
-   对于 
-   
+   对于
+   
 	   aClass *aClassInstance = [[aClass alloc] init];
 	   [aClassInstance aMethodWithMessage:@"Hello World"];
 	   
