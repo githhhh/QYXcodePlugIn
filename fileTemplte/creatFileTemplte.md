@@ -4,7 +4,7 @@
 如果你已经下载或安装了QYXcodePlugin,打开项目
  <div align='center'>
 
- ![xx](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/fileTemplte/fileTemplt.png)
+ ![](fileTemplt.png)
 </div>
 
 QYFileTemplate 目录已经镜像了Xcode 用户自定义文件模板目录
@@ -24,10 +24,10 @@ QYFileTemplate 目录已经镜像了Xcode 用户自定义文件模板目录
 在文件模板QYCocoaToouchClass.xctemplate通过TemplateInfo.plist管理了很多自定义文件模板。
 打开看看：
 
-![](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/fileTemplte/templtPlist.png)
+![](templtPlist.png)
 
 Options配置了所有的自定义文件模板行为，展开看看
-![](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/fileTemplte/templtPlist1.png)
+![](templtPlist1.png)
 
 - Identifier: 唯一标示
 - Required 是否必须
@@ -39,7 +39,7 @@ Options配置了所有的自定义文件模板行为，展开看看
 - Values QYCocoaToouchClass.xctemplate下所有文件夹命名的前缀即：customName。
 - Suffixes 当你从文件模板创建文件时选中对应的cocoa 类,如你想创建一个JoyRequest的子类
 上面className 自动会变成你配置的对应后缀名。
-  ![](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/fileTemplte/templtPlist2.png)
+  ![](templtPlist2.png)
   
   
 当进入上面界面时，会加载Options 里所以的配置，从上到下。
@@ -109,4 +109,4 @@ Singleton 和  Delegate 互斥，ListViewDelegate 依赖于Delegate 才显示。
   
  ---
   
-![](http://git.2b6.me/iOS/QYXcodePlugIn/raw/master/fileTemplte/templtPlist3.png)
+![](templtPlist3.png)
