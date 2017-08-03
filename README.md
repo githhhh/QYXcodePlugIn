@@ -7,7 +7,7 @@
 ## 功能点
 * Auto Getter-Setter   (*包括Category文件*)
 * Auto Model ("一键"生成Model：解析接口JSON文档,生成model 属性字段。支持JSONModel 子类自动生成Map对应关系)
-* 生成 Request file 校验方法和本地测试数据方法  (*使用[YTKNetwork](https://github.com/yuantiku/YTKNetwork)封装单个请求*)
+* 根据父类生成子类模板 比如：生成 Request file 校验方法和本地测试数据方法  (*使用[YTKNetwork](https://github.com/yuantiku/YTKNetwork)封装单个请求*)
 
 * 镜像Xcode文件模板 (*直接在Xcode 中修改，无需重启*)
 
